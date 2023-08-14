@@ -1,0 +1,25 @@
+@import "./custom-variable.scss";
+
+@import "./home/_header.scss";
+@import "./home/_footer.scss";
+@import "./home/_banner.scss";
+@import "./home/_features.scss";
+@import "./home/_portfolio.scss";
+@import "./home/_team.scss";
+@import "./home/_coming.scss";
+@import "./home/_testimonial.scss";
+
+@import "./vuetify/_reboot.scss";
+
+.link {
+  text-decoration: none;
+  color: $material-font-light-theme;
+  &:hover {
+    color: $primary;
+  }
+}
+
+.white--text {
+  color: #fff !important;
+  caret-color: #fff !important;
+}
