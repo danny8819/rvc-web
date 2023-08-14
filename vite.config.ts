@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [vue(), vuetify({ autoImport: true }),],
   resolve: {
     alias: {
-      "@": path.join(__dirname, "./src"), 
+      "@": path.join(__dirname, "./src"),
     },
   },
   css:{
@@ -16,5 +16,15 @@ export default defineConfig({
         // additionalData: `@import "@/style/scss/_custom-variable.scss";`,
       },
     },
-  }
+  },
+  server: {
+    port:9000,
+    proxy: {
+      "/appApi": {
+        target: "http://localhost:8888",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/appApi/, ""),
+      },
+    },
+  },
 })
