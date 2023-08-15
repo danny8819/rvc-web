@@ -8,11 +8,11 @@
               {{ webInfo?.webName }}
             </h1>
             <h4 class="banner-subtitle white--text font-weight-regular">
-              Minecraft我的世界公益社区
+              <!-- Minecraft我的世界公益社区 -->
               <br />
-              2019-2022
+              <!-- 2019-2022 -->
               <br />
-              注册并填写白名单申请来加入我们的服务器
+              <!-- 注册并填写白名单申请来加入我们的服务器 -->
             </h4>
             <div class="mt-16 pt-2">
               <v-btn

@@ -5,13 +5,14 @@
         <a href="/"
           ><img
             height="100%"
-            src="https://lwmc.net/_nuxt/img/logo.e536265.png"
+            src="/rvc.svg"
             alt="logo"
+            style="transform: scale(2)"
         /></a>
       </div>
 
       <v-spacer></v-spacer>
-      <v-btn class="d-block d-md-none" variant="text" @click="toggleClass()">
+      <v-btn class="toggle-btn" variant="text" @click="toggleClass()">
         <v-app-bar-nav-icon />
       </v-btn>
       <div
@@ -43,7 +44,7 @@
       </div>
 
       <v-btn
-        class="d-none d-lg-flex btn-custom-nm ml-5"
+        class="d-none d-md-flex btn-custom-nm ml-5"
         variant="outlined"
         color="primary"
         to="/login"
