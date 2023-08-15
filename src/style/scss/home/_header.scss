@@ -37,9 +37,16 @@
         color: #8d97ad;
         opacity: 1;
       }
+      &.active a {
+        color: $primary;
+      }
     }
   }
-
+  .nav-item:hover {
+    .nav-link {
+      color: $primary;
+    }
+  }
   .toggle-btn {
     display: none;
   }

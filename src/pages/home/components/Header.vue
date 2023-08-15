@@ -21,24 +21,8 @@
         @click="isActive = !isActive"
       >
         <ul class="navbar-nav">
-          <li class="nav-item" text>
-            <router-link class="nav-link" nuxt to="/">首页</router-link>
-          </li>
-          <li class="nav-item" text>
-            <router-link class="nav-link" nuxt to="/join"
-              >白名单申请</router-link
-            >
-          </li>
-          <li class="nav-item" text>
-            <router-link class="nav-link" nuxt to="/map">卫星地图</router-link>
-          </li>
-          <li class="nav-item" text>
-            <router-link class="nav-link" nuxt to="/sponsor"
-              >赞助支持</router-link
-            >
-          </li>
-          <li class="nav-item" text>
-            <router-link class="nav-link" nuxt to="/gallery">画廊</router-link>
+          <li class="nav-item" :class="{ active: $route.path === '/' }">
+            <router-link class="nav-link" to="/">首页</router-link>
           </li>
         </ul>
       </div>
