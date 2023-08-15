@@ -4,10 +4,10 @@ import router from './router'
 
 import 'normalize.css'
 import 'ress'
+import 'vuetify/styles'
+import '@mdi/font/css/materialdesignicons.css'
 import './style.css'
 import './style/scss/index.scss'
-import '@mdi/font/css/materialdesignicons.css'
-import 'vuetify/styles'
       
 import { createVuetify } from 'vuetify'
  

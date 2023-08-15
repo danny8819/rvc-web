@@ -11,7 +11,9 @@
       </div>
 
       <v-spacer></v-spacer>
-
+      <v-btn class="d-block d-md-none" variant="text" @click="toggleClass()">
+        <v-app-bar-nav-icon />
+      </v-btn>
       <div
         class="navigation"
         :class="[isActive ? 'd-block' : '']"
@@ -72,7 +74,7 @@ export default {
   },
   methods: {
     toggleClass: function () {
-      //   this.isActive = !this.isActive;
+      this.isActive = !this.isActive;
     },
     async getUserInfo() {
       //   await this.$store.dispatch("getUserInfo");

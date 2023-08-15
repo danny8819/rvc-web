@@ -134,11 +134,6 @@ h6 {
   }
 }
 
-.footer-bottom-bar {
-  padding-top: 10px;
-  margin-top: 20px;
-}
-
 .mini-spacer {
   padding: 75px 0;
 }
@@ -216,4 +211,14 @@ h6 {
   );
   background: -webkit-linear-gradient(left, $danger, $orange);
   background: linear-gradient(90deg, $danger 0, $orange);
+}
+
+p {
+  margin-bottom: 8px;
+  color: $gray-500;
+}
+@media (min-width: 960px) {
+  .v-container {
+    max-width: 1140px;
+  }
 }

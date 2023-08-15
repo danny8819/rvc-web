@@ -5,7 +5,9 @@
         <v-row justify="center">
           <v-col cols="12" md="7" lg="6" class="d-flex align-center">
             <div class="text-center text-md-left">
-              <v-chip small class="bg-dark" text-color="white">周目预告</v-chip>
+              <v-chip size="small" class="bg-dark" color="white"
+                >周目预告</v-chip
+              >
               <h2
                 class="banner1-title font-weight-bold text-uppercase white--text"
               >

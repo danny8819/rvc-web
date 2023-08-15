@@ -20,6 +20,7 @@
             cols="12"
             md="6"
             lg="3"
+            class="team-card-wrap"
           >
             <v-card elevation="0" class="team-card overflow-hidden mb-15">
               <div class="social-overlay">

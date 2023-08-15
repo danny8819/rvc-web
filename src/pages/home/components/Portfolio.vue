@@ -19,6 +19,7 @@
             cols="12"
             md="6"
             lg="4"
+            class="history-item"
           >
             <v-card class="portfolio-card overflow-hidden">
               <div class="portfolio-img">

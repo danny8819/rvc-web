@@ -1,8 +1,8 @@
-.v-application .v-sheet.v-card:not(.v-sheet--outlined) {
+.v-card:not(.v-sheet--outlined) {
   box-shadow: $shadow;
 }
 
-.v-sheet.v-card.border-success-all {
+.v-card.border-success-all {
   border: 1px solid $success !important;
 }
 

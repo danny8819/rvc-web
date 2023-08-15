@@ -17,18 +17,19 @@
             <div class="mt-16 pt-2">
               <v-btn
                 color="error"
-                class="mr-0 mr-md-8 mb-5 mb-md-0 btn-custom-md"
+                class="mr-0 mr-md-8 mb-5 mb-md-0"
                 size="large"
                 to="/login"
                 elevation="0"
               >
                 立即注册
               </v-btn>
+
               <v-btn
                 size="large"
                 target="_blank"
                 href="https://qm.qq.com/cgi-bin/qm/qr?k=LyhaBNgHliX2gl4u6oSvlrSMayyAAEe_&jump_from=webapi"
-                class="btn-custom-md"
+                class="mr-0 mr-md-8 mb-5 mb-md-0"
                 variant="outlined"
                 color="white"
                 elevation="0"
