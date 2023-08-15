@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import { createPinia } from 'pinia'
 
 import 'normalize.css'
 import 'ress'
@@ -12,7 +13,6 @@ import './style/scss/index.scss'
 import { createVuetify } from 'vuetify'
  
 const vuetify = createVuetify({
- 
   theme:{
     themes:{
        light:{
@@ -29,7 +29,22 @@ const vuetify = createVuetify({
           variables:{}
        }
     }
+  },
+  display:{
+    thresholds:{
+        // "xs": 0,
+        // "sm": 600, // min
+        // "md": 960,
+        // "lg": 1280,
+        // "xl": 1920,
+        // "xxl": 2560
+    }
   }
 })
 
-createApp(App).use(router).use(vuetify).mount('#app')
+const app = createApp(App)
+
+app.use(createPinia())
+app.use(router)
+app.use(vuetify)
+app.mount('#app')
