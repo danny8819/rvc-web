@@ -69,21 +69,18 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref } from "vue";
-import { getMember } from "@/api/index";
+
 defineOptions({
   name: "Team",
 });
-const members = ref<
-  {
+
+defineProps<{
+  members: {
     nickname: string;
     role: string;
     description: string;
     img: string;
-  }[]
->([]);
+  }[];
+}>();
 
-getMember().then((res) => {
-  members.value = res?.data?.members || [];
-});
 </script>

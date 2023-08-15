@@ -73,24 +73,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { getWebInfo } from "@/api/index";
-
-const webInfo = ref<
-  Partial<{
+defineProps<{
+  webInfo: Partial<{
     beianInfo: string;
     id: number;
     masterQq: string;
     officialQq: string;
     webName: string;
     websiteUrl: string;
-  }>
->({});
-
-getWebInfo().then((res) => {
-  console.log(res.data.webInfo);
-  if (res?.data?.webInfo) {
-    webInfo.value = res.data.webInfo;
-  }
-});
+  }>;
+}>();
 </script>
