@@ -5,7 +5,7 @@
     <Feature />
     <Portfolio :history-list="historyList" />
     <Banner2 />
-    <Team :team-numbers="teamNumbers" />
+    <Team />
     <ComingSoon />
     <Footer />
   </div>
@@ -63,45 +63,6 @@ const historyList = [
     name: "【八周目】2022年6月8日",
     description: "服务器1.19 第八周目，地下世界启动！",
     image_url: "https://cdn.lwmc.net/images/term/8.jpg",
-  },
-];
-const teamNumbers = [
-  {
-    image_url: "https://cdn.lwmc.net/images/users/1.jpg",
-    name: "MoMeaks",
-    role: "腐竹",
-    description: "服务器工具人，网站开发者",
-  },
-  {
-    image_url: "https://cdn.lwmc.net/images/users/2.jpg",
-    name: "MoMeaks",
-    role: "腐竹",
-    description: "服务器工具人，网站开发者",
-  },
-  {
-    image_url: "https://cdn.lwmc.net/images/users/3.jpg",
-    name: "MoMeaks",
-    role: "腐竹",
-    description: "服务器工具人，网站开发者",
-  },
-  {
-    image_url: "https://cdn.lwmc.net/images/users/4.jpg",
-    name: "MoMeaks",
-    role: "腐竹",
-    description: "服务器工具人，网站开发者",
-  },
-  {
-    image_url: "https://cdn.lwmc.net/images/users/5.jpg",
-    name: "MoMeaks",
-    role: "腐竹",
-    description: "服务器工具人，网站开发者",
-  },
-  {
-    image_url:
-      "https://cdn.lwmc.net/userUpload/files/2022069QQ%EF%BF%BDG20220610004409.jpg",
-    name: "MoMeaks",
-    role: "腐竹",
-    description: "服务器工具人，网站开发者",
   },
 ];
 </script>

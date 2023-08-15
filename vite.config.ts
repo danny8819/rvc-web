@@ -21,7 +21,7 @@ export default defineConfig({
     port:9000,
     proxy: {
       "/appApi": {
-        target: "http://localhost:8888",
+        target: "http://geniussbg.cn:8800/",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/appApi/, ""),
       },

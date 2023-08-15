@@ -15,7 +15,7 @@
 
         <v-row class="mt-13">
           <v-col
-            v-for="(item, index) in teamNumbers"
+            v-for="(item, index) in members"
             :key="index"
             cols="12"
             md="6"
@@ -24,7 +24,7 @@
           >
             <v-card elevation="0" class="team-card overflow-hidden mb-15">
               <div class="social-overlay">
-                <v-img :src="item.image_url" alt="team" />
+                <v-img :src="item.img" alt="team" />
                 <div class="img-overlay">
                   <ul>
                     <li>
@@ -52,7 +52,7 @@
               </div>
               <div>
                 <h5 class="team-title font-weight-medium font-18">
-                  {{ item.name }}
+                  {{ item.nickname }}
                 </h5>
                 <p class="team-subtitle">
                   {{ item.role }}
@@ -68,14 +68,22 @@
     </div>
   </div>
 </template>
-<script>
-export default {
+<script lang="ts" setup>
+import { ref } from "vue";
+import { getMember } from "@/api/index";
+defineOptions({
   name: "Team",
-  props: {
-    teamNumbers: {
-      type: Array,
-      default: () => [],
-    },
-  },
-};
+});
+const members = ref<
+  {
+    nickname: string;
+    role: string;
+    description: string;
+    img: string;
+  }[]
+>([]);
+
+getMember().then((res) => {
+  members.value = res?.data?.members || [];
+});
 </script>

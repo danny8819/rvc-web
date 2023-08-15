@@ -222,3 +222,20 @@ p {
     max-width: 1140px;
   }
 }
+// 重置
+ul {
+  list-style: none;
+  padding: 0;
+}
+// 原子样式
+.p-0 {
+  padding: 0;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+.py-5 {
+  padding-bottom: 3rem;
+}
