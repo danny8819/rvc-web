@@ -9,19 +9,18 @@
         <h4 class="font-weight-regular font-18">
           官方QQ群：{{ webInfo?.officialQq }}
         </h4>
-        <p class="mt-10">腐竹QQ：{{ webInfo.masterQq }}</p>
+        <p class="mt-10">开发者QQ：{{ webInfo.masterQq }}</p>
       </v-col>
 
       <v-col cols="12" sm="12" md="3" lg="3" class="px-xs-0">
         <h4 class="font-weight-regular font-18">友情链接</h4>
         <p class="mt-10 mb-0">
-          Rvc Github导航:
           <a
             class="dark-link"
             target="_blank"
             href="https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI"
           >
-            Retrieval-based-Voice-Conversion-WebUI
+            Rvc Github导航
           </a>
         </p>
       </v-col>
