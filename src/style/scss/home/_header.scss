@@ -47,9 +47,6 @@
       color: $primary;
     }
   }
-  .toggle-btn {
-    display: none;
-  }
 }
 @media (min-width: 767px) {
 }
@@ -74,9 +71,6 @@
           line-height: 55px !important;
         }
       }
-    }
-    .toggle-btn {
-      display: block;
     }
   }
   .common-links {

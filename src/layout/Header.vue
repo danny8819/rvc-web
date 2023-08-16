@@ -12,7 +12,11 @@
       </div>
 
       <v-spacer></v-spacer>
-      <v-btn class="toggle-btn" variant="text" @click="toggleClass">
+      <v-btn
+        class="toggle-btn d-flex d-sm-none d-md-none d-lg-none"
+        variant="text"
+        @click="toggleClass"
+      >
         <v-app-bar-nav-icon />
       </v-btn>
       <div
@@ -33,7 +37,7 @@
 
       <v-btn
         v-if="$route.path !== '/login' && !isLogin"
-        class="d-none d-md-flex btn-custom-nm ml-5"
+        class="d-none d-sm-flex btn-custom-nm ml-5"
         variant="outlined"
         color="primary"
         to="/login"

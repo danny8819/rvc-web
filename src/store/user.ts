@@ -8,7 +8,6 @@ import {
 
 export const useUserStore = defineStore("user", {
   state: () => ({
-    count: 0,
     userInfo: null,
     token: null,
   }),
