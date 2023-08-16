@@ -11,18 +11,21 @@ export function login(data: {
 }
 
 // 手机号登录
-export function phoneLogin() {
-  return request.post("/user/phoneLogin");
+export function phoneLogin(data:{
+  code: string;
+  phone: string;
+}) {
+  return request.post("/user/phoneLogin",data);
 }
 
 // 用户注册
 export function register(data: {
   code: string;
   email: string;
-  nickname: string;
   password: string;
   phone: string;
   username: string;
+  nickname?: string;
 }) {
   return request.post("/user/register", data);
 }
@@ -70,5 +73,5 @@ export function pwdSID(data: {
 
 
 export function logout() {
-  return request.get("/user/logout");
+  return request.get("/user/logOut");
 }

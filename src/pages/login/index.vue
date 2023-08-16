@@ -1,58 +1,52 @@
 <template>
-  <div class="login">
-    <v-card text="Login" width="400">
-      <v-form v-model="valid">
-        <v-container>
-          <v-row>
-            <v-col cols="12">
-              <v-text-field
-                v-model="email"
-                label="Email"
-                required
-              ></v-text-field>
-            </v-col>
-
-            <v-col cols="12">
-              <v-text-field
-                v-model="password"
-                label="Password"
-                required
-              ></v-text-field>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-form>
-    </v-card>
+  <div class="login-page">
+    <v-container class="login-container">
+      <v-row justify="center">
+        <v-col cols="4" class="p-0">
+          <div class="container-left"></div>
+        </v-col>
+        <v-col cols="8" align-self="center" class="d-flex justify-center">
+          <LoginForm v-if="loginType === 'login'" @toggleType="toggleType" />
+          <SignupForm v-else @toggleType="toggleType" />
+        </v-col>
+      </v-row>
+    </v-container>
+    <!-- <LoginFooter /> -->
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue";
-const valid = ref(false);
-const email = ref("");
-const password = ref("");
+import LoginForm from "./components/LoginForm.vue";
+import SignupForm from "./components/SignupForm.vue";
+// import LoginFooter from "./components/LoginFooter.vue";
 
-const nameRules = ref([
-  (value: string) => {
-    if (value) return true;
-    return "Name is required.";
-  },
-  (value: string) => {
-    if (value?.length <= 10) return true;
-    return "Name must be less than 10 characters.";
-  },
-]);
-const emailRules = ref([
-  (value: string) => {
-    if (value) return true;
+const loginType = ref("login");
 
-    return "E-mail is requred.";
-  },
-  (value: string) => {
-    if (/.+@.+\..+/.test(value)) return true;
-    return "E-mail must be valid.";
-  },
-]);
+function toggleType(type = "login") {
+  console.log("type: ", type);
+  loginType.value = type;
+}
 </script>
 
-<style scoped lang="scss"></style>
+<style lang="scss">
+.login-page {
+  .v-field__input {
+    background-color: white;
+  }
+  .login-container {
+    margin: 0;
+    max-width: 100%;
+  }
+  .container-left {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    // background-color: rgba(0, 0, 0, 0.3);
+    background: url("/img/login-bg.png") no-repeat 50% 50% / cover;
+  }
+}
+</style>

@@ -11,7 +11,8 @@ const whiteUrl = [
   '/webInfo/getWebInfo',
   '/sms/picCode',
   '/user/login',
-  '/sms/phoneCode'
+  '/sms/phoneCode',
+  '/user/phoneLogin'
 ]
 request.interceptors.request.use(config => {
   const userStore = useUserStore()
