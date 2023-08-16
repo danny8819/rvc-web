@@ -1,11 +1,28 @@
 import axios from "axios";
-
+import {useUserStore } from '@/store/user'
 const request = axios.create({
   baseURL: "/appApi",
   timeout: 100000,
 });
-
+const whiteUrl = [
+  '/webInfo/getMember',
+  '/webInfo/getWebInfo',
+  '/webInfo/getMember',
+  '/webInfo/getWebInfo',
+  '/sms/picCode',
+  '/user/login',
+  '/sms/phoneCode'
+]
 request.interceptors.request.use(config => {
+  const userStore = useUserStore()
+  const token = userStore.token
+  if(whiteUrl.includes(config.url!)){
+    return config
+  }
+  if(!token ) {
+    return Promise.reject(new Error(config.url+'--not Token'));
+  }
+  config.headers['token'] =  token
   //config.headers['Content-Type'] = 'application/json';
  return config
 }, error => {

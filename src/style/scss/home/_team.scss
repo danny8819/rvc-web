@@ -44,6 +44,12 @@
       }
     }
   }
+
+  .v-img {
+    .v-responsive__sizer {
+      padding-bottom: 100% !important;
+    }
+  }
 }
 
 @media (min-width: 768px) {

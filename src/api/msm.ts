@@ -4,3 +4,8 @@ import request from '@/utils/request'
 export function picCode(){
     return request.get('/sms/picCode')
 }
+
+// 发送手机验证码(停用中...)
+export function phoneCode(params:{phone:string}){
+    return request.get('/sms/phoneCode',{params})
+}

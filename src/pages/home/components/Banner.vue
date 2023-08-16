@@ -25,7 +25,7 @@
                 立即注册
               </v-btn>
 
-              <v-btn
+              <!-- <v-btn
                 size="large"
                 target="_blank"
                 href="https://qm.qq.com/cgi-bin/qm/qr?k=LyhaBNgHliX2gl4u6oSvlrSMayyAAEe_&jump_from=webapi"
@@ -35,7 +35,7 @@
                 elevation="0"
               >
                 快速加群
-              </v-btn>
+              </v-btn> -->
             </div>
           </div>
         </v-col>
@@ -43,7 +43,7 @@
           <v-img
             max-width="100%"
             max-height="100%"
-            src="https://cdn.lwmc.net/images/banners/banner2.png"
+            src="/img/二次元猫娘2.png"
             alt="banner2"
           />
         </v-col>

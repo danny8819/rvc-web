@@ -1,13 +1,11 @@
 <template>
   <div class="home-page">
-    <Header />
     <Banner :webInfo="webInfo" />
     <Feature />
-    <Portfolio :history-list="historyList" />
-    <Banner2 />
+    <!-- <Portfolio :history-list="historyList" /> -->
+    <!-- <Banner2 /> -->
     <Team :members="members" />
     <ComingSoon />
-    <Footer :webInfo="webInfo" />
   </div>
 </template>
 
@@ -18,8 +16,7 @@ import Portfolio from "@/pages/home/components/Portfolio.vue";
 import Banner2 from "@/pages/home/components/Banner2.vue";
 import Team from "@/pages/home/components/Team.vue";
 import ComingSoon from "@/pages/home/components/ComingSoon.vue";
-import Footer from "@/pages/home/components/Footer.vue";
-import Header from "@/pages/home/components/Header.vue";
+
 import { ref } from "vue";
 import { getMember, getWebInfo } from "@/api/website";
 

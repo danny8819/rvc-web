@@ -1,9 +1,6 @@
 <template>
   <div ref="coming-soon" class="coming-wrapper">
     <v-container>
-      <!-- -----------------------------------------------
-            Start Coming Soon
-        ----------------------------------------------- -->
       <v-row>
         <v-col cols="12" sm="10" md="6" class="d-flex align-center">
           <div>
@@ -16,7 +13,7 @@
                 nuxt
                 large
                 target="_blank"
-                href="https://qm.qq.com/cgi-bin/qm/qr?k=LyhaBNgHliX2gl4u6oSvlrSMayyAAEe_&jump_from=webapi"
+             
                 class="btn-custom-md"
                 color="primary"
                 elevation="0"
@@ -27,16 +24,12 @@
           </div>
         </v-col>
       </v-row>
-
-      <!-- -----------------------------------------------
-            End Coming Soon
-        ----------------------------------------------- -->
     </v-container>
   </div>
 </template>
 <script>
 export default {
-  name: 'ComingSoon',
+  name: "ComingSoon",
   data() {
     return {};
   },

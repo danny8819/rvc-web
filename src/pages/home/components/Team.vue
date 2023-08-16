@@ -24,6 +24,7 @@
           >
             <v-card elevation="0" class="team-card overflow-hidden mb-15">
               <div class="social-overlay">
+                <!-- <div style="padding-bottom: 100%"></div> -->
                 <v-img :src="item.img" alt="team" />
                 <div class="img-overlay">
                   <ul>
@@ -69,7 +70,6 @@
   </div>
 </template>
 <script lang="ts" setup>
-
 defineOptions({
   name: "Team",
 });
@@ -82,5 +82,4 @@ defineProps<{
     img: string;
   }[];
 }>();
-
 </script>
