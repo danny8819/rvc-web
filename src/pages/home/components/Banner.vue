@@ -5,7 +5,7 @@
         <v-col cols="12" md="7" lg="6" class="d-flex align-center">
           <div class="text-center text-md-left">
             <h1 class="banner-title font-weight-bold white--text">
-              {{ webInfo?.webName }}
+              {{ webInfo?.webName || "RVC社区" }}
             </h1>
             <h4 class="banner-subtitle white--text font-weight-regular">
               <!-- Minecraft我的世界公益社区 -->

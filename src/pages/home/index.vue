@@ -21,7 +21,7 @@ import ComingSoon from "@/pages/home/components/ComingSoon.vue";
 import Footer from "@/pages/home/components/Footer.vue";
 import Header from "@/pages/home/components/Header.vue";
 import { ref } from "vue";
-import { getMember, getWebInfo } from "@/api/index";
+import { getMember, getWebInfo } from "@/api/website";
 
 const historyList = [
   {
