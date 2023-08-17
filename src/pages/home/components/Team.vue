@@ -28,24 +28,14 @@
                 <v-img :src="item.img" alt="team" />
                 <div class="img-overlay">
                   <ul>
-                    <li>
-                      <a href="#">
-                        <i class="mdi mdi-facebook"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="mdi mdi-twitter"></i>
-                      </a>
-                    </li>
-                    <li>
+                    <!-- <li>
                       <a href="#">
                         <i class="mdi mdi-instagram"></i>
                       </a>
-                    </li>
+                    </li> -->
                     <li>
                       <a href="#">
-                        <i class="mdi mdi-youtube"></i>
+                        <i class="mdi mdi-github"></i>
                       </a>
                     </li>
                   </ul>
