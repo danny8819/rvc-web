@@ -41,6 +41,10 @@ export const useUserStore = defineStore("user", {
       this.token = null;
       this.userInfo = null;
     },
+    reset(){
+      this.token = null;
+      this.userInfo = null;
+    }
   },
   persist: true,
 });

@@ -2,8 +2,8 @@
   min-height: 400px;
   overflow: auto;
   background-size: cover;
-  background: url('https://res.yeshen.com/appcenter/cn/2020/05/1-2-ypl.jpg') top
-    50% center;
+  background: url("/img/long-bg.webp") top 50% center;
+  background-size: cover;
   display: flex;
   align-items: center;
 }
@@ -11,4 +11,9 @@
 .coming-title {
   font-size: 30px;
   margin: 20px 0 15px;
+}
+
+.coming-title,
+.coming-subtitle {
+  text-shadow: 1px 1px 10px #333;
 }
