@@ -13,7 +13,6 @@
                 nuxt
                 large
                 target="_blank"
-             
                 class="btn-custom-md"
                 color="primary"
                 elevation="0"
@@ -36,3 +35,25 @@ export default {
   methods: {},
 };
 </script>
+
+<style lang="scss">
+.coming-wrapper {
+  min-height: 350px;
+  overflow: auto;
+  background-size: cover;
+  background: url("/img/long-bg.webp") top 50% center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.coming-title {
+  font-size: 30px;
+  margin: 20px 0 15px;
+}
+
+.coming-title,
+.coming-subtitle {
+  text-shadow: 1px 1px 10px #333;
+}
+</style>

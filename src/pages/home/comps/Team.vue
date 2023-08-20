@@ -24,15 +24,10 @@
           >
             <v-card elevation="0" class="team-card overflow-hidden mb-15">
               <div class="social-overlay">
-                <!-- <div style="padding-bottom: 100%"></div> -->
+      
                 <v-img :src="item.img" alt="team" />
                 <div class="img-overlay">
                   <ul>
-                    <!-- <li>
-                      <a href="#">
-                        <i class="mdi mdi-instagram"></i>
-                      </a>
-                    </li> -->
                     <li>
                       <a href="#">
                         <i class="mdi mdi-github"></i>
@@ -41,17 +36,17 @@
                   </ul>
                 </div>
               </div>
-              <div>
+              <div class="pa-2">
                 <h5 class="team-title font-weight-medium font-18">
                   {{ item.nickname }}
                 </h5>
                 <p class="team-subtitle">
                   {{ item.role }}
                 </p>
+                <p>
+                  {{ item.description }}
+                </p>
               </div>
-              <p>
-                {{ item.description }}
-              </p>
             </v-card>
           </v-col>
         </v-row>

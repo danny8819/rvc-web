@@ -25,20 +25,11 @@
         <h4 class="font-weight-regular font-18">社区</h4>
 
         <div class="social-icons mt-10">
-          <a href="javascript:void(0)">
-            <i class="mdi mdi-facebook"></i>
-          </a>
-          <a href="javascript:void(0)">
-            <i class="mdi mdi-twitter"></i>
-          </a>
-          <a href="javascript:void(0)">
-            <i class="mdi mdi-google-plus"></i>
-          </a>
-          <a href="javascript:void(0)">
-            <i class="mdi mdi-youtube"></i>
-          </a>
-          <a href="javascript:void(0)">
-            <i class="mdi mdi-instagram"></i>
+          <a
+            href="https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI"
+            target="_blank"
+          >
+            <i class="mdi mdi-github"></i>
           </a>
         </div>
       </v-col>
@@ -56,12 +47,6 @@
             webInfo?.websiteUrl
           }}</a>
         </p>
-        <div class=" ">
-          <div class="d-flex align-center">
-            <a href="javascript:void(0)" class="link px-4">Terms of Use</a>
-            <a href="javascript:void(0)" class="link px-4">Legal Disclaimer</a>
-          </div>
-        </div>
       </div>
     </div>
   </v-container>
@@ -79,3 +64,51 @@ defineProps<{
   }>;
 }>();
 </script>
+
+<style lang="scss">
+.theme--light.v-footer {
+  background: white;
+}
+.rvc-layout-footer {
+  // background-color: $white;
+}
+.social-icons {
+  a {
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 100%;
+    margin: 0 5px;
+    transition: 0.2s ease-in;
+    color: $dark;
+    background: $light;
+    &:hover {
+      transform: translate3d(0px, -5px, 0px);
+      background: $blue;
+      color: $white;
+    }
+  }
+}
+
+.footer {
+  padding: 45px 0;
+}
+
+.footer-bottom-bar {
+  padding-top: 10px;
+  margin-top: 20px;
+}
+
+@media (max-width: 960px) {
+  .footer-bottom-bar {
+    > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+</style>

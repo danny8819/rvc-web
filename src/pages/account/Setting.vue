@@ -1,9 +1,158 @@
 <template>
-    <div class="">Setting</div>
+  <div class="setting-container d-flex justify-center py-5">
+    <div class="setting-left rvc-card">
+      <div class="left-header">个人中心</div>
+      <div class="left-list">
+        <div class="left-item active">
+          <span>我的信息</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="setting-right rvc-card ml-2">
+      <div
+        class="setting-right-avatar d-flex justify-center mb-4 flex-column align-center"
+      >
+        <el-avatar :size="90" :src="infoForm.avatar">
+          <!-- <img :src="infoForm.avatar"> -->
+        </el-avatar>
+        <div class="avatar-action font-12 my-1">
+          <label for="fileInput">修改头像</label>
+          <input
+            id="fileInput"
+            type="file"
+            @change="onFileChange"
+            class="d-none"
+            accept="image/jpeg, image/png"
+          />
+        </div>
+      </div>
+      <el-form ref="formRef" :model="infoForm" status-icon label-width="100px">
+        <el-form-item label="昵称:" prop="nickname">
+          <el-input
+            v-model="infoForm.nickname"
+            autocomplete="off"
+            style="width: 400px"
+          />
+        </el-form-item>
+
+        <el-form-item label="签名:" prop="description">
+          <el-input
+            type="textarea"
+            v-model="infoForm.description"
+            autocomplete="off"
+            style="height: 95px; min-height: 95px; width: 400px"
+            :rows="4"
+            resize="none"
+          />
+        </el-form-item>
+
+        <el-form-item>
+          <el-button
+            type="primary"
+            @click="submitForm(formRef)"
+            :disabled="disabled"
+            >确认修改</el-button
+          >
+        </el-form-item>
+      </el-form>
+    </div>
+  </div>
 </template>
 
-<script lang="ts" setup>
-    import { ref } from "vue";
+<script setup>
+import { ref, onMounted } from "vue";
+import { useUserStore } from "@/store/user";
+import {
+  userInfo as userInfoApi,
+  changeUserInfo,
+  changeAvatar,
+} from "@/api/user";
+
+const userStore = useUserStore();
+const formRef = ref();
+const infoForm = ref({});
+const disabled = ref(false);
+freshInfo();
+
+function freshInfo() {
+  userStore.updateUserInfo().then((res) => {
+    infoForm.value = res;
+  });
+}
+function onFileChange(e) {
+  const [file] = e.target.files;
+  const fileSize = file.size;
+
+  const fileSizeInMB = fileSize / (1024 * 1024);
+  if (fileSizeInMB > 5) {
+    alert("请上传不超过5MB的图片");
+    return;
+  }
+  if (file && userStore.userInfo.uid && userStore.userInfo.username) {
+    const formData = new FormData();
+    formData.append("avatar", file);
+    formData.append("uid", userStore.userInfo.uid);
+    formData.append("username", userStore.userInfo.username);
+
+    changeAvatar(formData).then((res) => {
+      console.log(res);
+      freshInfo();
+    });
+  }
+}
+const submitForm = (formEl) => {
+  if (!formEl) return;
+  formEl.validate((valid) => {
+    if (valid) {
+      disabled.value = true;
+
+      const params = {
+        description: infoForm.value.description,
+        nickname: infoForm.value.nickname,
+        uid: infoForm.value.uid,
+        username: infoForm.value.username,
+      };
+
+      changeUserInfo(params).then((res) => {
+        disabled.value = false;
+      });
+    } else {
+      return false;
+    }
+  });
+};
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.setting-container {
+  width: 730px;
+  margin: auto;
+
+  .setting-left {
+    width: 150px;
+  }
+  .left-header {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-bottom: 1px solid #999;
+  }
+
+  .left-item {
+    width: 100%;
+
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+
+    &.active {
+      color: #00c3ff;
+    }
+  }
+
+  .avatar-action {
+    color: #00c3ff;
+  }
+}
+</style>

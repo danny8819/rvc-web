@@ -11,11 +11,8 @@ export function login(data: {
 }
 
 // 手机号登录
-export function phoneLogin(data:{
-  code: string;
-  phone: string;
-}) {
-  return request.post("/user/phoneLogin",data);
+export function phoneLogin(data: { code: string; phone: string }) {
+  return request.post("/user/phoneLogin", data);
 }
 
 // 用户注册
@@ -71,7 +68,33 @@ export function pwdSID(data: {
   return request.post("/user/pwdSID", data);
 }
 
-
 export function logout() {
   return request.get("/user/logOut");
+}
+
+// 修改用户信息
+
+export function changeUserInfo(data: {
+  avatar?: any;
+  description?: string;
+  level?: number;
+  modelLevel?: number;
+  nickname: string;
+  uid: string;
+  username: string;
+}) {
+  return request.post("/user/changeUserInfo", data );
+}
+
+// /user/changeAvatar 修改用户头像
+export function changeAvatar(data: {
+  avatar: any;
+  uid: string;
+  username: string;
+}) {
+  return request.post("/user/changeAvatar", data , {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  });
 }

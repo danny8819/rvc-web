@@ -14,7 +14,7 @@
               <br />
               <!-- 注册并填写白名单申请来加入我们的服务器 -->
             </h4>
-            <div class="mt-16 pt-2">
+            <div class="mt-16 pt-2" v-if="!userStore.token">
               <v-btn
                 color="error"
                 class="mr-0 mr-md-8 mb-5 mb-md-0"
@@ -41,8 +41,7 @@
         </v-col>
         <v-col cols="12" md="5" lg="6">
           <v-img
-            max-width="100%"
-            max-height="100%"
+            max-height="450px"
             src="/img/二次元猫娘2.png"
             alt="banner2"
           />
@@ -52,6 +51,9 @@
   </div>
 </template>
 <script setup lang="ts">
+import { useUserStore } from "@/store/user";
+const userStore = useUserStore();
+
 defineProps<{
   webInfo: Partial<{
     beianInfo: string;

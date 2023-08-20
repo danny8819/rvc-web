@@ -4,6 +4,7 @@ import {
   login as loginApi,
   register as registerApi,
   phoneLogin,
+  userInfo as userInfoApi
 } from "@/api/user";
 
 export const useUserStore = defineStore("user", {
@@ -46,6 +47,14 @@ export const useUserStore = defineStore("user", {
       await logoutApi();
       this.token = null;
       this.userInfo = null;
+    },
+    async updateUserInfo(){
+      if(this.userInfo&&this.userInfo.username){
+       await userInfoApi({username: this.userInfo.username}).then(res=>{
+          this.userInfo = res.data.userInfo
+        })
+      }
+      return JSON.parse(JSON.stringify(this.userInfo))
     },
     reset(){
       this.token = null;

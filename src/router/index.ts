@@ -27,11 +27,11 @@ const routes = [
                 component:Community
             },{
                 path:'/account/setting',
-                component:()=>import('@/pages/account/Setting.vue')
+                component:()=>import('@/pages/account/setting.vue')
             },
             {
                 path:'/account/password',
-                component:()=>import('@/pages/account/password.vue')
+                component:()=>import('@/pages/login/password.vue')
             }
         ]
     },

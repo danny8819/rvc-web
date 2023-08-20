@@ -52,7 +52,8 @@
 <script setup>
 import { ref } from "vue";
 import { notEmpty, phoneRule } from "@/utils/form-rules";
-import FormItemPhoneCode from "@/comps/FormItemPhoneCode.vue";
+import FormItemPhoneCode from "./comps/FormItemPhoneCode.vue";
+
 const phone = ref("");
 const step = ref(1);
 const code = ref("");

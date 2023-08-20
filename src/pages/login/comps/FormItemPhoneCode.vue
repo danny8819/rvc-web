@@ -53,7 +53,7 @@ watch(
 
 function resendVerificationCode() {
   try {
-    // phoneCode({ phone: phone.value });
+    phoneCode({ phone: props.phone });
     resendDisabled.value = true;
     resendButtonText.value = countdown.value;
   } catch (error) {

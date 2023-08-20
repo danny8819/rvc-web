@@ -21,7 +21,7 @@ import { useUserStore } from "@/store/user";
 import { phoneCode } from "@/api/msm";
 import { useRouter } from "vue-router";
 import { notEmpty, phoneRule } from "@/utils/form-rules";
-import FormItemPhoneCode from "@/components/FormItemPhoneCode.vue";
+import FormItemPhoneCode from "./FormItemPhoneCode.vue";
 
 const router = useRouter();
 

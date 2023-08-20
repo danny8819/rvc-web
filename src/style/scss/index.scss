@@ -1,8 +1,5 @@
 @import "./custom-variable.scss";
 
-@import "./layout/_header.scss";
-@import "./layout/_footer.scss";
-
 @import "./home/_banner.scss";
 @import "./home/_features.scss";
 @import "./home/_portfolio.scss";
@@ -44,4 +41,8 @@ a.reset-link {
     color: #333;
     opacity: 1;
   }
+}
+
+.card{
+
 }
