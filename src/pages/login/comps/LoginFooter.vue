@@ -1,5 +1,5 @@
 <template>
-  <div class="login-footer py-5">
+  <div class="login-footer py-2">
     <v-container class="login-footer-container">
       <v-row>
         <v-col cols="12" sm="3">

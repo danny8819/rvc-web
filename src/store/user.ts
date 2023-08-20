@@ -14,11 +14,17 @@ export const useUserStore = defineStore("user", {
   actions: {
     async login(data) {
       const res = await loginApi(data);
-      const { token, userInfo } = res.data;
-      if (token && userInfo) {
-        this.token = token;
-        this.userInfo = userInfo;
+      try {
+        const { token, userInfo } = res.data;
+        if (token && userInfo) {
+          this.token = token;
+          this.userInfo = userInfo;
+        }
+      } catch (error) {
+        console.log('error: ', error);
+        
       }
+      return res
     }, 
     async phoneLogin(data) {
       const res = await phoneLogin(data);

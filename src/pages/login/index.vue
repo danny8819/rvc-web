@@ -2,7 +2,7 @@
   <div class="login-page">
     <v-container class="login-container">
       <v-row justify="center">
-        <v-col cols="0" sm="4" md="4" class="p-0">
+        <v-col cols="0" sm="4" md="4" class="pa-0">
           <div class="container-left">
             <v-img src="/img/login-bg.png" cover height="100%"> </v-img>
           </div>
@@ -25,9 +25,9 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import LoginForm from "./components/LoginForm.vue";
-import SignupForm from "./components/SignupForm.vue";
-// import LoginFooter from "./components/LoginFooter.vue";
+import LoginForm from "./comps/LoginForm.vue";
+import SignupForm from "./comps/SignupForm.vue";
+// import LoginFooter from "./comps/LoginFooter.vue";
 
 const loginType = ref("login");
 
@@ -39,9 +39,6 @@ function toggleType(type = "login") {
 
 <style lang="scss">
 .login-page {
-  .v-field__input {
-    background-color: white;
-  }
   .login-container {
     margin: 0;
     max-width: 100%;
@@ -53,7 +50,7 @@ function toggleType(type = "login") {
 }
 
 .login-form-container {
-  min-width: 388px;
+  min-width: 357px;
 }
 
 @media (max-width: 600px) {

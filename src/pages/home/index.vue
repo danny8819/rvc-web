@@ -10,12 +10,12 @@
 </template>
 
 <script lang="ts" setup>
-import Banner from "@/pages/home/components/Banner.vue";
-import Feature from "@/pages/home/components/Feature.vue";
-import Portfolio from "@/pages/home/components/Portfolio.vue";
-import Banner2 from "@/pages/home/components/Banner2.vue";
-import Team from "@/pages/home/components/Team.vue";
-import ComingSoon from "@/pages/home/components/ComingSoon.vue";
+import Banner from "@/pages/home/comps/Banner.vue";
+import Feature from "@/pages/home/comps/Feature.vue";
+import Portfolio from "@/pages/home/comps/Portfolio.vue";
+import Banner2 from "@/pages/home/comps/Banner2.vue";
+import Team from "@/pages/home/comps/Team.vue";
+import ComingSoon from "@/pages/home/comps/ComingSoon.vue";
 
 import { ref } from "vue";
 import { getMember, getWebInfo } from "@/api/website";

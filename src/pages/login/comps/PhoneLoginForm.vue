@@ -9,29 +9,7 @@
         :rules="[notEmpty('手机号不能为空'), phoneRule()]"
         required
       ></v-text-field>
-      <v-row>
-        <v-col cols="8">
-          <v-text-field
-            v-model="code"
-            label="验证码"
-            prepend-icon="mdi-lock"
-            type="number"
-            :rules="[notEmpty('不能为空')]"
-            required
-          ></v-text-field>
-        </v-col>
-        <v-col cols="4" align-self="center">
-          <v-btn
-            :disabled="resendDisabled"
-            @click="resendVerificationCode"
-            color="primary phone-login-code-btn"
-            small
-            outlined
-          >
-            {{ resendButtonText }}
-          </v-btn>
-        </v-col>
-      </v-row>
+      <FormItemPhoneCode v-model="code" :phone="phone"/>
       <v-btn type="submit" block class="mt-2" variant="outlined">登录</v-btn>
     </v-form>
   </v-container>
@@ -43,6 +21,7 @@ import { useUserStore } from "@/store/user";
 import { phoneCode } from "@/api/msm";
 import { useRouter } from "vue-router";
 import { notEmpty, phoneRule } from "@/utils/form-rules";
+import FormItemPhoneCode from "@/components/FormItemPhoneCode.vue";
 
 const router = useRouter();
 

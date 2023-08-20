@@ -3,6 +3,8 @@ import Home from '@/pages/home/index.vue'
 import Login from '@/pages/login/index.vue'
 import NotFoundVue from '../pages/NotFound.vue'
 import Layout from '@/layout/index.vue'
+import Profile from '@/pages/profile.vue' 
+import Community from '@/pages/community/index.vue'
 const routes = [
     {
         path: '/',
@@ -16,6 +18,21 @@ const routes = [
                 path: '/login',
                 component:Login
             },
+            {
+                path: '/profile',
+                component:Profile
+            },
+            {
+                path: '/community',
+                component:Community
+            },{
+                path:'/account/setting',
+                component:()=>import('@/pages/account/Setting.vue')
+            },
+            {
+                path:'/account/password',
+                component:()=>import('@/pages/account/password.vue')
+            }
         ]
     },
     {

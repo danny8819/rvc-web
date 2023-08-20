@@ -62,20 +62,12 @@ const picCode = ref("");
 const picCodeUrl = ref("");
 const picCodeValue = ref("");
 
-const codeRules = [
-  notEmpty("验证码不能为空"),
-  (val: string) => {
-    console.log(val === picCodeValue.value);
-    if (!picCodeValue.value || val !== picCodeValue.value) {
-      return "输入有误";
-    }
-    return true;
-  },
-];
+const codeRules = [notEmpty("验证码不能为空")];
 
 const onLogin = async (event) => {
   const results = await event;
   console.log("results: ", results);
+
   if (results.valid) {
     const params = {
       password: password.value,
@@ -83,8 +75,14 @@ const onLogin = async (event) => {
       picCode: picCode.value,
     };
     console.log(params);
-    await userStore.login(params);
-    router.replace("/");
+    try {
+      const res = await userStore.login(params);
+      if (res.code! === "4003") {
+        refreshCode();
+      }
+    } catch (error) {}
+
+    // router.replace("/");
   }
 };
 

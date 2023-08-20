@@ -1,18 +1,14 @@
 <template>
-  <v-container>
+  <v-container class="rvc-layout-footer">
     <v-row class="py-0 py-md-15">
-      <!-- <v-col cols="12" sm="12" md="3" lg="3" class="px-xs-0"> 
-          <h4 class="font-weight-regular font-18">服务器地址</h4>
-      </v-col> -->
-
-      <v-col cols="12" sm="12" md="3" lg="3" class="px-xs-0">
+      <v-col cols="12" sm="12" md="4" lg="4" class="px-xs-0">
         <h4 class="font-weight-regular font-18">
           官方QQ群：{{ webInfo?.officialQq }}
         </h4>
         <p class="mt-10">开发者QQ：{{ webInfo.masterQq }}</p>
       </v-col>
 
-      <v-col cols="12" sm="12" md="3" lg="3" class="px-xs-0">
+      <v-col cols="12" sm="12" md="4" lg="4" class="px-xs-0">
         <h4 class="font-weight-regular font-18">友情链接</h4>
         <p class="mt-10 mb-0">
           <a
@@ -25,7 +21,7 @@
         </p>
       </v-col>
 
-      <v-col cols="12" sm="12" md="3" lg="3" class="px-xs-0">
+      <v-col cols="12" sm="12" md="4" lg="4" class="px-xs-0">
         <h4 class="font-weight-regular font-18">社区</h4>
 
         <div class="social-icons mt-10">

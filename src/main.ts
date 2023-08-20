@@ -5,7 +5,7 @@ import store from './store'
 
 import 'normalize.css'
 import 'ress'
-import 'vuetify/styles'
+import 'vuetify/styles' // 原子样式可参考 vuetify\lib\styles\main.css
 import '@mdi/font/css/materialdesignicons.css'
 import './style.css'
 import './style/scss/index.scss'

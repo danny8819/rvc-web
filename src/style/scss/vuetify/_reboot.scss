@@ -233,16 +233,20 @@ ul {
   padding: 0;
 }
 // 原子样式
-.p-0 {
-  padding: 0;
+.fs-large {
+  font-size: 17px;
+  line-height: 32px;
 }
-.p-10 {
-  padding: 10px;
-}
-.py-5 {
-  padding-bottom: 3rem;
+.fs-small {
+  font-size: 13px;
+  line-height: 18px;
 }
 
-.ml-20 {
-  margin-left: 20px;
+// 快捷
+.rvc-card {
+  background-color: #fff;
+  border-radius: 6px;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
 }

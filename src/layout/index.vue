@@ -1,5 +1,6 @@
 <template>
   <div class="">
+    <div class="rvc-bgc"></div>
     <Header />
     <router-view></router-view>
     <Footer :webInfo="webInfo" />
@@ -25,4 +26,16 @@ getWebInfo().then((res) => {
 });
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.rvc-bgc {
+  pointer-events: none;
+  z-index: -1;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  top: 0;
+  height: 100vh;
+  background-color: #F4F5F7;
+}
+</style>

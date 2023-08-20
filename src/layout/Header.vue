@@ -2,13 +2,14 @@
   <div class="app-header">
     <v-container class="py-0 fill-height">
       <div class="logo-wrap">
-        <a href="/"
-          ><img
+        <router-link class="nav-link" to="/">
+          <img
             height="100%"
             src="/rvc.svg"
             alt="logo"
             style="transform: scale(2)"
-        /></a>
+          />
+        </router-link>
       </div>
 
       <v-spacer></v-spacer>
@@ -27,10 +28,9 @@
         <ul class="navbar-nav">
           <li
             class="nav-item"
-            :class="{ active: $route.path === '/' }"
-            v-if="$route.path !== '/'"
+            :class="{ active: $route.path === '/community' }"
           >
-            <router-link class="nav-link" to="/">首页</router-link>
+            <router-link class="nav-link" to="/community">交流</router-link>
           </li>
         </ul>
       </div>
@@ -55,13 +55,13 @@
           />
           <v-menu activator="parent" v-model="isHovered" offset="10">
             <v-list>
-              <v-list-item
-                v-for="(item, index) in ['logout']"
-                :key="index"
-                :value="index"
-                @click="logout"
-              >
-                <v-list-item-title>{{ item }}</v-list-item-title>
+              <v-list-item>
+                <v-list-item-title>
+                  <router-link to="/profile" class="reset-link">个人</router-link>
+                </v-list-item-title>
+              </v-list-item>
+              <v-list-item @click="logout">
+                <v-list-item-title>登出</v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>

@@ -29,11 +29,6 @@ const toSignUp = () => {
 
 <style lang="scss">
 .login-form {
-  .v-label.v-field-label {
-    color: #333;
-    opacity: 1;
-  }
-
   .v-field__overlay {
     display: none;
   }
