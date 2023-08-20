@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import ElementPlus from 'element-plus'
 
 import 'normalize.css'
 import 'ress'
@@ -9,6 +10,7 @@ import 'vuetify/styles' // 原子样式可参考 vuetify\lib\styles\main.css
 import '@mdi/font/css/materialdesignicons.css'
 import './style.css'
 import './style/scss/index.scss'
+import 'element-plus/dist/index.css'
       
 import { createVuetify } from 'vuetify'
  
@@ -44,7 +46,8 @@ const vuetify = createVuetify({
 
 const app = createApp(App)
 
-app.use(store)
-app.use(router)
-app.use(vuetify)
-app.mount('#app')
+app.use(ElementPlus)
+.use(store)
+.use(router)
+.use(vuetify)
+.mount('#app')
