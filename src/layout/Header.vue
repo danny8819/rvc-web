@@ -87,7 +87,9 @@
 
 <script setup>
 import { ref, onMounted, computed } from "vue";
+import { useRouter } from "vue-router";
 import { useUserStore } from "@/store/user";
+const router = useRouter();
 const userStore = useUserStore();
 
 const isActive = ref(false);
@@ -100,6 +102,7 @@ const isLogin = computed(() => {
 const logout = async () => {
   await userStore.logout();
   isLogin.value = false;
+  router.replace("/");
 };
 </script>
 

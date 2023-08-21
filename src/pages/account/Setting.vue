@@ -2,60 +2,89 @@
   <div class="setting-container d-flex justify-center py-5">
     <div class="setting-left rvc-card">
       <div class="left-header">个人中心</div>
+      <el-divider class="mt-1" />
+
       <div class="left-list">
-        <div class="left-item active">
-          <span>我的信息</span>
+        <div
+          class="left-item"
+          :class="{ active: type === index }"
+          v-for="(item, index) in ['我的信息', '账号安全']"
+          :key="index"
+          @click="type = index"
+        >
+          <span>{{ item }}</span>
         </div>
       </div>
     </div>
 
     <div class="setting-right rvc-card ml-2">
-      <div
-        class="setting-right-avatar d-flex justify-center mb-4 flex-column align-center"
-      >
-        <el-avatar :size="90" :src="infoForm.avatar">
-          <!-- <img :src="infoForm.avatar"> -->
-        </el-avatar>
-        <div class="avatar-action font-12 my-1">
-          <label for="fileInput">修改头像</label>
-          <input
-            id="fileInput"
-            type="file"
-            @change="onFileChange"
-            class="d-none"
-            accept="image/jpeg, image/png"
-          />
+      <div v-if="type === 0">
+        <div class="right-header" style="text-align: left">编辑资料</div>
+        <el-divider class="mt-1" />
+        <div
+          class="setting-right-avatar d-flex justify-center mb-4 flex-column align-center"
+        >
+          <el-avatar :size="90" :src="infoForm.avatar">
+            <!-- <img :src="infoForm.avatar"> -->
+          </el-avatar>
+          <div class="avatar-action font-12 my-1">
+            <label for="fileInput">修改头像</label>
+            <input
+              id="fileInput"
+              type="file"
+              @change="onFileChange"
+              class="d-none"
+              accept="image/jpeg, image/png"
+            />
+          </div>
+        </div>
+        <el-form
+          ref="formRef"
+          :model="infoForm"
+          status-icon
+          label-width="100px"
+        >
+          <el-form-item label="昵称:" prop="nickname">
+            <el-input
+              v-model="infoForm.nickname"
+              autocomplete="off"
+              style="width: 400px"
+            />
+          </el-form-item>
+
+          <el-form-item label="签名:" prop="description">
+            <el-input
+              type="textarea"
+              v-model="infoForm.description"
+              autocomplete="off"
+              style="height: 95px; min-height: 95px; width: 400px"
+              :rows="4"
+              resize="none"
+            />
+          </el-form-item>
+
+          <el-form-item>
+            <el-button
+              type="primary"
+              @click="submitForm(formRef)"
+              :disabled="disabled"
+              >确认修改</el-button
+            >
+          </el-form-item>
+        </el-form>
+      </div>
+
+      <div v-if="type === 1">
+        <div class="right-header" style="text-align: left">账号安全</div>
+        <el-divider class="mt-1" />
+        <el-button @click="$router.push('/account/password')"
+          >修改密码</el-button
+        >
+
+        <div class="w-50 ma-auto" v-if="false">
+          <img class="w-100" src="@/assets/img/noData.png" alt="" />
         </div>
       </div>
-      <el-form ref="formRef" :model="infoForm" status-icon label-width="100px">
-        <el-form-item label="昵称:" prop="nickname">
-          <el-input
-            v-model="infoForm.nickname"
-            autocomplete="off"
-            style="width: 400px"
-          />
-        </el-form-item>
-
-        <el-form-item label="签名:" prop="description">
-          <el-input
-            type="textarea"
-            v-model="infoForm.description"
-            autocomplete="off"
-            style="height: 95px; min-height: 95px; width: 400px"
-            :rows="4"
-            resize="none"
-          />
-        </el-form-item>
-
-        <el-form-item>
-          <el-button
-            type="primary"
-            @click="submitForm(formRef)"
-            :disabled="disabled"
-            >确认修改</el-button
-          >
-        </el-form-item>
-      </el-form>
     </div>
   </div>
 </template>
@@ -73,6 +102,7 @@ const userStore = useUserStore();
 const formRef = ref();
 const infoForm = ref({});
 const disabled = ref(false);
+const type = ref(0);
 freshInfo();
 
 function freshInfo() {
@@ -132,11 +162,11 @@ const submitForm = (formEl) => {
   .setting-left {
     width: 150px;
   }
-  .left-header {
+  .left-header,
+  .right-header {
     height: 30px;
     line-height: 30px;
     text-align: center;
-    border-bottom: 1px solid #999;
   }
 
   .left-item {

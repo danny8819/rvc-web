@@ -6,23 +6,23 @@
           <div class="ml-10">
             <v-avatar size="70">
               <img
-                :src="'/img/user-placeholder.webp'"
+                :src="userStore.userInfo?.avatar"
                 alt="Avatar"
                 style="width: 100%"
               />
             </v-avatar>
           </div>
           <h1 class="ml-10">{{ userStore.userInfo?.nickname }}</h1>
-          <h3 class="ml-10">description</h3>
+          <h3 class="ml-10">{{ userStore.userInfo?.description }}</h3>
 
           <div class="d-flex align-center mt-5">
             <div class="mx-10">
-              <div>关注数</div>
-              <div>0</div>
+              <div>level</div>
+              <div>{{ userStore.userInfo?.level }}</div>
             </div>
             <div>
-              <div>粉丝数</div>
-              <div>0</div>
+              <div>modelLevel</div>
+              <div>{{ userStore.userInfo?.modelLevel }}</div>
             </div>
           </div>
         </v-col>

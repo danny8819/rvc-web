@@ -18,6 +18,9 @@
         :rules="phoneFormRules"
         label-width="120px"
       >
+        <el-form-item label="用户名" prop="username" v-if="!isLogin">
+          <el-input v-model="codeForm.username" autocomplete="off" />
+        </el-form-item>
         <el-form-item label="手机号" prop="phone">
           <el-input v-model="codeForm.phone" autocomplete="off" />
         </el-form-item>
@@ -35,18 +38,19 @@
             <el-button
               v-if="!codeLoading"
               @click="requestCode"
-              style="min-width: 100px"
+              style="min-width: 89px"
               >{{ resendButtonText }}</el-button
             >
             <img src="" alt="" v-else />
           </div>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="nextStep(passFormRef)"
+          <el-button type="primary" @click="nextStep(codeFormRef)"
             >下一步</el-button
           >
         </el-form-item>
       </el-form>
+      <!-- 修改密码 or 忘记密码 -->
       <el-form
         ref="passFormRef"
         :model="passwordForm"
@@ -55,14 +59,21 @@
         label-width="120px"
         v-if="step === 1"
       >
-        <el-form-item label="Password" prop="password">
+        <el-form-item label="原密码" prop="oldPassword" v-if="isLogin">
           <el-input
             v-model="passwordForm.password"
             type="password"
             autocomplete="off"
           />
         </el-form-item>
-        <el-form-item label="Confirm" prop="checkPass">
+        <el-form-item label="新密码" prop="password">
+          <el-input
+            v-model="passwordForm.password"
+            type="password"
+            autocomplete="off"
+          />
+        </el-form-item>
+        <el-form-item label="再次输入" prop="checkPass">
           <el-input
             v-model="passwordForm.checkPass"
             type="password"
@@ -72,11 +83,11 @@
 
         <el-form-item>
           <el-button type="primary" @click="submitForm(passFormRef)"
-            >Submit</el-button
+            >确认修改</el-button
           >
         </el-form-item>
       </el-form>
-
+      <!--  -->
       <el-result v-if="step === 3" icon="success" title="修改成功" sub-title="">
         <template #extra>
           <el-button @click="$router.replace('/login')">去登录</el-button>
@@ -87,28 +98,58 @@
 </template>
 
 <script setup lang="ts">
-import { notEmpty, phoneRule } from "@/utils/form-rules";
-// import FormItemPhoneCode from "./comps/FormItemPhoneCode.vue";
-import { pwdSID } from "@/api/user";
+import type { FormInstance, FormRules } from "element-plus";
+import { pwdSID, changePwd, forgetPwd } from "@/api/user";
+import { phoneCode } from "@/api/msm";
+import { useRoute } from "vue-router";
+import { reactive, ref } from "vue";
+import { useUserStore } from "@/store/user";
 
+const route = useRoute();
+const userStore = useUserStore();
+const { update } = route.query;
+
+const isLogin = !!update || !!userStore.token;
 const step = ref(0);
 const codeLoading = ref(false);
-import { reactive, ref } from "vue";
-import type { FormInstance, FormRules } from "element-plus";
 
 const passFormRef = ref<FormInstance>();
 const codeFormRef = ref<FormInstance>();
+let sid = "";
+
 const codeForm = reactive({
   phone: "",
   code: "",
+  username: isLogin ? userStore.userInfo?.username : "",
 });
 const passwordForm = reactive({
   password: "",
   checkPass: "",
   age: "",
+  oldPassword: "",
 });
 
 const rules = reactive<FormRules<typeof passwordForm>>({
+  oldPassword: [
+    // 修改密码需要  忘记密码不需要
+    {
+      validator: (_, value: any, callback: any) => {
+        if (!isLogin) {
+          callback();
+        }
+        if (value === "") {
+          callback(new Error("请输入"));
+        } else {
+          if (passwordForm.checkPass !== "") {
+            if (!passFormRef.value) return;
+            passFormRef.value.validateField("checkPass", () => null);
+          }
+          callback();
+        }
+      },
+      trigger: "blur",
+    },
+  ],
   password: [
     {
       validator: (rule: any, value: any, callback: any) => {
@@ -140,6 +181,7 @@ const rules = reactive<FormRules<typeof passwordForm>>({
     },
   ],
 });
+
 const phoneFormRules = {
   phone: [
     {
@@ -155,28 +197,65 @@ const phoneFormRules = {
       trigger: "blur",
     },
   ],
+  username: [
+    {
+      validator: (_, value: any, callback: any) => {
+        if (isLogin) {
+          callback();
+        }
+        if (value === "") {
+          callback(new Error("请输入用户名"));
+        } else {
+          callback();
+        }
+      },
+      trigger: "blur",
+    },
+  ],
 };
+
+// 验证码下一步
 async function nextStep(formEl: FormInstance | undefined) {
-  step.value = 1;
   if (!formEl) return;
   formEl.validate((valid) => {
     if (valid) {
-      console.log("submit!");
+      pwdSID({
+        phone: codeForm.phone,
+        code: codeForm.code,
+        username: codeForm.username,
+      }).then((res) => {
+        sid = res.data.sid;
+        step.value = 1;
+      });
     } else {
-      console.log("error submit!");
+      console.error("error submit!");
       return false;
     }
   });
 }
-
+// 修改密码 忘记密码 提交按钮
 const submitForm = (formEl: FormInstance | undefined) => {
-  step.value = 3;
   if (!formEl) return;
   formEl.validate((valid) => {
     if (valid) {
-      console.log("submit!");
+      const params = {
+        code: codeForm.code,
+        phone: codeForm.code,
+        sid: sid,
+        password: passwordForm.password,
+        username: passwordForm.code,
+      };
+      console.log(params);
+      if (isLogin) {
+        params.oldPassword = passwordForm.oldPassword;
+      }
+      const api = isLogin.value ? changePwd : forgetPwd;
+      api(params).then((res) => {
+        console.log("res: ", res);
+        step.value = 3;
+      });
     } else {
-      console.log("error submit!");
+      console.log("error submit!", valid);
       return false;
     }
   });
@@ -184,7 +263,6 @@ const submitForm = (formEl: FormInstance | undefined) => {
 
 const resendButtonText = ref<string | Number>("发送验证码");
 const countdown = ref(60);
-import { phoneCode } from "@/api/msm";
 
 async function requestCode() {
   if (countdown.value !== 60) {
@@ -193,13 +271,15 @@ async function requestCode() {
   let valid;
   try {
     valid = await (codeFormRef.value as FormInstance).validateField("phone");
-  } catch (error) {}
-  console.log("valid: ", valid);
+  } catch (error) {
+    console.error("error: ", error);
+  }
+  console.log("requestCode: ", valid);
   if (!valid) return;
 
   try {
     codeLoading.value = true;
-    // await phoneCode({ phone: codeForm.phone });
+    await phoneCode({ phone: codeForm.phone });
     codeLoading.value = false;
     resendButtonText.value = countdown.value;
   } catch (error) {
