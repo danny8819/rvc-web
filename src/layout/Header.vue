@@ -52,35 +52,36 @@
     >
       {{ "登录" }}
     </v-btn>
-
-    <v-hover v-slot:default="{ hover }" v-if="isLogin">
-      <v-avatar size="40" @mouseenter="isHovered = true" class="mr-5">
+    <el-dropdown v-if="isLogin">
+      <v-avatar
+        size="40"
+        @mouseenter="isHovered = true"
+        class="el-dropdown-link mr-5"
+      >
         <img
           :src="userStore?.userInfo?.avatar || '/img/user-placeholder.webp'"
           alt="Avatar"
           style="width: 100%"
         />
-        <v-menu activator="parent" v-model="isHovered" offset="10">
-          <v-list>
-            <v-list-item>
-              <v-list-item-title>
-                <router-link to="/profile" class="reset-link">个人</router-link>
-              </v-list-item-title>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-title>
-                <router-link to="/account/setting" class="reset-link"
-                  >设置</router-link
-                >
-              </v-list-item-title>
-            </v-list-item>
-            <v-list-item @click="logout">
-              <v-list-item-title>登出</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
       </v-avatar>
-    </v-hover>
+      <template #dropdown>
+        <el-dropdown-menu>
+          <el-dropdown-item
+            ><router-link to="/profile" class="reset-link"
+              >个人</router-link
+            ></el-dropdown-item
+          >
+          <el-dropdown-item
+            ><router-link to="/account/setting" class="reset-link"
+              >设置</router-link
+            ></el-dropdown-item
+          >
+          <el-dropdown-item @click="logout">登出</el-dropdown-item>
+          <!-- <el-dropdown-item disabled>Action 4</el-dropdown-item> -->
+          <!-- <el-dropdown-item divided>Action 5</el-dropdown-item> -->
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
   </div>
 </template>
 

@@ -1,72 +1,71 @@
 import request from "@/utils/request";
 
 // 密码登录
-export function login(data: {
+type LoginData = {
   phone: string;
   code?: string;
   password?: string;
   picCode?: string;
-}) {
+}
+export function login(data:LoginData) {
   return request.post("/user/login", data);
 }
-
 // 手机号登录
-export function phoneLogin(data: { code: string; phone: string }) {
+type PhoneLoginData = {
+  code: string; phone: string 
+}
+export function phoneLogin(data: PhoneLoginData) {
   return request.post("/user/phoneLogin", data);
 }
 
 // 用户注册
-export function register(data: {
+type RegisterData = {
   code: string;
   email: string;
   password: string;
   phone: string;
   username: string;
   nickname?: string;
-}) {
+}
+export function register(data:RegisterData) {
   return request.post("/user/register", data);
 }
 /**
  * 获取用户信息
  */
-export function userInfo(params: { username: string }) {
+type userInfoParams = {
+  username: string
+}
+export function userInfo(params:userInfoParams) {
   return request.get("/user/userInfo", { params });
 }
 // 修改密码
-export function changePwd(data: {
+type ChangePwdData = {
   code: string;
   oldPassword: string;
   password: string;
   phone: string;
   sid: string;
   username: string;
-}) {
+}
+export function changePwd(data: ChangePwdData) {
   return request.post("/user/changePwd", data);
 }
 
 // 忘记密码
-export function forgetPwd(data: {
+type ForgetPwdData = {
   code: string;
   oldPassword: string;
   password: string;
   phone: string;
   sid: string;
   username: string;
-}) {
+}
+export function forgetPwd(data: ForgetPwdData) {
   return request.post("/user/forgetPwd", data);
 }
 
-// 密码修改服务工单注册
-export function pwdSID(data: {
-  code: string;
-  oldPassword: string;
-  password: string;
-  phone: string;
-  sid: string;
-  username: string;
-}) {
-  return request.post("/user/pwdSID", data);
-}
+ 
 
 export function logout() {
   return request.get("/user/logOut");
@@ -83,7 +82,7 @@ export function changeUserInfo(data: {
   uid: string;
   username: string;
 }) {
-  return request.post("/user/changeUserInfo", data );
+  return request.post("/user/changeUserInfo", data);
 }
 
 // /user/changeAvatar 修改用户头像
@@ -92,9 +91,23 @@ export function changeAvatar(data: {
   uid: string;
   username: string;
 }) {
-  return request.post("/user/changeAvatar", data , {
+  return request.post("/user/changeAvatar", data, {
     headers: {
-      'Content-Type': 'multipart/form-data'
-    }
+      "Content-Type": "multipart/form-data",
+    },
   });
+}
+
+// 密码修改服务工单注册
+type PwdSid = {
+  code: string;
+  oldPassword: string;
+  password: string;
+  phone: string;
+  sid: string;
+  username: string;
+};
+
+export function pwdSID(data: PwdSid) {
+  return request.post("/user/pwdSID", data);
 }

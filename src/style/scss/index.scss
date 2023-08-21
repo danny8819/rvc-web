@@ -21,8 +21,8 @@
 }
 
 .white--text {
-  color: #fff !important;
-  caret-color: #fff !important;
+  color: $white !important;
+  caret-color: $white !important;
 }
 
 a.reset-link {
@@ -43,6 +43,5 @@ a.reset-link {
   }
 }
 
-.card{
-
+.card {
 }

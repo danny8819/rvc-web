@@ -32,6 +32,10 @@ const routes = [
             {
                 path:'/account/password',
                 component:()=>import('@/pages/login/password.vue')
+            },
+            {
+                path:'/article/:id',
+                component:()=>import('@/pages/article/index.vue')
             }
         ]
     },
