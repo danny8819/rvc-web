@@ -34,6 +34,7 @@
         </div>
       </v-col>
     </v-row>
+    <el-divider />
     <div class="footer-bottom-bar font-14">
       <div class="d-md-flex justify-space-around">
         <p>
@@ -68,9 +69,6 @@ defineProps<{
 <style lang="scss">
 .theme--light.v-footer {
   background: white;
-}
-.rvc-layout-footer {
-  // background-color: $white;
 }
 .social-icons {
   a {
