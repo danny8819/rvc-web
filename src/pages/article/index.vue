@@ -55,9 +55,5 @@ const { id } = route.params;
 </script>
 
 <style lang="scss">
-.container-1000 {
-  width: 1000px;
-  margin: auto;
-  padding: 10px;
-}
+
 </style>

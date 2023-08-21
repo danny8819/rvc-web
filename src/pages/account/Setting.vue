@@ -24,9 +24,7 @@
         <div
           class="setting-right-avatar d-flex justify-center mb-4 flex-column align-center"
         >
-          <el-avatar :size="90" :src="infoForm.avatar">
-            <!-- <img :src="infoForm.avatar"> -->
-          </el-avatar>
+          <el-avatar :size="90" :src="infoForm.avatar"> </el-avatar>
           <div class="avatar-action font-12 my-1">
             <label for="fileInput">修改头像</label>
             <input
