@@ -54,7 +54,7 @@ export const useUserStore = defineStore("user", {
           this.userInfo = res.data.userInfo
         })
       }
-      return JSON.parse(JSON.stringify(this.userInfo))
+      return JSON.parse(JSON.stringify(toRaw(this.userInfo)))
     },
     reset(){
       this.token = null;
