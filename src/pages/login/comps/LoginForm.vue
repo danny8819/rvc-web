@@ -28,7 +28,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import PhoneLoginForm from "./PhoneLoginForm.vue";
 import PasswordLoginForm from "./PasswordLoginForm.vue";
 

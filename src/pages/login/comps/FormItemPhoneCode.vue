@@ -25,7 +25,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, watchEffect } from "vue";
 import { phoneCode } from "@/api/msm";
 import { notEmpty } from "@/utils/form-rules";
 

@@ -102,7 +102,6 @@ import type { FormInstance, FormRules } from "element-plus";
 import { pwdSID, changePwd, forgetPwd } from "@/api/user";
 import { phoneCode } from "@/api/msm";
 import { useRoute } from "vue-router";
-import { reactive, ref } from "vue";
 import { useUserStore } from "@/store/user";
 
 const route = useRoute();

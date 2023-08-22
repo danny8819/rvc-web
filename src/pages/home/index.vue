@@ -17,7 +17,6 @@ import Banner2 from "@/pages/home/comps/Banner2.vue";
 import Team from "@/pages/home/comps/Team.vue";
 import ComingSoon from "@/pages/home/comps/ComingSoon.vue";
 
-import { ref } from "vue";
 import { getMember, getWebInfo } from "@/api/website";
 
 const historyList = [

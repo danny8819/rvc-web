@@ -31,7 +31,7 @@
               id="fileInput"
               type="file"
               @change="onFileChange"
-              class="d-none"
+              hidden
               accept="image/jpeg, image/png"
             />
           </div>
@@ -88,7 +88,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
 import { useUserStore } from "@/store/user";
 import {
   userInfo as userInfoApi,

@@ -9,7 +9,7 @@
             <div class="rvc-article-content">content</div>
 
             <el-divider />
-            <!-- <el-icon size="33"><Star /></el-icon> -->
+
             <img src="@/assets/svg/dianzanpc.svg" />
             <img src="@/assets/svg/shoucang.svg" />
           </main>
@@ -21,6 +21,8 @@
               :rows="4"
               type="textarea"
               placeholder="请开始你的表演..."
+              maxlength="300"
+              show-word-limit
             />
 
             <el-button>回复</el-button>
@@ -45,15 +47,15 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
 const { id } = route.params;
+const content = ref("");
+const editorOption = {};
 
+onMounted(() => {});
 // 请求数据
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

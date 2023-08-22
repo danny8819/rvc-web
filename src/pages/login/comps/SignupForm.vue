@@ -79,7 +79,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import { notEmpty, phoneRule, emailRule } from "@/utils/form-rules";
 import { phoneCode } from "@/api/msm";
 import { useRouter } from "vue-router";

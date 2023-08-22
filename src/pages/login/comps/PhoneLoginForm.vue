@@ -16,7 +16,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import { useUserStore } from "@/store/user";
 import { phoneCode } from "@/api/msm";
 import { useRouter } from "vue-router";

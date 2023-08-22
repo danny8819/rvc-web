@@ -24,7 +24,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import LoginForm from "./comps/LoginForm.vue";
 import SignupForm from "./comps/SignupForm.vue";
 // import LoginFooter from "./comps/LoginFooter.vue";

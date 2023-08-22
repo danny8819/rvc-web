@@ -86,9 +86,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "@/store/user";
+
+defineOptions({
+  name: "LayoutHeader",
+});
+
 const router = useRouter();
 const userStore = useUserStore();
 

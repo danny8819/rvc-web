@@ -54,6 +54,9 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({
+  name: "LayoutFooter",
+});
 defineProps<{
   webInfo: Partial<{
     beianInfo: string;

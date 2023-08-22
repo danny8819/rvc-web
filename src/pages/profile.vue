@@ -22,7 +22,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import { useUserStore } from "@/store/user";
 const userStore = useUserStore();
 </script>

@@ -8,7 +8,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import Header from "./Header.vue";
 import Footer from "./Footer.vue";
 import { getMember, getWebInfo } from "@/api/website";
