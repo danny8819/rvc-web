@@ -25,12 +25,14 @@
 </template>
 
 <script setup lang="ts">
-import { phoneCode } from "@/api/msm";
+import { phoneCode, emailCode } from "@/api/msm";
 import { notEmpty } from "@/utils/form-rules";
 
 const props = defineProps<{
   modelValue: string;
-  phone: string;
+  phone?: string;
+  email?: string;
+  validFn?: () => Promise<any>;
 }>();
 const emit = defineEmits(["update:modelValue"]);
 
@@ -50,9 +52,18 @@ watch(
   }
 );
 
-function resendVerificationCode() {
+async function resendVerificationCode() {
+  if (props.validFn) {
+    const res = await props.validFn();
+    if (Array.isArray(res) && res.length > 0) {
+      return;
+    }
+  }
+  const codeApi = props.email ? emailCode : phoneCode;
+  const params = props.email ? { email: props.email } : { phone: props.phone };
+
   try {
-    phoneCode({ phone: props.phone });
+    codeApi(params);
     resendDisabled.value = true;
     resendButtonText.value = countdown.value;
   } catch (error) {

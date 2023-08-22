@@ -4,7 +4,8 @@ import {
   login as loginApi,
   register as registerApi,
   phoneLogin,
-  userInfo as userInfoApi
+  userInfo as userInfoApi,
+  emailLogin as emailLoginApi,
 } from "@/api/user";
 
 export const useUserStore = defineStore("user", {
@@ -14,22 +15,30 @@ export const useUserStore = defineStore("user", {
   }),
   actions: {
     async login(data) {
-      const res = await loginApi(data);
+      let res;
       try {
+        res = await loginApi(data);
         const { token, userInfo } = res.data;
         if (token && userInfo) {
-          this.token = token;
-          this.userInfo = userInfo;
+          this.token = res.data.token;
+          this.userInfo = res.data.userInfo;
         }
       } catch (error) {
-        console.log('error: ', error);
-        
+        console.log("error: ", error);
       }
-      return res
-    }, 
+      return res;
+    },
     async phoneLogin(data) {
       const res = await phoneLogin(data);
-      const { token, userInfo } = res.data;
+      const { token, userInfo } = res.data||{};
+      if (token && userInfo) {
+        this.token = token;
+        this.userInfo = userInfo;
+      }
+    },
+    async emailLogin(data) {
+      const res = await emailLoginApi(data);
+      const { token, userInfo } = res.data||{};
       if (token && userInfo) {
         this.token = token;
         this.userInfo = userInfo;
@@ -37,29 +46,31 @@ export const useUserStore = defineStore("user", {
     },
     async register(data) {
       const res = await registerApi(data);
-      const { token, userInfo } = res.data;
+      const { token, userInfo } = res.data||{};
       if (token && userInfo) {
         this.token = token;
         this.userInfo = userInfo;
       }
     },
     async logout() {
-      await logoutApi();
-      this.token = null;
-      this.userInfo = null;
+      try {
+        await logoutApi();
+        this.token = null;
+        this.userInfo = null;
+      } catch (error) {}
     },
-    async updateUserInfo(){
-      if(this.userInfo&&this.userInfo.username){
-       await userInfoApi({username: this.userInfo.username}).then(res=>{
-          this.userInfo = res.data.userInfo
-        })
+    async updateUserInfo() {
+      if (this.userInfo && this.userInfo.username) {
+        await userInfoApi({ username: this.userInfo.username }).then((res) => {
+          this.userInfo = res.data.userInfo;
+        });
       }
-      return JSON.parse(JSON.stringify(toRaw(this.userInfo)))
+      return JSON.parse(JSON.stringify(toRaw(this.userInfo)));
     },
-    reset(){
+    reset() {
       this.token = null;
       this.userInfo = null;
-    }
+    },
   },
   persist: true,
 });

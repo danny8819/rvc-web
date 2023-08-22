@@ -41,10 +41,6 @@ export function userInfo(params:userInfoParams) {
 }
 
 
-
-
- 
-
 export function logout() {
   return request.get("/user/logOut");
 }
@@ -76,14 +72,6 @@ export function changeAvatar(data: {
   });
 }
 
-
-// 第一步是 修改密码服务的工单验证 也就是工单验证那个接口
-// 1，忘记密码需要三个参数，手机号，用户名，手机号验证码  forgetPwd
-// 2，修改密码需要两个参数，手机号，验证码
-
-// 提交成功后，会返回一个sid，这个就是修改密码的工单号，也就是会进行下一步，修改密码
-// 1，忘记密码需要提交 sid，新密码，用户名
-// 2，修改密码需要提交 sid，新密码，旧密码（header要携带token）
 
 // 密码修改服务工单注册
 type PwdSid = {
@@ -119,3 +107,16 @@ type ForgetPwdData = {
 export function forgetPwd(data: ForgetPwdData) {
   return request.post("/user/forgetPwd", data);
 }
+
+// 邮箱登录 /user/emailLogin
+type EmailLoginData = {
+  code: string; 
+  phone: string 
+  // "password": "string",
+  // "phone": "string",
+  // "picCode": "string"
+}
+export function emailLogin(data: EmailLoginData) {
+  return request.post("/user/emailLogin", data);
+}
+

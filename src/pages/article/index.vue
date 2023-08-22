@@ -3,33 +3,11 @@
     <div class="rvc-article-container container-1000">
       <el-row :gutter="20">
         <el-col :span="16">
-          <main class="rvc-article-main rvc-card pa-10">
-            <h1 class="rvc-article-title">title</h1>
-
-            <div class="rvc-article-content">content</div>
-
-            <el-divider />
-
-            <img src="@/assets/svg/dianzanpc.svg" />
-            <img src="@/assets/svg/shoucang.svg" />
-          </main>
-
-          <div class="rvc-article-reply-action rvc-card pa-10">
-            <h4>看帖是喜欢，评论才是真爱：</h4>
-            <el-input
-              resize="none"
-              :rows="4"
-              type="textarea"
-              placeholder="请开始你的表演..."
-              maxlength="300"
-              show-word-limit
-            />
-
-            <el-button>回复</el-button>
-          </div>
-
+          <ArticleMain />
+          <ArticleReplyAction />
           <div class="rvc-article-reply-list rvc-card">评论列表</div>
         </el-col>
+
         <el-col :span="8" class="rvc-article-sub">
           <div class="rvc-card rvc-article-author d-flex justify-space-around">
             <el-avatar :size="90" src="/img/user-placeholder.webp"> </el-avatar>
@@ -48,9 +26,11 @@
 
 <script lang="ts" setup>
 import { useRoute } from "vue-router";
-
+import ArticleMain from "./ArticleMain.vue";
+import ArticleReplyAction from "./ArticleReplyAction.vue";
 const route = useRoute();
 const { id } = route.params;
+console.log('id: ', id);
 const content = ref("");
 const editorOption = {};
 

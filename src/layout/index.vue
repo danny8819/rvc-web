@@ -11,6 +11,14 @@
 import Header from "./Header.vue";
 import Footer from "./Footer.vue";
 import { getMember, getWebInfo } from "@/api/website";
+import { userInfo } from "@/api/user";
+
+import { useUserStore } from "@/store/user";
+const userStore = useUserStore();
+if (userStore.userInfo?.username) {
+  userInfo({ username: userStore.userInfo.username });
+}
+
 const members = ref([]);
 const webInfo = ref({});
 
@@ -35,6 +43,6 @@ getWebInfo().then((res) => {
   width: 100%;
   top: 0;
   height: 100vh;
-  background-color: #F4F5F7;
+  background-color: #f4f5f7;
 }
 </style>

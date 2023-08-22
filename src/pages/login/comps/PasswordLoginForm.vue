@@ -78,10 +78,12 @@ const onLogin = async (event) => {
       const res = await userStore.login(params);
       if (res.code === "4003") {
         refreshCode();
+        return;
       }
-    } catch (error) {}
-
-    router.replace("/");
+      router.replace("/");
+    } catch (error) {
+      console.error("error: ", error);
+    }
   }
 };
 

@@ -44,7 +44,7 @@
 
     <v-btn
       v-if="$route.path !== '/login' && !isLogin"
-      class="d-none d-sm-flex btn-custom-nm ml-5"
+      class="d-none d-sm-flex btn-custom-nm mx-5"
       variant="outlined"
       color="primary"
       to="/login"
@@ -104,9 +104,13 @@ const isLogin = computed(() => {
 });
 
 const logout = async () => {
-  await userStore.logout();
-  isLogin.value = false;
-  router.replace("/");
+  try {
+    await userStore.logout();
+    isLogin.value = false;
+    router.replace("/");
+  } catch (error) {
+    
+  }
 };
 </script>
 

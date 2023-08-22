@@ -7,7 +7,7 @@
     <v-container>
       <v-form @submit.prevent="onSubmit" :fast-fail="false" validate-on="blur">
         <v-text-field
-          v-model="phone"
+          v-model="formData.phone"
           label="手机号"
           prepend-icon="mdi-phone"
           type="tel"
@@ -16,7 +16,7 @@
           ref="phoneInputRef"
         ></v-text-field>
         <v-text-field
-          v-model="email"
+          v-model="formData.email"
           label="邮箱"
           prepend-icon="mdi-email"
           type="email"
@@ -24,14 +24,14 @@
           required
         ></v-text-field>
         <v-text-field
-          v-model="username"
+          v-model="formData.username"
           label="用户名"
           prepend-icon="mdi-account"
           :rules="[notEmpty('用户名不能为空')]"
           required
         ></v-text-field>
         <v-text-field
-          v-model="password"
+          v-model="formData.password"
           label="密码"
           type="password"
           prepend-icon="mdi-lock"
@@ -49,11 +49,12 @@
         <v-row>
           <v-col cols="8">
             <v-text-field
-              v-model="code"
+              v-model="formData.code"
               label="验证码"
               type="text"
               required
               :rules="[notEmpty('不能为空')]"
+              prepend-icon="mdi-lock"
             ></v-text-field>
           </v-col>
           <v-col cols="4" align-self="center">
@@ -80,30 +81,35 @@
 
 <script lang="ts" setup>
 import { notEmpty, phoneRule, emailRule } from "@/utils/form-rules";
-import { phoneCode } from "@/api/msm";
+import { emailCode } from "@/api/msm";
 import { useRouter } from "vue-router";
 import { useUserStore } from "@/store/user";
 const userStore = useUserStore();
 const router = useRouter();
 const phoneInputRef = ref(null);
-const email = ref("");
 
-const username = ref("");
-const password = ref("");
-const phone = ref("");
+const formData = reactive({
+  phone: "",
+  email: "",
+  code: "",
+  username: "",
+  password: "",
+});
+
 const confirmPassword = ref("");
-const code = ref("");
 const resendDisabled = ref(false);
 const resendButtonText = ref<string | Number>("发送验证码");
 const countdown = ref(60);
 
 async function resendVerificationCode() {
   const res = await phoneInputRef.value!.validate();
+  console.log("res: ", res);
   if (res.length > 0) {
     return;
   }
   try {
-    phoneCode({ phone: phone.value });
+    // phoneCode({ phone: phone.value }); //使用手机验证码
+    emailCode({ email: formData.email }); //使用邮箱验证码
     resendDisabled.value = true;
     resendButtonText.value = countdown.value;
   } catch (error) {
@@ -131,7 +137,7 @@ const toLogin = () => {
 };
 const passwordMatchRule = [
   (value: string) => {
-    if (!password.value || value !== password.value) {
+    if (!formData.password || value !== formData.password) {
       return "两次密码不一致";
     }
     return true;
@@ -143,11 +149,11 @@ const onSubmit = async (event) => {
   console.log("results: ", results);
   if (results.valid) {
     const params = {
-      phone: phone.value,
-      email: email.value,
-      username: username.value,
-      password: password.value,
-      code: code.value,
+      phone: formData.phone,
+      email: formData.email,
+      username: formData.username,
+      password: formData.password,
+      code: formData.code,
     };
     console.log("params: ", params);
     await userStore.register(params);
