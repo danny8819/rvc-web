@@ -7,14 +7,14 @@
             <h1 class="banner-title font-weight-bold white--text">
               {{ webInfo?.webName || "RVC社区" }}
             </h1>
-            <h4 class="banner-subtitle white--text font-weight-regular">
-              <!-- Minecraft我的世界公益社区 -->
+            <h4 class="banner-subtitle white--text font-weight-regular" style="width: 55vh;">
+               RVC模型交流社区
               <br />
-              <!-- 2019-2022 -->
+               2022-2023
               <br />
-              <!-- 注册并填写白名单申请来加入我们的服务器 -->
+              一起探索声音变换的无限可能,你梦想的声音从现在开始!
             </h4>
-            <div class="mt-16 pt-2" v-if="!userStore.token">
+            <div class="mt-10 pt-2" v-if="!userStore.token">
               <v-btn
                 color="error"
                 class="mr-0 mr-md-8 mb-5 mb-md-0"
@@ -25,26 +25,26 @@
                 立即注册
               </v-btn>
 
-              <!-- <v-btn
+              <v-btn
                 size="large"
                 target="_blank"
-                href="https://qm.qq.com/cgi-bin/qm/qr?k=LyhaBNgHliX2gl4u6oSvlrSMayyAAEe_&jump_from=webapi"
-                class="mr-0 mr-md-8 mb-5 mb-md-0"
+                href=""
+                class="mr-0 mr-md-8 mb-5 mb-md-0 flow-button"
                 variant="outlined"
                 color="white"
                 elevation="0"
               >
-                快速加群
-              </v-btn> -->
+                进入社区
+              </v-btn>
             </div>
           </div>
         </v-col>
         <v-col cols="12" md="5" lg="6">
-          <v-img
-            max-height="450px"
-            src="/img/二次元猫娘2.png"
-            alt="banner2"
-          />
+<!--          <v-img-->
+<!--            max-height="450px"-->
+<!--            src="/img/二次元猫娘2.png"-->
+<!--            alt="banner2"-->
+<!--          />-->
         </v-col>
       </v-row>
     </v-container>
@@ -62,6 +62,7 @@ defineProps<{
     officialQq: string;
     webName: string;
     websiteUrl: string;
+    webDescription:string;
   }>;
 }>();
 </script>

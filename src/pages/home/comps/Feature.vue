@@ -4,7 +4,7 @@
       <v-row>
         <v-col cols="12" lg="10">
           <v-img
-            src="https://cdn.lwmc.net/images/banners/banner1.jpg"
+            src="./img/feature-img1.png"
             alt="feature"
             class="rounded"
           />

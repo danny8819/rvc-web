@@ -14,7 +14,7 @@
 }
 
 .banner-wrapper {
-  background-image: url('/img/banner-bg.webp');
+  background-image: url('/img/banner-bg2.png');
   background-size: cover;
   background-position: center 28%;
   padding: 20px 0 20px;
@@ -43,8 +43,12 @@
 // Banner1
 //
 .banner1-component {
-  padding: 60px 0;
-  background-color: #ad7260;
+  background-image: url('/img/banner2-bg.png');
+  background-size: cover;
+  background-position: center 45%;
+  padding: 20px 0 20px;
+  display: flex;
+  align-items: center;
   .banner1-title {
     font-size: 48px;
     line-height: 50px;

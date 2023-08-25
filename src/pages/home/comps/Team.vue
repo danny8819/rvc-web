@@ -24,7 +24,7 @@
           >
             <v-card elevation="0" class="team-card overflow-hidden mb-15">
               <div class="social-overlay">
-      
+
                 <v-img :src="item.img" alt="team" />
                 <div class="img-overlay">
                   <ul>
@@ -36,8 +36,8 @@
                   </ul>
                 </div>
               </div>
-              <div class="pa-2">
-                <h5 class="team-title font-weight-medium font-18">
+              <div class="pa-2" style="background: #f8f8f8;">
+                <h5 class="team-title font-weight-medium font-17">
                   {{ item.nickname }}
                 </h5>
                 <p class="team-subtitle">

@@ -6,16 +6,14 @@
           <v-col cols="12" md="7" lg="6" class="d-flex align-center">
             <div class="text-center text-md-left">
               <v-chip size="small" class="bg-dark" color="white"
-                >周目预告</v-chip
+                >版本信息</v-chip
               >
               <h2
                 class="banner1-title font-weight-bold text-uppercase white--text"
               >
-                1.19【第八周目】已经到来 6月8日正式启动！
+                {{ webInfo.githubVersion }}【RVC】已经到来！
               </h2>
-              <p class="white--text op-8 font-weight-regular">
-                1.19是荒野更新的首个正式版，也是Java版即将到来的一次主要更新，计划于2022年发布。此次更新将会加入深暗之域和红树林沼泽生物群系及其相关内容。<br />
-                这可能是我们服务器第一个长期版本哦！
+              <p class="white--text op-8 font-weight-regular" v-html="webInfo.versionDescription">
               </p>
               <div class="mt-16 pt-2">
                 <v-btn
@@ -23,7 +21,7 @@
                   large
                   rounded
                   target="_blank"
-                  href="https://minecraft.fandom.com/zh/wiki/Java%E7%89%881.19?variant=zh"
+                  href="https://github.com/LorisYounger/VPet/releases"
                   class="btn-custom-md"
                   depressed
                   color="white"
@@ -35,15 +33,25 @@
             </div>
           </v-col>
           <v-col cols="12" md="5" lg="5">
-            <v-img
-              width="60%"
-              src="https://cdn.lwmc.net/images/banners/banner3.png"
-              alt="banner3"
-              class="rounded"
-            />
           </v-col>
         </v-row>
       </v-container>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+defineProps<{
+  webInfo: Partial<{
+    beianInfo: string;
+    id: number;
+    masterQq: string;
+    officialQq: string;
+    webName: string;
+    websiteUrl: string;
+    webDescription:string;
+    githubVersion:string;
+    versionDescription:string;
+  }>;
+}>();
+</script>
