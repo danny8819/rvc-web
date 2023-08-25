@@ -66,5 +66,7 @@ defineProps<{
     description: string;
     img: string;
   }[];
-}>();
+}>()
+
+
 </script>

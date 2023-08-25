@@ -8,3 +8,7 @@ export function getMember(){
 export function getWebInfo(){
     return request.get('/webInfo/getWebInfo')
 }
+
+export function getWebTool(){
+    return request.get('/webInfo/getTool')
+}
