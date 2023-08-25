@@ -110,6 +110,10 @@ h6 {
   padding: 0 !important;
 }
 
+.font-17 {
+  font-size: 17px;
+}
+
 .font-18 {
   font-size: 18px;
 }
@@ -133,7 +137,13 @@ h6 {
     color: $primary !important;
   }
 }
-
+.gray-link{
+  text-decoration: none;
+  color: #8d97ad !important;
+  &:hover {
+    color: $primary !important;
+  }
+}
 .mini-spacer {
   padding: 75px 0;
 }

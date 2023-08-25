@@ -41,7 +41,7 @@ export default {
   min-height: 350px;
   overflow: auto;
   background-size: cover;
-  background: url("/img/long-bg2.webp") top 50% center;
+  background: url("/img/comming-soon-bg1.png")  top 50% center;
   background-size: cover;
   display: flex;
   align-items: center;

@@ -13,9 +13,10 @@ import '@mdi/font/css/materialdesignicons.css'
 import './style.css'
 import './style/scss/index.scss'
 import 'element-plus/dist/index.css'
- 
+import 'jquery'
+
 import { createVuetify } from 'vuetify'
- 
+
 const vuetify = createVuetify({
   theme:{
     themes:{

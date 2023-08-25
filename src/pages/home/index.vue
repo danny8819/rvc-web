@@ -1,15 +1,17 @@
 <template>
   <div class="home-page">
+    <Welcome/>
     <Banner :webInfo="webInfo" />
     <Feature />
-    <!-- <Portfolio :history-list="historyList" /> -->
-    <!-- <Banner2 /> -->
+     <Portfolio :history-list="historyList" />
+     <Banner2 :webInfo="webInfo" />
     <Team :members="members" />
     <ComingSoon />
   </div>
 </template>
 
 <script lang="ts" setup>
+import Welcome from "@/pages/home/comps/Welcome.vue";
 import Banner from "@/pages/home/comps/Banner.vue";
 import Feature from "@/pages/home/comps/Feature.vue";
 import Portfolio from "@/pages/home/comps/Portfolio.vue";
@@ -66,6 +68,7 @@ const historyList = [
 
 const members = ref([]);
 const webInfo = ref({});
+const isLoading = true
 
 getMember().then((res) => {
   members.value = res?.data?.members || [];

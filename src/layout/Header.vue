@@ -43,6 +43,7 @@
     <v-spacer></v-spacer>
 
     <v-btn
+
       v-if="$route.path !== '/login' && !isLogin"
       class="d-none d-sm-flex btn-custom-nm mx-5"
       variant="outlined"
@@ -109,14 +110,17 @@ const logout = async () => {
     isLogin.value = false;
     router.replace("/");
   } catch (error) {
-    
+
   }
 };
 </script>
 
 <style lang="scss">
 .app-header {
+  position: fixed;
+  z-index: 999;
   height: 60px;
+  width: 100%;
   box-shadow: rgba(4, 17, 29, 0.25) 0px 8px 8px -8px;
   background-color: $white;
   .logo-wrap {
@@ -196,9 +200,10 @@ const logout = async () => {
 
 @media (max-width: 600px) {
   .app-header {
+    position: fixed;
     .navbar-nav {
       display: none;
-      position: absolute;
+      position: fixed;
       left: 0;
       top: 60px;
       width: 100%;
