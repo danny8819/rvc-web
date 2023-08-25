@@ -2,6 +2,7 @@
   <div class="">
     <div class="rvc-bgc"></div>
     <Header />
+    <div class="header-after" style="height: 60px"></div>
     <router-view></router-view>
     <Footer :webInfo="webInfo" />
   </div>
