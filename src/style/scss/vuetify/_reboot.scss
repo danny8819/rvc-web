@@ -35,7 +35,8 @@ h6 {
 }
 
 .theme--light.border-all,
-.border-all {
+.border-all{
+  opacity:0.9;
   border: 1px solid $border-color !important;
 }
 

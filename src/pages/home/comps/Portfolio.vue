@@ -13,7 +13,7 @@
           </v-col>
         </v-row>
         <v-row class="mt-13">
-          <ToolTable/>
+          <ToolTable :tools="tools"/>
         </v-row>
       </v-container>
     </div>
@@ -25,7 +25,7 @@ export default {
   name: "Portfolio",
   components: {ToolTable},
   props: {
-    historyList: {
+    tools: {
       type: Array,
       default: () => [],
     },

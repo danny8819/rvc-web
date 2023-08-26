@@ -20,12 +20,9 @@ if (userStore.userInfo?.username) {
   userInfo({ username: userStore.userInfo.username });
 }
 
-const members = ref([]);
 const webInfo = ref({});
 
-getMember().then((res) => {
-  members.value = res?.data?.members || [];
-});
+
 
 getWebInfo().then((res) => {
   if (res?.data?.webInfo) {

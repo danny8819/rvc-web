@@ -26,6 +26,7 @@
     "unplugin-vue-components": "^0.25.1",
     "vite-plugin-svg-icons": "^2.0.1",
     "vue": "^3.3.4",
+    "vue-property-decorator": "^9.1.2",
     "vue-filepond": "^7.0.3",
     "vue-router": "^4.2.4",
     "vuetify": "^3.3.12"

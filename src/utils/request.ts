@@ -7,8 +7,7 @@ const request = axios.create({
 const whiteUrl = [
   "/webInfo/getMember",
   "/webInfo/getWebInfo",
-  "/webInfo/getMember",
-  "/webInfo/getWebInfo",
+  "/webInfo/getTool",
   "/sms/picCode",
   "/user/login",
   "/sms/phoneCode",
@@ -56,7 +55,7 @@ request.interceptors.response.use(
     return res;
   },
   (error) => {
-    console.log("err" + error);  
+    console.log("err" + error);
     // localStorage.removeItem('token')
     // router.replace({path:'/login'})
     handleStatusCode(error.response)
