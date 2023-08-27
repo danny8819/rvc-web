@@ -1,5 +1,5 @@
 <template>
-  <svg aria-hidden="true" :style="getStyle">
+  <svg aria-hidden="true" :style="getStyle" class="svg-icon">
     <use :href="symbolId" :fill="color" />
   </svg>
 </template>
@@ -43,3 +43,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+.svg-icon:hover {
+  cursor: pointer;
+}
+</style>

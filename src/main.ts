@@ -35,7 +35,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
 app.component('file-pond', FilePond)
-app.component('file-pond', SvgIcon)
+app.component('SvgIcon', SvgIcon)
 app.use(ElementPlus)
 .use(store)
 .use(router)

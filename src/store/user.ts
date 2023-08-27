@@ -13,6 +13,12 @@ export const useUserStore = defineStore("user", {
     userInfo: null,
     token: null,
   }),
+  getters: {
+    isLogin():boolean {
+      return !!(this.userInfo && this.token );
+    },
+    
+  },
   actions: {
     async login(data) {
       let res;
