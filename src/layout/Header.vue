@@ -11,7 +11,7 @@
       </router-link>
     </div>
 
-    <v-spacer></v-spacer>
+    <!-- <v-spacer></v-spacer> -->
 
     <!-- 菜单 -->
     <v-btn
@@ -42,15 +42,9 @@
         }}</router-link>
       </li>
     </ul>
-    <v-spacer></v-spacer>
-    <v-spacer></v-spacer>
-    <v-spacer></v-spacer>
-    <!-- <v-spacer></v-spacer> -->
-    <el-input class="w-50 m-2" placeholder="搜索模型">
-      <template #prefix>
-        <el-icon class="el-input__icon"><search /></el-icon>
-      </template>
-    </el-input>
+
+    <NavSearch />
+
     <v-btn
       v-if="$route.path !== '/login' && !isLogin"
       class="d-none d-sm-flex btn-custom-nm mx-5"
@@ -97,7 +91,7 @@
 <script setup>
 import { useRouter } from "vue-router";
 import { useUserStore } from "@/store/user";
-
+import NavSearch from "@/layout/NavSearch.vue";
 defineOptions({
   name: "LayoutHeader",
 });
