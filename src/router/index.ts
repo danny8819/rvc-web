@@ -12,42 +12,56 @@ const routes = [
         children:[
             {
                 path:'/',
+                name:'Home',
                 component:Home
             },
             {
                 path: '/login',
+                name:'Login',
                 component:Login
             },
             {
                 path: '/profile',
+                name:'Profile',
                 component:Profile
             },
             {
                 path: '/community',
+                name:'Community',
                 component:Community
             },{
                 path:'/account/setting',
+                name:'Setting',
                 component:()=>import('@/pages/account/setting.vue')
             },
             {
                 path:'/account/password',
+                name:'Password',
                 component:()=>import('@/pages/login/password.vue')
             },
             {
                 path:'/article/:id',
+                name:'Article',
                 component:()=>import('@/pages/article/index.vue')
             },
             {
                 path:'/model/home',
+                name:'model-home',
                 component:()=>import('@/pages/model/model-home.vue')
             },
             {
                 path:'/model/detail/:mid',
+                name:'model-detail',
                 component:()=>import('@/pages/model/model-detail.vue')
             },
             {
                 path:'/model/publish',
+                name:'model-publish',
                 component:()=>import('@/pages/model/model-publish.vue')
+            },{
+                path:'/model/search',
+                name:'model-search',
+                component:()=>import('@/pages/model/model-search.vue')
             }
         ]
     },

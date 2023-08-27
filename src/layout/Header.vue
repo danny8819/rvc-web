@@ -14,14 +14,6 @@
     <!-- <v-spacer></v-spacer> -->
 
     <!-- 菜单 -->
-    <v-btn
-      class="toggle-btn d-flex d-sm-none d-md-none d-lg-none"
-      variant="text"
-      @click="isActive = !isActive"
-    >
-      <v-app-bar-nav-icon />
-    </v-btn>
-
     <ul
       class="navbar-nav d-flex justify-center"
       :class="[isActive ? 'd-block' : '']"
@@ -42,49 +34,65 @@
         }}</router-link>
       </li>
     </ul>
+    <!-- 搜索 -->
+    <NavSearch
+      v-if="$route.name !== 'model-search'"
+      @search="$router.push('/model/search')"
+      class="d-none d-sm-block"
+    />
 
-    <NavSearch />
-
-    <v-btn
-      v-if="$route.path !== '/login' && !isLogin"
-      class="d-none d-sm-flex btn-custom-nm mx-5"
-      variant="outlined"
-      color="primary"
-      to="/login"
-      elevation="0"
-    >
-      {{ "登录" }}
-    </v-btn>
-    <el-dropdown v-if="isLogin">
-      <v-avatar
-        size="40"
-        @mouseenter="isHovered = true"
-        class="el-dropdown-link mr-5"
+    <div class="header-right d-flex justify-center">
+      <!-- 菜单btn -->
+      <v-btn
+        class="toggle-btn d-flex d-sm-none d-md-none d-lg-none"
+        variant="text"
+        @click="isActive = !isActive"
       >
-        <img
-          :src="userStore?.userInfo?.avatar || '/img/user-placeholder.webp'"
-          alt="Avatar"
-          style="width: 100%"
-        />
-      </v-avatar>
-      <template #dropdown>
-        <el-dropdown-menu>
-          <el-dropdown-item
-            ><router-link to="/profile" class="reset-link"
-              >个人</router-link
-            ></el-dropdown-item
-          >
-          <el-dropdown-item
-            ><router-link to="/account/setting" class="reset-link"
-              >设置</router-link
-            ></el-dropdown-item
-          >
-          <el-dropdown-item @click="logout">登出</el-dropdown-item>
-          <!-- <el-dropdown-item disabled>Action 4</el-dropdown-item> -->
-          <!-- <el-dropdown-item divided>Action 5</el-dropdown-item> -->
-        </el-dropdown-menu>
-      </template>
-    </el-dropdown>
+        <v-app-bar-nav-icon />
+      </v-btn>
+      <!-- 登录btn -->
+      <v-btn
+        v-if="$route.path !== '/login' && !isLogin"
+        class="d-none d-sm-flex btn-custom-nm mx-5"
+        variant="outlined"
+        color="primary"
+        to="/login"
+        elevation="0"
+      >
+        {{ "登录" }}
+      </v-btn>
+      <!-- 头像 -->
+      <el-dropdown v-if="isLogin">
+        <v-avatar
+          size="40"
+          @mouseenter="isHovered = true"
+          class="el-dropdown-link mr-5"
+        >
+          <img
+            :src="userStore?.userInfo?.avatar || '/img/user-placeholder.webp'"
+            alt="Avatar"
+            style="width: 100%"
+          />
+        </v-avatar>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item
+              ><router-link to="/profile" class="reset-link"
+                >个人</router-link
+              ></el-dropdown-item
+            >
+            <el-dropdown-item
+              ><router-link to="/account/setting" class="reset-link"
+                >设置</router-link
+              ></el-dropdown-item
+            >
+            <el-dropdown-item @click="logout">登出</el-dropdown-item>
+            <!-- <el-dropdown-item disabled>Action 4</el-dropdown-item> -->
+            <!-- <el-dropdown-item divided>Action 5</el-dropdown-item> -->
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+    </div>
   </div>
 </template>
 

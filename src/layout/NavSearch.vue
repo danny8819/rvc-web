@@ -59,10 +59,7 @@ const emit = defineEmits(["search"]);
 const searchValue = ref("");
 
 const handleSearch = () => {
-  if (searchValue.value) {
-    console.log("handleSearch: ");
-    emit("search", searchValue.value);
-  }
+  emit("search", searchValue.value);
 };
 </script>
 
