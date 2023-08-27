@@ -1,24 +1,13 @@
 import axios from "axios";
 import { useUserStore } from "@/store/user";
+import whiteUrl from './no-auth-url'
+import { ElMessage } from 'element-plus'
+
 const request = axios.create({
   baseURL: "/appApi",
   timeout: 100000,
 });
-const whiteUrl = [
-  "/webInfo/getMember",
-  "/webInfo/getWebInfo",
-  "/webInfo/getTool",
-  "/sms/picCode",
-  "/user/login",
-  "/sms/phoneCode",
-  "/user/phoneLogin",
-  "/user/passwordLogin",
-  "/user/register",
-  "/user/forgetPwd",
-  "/user/pwdSID",
-  '/sms/emailCode',
-  '/user/emailLogin'
-];
+  
 request.interceptors.request.use(
   (config) => {
     const userStore = useUserStore();
@@ -27,7 +16,12 @@ request.interceptors.request.use(
       return config;
     }
     if (!token) {
-      return Promise.reject(new Error(config.url + "--not Token"));
+      ElMessage({
+        message: '请登录后操作',
+        grouping: true,
+        type: 'warning',
+      })
+      return Promise.reject(new Error(config.url + "❌❌not Token"));
     }
     config.headers["token"] = token;
     //config.headers['Content-Type'] = 'application/json';
@@ -55,8 +49,7 @@ request.interceptors.response.use(
     return res;
   },
   (error) => {
-    console.log("err" + error);
-    // localStorage.removeItem('token')
+    
     // router.replace({path:'/login'})
     handleStatusCode(error.response)
     return Promise.reject(error);
@@ -64,10 +57,14 @@ request.interceptors.response.use(
 );
 
 function handleStatusCode(response) {
-  if (response.status == 401 || response.data.code == 401) {
-    console.log("❌", response.config.url, response.data.code);
-    const userStore = useUserStore();
-    userStore.reset();
+  try {
+    if (response.status == 401 || response.data.code == 401) {
+      console.log("❌", response.config.url, response.data.code);
+      const userStore = useUserStore();
+      userStore.reset();
+    }
+  } catch (error) {
+    
   }
 }
 export default request;
