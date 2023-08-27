@@ -36,6 +36,18 @@ const routes = [
             {
                 path:'/article/:id',
                 component:()=>import('@/pages/article/index.vue')
+            },
+            {
+                path:'/model/home',
+                component:()=>import('@/pages/model/model-home.vue')
+            },
+            {
+                path:'/model/detail/:mid',
+                component:()=>import('@/pages/model/model-detail.vue')
+            },
+            {
+                path:'/model/publish',
+                component:()=>import('@/pages/model/model-publish.vue')
             }
         ]
     },

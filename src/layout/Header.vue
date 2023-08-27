@@ -29,21 +29,29 @@
     >
       <li
         class="nav-item text-center d-flex justify-center pr-5"
-        :class="{ active: $route.path === '/community' }"
+        v-for="(item, index) in [
+          { to: '/', text: '首页' },
+          { to: '/community', text: '交流' },
+          { to: '/model/home', text: '模型' },
+        ]"
+        :key="index"
+        :class="{ active: $route.path === item.to }"
       >
-        <router-link class="nav-link" to="/community">交流</router-link>
-      </li>
-      <li class="nav-item text-center d-flex justify-center">
-        <router-link class="nav-link" to="/">其他</router-link>
+        <router-link class="nav-link" :to="item.to">{{
+          item.text
+        }}</router-link>
       </li>
     </ul>
     <v-spacer></v-spacer>
     <v-spacer></v-spacer>
     <v-spacer></v-spacer>
-    <v-spacer></v-spacer>
-
+    <!-- <v-spacer></v-spacer> -->
+    <el-input class="w-50 m-2" placeholder="搜索模型">
+      <template #prefix>
+        <el-icon class="el-input__icon"><search /></el-icon>
+      </template>
+    </el-input>
     <v-btn
-
       v-if="$route.path !== '/login' && !isLogin"
       class="d-none d-sm-flex btn-custom-nm mx-5"
       variant="outlined"
@@ -109,9 +117,7 @@ const logout = async () => {
     await userStore.logout();
     isLogin.value = false;
     router.replace("/");
-  } catch (error) {
-
-  }
+  } catch (error) {}
 };
 </script>
 

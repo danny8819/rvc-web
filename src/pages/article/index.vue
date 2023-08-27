@@ -4,8 +4,8 @@
       <el-row :gutter="20">
         <el-col :span="16">
           <ArticleMain />
-          <ArticleReplyAction />
-          <div class="rvc-article-reply-list rvc-card">评论列表</div>
+          <ReplyInputCard class="mb-5"/>
+          <el-card class="rvc-article-reply-list">评论列表</el-card>
         </el-col>
 
         <el-col :span="8" class="rvc-article-sub">
@@ -27,10 +27,11 @@
 <script lang="ts" setup>
 import { useRoute } from "vue-router";
 import ArticleMain from "./ArticleMain.vue";
-import ArticleReplyAction from "./ArticleReplyAction.vue";
+import ReplyInputCard from "@/components/ReplyInputCard.vue";
+
 const route = useRoute();
 const { id } = route.params;
-console.log('id: ', id);
+console.log("id: ", id);
 const content = ref("");
 const editorOption = {};
 
