@@ -124,6 +124,12 @@ function onFileChange(e) {
 
     changeAvatar(formData).then((res) => {
       console.log(res);
+      if (res.code == 200) {
+        ElMessage({
+          message: res.msg || "修改成功",
+          type: "error",
+        });
+      }
       freshInfo();
     });
   }
