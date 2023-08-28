@@ -52,16 +52,17 @@ const routes = [
             {
                 path:'/model/detail/:mid',
                 name:'model-detail',
-                component:()=>import('@/pages/model/model-detail.vue')
+                component:()=>import('@/pages/model/model-detail/index.vue')
             },
             {
                 path:'/model/publish',
                 name:'model-publish',
                 component:()=>import('@/pages/model/model-publish.vue')
-            },{
+            },
+            {
                 path:'/model/search',
                 name:'model-search',
-                component:()=>import('@/pages/model/model-search.vue')
+                component:()=>import('@/pages/model/model-search/index.vue')
             }
         ]
     },

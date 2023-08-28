@@ -37,7 +37,7 @@
     <!-- 搜索 -->
     <NavSearch
       v-if="$route.name !== 'model-search'"
-      @search="$router.push('/model/search')"
+      @search="toSearch"
       class="d-none d-sm-block"
     />
 
@@ -87,8 +87,6 @@
               ></el-dropdown-item
             >
             <el-dropdown-item @click="logout">登出</el-dropdown-item>
-            <!-- <el-dropdown-item disabled>Action 4</el-dropdown-item> -->
-            <!-- <el-dropdown-item divided>Action 5</el-dropdown-item> -->
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -120,6 +118,10 @@ const logout = async () => {
     isLogin.value = false;
     router.replace("/");
   } catch (error) {}
+};
+
+const toSearch = (val) => {
+  router.push({ path: "/model/search", query: { keyword: val } });
 };
 </script>
 

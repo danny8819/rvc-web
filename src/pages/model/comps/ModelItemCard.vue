@@ -57,9 +57,9 @@ defineProps<ModelItemProps>();
 <style lang="scss">
 .brick {
   width: 33%;
-  padding-left: 25px;
-  padding-right: 25px;
-  margin-bottom: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 30px;
 
   .brick__inner {
     height: 100%;
