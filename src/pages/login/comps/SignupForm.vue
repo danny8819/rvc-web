@@ -156,8 +156,14 @@ const onSubmit = async (event) => {
       code: formData.code,
     };
     console.log("params: ", params);
-    await userStore.register(params);
-    router.replace("/");
+    try {
+      const res = await userStore.register(params);
+      if (res && res.data) {
+        router.replace("/");
+      }
+    } catch (error) {
+      console.log("error: ", error);
+    }
   }
 };
 </script>

@@ -1,4 +1,11 @@
-export default [
+// 忽略状态码异常的url
+export const ignoreErrorUrl =[
+    "/webInfo/getMember",
+    "/webInfo/getWebInfo",
+    "/webInfo/getTool",
+]
+// 不需要token的url
+export const noTokenUrl = [
     // 网站信息类
     "/webInfo/getMember",
     "/webInfo/getWebInfo",
@@ -19,3 +26,5 @@ export default [
     '/model/modelList',
     '/model/modelInfo',
 ]
+
+export default {}

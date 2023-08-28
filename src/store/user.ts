@@ -51,11 +51,16 @@ export const useUserStore = defineStore("user", {
       }
     },
     async register(data) {
-      const res = await registerApi(data);
-      const { token, userInfo } = res.data||{};
-      if (token && userInfo) {
-        this.token = token;
-        this.userInfo = userInfo;
+      try {
+        const res = await registerApi(data);
+        const { token, userInfo } = res.data||{};
+        if (token && userInfo) {
+          this.token = token;
+          this.userInfo = userInfo;
+        }
+        return res
+      } catch (error) {
+        return Promise.reject(error)
       }
     },
     async logout() {
@@ -63,7 +68,9 @@ export const useUserStore = defineStore("user", {
         await logoutApi();
         this.token = null;
         this.userInfo = null;
-      } catch (error) {}
+      } catch (error) {
+        
+      }
     },
     async updateUserInfo() {
       if (this.userInfo && this.userInfo.username) {

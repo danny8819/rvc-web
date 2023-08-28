@@ -1,29 +1,31 @@
 import axios from "axios";
 import { useUserStore } from "@/store/user";
-import whiteUrl from './no-auth-url'
-import { ElMessage } from 'element-plus'
+import {noTokenUrl,ignoreErrorUrl} from "./no-auth-url";
+import { ElMessage } from "element-plus";
 
 const request = axios.create({
   baseURL: "/appApi",
   timeout: 100000,
 });
-  
+
 request.interceptors.request.use(
   (config) => {
     const userStore = useUserStore();
     const token = userStore.token;
-    if (whiteUrl.includes(config.url!)) {
+    if (token) {
+      config.headers["token"] = token;
+    }
+    if (noTokenUrl.includes(config.url!)) {
       return config;
     }
     if (!token) {
       ElMessage({
-        message: '请登录后操作',
+        message: "请登录后操作",
         grouping: true,
-        type: 'warning',
-      })
+        type: "warning",
+      });
       return Promise.reject(new Error(config.url + "❌❌not Token"));
     }
-    config.headers["token"] = token;
     //config.headers['Content-Type'] = 'application/json';
     return config;
   },
@@ -32,8 +34,6 @@ request.interceptors.request.use(
   }
 );
 
-// response 拦截器
-// 可以在接口响应后统一处理结果
 request.interceptors.response.use(
   (response) => {
     handleStatusCode(response);
@@ -49,12 +49,13 @@ request.interceptors.response.use(
     return res;
   },
   (error) => {
-    
     // router.replace({path:'/login'})
-    handleStatusCode(error.response)
+    handleStatusCode(error.response);
     return Promise.reject(error);
   }
 );
+
+ 
 
 function handleStatusCode(response) {
   try {
@@ -62,9 +63,22 @@ function handleStatusCode(response) {
       console.log("❌", response.config.url, response.data.code);
       const userStore = useUserStore();
       userStore.reset();
+      return;
     }
-  } catch (error) {
-    
-  }
+    if (
+      (response.status != 200 || response.data.code != 200) &&
+      !ignoreErrorUrl.includes(response.config.url)
+    ) {
+      ElMessage({
+        message:
+          response.data.msg ||
+          response.data.message ||
+          response.data.code ||
+          response.status,
+        type: "error",
+        grouping: true,
+      });
+    }
+  } catch (error) {}
 }
 export default request;

@@ -52,12 +52,12 @@ dependencies:
   vue:
     specifier: ^3.3.4
     version: registry.npmmirror.com/vue@3.3.4
-  vue-property-decorator:
-    specifier: ^9.1.2
-    version: registry.npmmirror.com/vue-property-decorator@9.1.2(vue-class-component@7.2.6)(vue@3.3.4)
   vue-filepond:
     specifier: ^7.0.3
     version: registry.npmmirror.com/vue-filepond@7.0.3(filepond@4.30.4)(vue@3.3.4)
+  vue-property-decorator:
+    specifier: ^9.1.2
+    version: registry.npmmirror.com/vue-property-decorator@9.1.2(vue-class-component@7.2.6)(vue@3.3.4)
   vue-router:
     specifier: ^4.2.4
     version: registry.npmmirror.com/vue-router@4.2.4(vue@3.3.4)
@@ -3266,7 +3266,7 @@ packages:
       fsevents: registry.npmmirror.com/fsevents@2.3.2
 
   registry.npmmirror.com/vue-class-component@7.2.6(vue@3.3.4):
-    resolution: {integrity: sha512-+eaQXVrAm/LldalI272PpDe3+i4mPis0ORiMYxF6Ae4hyuCh15W8Idet7wPUEs4N4YptgFHGys4UrgNQOMyO6w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-class-component/-/vue-class-component-7.2.6.tgz}
+    resolution: {integrity: sha512-+eaQXVrAm/LldalI272PpDe3+i4mPis0ORiMYxF6Ae4hyuCh15W8Idet7wPUEs4N4YptgFHGys4UrgNQOMyO6w==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-class-component/-/vue-class-component-7.2.6.tgz}
     id: registry.npmmirror.com/vue-class-component/7.2.6
     name: vue-class-component
     version: 7.2.6
@@ -3294,17 +3294,6 @@ packages:
       vue: registry.npmmirror.com/vue@3.3.4
     dev: false
 
-  registry.npmmirror.com/vue-property-decorator@9.1.2(vue-class-component@7.2.6)(vue@3.3.4):
-    resolution: {integrity: sha512-xYA8MkZynPBGd/w5QFJ2d/NM0z/YeegMqYTphy7NJQXbZcuU6FC6AOdUAcy4SXP+YnkerC6AfH+ldg7PDk9ESQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-property-decorator/-/vue-property-decorator-9.1.2.tgz}
-    id: registry.npmmirror.com/vue-property-decorator/9.1.2
-    name: vue-property-decorator
-    version: 9.1.2
-    peerDependencies:
-      vue: '*'
-      vue-class-component: '*'
-    dependencies:
-      vue: registry.npmmirror.com/vue@3.3.4
-      vue-class-component: registry.npmmirror.com/vue-class-component@7.2.6(vue@3.3.4)
   registry.npmmirror.com/vue-filepond@7.0.3(filepond@4.30.4)(vue@3.3.4):
     resolution: {integrity: sha512-pYZ5TxGwFiiiVlRdzlJl0AyHE0/rEZiHm/0sYhIleFjV2VdGWTyxSqErN/AQwrwv32AeiNbui46vVB06Dl07ow==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-filepond/-/vue-filepond-7.0.3.tgz}
     id: registry.npmmirror.com/vue-filepond/7.0.3
@@ -3316,6 +3305,19 @@ packages:
     dependencies:
       filepond: registry.npmmirror.com/filepond@4.30.4
       vue: registry.npmmirror.com/vue@3.3.4
+    dev: false
+
+  registry.npmmirror.com/vue-property-decorator@9.1.2(vue-class-component@7.2.6)(vue@3.3.4):
+    resolution: {integrity: sha512-xYA8MkZynPBGd/w5QFJ2d/NM0z/YeegMqYTphy7NJQXbZcuU6FC6AOdUAcy4SXP+YnkerC6AfH+ldg7PDk9ESQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-property-decorator/-/vue-property-decorator-9.1.2.tgz}
+    id: registry.npmmirror.com/vue-property-decorator/9.1.2
+    name: vue-property-decorator
+    version: 9.1.2
+    peerDependencies:
+      vue: '*'
+      vue-class-component: '*'
+    dependencies:
+      vue: registry.npmmirror.com/vue@3.3.4
+      vue-class-component: registry.npmmirror.com/vue-class-component@7.2.6(vue@3.3.4)
     dev: false
 
   registry.npmmirror.com/vue-router@4.2.4(vue@3.3.4):

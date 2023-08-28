@@ -3,7 +3,7 @@
     <v-tabs v-model="tab" color="deep-purple-accent-4" align-tabs="center">
       <!-- <v-tab :value="1">手机号登录</v-tab> -->
       <v-tab :value="2">密码登录</v-tab>
-      <v-tab :value="3">密码登录</v-tab>
+      <v-tab :value="3">验证码登录</v-tab>
     </v-tabs>
 
     <!-- <PhoneLoginForm v-if="tab === 1" /> -->
