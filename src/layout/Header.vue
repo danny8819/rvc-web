@@ -14,11 +14,7 @@
     <!-- <v-spacer></v-spacer> -->
 
     <!-- 菜单 -->
-    <ul
-      class="navbar-nav d-flex justify-center"
-      :class="[isActive ? 'd-block' : '']"
-      @click="isActive = !isActive"
-    >
+    <ul class="navbar-nav" v-show="isActive">
       <li
         class="nav-item text-center d-flex justify-center pr-5"
         v-for="(item, index) in [
@@ -148,6 +144,7 @@ const toSearch = (val) => {
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
+    justify-content: center;
     align-items: center;
     height: 100%;
     z-index: 11;
@@ -212,7 +209,6 @@ const toSearch = (val) => {
   .app-header {
     position: fixed;
     .navbar-nav {
-      display: none;
       position: fixed;
       left: 0;
       top: 60px;
