@@ -18,10 +18,10 @@ export function getAllType() {
 }
 
 export function searchModelTypeByName(params: {
-  typeName: string,
+  type: string,
 }) {
  return request({
-   url: '/modelType/search/typeName/',
+   url: '/modelType/search/typeName',
    method: 'get',
    params  
  });
