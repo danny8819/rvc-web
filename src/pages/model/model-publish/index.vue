@@ -1,22 +1,8 @@
 <template>
   <div class="container-1200">
-    <v-card text="" class="d-flex mb-5 pa-5">
-      <div class="text-right" style="width: 108px; padding-right: 8px">
-        模型上传
-      </div>
-      <!-- <file-pond
-        :file="files"
-        name="test"
-        ref="pond"
-        label-idle="拖入模型上传"
-        v-bind:allow-multiple="true"
-        credits=""
-        style="width: 300px"
-        maxFiles="1"
-      /> -->
-    </v-card>
+    <ModelUpload />
 
-    <v-card class="pa-5">
+    <el-card class="pa-5" shadow="never">
       <el-form
         ref="formRef"
         :model="publishForm"
@@ -40,10 +26,7 @@
                 alt=""
               />
               <span class="el-upload-list__item-actions">
-                <span
-                  class="el-upload-list__item-delete"
-                  @click="handleDelete(index)"
-                >
+                <span class="el-upload-list__item-delete">
                   <el-icon><Delete /></el-icon>
                 </span>
               </span>
@@ -93,19 +76,16 @@
           >
         </el-form-item>
       </el-form>
-    </v-card>
+    </el-card>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from "vue";
 import type { FormInstance } from "element-plus";
 import TagsInput from "@/components/TagsInput.vue";
-import { getAllType, addModelType, addModel } from "@/api/modelType";
-
-const modelTypeOptions = [
-  
-]
+// import { getAllType, addModelType, addModel } from "@/api/modelType";
+import ModelUpload from "./ModelUpload.vue";
+const modelTypeOptions = [];
 
 const rules = {
   picture: [

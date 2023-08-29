@@ -60,7 +60,9 @@ async function resendVerificationCode() {
     }
   }
   const codeApi = props.email ? emailCode : phoneCode;
-  const params = props.email ? { email: props.email } : { phone: props.phone };
+  const params: any = props.email
+    ? { email: props.email }
+    : { phone: props.phone };
 
   try {
     codeApi(params);

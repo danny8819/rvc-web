@@ -7,10 +7,13 @@
             <h1 class="banner-title font-weight-bold white--text">
               {{ webInfo?.webName || "RVC社区" }}
             </h1>
-            <h4 class="banner-subtitle white--text font-weight-regular" style="width: 55vh;">
-               RVC模型交流社区
+            <h4
+              class="banner-subtitle white--text font-weight-regular"
+              style="width: 55vh"
+            >
+              RVC模型交流社区
               <br />
-               2022-2023
+              2022-2023
               <br />
               一起探索声音变换的无限可能,你梦想的声音从现在开始!
             </h4>
@@ -40,11 +43,11 @@
           </div>
         </v-col>
         <v-col cols="12" md="5" lg="6">
-<!--          <v-img-->
-<!--            max-height="450px"-->
-<!--            src="/img/二次元猫娘2.png"-->
-<!--            alt="banner2"-->
-<!--          />-->
+          <!--          <v-img-->
+          <!--            max-height="450px"-->
+          <!--            src="/img/二次元猫娘2.png"-->
+          <!--            alt="banner2"-->
+          <!--          />-->
         </v-col>
       </v-row>
     </v-container>
@@ -54,15 +57,18 @@
 import { useUserStore } from "@/store/user";
 const userStore = useUserStore();
 
-defineProps<{
-  webInfo: Partial<{
-    beianInfo: string;
-    id: number;
-    masterQq: string;
-    officialQq: string;
-    webName: string;
-    websiteUrl: string;
-    webDescription:string;
-  }>;
-}>();
+withDefaults(
+  defineProps<{
+    webInfo: {
+      beianInfo: string;
+      id: number;
+      masterQq: string;
+      officialQq: string;
+      webName: string;
+      websiteUrl: string;
+      webDescription: string;
+    };
+  }>(),
+  {}
+);
 </script>

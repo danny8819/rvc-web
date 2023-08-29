@@ -30,7 +30,7 @@ export default defineComponent({
   setup(props) {
     const symbolId = computed(() => `#${props.prefix}-${props.name}`);
 
-    const getStyle = computed((): CSSProperties => {
+    const getStyle = computed(() => {
       const { size } = props;
       let s = `${size}`;
       s = `${s.replace("px", "")}px`;

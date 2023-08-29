@@ -2,7 +2,7 @@ import request from "@/utils/request";
 
 // /model/collect
 // 收藏模型
-export const collectModel = (params: {mid:string}) => {
+export const collectModel = (params:{ mid : string }) => {
   return request.get("/model/collect", { params });
 };
 
@@ -17,7 +17,7 @@ export const deleteModel = (params: any) => {
 // 下载模型
 // uid: uid,
 //  mid: mid,
-export const downloadModel = (params: any) => {
+export const downloadModel = (params: any)=> {
   return request.get("/model/download", { params });
 };
 

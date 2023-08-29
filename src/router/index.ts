@@ -1,11 +1,12 @@
-import {createRouter,createWebHashHistory} from 'vue-router'
+import {createRouter,createWebHashHistory, RouteRecordRaw} from 'vue-router'
 import Home from '@/pages/home/index.vue'
 import Login from '@/pages/login/index.vue'
 import NotFoundVue from '../pages/NotFound.vue'
 import Layout from '@/layout/index.vue'
 import Profile from '@/pages/profile.vue' 
 import Community from '@/pages/community/index.vue'
-const routes = [
+
+const routes: RouteRecordRaw[] = [
     {
         path: '/',
         component:Layout,

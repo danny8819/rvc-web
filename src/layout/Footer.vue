@@ -5,7 +5,7 @@
         <h4 class="font-weight-regular font-18">
           官方QQ群：{{ webInfo?.officialQq }}
         </h4>
-        <p class="mt-5">开发者QQ：{{ webInfo.masterQq }}</p>
+        <p class="mt-5">开发者QQ：{{ webInfo?.masterQq }}</p>
       </v-col>
 
       <v-col cols="12" sm="12" md="4" lg="4" class="px-xs-0">
@@ -29,25 +29,22 @@
             href="https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI"
             target="_blank"
           >
-            <img src="../../public/icon/github.png" class="footer-icon"/>
+            <img src="../../public/icon/github.png" class="footer-icon" />
+          </a>
+          <a href="https://discord.com/invite/HcsmBBGyVk" target="_blank">
+            <img src="../../public/icon/discord.png" class="footer-icon" />
           </a>
           <a
-            href="https://discord.com/invite/HcsmBBGyVk"
+            href="https://huggingface.co/lj1995/VoiceConversionWebUI/tree/main"
             target="_blank"
           >
-            <img src="../../public/icon/discord.png" class="footer-icon"/>
+            <img src="../../public/icon/hugging-face.png" class="footer-icon" />
           </a>
           <a
-              href="https://huggingface.co/lj1995/VoiceConversionWebUI/tree/main"
-              target="_blank"
+            href="https://wpa.qq.com/msgrd?v=3&uin=901648607&site=qq&menu=yes"
+            target="_blank"
           >
-            <img src="../../public/icon/hugging-face.png" class="footer-icon"/>
-          </a>
-          <a
-              href="https://wpa.qq.com/msgrd?v=3&uin=901648607&site=qq&menu=yes"
-              target="_blank"
-          >
-            <img src="../../public/icon/qq.png" class="footer-icon"/>
+            <img src="../../public/icon/qq.png" class="footer-icon" />
           </a>
         </div>
       </v-col>
@@ -76,14 +73,14 @@ defineOptions({
   name: "LayoutFooter",
 });
 defineProps<{
-  webInfo: Partial<{
+  webInfo: {
     beianInfo: string;
     id: number;
     masterQq: string;
     officialQq: string;
     webName: string;
     websiteUrl: string;
-  }>;
+  };
 }>();
 </script>
 
@@ -131,7 +128,7 @@ defineProps<{
   }
 }
 
-.footer-icon{
+.footer-icon {
   width: 25px;
   height: 25px;
 }

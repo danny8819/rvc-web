@@ -11,10 +11,12 @@
               <h2
                 class="banner1-title font-weight-bold text-uppercase white--text"
               >
-                {{ webInfo.githubVersion }}【RVC】已经到来！
+                {{ webInfo?.githubVersion }}【RVC】已经到来！
               </h2>
-              <p class="white--text op-8 font-weight-regular" v-html="webInfo.versionDescription">
-              </p>
+              <p
+                class="white--text op-8 font-weight-regular"
+                v-html="webInfo?.versionDescription"
+              ></p>
               <div class="mt-16 pt-2">
                 <v-btn
                   nuxt
@@ -32,8 +34,7 @@
               </div>
             </div>
           </v-col>
-          <v-col cols="12" md="5" lg="5">
-          </v-col>
+          <v-col cols="12" md="5" lg="5"> </v-col>
         </v-row>
       </v-container>
     </div>
@@ -41,17 +42,20 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  webInfo: Partial<{
-    beianInfo: string;
-    id: number;
-    masterQq: string;
-    officialQq: string;
-    webName: string;
-    websiteUrl: string;
-    webDescription:string;
-    githubVersion:string;
-    versionDescription:string;
-  }>;
-}>();
+withDefaults(
+  defineProps<{
+    webInfo: {
+      beianInfo: string;
+      id: number;
+      masterQq: string;
+      officialQq: string;
+      webName: string;
+      websiteUrl: string;
+      webDescription: string;
+      githubVersion: string;
+      versionDescription: string;
+    };
+  }>(),
+  {}
+);
 </script>

@@ -121,7 +121,13 @@ const codeForm = reactive({
   code: "",
   username: isLogin ? userStore.userInfo?.username : "",
 });
-const passwordForm = reactive({
+const passwordForm = reactive<{
+  password: string;
+  checkPass: string;
+  age: string;
+  code?: string;
+  oldPassword?: string;
+}>({
   password: "",
   checkPass: "",
   age: "",
@@ -237,7 +243,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   formEl.validate((valid) => {
     if (valid) {
-      const params = {
+      const params: any = {
         code: codeForm.code,
         phone: codeForm.code,
         sid: sid,
@@ -248,7 +254,7 @@ const submitForm = (formEl: FormInstance | undefined) => {
       if (isLogin) {
         params.oldPassword = passwordForm.oldPassword;
       }
-      const api = isLogin.value ? changePwd : forgetPwd;
+      const api = isLogin ? changePwd : forgetPwd;
       api(params).then((res) => {
         console.log("res: ", res);
         step.value = 3;

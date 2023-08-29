@@ -57,8 +57,6 @@
           </div>
         </div>
         <ModelDetail :data="modelDetail" />
-
-        
       </el-col>
     </el-row>
   </div>
@@ -80,13 +78,13 @@ import {
 import { ElMessage } from "element-plus";
 
 const route = useRoute();
-const { mid } = route.params;
+const mid = route.params.mid;
 const modelDetail = ref<ModelDetail>();
 const state = reactive({
   isCollect: false,
   isLike: false,
 });
-getModelInfo({ mid: mid }).then((res) => {
+getModelInfo({ mid: mid as string }).then((res) => {
   console.log(res.data);
   state.isCollect = res.data.isCollect || false;
   state.isLike = res.data.isLike || false;
@@ -95,7 +93,7 @@ getModelInfo({ mid: mid }).then((res) => {
 
 const handleCollect = () => {
   const _api = state.isCollect ? unCollectModel : collectModel;
-  _api({ mid }).then((res) => {
+  _api({ mid: mid as string }).then((res: any) => {
     console.log(res);
     let msg =
       res.code == 200 ? (state.isCollect ? "已取消收藏" : "收藏成功") : res.msg;
@@ -108,7 +106,7 @@ const handleCollect = () => {
 };
 const handleLike = () => {
   const _api = state.isLike ? unlikeModel : likeModel;
-  _api({ mid }).then((res) => {
+  _api({ mid: mid as string }).then((res: any) => {
     console.log("res: ", res);
     let msg =
       res.code == 200 ? (state.isLike ? "已取消点赞" : "点赞成功") : res.msg;
@@ -121,8 +119,8 @@ const handleLike = () => {
 };
 
 const handleDownload = () => {
-  downloadModel({ mid }).then((res) => {
-    if (res.code != 200) {
+  downloadModel({ mid }).then((res: any) => {
+    if (res.code && res.code != 200) {
       ElMessage({
         message: res.msg,
         type: "warning",

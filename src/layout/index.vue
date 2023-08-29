@@ -20,9 +20,14 @@ if (userStore.userInfo?.username) {
   userInfo({ username: userStore.userInfo.username });
 }
 
-const webInfo = ref({});
-
-
+const webInfo = ref<{
+  beianInfo: string;
+  id: number;
+  masterQq: string;
+  officialQq: string;
+  webName: string;
+  websiteUrl: string;
+}>();
 
 getWebInfo().then((res) => {
   if (res?.data?.webInfo) {

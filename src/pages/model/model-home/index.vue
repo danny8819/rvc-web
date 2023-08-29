@@ -19,9 +19,10 @@
         <el-card
           class="rounded-lg h-100 d-flex flex-column justify-space-between align-center"
         >
-          <el-button @click="$router.push('/model-publish')">
-            发布模型
-          </el-button>
+          <div class="publish-btn" @click="$router.push('/model-publish')">
+            <SvgIcon name="upload" color="#fff" />
+            <span class="ml-2">发布模型</span>
+          </div>
         </el-card>
       </el-col>
     </el-row>
@@ -113,4 +114,22 @@ const handleToDetail = (item) => {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.publish-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 16px;
+  min-width: 90px;
+  height: 34px;
+  border-radius: 8px;
+  background: #fb7299;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+
+  padding: 0 10px;
+}
+</style>
