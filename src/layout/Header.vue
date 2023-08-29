@@ -1,6 +1,6 @@
 <template>
   <div class="app-header d-flex justify-space-between align-center">
-    <div class="logo-wrap">
+    <div class="header-left logo-wrap">
       <router-link class="nav-link" to="/">
         <img
           height="100%"
@@ -13,10 +13,26 @@
 
     <!-- <v-spacer></v-spacer> -->
 
-    <!-- 菜单 -->
-    <ul class="navbar-nav" v-show="isActive">
+    <!-- 菜单 横向-->
+    <ul class="menu-wrap horizontal d-none d-sm-none d-md-flex d-lg-flex">
       <li
-        class="nav-item text-center d-flex justify-center pr-5"
+        class="nav-item text-center pr-5"
+        v-for="(item, index) in [
+          { to: '/', text: '首页' },
+          { to: '/community', text: '交流' },
+          { to: '/model/home', text: '模型' },
+        ]"
+        :key="index"
+        :class="{ active: $route.path === item.to }"
+      >
+        <router-link class="nav-link" :to="item.to">{{
+          item.text
+        }}</router-link>
+      </li>
+    </ul>
+    <ul class="menu-wrap vertical d-md-none d-lg-none" v-if="isActive">
+      <li
+        class="nav-item text-center pr-5"
         v-for="(item, index) in [
           { to: '/', text: '首页' },
           { to: '/community', text: '交流' },
@@ -31,16 +47,12 @@
       </li>
     </ul>
     <!-- 搜索 -->
-    <NavSearch
-      v-if="$route.name !== 'model-search'"
-      @search="toSearch"
-      class="d-none d-sm-block"
-    />
+    <NavSearch v-if="$route.name !== 'model-search'" @search="toSearch" />
 
     <div class="header-right d-flex justify-center">
       <!-- 菜单btn -->
       <v-btn
-        class="toggle-btn d-flex d-sm-none d-md-none d-lg-none"
+        class="menu-toggle-btn d-flex d-sm-flex d-md-none d-lg-none"
         variant="text"
         @click="isActive = !isActive"
       >
@@ -132,28 +144,37 @@ const toSearch = (val) => {
   .logo-wrap {
     width: 85px;
     height: 100%;
+    flex-shrink: 0;
     img {
       width: 100%;
       height: 100%;
     }
   }
-
-  .navbar-nav {
+  .search-container {
+    flex-shrink: 1;
+  }
+  .menu-wrap {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow: hidden;
+
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
-    justify-content: center;
-    align-items: center;
     height: 100%;
     z-index: 11;
+
     li {
       display: flex;
+      justify-content: center;
       flex-direction: row;
       padding-left: 0;
       margin-bottom: 0;
       list-style: none;
+      flex-shrink: 0;
       a {
         text-decoration: none;
         line-height: 60px;
@@ -167,11 +188,32 @@ const toSearch = (val) => {
         font-weight: 600;
       }
     }
+
+    &.vertical {
+      position: fixed;
+      left: 0;
+      top: 60px;
+      width: 100%;
+      height: auto;
+
+      background-color: #f4f8fa;
+      flex-direction: column !important;
+      box-shadow: 0px 15px 30px rgb(0 0 0 / 12%);
+
+      .nav-item .nav-link {
+        line-height: 55px !important;
+      }
+    }
   }
+
   .nav-item:hover {
     .nav-link {
       color: $primary;
     }
+  }
+
+  .header-right {
+    flex-shrink: 0;
   }
 }
 
@@ -196,32 +238,6 @@ const toSearch = (val) => {
   }
   .banner-title {
     margin-top: -30px;
-  }
-}
-
-@media (max-width: 991px) {
-  .mob-header-fixed {
-    position: fixed;
-  }
-}
-
-@media (max-width: 600px) {
-  .app-header {
-    position: fixed;
-    .navbar-nav {
-      position: fixed;
-      left: 0;
-      top: 60px;
-      width: 100%;
-      height: auto;
-
-      background-color: #f4f8fa;
-      flex-direction: column !important;
-      box-shadow: 0px 15px 30px rgb(0 0 0 / 12%);
-      .nav-item .nav-link {
-        line-height: 55px !important;
-      }
-    }
   }
 }
 </style>
