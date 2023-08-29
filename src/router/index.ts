@@ -45,22 +45,22 @@ const routes = [
                 component:()=>import('@/pages/article/index.vue')
             },
             {
-                path:'/model/home',
+                path:'/model-home',
                 name:'model-home',
-                component:()=>import('@/pages/model/model-home.vue')
+                component:()=>import('@/pages/model/model-home/index.vue')
             },
             {
-                path:'/model/detail/:mid',
+                path:'/model-detail/:mid',
                 name:'model-detail',
                 component:()=>import('@/pages/model/model-detail/index.vue')
             },
             {
-                path:'/model/publish',
+                path:'/model-publish',
                 name:'model-publish',
-                component:()=>import('@/pages/model/model-publish.vue')
+                component:()=>import('@/pages/model/model-publish/index.vue')
             },
             {
-                path:'/model/search',
+                path:'/model-search',
                 name:'model-search',
                 component:()=>import('@/pages/model/model-search/index.vue')
             }

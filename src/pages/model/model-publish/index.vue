@@ -103,6 +103,10 @@ import type { FormInstance } from "element-plus";
 import TagsInput from "@/components/TagsInput.vue";
 import { getAllType, addModelType, addModel } from "@/api/modelType";
 
+const modelTypeOptions = [
+  
+]
+
 const rules = {
   picture: [
     {

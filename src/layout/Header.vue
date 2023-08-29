@@ -17,11 +17,7 @@
     <ul class="menu-wrap horizontal d-none d-sm-none d-md-flex d-lg-flex">
       <li
         class="nav-item text-center pr-5"
-        v-for="(item, index) in [
-          { to: '/', text: '首页' },
-          { to: '/community', text: '交流' },
-          { to: '/model/home', text: '模型' },
-        ]"
+        v-for="(item, index) in menuList"
         :key="index"
         :class="{ active: $route.path === item.to }"
       >
@@ -33,11 +29,7 @@
     <ul class="menu-wrap vertical d-md-none d-lg-none" v-if="isActive">
       <li
         class="nav-item text-center pr-5"
-        v-for="(item, index) in [
-          { to: '/', text: '首页' },
-          { to: '/community', text: '交流' },
-          { to: '/model/home', text: '模型' },
-        ]"
+        v-for="(item, index) in menuList"
         :key="index"
         :class="{ active: $route.path === item.to }"
       >
@@ -109,12 +101,16 @@ import NavSearch from "@/layout/NavSearch.vue";
 defineOptions({
   name: "LayoutHeader",
 });
-
 const router = useRouter();
 const userStore = useUserStore();
 
 const isActive = ref(false);
 const isHovered = ref(false);
+const menuList = [
+  { to: "/", text: "首页" },
+  { to: "/community", text: "交流" },
+  { to: "/model-home", text: "模型" },
+];
 
 const isLogin = computed(() => {
   return userStore.token;

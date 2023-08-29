@@ -19,7 +19,7 @@
         <el-card
           class="rounded-lg h-100 d-flex flex-column justify-space-between align-center"
         >
-          <el-button @click="$router.push('/model/publish')">
+          <el-button @click="$router.push('/model-publish')">
             发布模型
           </el-button>
         </el-card>
@@ -51,7 +51,6 @@
 import ModelItemCard from "@/pages/model/comps/ModelItemCard.vue";
 import { modelList as modelListApi, watchModel } from "@/api/model";
 import { useUserStore } from "@/store/user";
-import axios from "axios";
 
 const router = useRouter();
 const userStore = useUserStore();
@@ -110,7 +109,7 @@ const handleToDetail = (item) => {
       console.log("watchModel", res);
     });
   }
-  router.push(`/model/detail/${item.mid}`);
+  router.push(`/model-detail/${item.mid}`);
 };
 </script>
 
