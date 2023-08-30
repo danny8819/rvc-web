@@ -1,5 +1,5 @@
 <template>
-  <div class="tags-input">
+  <div class="tags-input" @click.prevent="inputRef.focus()">
     <div class="tags-container">
       <el-tag
         v-for="tag in tags"
@@ -10,11 +10,12 @@
         @click="handleClose(tag)"
         @close="handleClose(tag)"
       >
-        {{ tag }}
+        {{ tag.type }}
       </el-tag>
     </div>
     <div>
       <el-input
+        ref="inputRef"
         v-model="inputValue"
         class="ml-1 w-20"
         placeholder="按回车键Enter创建标签"
@@ -39,7 +40,7 @@
 <script setup lang="ts">
 import { getAllType, addModelType } from "@/api/modelType";
 type TagsInputProps = {
-  modelValue: string;
+  modelValue: { id: number | string; type: string }[];
   // options: {
   //   id: string;
   //   type: string;
@@ -48,55 +49,62 @@ type TagsInputProps = {
 const props = withDefaults(defineProps<TagsInputProps>(), {});
 const emit = defineEmits(["update:modelValue"]);
 const inputValue = ref("");
-const tags = ref<string[]>([]);
+const inputRef = ref();
 
 const foryouOptions = ref<{ id: string; type: string }[]>([]);
 
 getAllType().then((res) => {
-  console.log(res);
   foryouOptions.value = res.data.types;
 });
 
-watchEffect(() => {
-  if (props.modelValue) {
-    tags.value = props.modelValue.split(",");
-  } else {
-    tags.value = [];
-  }
+const tags = computed({
+  get() {
+    return props.modelValue;
+  },
+  set(val) {
+    emit("update:modelValue", val);
+  },
 });
 
-watch(
-  () => tags.value,
-  (newValue) => {
-    emit("update:modelValue", newValue.join(","));
-  }
-);
-
-const handleClose = (tag: string) => {
-  tags.value.splice(tags.value.indexOf(tag), 1);
+const handleClose = (tag) => {
+  tags.value = tags.value.filter((item) => item.id != tag.id);
 };
 
 const handleKeyup = async (e) => {
-  const type = inputValue.value;
+  const _inputVal = inputValue.value;
   if (e.key === "Enter") {
-    if (type && !tags.value.includes(type)) {
+    const _f = foryouOptions.value.find((item) => item.type == _inputVal);
+    if (_f) {
+      tags.value.push(_f);
+      return;
+    }
+    if (_inputVal && !tags.value.find((f) => f.type == _inputVal)) {
       try {
-        await addModelType({ type: type });
-        tags.value.push(type);
-        inputValue.value = "";
+        const res = await addModelType({ type: _inputVal });
+        if (res.code == 200) {
+          const newTag = {
+            id: res.data.type.id + "",
+            type: res.data.type.type,
+          };
+          foryouOptions.value.push(newTag);
+          tags.value.push(newTag);
+          inputValue.value = "";
+        }
       } catch (error) {}
     }
   }
-  if (e.key === "Backspace" && type === "") {
+  if (e.key === "Backspace" && _inputVal === "") {
     // 数值移除最后一位
     tags.value = tags.value.slice(0, tags.value.length - 1);
   }
 };
 
 const addForyouTag = (tag) => {
-  if (!tags.value.includes(tag.type)) {
-    tags.value.push(tag.type);
+  let _f = tags.value.find((item) => item.type == tag.type);
+  if (!_f) {
+    tags.value = [...tags.value, tag];
   }
+  _f = null;
 };
 </script>
 

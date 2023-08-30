@@ -6,6 +6,7 @@
       label-width="120px"
       class="demo-dynamic w-80"
       :rules="rules"
+      style="margin: auto"
     >
       <el-card class="pa-5 mb-2" shadow="never">
         <el-form-item label="模型上传" prop="fid">
@@ -81,42 +82,35 @@ const rules = {
 const formRef = ref<FormInstance>();
 
 const addForm = shallowReactive<AddModelForm>({
-  aiType: "",
-  description: "",
+  aiType: "", // aiType 模型的AI类型
+  description: "", // description 描述
   mid: "",
-  modelType: "",
-  name: "",
-  note: "",
-  picture: "",
-  fid: "",
+  name: "", // name 模型名字
+  note: "", // note 注意事项
+  picture: "", // picture 图片地址
+  fid: "", // fid是 模型的文件id
+  modelType: [], // modelType 模型标签  接口要转 "[1,2,3,4]"
 });
 
 const submitForm = (formEl: FormInstance | undefined) => {
   console.log("formEl: ", addForm);
   if (!formEl) return;
-  formEl.validate((valid) => {
+  formEl.validate(async (valid) => {
     if (valid) {
-      // name 模型名字
-      // aiType 模型的AI类型
-      // modelType 模型标签
-      // picture 图片地址
-      // description 描述
-      // note 注意事项
-      // fid是 模型的文件id
-      const params = {
-        name: addForm.name,
+      const params: any = {
         aiType: addForm.aiType,
-        modelType: addForm.modelType,
         description: addForm.description,
+        mid: addForm.mid,
+        name: addForm.name,
         note: addForm.note,
         picture: addForm.picture,
-        fid: "40e2e63a-11bb-418b-9af3-6d0d89c2f1b3",
+        fid: addForm.fid,
       };
+      params.modelType = `[${addForm.modelType.map((m) => m.id).join(",")}]`;
       console.log(params);
-      // addModel(params)
-      console.log("submit!");
+      const res = await addModel(params);
+      console.log("res: ", res);
     } else {
-      console.log("error submit!");
       return false;
     }
   });

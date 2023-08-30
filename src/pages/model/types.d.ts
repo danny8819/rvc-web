@@ -22,8 +22,10 @@ type AddModelForm = Record<
   | "mid"
   | "name"
   | "note"
-  | "modelType"
+ 
   | "fid"
   | "picture",
   string
->;
+>&{
+  "modelType":{ id: number | string; type: string }[];
+};

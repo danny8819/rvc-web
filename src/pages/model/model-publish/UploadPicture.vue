@@ -7,13 +7,15 @@
     >
       <img class="el-upload-list__item-thumbnail" :src="file.url" alt="" />
       <span class="el-upload-list__item-actions">
-        <span class="el-upload-list__item-delete">
+        <span class="el-upload-list__item-delete" @click="handleRemove(file)">
           <el-icon><Delete /></el-icon>
         </span>
       </span>
     </li>
   </ul>
   <el-upload
+    class="uploadEl"
+    ref="uploadRef"
     action="#"
     list-type="picture-card"
     :auto-upload="false"
@@ -29,29 +31,43 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { uploadImg } from "@/api/oss";
 
 const fileList = ref([]);
-
+const uploadRef = ref(null);
 defineProps<{ modelValue: string }>();
 const emit = defineEmits(["update:modelValue"]);
 
-const handleChange = (file: any, fileList: any) => {
+const handleChange = async (file: any, fileList: any) => {
   console.log(file);
+  let imgUrl;
   if (file.raw) {
     const formData = new FormData();
-    formData.append("image", file.raw);
+    formData.append("img", file.raw);
     try {
-      //   const res = await uploadModel(formData);
-      //   emit("update:modelValue", res.data.fid||'');
+      const res = await uploadImg(formData);
+      imgUrl = res.data.imgUrl || "";
     } catch (error) {
       console.error("error: ", error);
-      emit("update:modelValue", "");
+      imgUrl = "";
+      uploadRef.value.clearFiles();
     }
-  } else {
-    emit("update:modelValue", "");
   }
+  emit("update:modelValue", imgUrl);
+};
+
+const handleRemove = (file: any) => {
+  uploadRef.value.clearFiles();
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.uploadEl {
+  width: 156px;
+  height: 156px;
+}
+:deep(.el-upload) {
+  width: 100px;
+  height: 100px;
+}
+</style>

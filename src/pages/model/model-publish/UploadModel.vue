@@ -12,7 +12,8 @@
     >
       <template #trigger>
         <div class="upload-icon">
-          <svg-icon name="upload"></svg-icon>
+          <el-icon size="20"><Upload/></el-icon>
+          <!-- <svg-icon name="upload"></svg-icon> -->
         </div>
       </template>
     </el-upload>
@@ -22,14 +23,6 @@
         v-for="(file, index) in fileList"
         :key="index"
       >
-        <div class="upload-list__item-mask">
-          <span
-            class="upload-list__item-delete"
-            @click="fileList.splice(fileList.indexOf(file), 1)"
-          >
-            <el-icon size="20"><Delete /></el-icon>
-          </span>
-        </div>
         <div class="upload-list__item-icon-wrap">
           <el-image
             style="width: 100px; height: 100px"
@@ -38,6 +31,14 @@
           />
         </div>
         <div class="upload-list__item-detail">{{ file.name }}</div>
+        <div class="upload-list__item-ctrl">
+          <span
+            class="upload-list__item-delete"
+            @click="fileList.splice(fileList.indexOf(file), 1)"
+          >
+            <el-icon size="20"><Delete /></el-icon>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -45,22 +46,19 @@
 
 <script lang="ts" setup>
 import { Delete, Upload } from "@element-plus/icons-vue";
-import type {
-  UploadFile,
-  UploadFiles,
-  UploadProgressEvent,
-} from "element-plus";
+import type { UploadFile, UploadProgressEvent } from "element-plus";
 
-import { uploadModel } from "@/api/model";
+import { uploadModel } from "@/api/oss";
 
 defineProps<{
   modelValue: string;
 }>();
 const emit = defineEmits(["update:modelValue"]);
-console.log("emit: ", emit);
+
 const fileList = ref<UploadFile[]>([]);
 const handleChange = async (file: UploadFile) => {
   console.log(file);
+  return;
   let fid;
   // 上传
   if (file.raw) {
@@ -68,7 +66,6 @@ const handleChange = async (file: UploadFile) => {
     formData.append("model", file.raw);
     try {
       const res = await uploadModel(formData);
-      console.log("res: ", res); // 8c833edf-96c6-46d2-b5be-da34084aaf69
       fid = res.data.fid;
     } catch (error) {
       emit("update:modelValue", "");
@@ -79,22 +76,9 @@ const handleChange = async (file: UploadFile) => {
     emit("update:modelValue", fid);
   }
 };
-const handleProgress = (
-  evt: UploadProgressEvent,
-  uploadFile: UploadFile,
-  uploadFiles: UploadFiles
-) => {
+const handleProgress = (evt: UploadProgressEvent) => {
   console.log("progress");
 };
-// {
-//   "name": "d67aa168064ae2ca0145a3907e82c2fe009ea8b4.gif",
-//   "percentage": 0,
-//   "status": "ready",
-//   "size": 456424,
-//   "raw": "[object File]",
-//   "uid": 1693284726433,
-//   "url": "blob:http://127.0.0.1:9000/0bfdd9ed-504f-4a53-896e-cd70ffb80248"
-// }
 </script>
 
 <style scoped lang="scss">
@@ -140,7 +124,6 @@ const handleProgress = (
   min-width: 400px;
   padding: 20px 0 20px 0;
   position: relative;
-
   border: 1px solid #ccc;
 
   .upload-list__item-icon-wrap {
@@ -157,20 +140,31 @@ const handleProgress = (
   .upload-list__item-detail {
     flex: 1;
   }
-  &:hover .upload-list__item-mask {
+
+  &:hover .upload-list__item-ctrl .upload-list__item-delete {
+    display: flex;
+  }
+  .upload-list__item-ctrl {
+    width: 50px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 1;
-  }
+    color: #333;
 
+    .upload-list__item-delete {
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+  }
   .upload-list__item-mask {
     display: none;
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    top: 25px;
+    right: 0px;
+    width: 50px;
+    height: 50px;
 
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
