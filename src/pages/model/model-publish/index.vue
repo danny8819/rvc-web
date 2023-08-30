@@ -1,104 +1,59 @@
 <template>
   <div class="container-1200">
-    <ModelUpload />
-
-    <el-card class="pa-5" shadow="never">
-      <el-form
-        ref="formRef"
-        :model="publishForm"
-        label-width="120px"
-        class="demo-dynamic w-80"
-        :rules="rules"
-      >
+    <el-form
+      ref="formRef"
+      :model="addForm"
+      label-width="120px"
+      class="demo-dynamic w-80"
+      :rules="rules"
+    >
+      <el-card class="pa-5 mb-2" shadow="never">
+        <el-form-item label="模型上传" prop="fid">
+          <UploadModel v-model="addForm.fid" />
+        </el-form-item>
+      </el-card>
+      <el-card class="pa-5 mb-2" shadow="never">
         <el-form-item label="封面" prop="picture">
-          <ul
-            class="el-upload-list el-upload-list--picture-card"
-            v-if="publishForm.picture.length > 0"
-          >
-            <li
-              v-for="(file, index) in publishForm.picture"
-              :key="index"
-              class="el-upload-list__item"
-            >
-              <img
-                class="el-upload-list__item-thumbnail"
-                :src="file.url"
-                alt=""
-              />
-              <span class="el-upload-list__item-actions">
-                <span class="el-upload-list__item-delete">
-                  <el-icon><Delete /></el-icon>
-                </span>
-              </span>
-            </li>
-          </ul>
-          <el-upload
-            action="#"
-            list-type="picture-card"
-            :auto-upload="false"
-            :limit="1"
-            v-model:file-list="publishForm.picture"
-            accept="image/*"
-            :show-file-list="false"
-            v-show="publishForm.picture.length < 1"
-          >
-            <el-icon><Plus /></el-icon>
-          </el-upload>
+          <UploadPicture v-model="addForm.picture" />
         </el-form-item>
         <el-form-item label="标题" prop="name">
-          <el-input v-model="publishForm.name"> </el-input>
+          <el-input v-model="addForm.name"> </el-input>
         </el-form-item>
         <el-form-item label="模型描述:" prop="description">
-          <el-input v-model="publishForm.description" type="textarea">
-          </el-input>
+          <el-input v-model="addForm.description" type="textarea"> </el-input>
         </el-form-item>
         <el-form-item label="模型类型" prop="aiType">
-          <el-select v-model="publishForm.aiType" placeholder="模型类型">
-            <el-option
-              v-for="item in aiTypeOptions"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            />
-          </el-select>
+          <el-input v-model="addForm.aiType"> </el-input>
         </el-form-item>
         <el-form-item label="标签" prop="modelType">
-          <TagsInput v-model="publishForm.modelType" />
-          <div>推荐：</div>
+          <TagsInput v-model="addForm.modelType" />
         </el-form-item>
 
         <el-form-item label="注意事项:" prop="note">
-          <el-input v-model="publishForm.note" type="textarea"> </el-input>
+          <el-input v-model="addForm.note" type="textarea"> </el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="submitForm(formRef)"
             >发布</el-button
           >
         </el-form-item>
-      </el-form>
-    </el-card>
+      </el-card>
+    </el-form>
   </div>
 </template>
 
 <script lang="ts" setup>
 import type { FormInstance } from "element-plus";
 import TagsInput from "@/components/TagsInput.vue";
-// import { getAllType, addModelType, addModel } from "@/api/modelType";
-import ModelUpload from "./ModelUpload.vue";
-const modelTypeOptions = [];
+import { addModel } from "@/api/model";
+import UploadModel from "./UploadModel.vue";
+import UploadPicture from "./UploadPicture.vue";
 
 const rules = {
-  picture: [
+  fid: [
     {
       required: true,
-      validator: function (rule: any, value: any, callback: any) {
-        if (value.length === 0) {
-          callback(new Error("请上传封面"));
-        } else {
-          callback();
-        }
-      },
-      trigger: "blur",
+      message: "请上传模型",
     },
   ],
   name: [
@@ -115,33 +70,50 @@ const rules = {
       trigger: "blur",
     },
   ],
+  picture: [
+    {
+      required: true,
+      message: "请上传封面",
+    },
+  ],
 };
 
-const aiTypeOptions = ref<Record<"value" | "label", string>[]>([
-  {
-    value: "1",
-    label: "1",
-  },
-]);
 const formRef = ref<FormInstance>();
-const publishForm = shallowReactive<AddModelType>({
+
+const addForm = shallowReactive<AddModelForm>({
   aiType: "",
   description: "",
-  fid: "",
   mid: "",
-  modelType: ["Tag 1", "Tag 2", "Tag 3"],
+  modelType: "",
   name: "",
   note: "",
-  picture: [],
+  picture: "",
+  fid: "",
 });
 
 const submitForm = (formEl: FormInstance | undefined) => {
-  console.log("formEl: ", publishForm.picture);
+  console.log("formEl: ", addForm);
   if (!formEl) return;
   formEl.validate((valid) => {
     if (valid) {
-      // const params = {}
-      // addModel()
+      // name 模型名字
+      // aiType 模型的AI类型
+      // modelType 模型标签
+      // picture 图片地址
+      // description 描述
+      // note 注意事项
+      // fid是 模型的文件id
+      const params = {
+        name: addForm.name,
+        aiType: addForm.aiType,
+        modelType: addForm.modelType,
+        description: addForm.description,
+        note: addForm.note,
+        picture: addForm.picture,
+        fid: "40e2e63a-11bb-418b-9af3-6d0d89c2f1b3",
+      };
+      console.log(params);
+      // addModel(params)
       console.log("submit!");
     } else {
       console.log("error submit!");

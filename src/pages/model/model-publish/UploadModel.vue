@@ -1,14 +1,27 @@
 <template>
-  <el-upload
-    action="#"
-    :auto-upload="false"
-    v-model:file-list="fileList"
-    :on-change="handleChange"
-    :on-progress="handleProgress"
-  >
-    <el-icon class="upload-icon" v-if="fileList.length === 0"><Upload /></el-icon>
-    <template #file="{ file }">
-      <div class="upload-list__item">
+  <div class="model-file-upload">
+    <el-upload
+      action="#"
+      :auto-upload="false"
+      v-model:file-list="fileList"
+      :on-change="handleChange"
+      :on-progress="handleProgress"
+      :show-file-list="false"
+      :class="{ 'upload-wrap': true, hide: fileList.length === 0 }"
+      v-show="fileList.length === 0"
+    >
+      <template #trigger>
+        <div class="upload-icon">
+          <svg-icon name="upload"></svg-icon>
+        </div>
+      </template>
+    </el-upload>
+    <div class="upload-list">
+      <div
+        class="upload-list__item"
+        v-for="(file, index) in fileList"
+        :key="index"
+      >
         <div class="upload-list__item-mask">
           <span
             class="upload-list__item-delete"
@@ -20,14 +33,14 @@
         <div class="upload-list__item-icon-wrap">
           <el-image
             style="width: 100px; height: 100px"
-            src="/rvc.svg"
+            :src="file.url || '/rvc.svg'"
             fit="contain"
           />
         </div>
         <div class="upload-list__item-detail">{{ file.name }}</div>
       </div>
-    </template>
-  </el-upload>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -38,16 +51,33 @@ import type {
   UploadProgressEvent,
 } from "element-plus";
 
+import { uploadModel } from "@/api/model";
+
 defineProps<{
   modelValue: string;
 }>();
 const emit = defineEmits(["update:modelValue"]);
-console.log('emit: ', emit);
+console.log("emit: ", emit);
 const fileList = ref<UploadFile[]>([]);
-const handleChange = (file: UploadFile) => {
+const handleChange = async (file: UploadFile) => {
   console.log(file);
+  let fid;
   // 上传
+  if (file.raw) {
+    const formData = new FormData();
+    formData.append("model", file.raw);
+    try {
+      const res = await uploadModel(formData);
+      console.log("res: ", res); // 8c833edf-96c6-46d2-b5be-da34084aaf69
+      fid = res.data.fid;
+    } catch (error) {
+      emit("update:modelValue", "");
+    }
+  }
   // 设置fid
+  if (fid) {
+    emit("update:modelValue", fid);
+  }
 };
 const handleProgress = (
   evt: UploadProgressEvent,
@@ -68,6 +98,14 @@ const handleProgress = (
 </script>
 
 <style scoped lang="scss">
+.model-file-upload {
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+
+  width: 600px;
+}
 .upload-icon {
   background-color: #fafafa;
   border: 1px dashed #cdd0d6;
@@ -81,6 +119,19 @@ const handleProgress = (
   justify-content: center;
   align-items: center;
 }
+.upload-wrap {
+  height: 100px;
+  flex: 0 0 100px;
+  transition: width 0.5s;
+  &.hide {
+    width: 0%;
+  }
+}
+.upload-list {
+  flex: 1;
+  align-items: stretch;
+  transition: width 0.5s;
+}
 .upload-list__item {
   display: flex;
   align-items: center;
@@ -89,6 +140,8 @@ const handleProgress = (
   min-width: 400px;
   padding: 20px 0 20px 0;
   position: relative;
+
+  border: 1px solid #ccc;
 
   .upload-list__item-icon-wrap {
     margin: 0 10px 0 32px;

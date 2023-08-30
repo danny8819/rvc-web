@@ -78,8 +78,17 @@ export const watchModel = (params: any) => {
 
 // 添加模型
 export const addModel = (data: {
-  uid:string,
-  modelForm: any;
+  // uid:string, // token即可
+  modelForm: {
+    name: string;
+    aiType: string;
+    modelType: string;
+    picture: string;
+    description: string;
+    note: string;
+    fid: string;
+  };
+
 }) => {
   return request.post("/model/addModel", data);
 };
@@ -90,8 +99,21 @@ export const addModel = (data: {
  * @param data
  * @returns
  */
-// uid: uid,
-// modelForm: modelForm,
+ 
 export const updateModel = (data: any) => {
   return request.post("/model/updateModel", data);
+};
+
+
+/**
+ * 上传模型
+ * @param formData 
+ * @returns 
+ */
+export const uploadModel = (formData: FormData) => {
+  return request.post("/oss/upload/model", formData,{
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 };
