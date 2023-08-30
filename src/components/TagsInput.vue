@@ -80,7 +80,7 @@ const handleKeyup = async (e) => {
     }
     if (_inputVal && !tags.value.find((f) => f.type == _inputVal)) {
       try {
-        const res = await addModelType({ type: _inputVal });
+        const res:any = await addModelType({ type: _inputVal });
         if (res.code == 200) {
           const newTag = {
             id: res.data.type.id + "",
