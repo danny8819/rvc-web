@@ -4,7 +4,7 @@
       <el-row :gutter="20">
         <el-col :span="16">
           <ArticleMain />
-          <ReplyInputCard class="mb-5" />
+          <ReplyInputCard class="mb-5" @sendVoice="sendVoice" />
           <el-card class="rvc-article-reply-list">评论列表
             <div class="comment mt-6" v-for="item in comments" :key="item.id">
               <v-row>
@@ -14,13 +14,15 @@
                     <span cols="2" class="comment-name">{{ item.name }}</span>
                     <span cols="10" class="comment-time ml-10">{{ item.time }}</span>
                   </div>
+                  <audio class="audio" v-if="item.type === 'voice' && item.voiceUrl" :src="item.voiceUrl" ref="audio"
+                    controls />
+                  <v-col v-else class="comment-content">{{ item.comment }}</v-col>
 
-                  <v-col class="comment-content">{{ item.comment }}</v-col>
+                  <Statement :showReply="true" :item="item" @replyVoice="replyVoice" />
 
                 </v-col>
 
               </v-row>
-
             </div>
           </el-card>
         </el-col>
@@ -53,6 +55,7 @@ import { useRoute } from "vue-router";
 import ArticleMain from "./ArticleMain.vue";
 import ReplyInputCard from "@/components/ReplyInputCard.vue";
 
+import Statement from './Statement.vue';
 const route = useRoute();
 const { id } = route.params;
 console.log("id: ", id);
@@ -73,13 +76,32 @@ const menus = ref([
   { name: '文章终点', key: 'end' },
 ])
 
-const comments = ref([
+const comments: any = ref([
   { name: 'asdss', id: '211', time: '一天前', comment: '评论评论评论评论评论评论' },
   { name: 'a2sdss', id: '2121', time: '三天前', comment: '评论评论评论评论评论评论' },
   { name: 'as2dss', id: '2211', time: '一月前', comment: '评论评论评论评论评论评论' },
   { name: 'as2dss', id: '2112', time: '一月前', comment: '评论评论评论评论评论评论' },
   { name: '2sdss', id: '2121', time: '一月前', comment: '评论评论评论评论评论评论' },
+
 ])
+
+const sendVoice = (val) => {
+  console.log(val)
+  comments.value.unshift(
+    {
+      name: '2sdss', id: '2121', time: '今天', type: 'voice', voiceUrl: val
+    }
+  )
+}
+
+const replyVoice = (item, val) => {
+  if (!item.reply) {
+    item.reply = []
+  }
+  item.reply.push({
+    name: '2sdss', id: '2121', time: '今天', type: 'voice', voiceUrl: val
+  })
+}
 onMounted(() => { });
 // 请求数据
 </script>
@@ -114,5 +136,9 @@ onMounted(() => { });
   top: 30%;
   width: 20vw;
   right: 10%;
+}
+
+.audio {
+  margin: 4px;
 }
 </style>
