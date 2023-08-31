@@ -5,8 +5,8 @@ import vuetify from "vite-plugin-vuetify";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
-import   {createSvgIconsPlugin} from 'vite-plugin-svg-icons';
-
+import {createSvgIconsPlugin} from 'vite-plugin-svg-icons';
+import Inspect from 'vite-plugin-inspect'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -25,7 +25,13 @@ export default defineConfig({
     createSvgIconsPlugin({
       iconDirs: [path.resolve(process.cwd(), 'src/assets/svg')],
       symbolId: 'icon-[dir]-[name]',
-    })
+    }),
+    Inspect(
+      {
+        build:true,
+        outputDir: '.vite-inspect'
+      }
+    )
   ],
   resolve: {
     alias: {
@@ -35,7 +41,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@/style/scss/_custom-variable.scss";`,
+        additionalData: `@use "@/style/scss/_custom-variable.scss" as *;`,
       },
     },
   },
