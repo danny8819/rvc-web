@@ -28,7 +28,7 @@ export function searchModelTypeByName(params: {
 }
 
 export function addModelType(data: {
-  typeName: string,
+  type: string,
 }) {
  return request({
    url: '/modelType/addType/',

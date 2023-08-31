@@ -2,10 +2,9 @@ import request from "@/utils/request";
 
 // /model/collect
 // 收藏模型
-export const collectModel = (params:{ mid : string }) => {
+export const collectModel = (params: { mid: string }) => {
   return request.get("/model/collect", { params });
 };
-
 
 // 删除模型
 // uid: uid,
@@ -17,7 +16,7 @@ export const deleteModel = (params: any) => {
 // 下载模型
 // uid: uid,
 //  mid: mid,
-export const downloadModel = (params: any)=> {
+export const downloadModel = (params: any) => {
   return request.get("/model/download", { params });
 };
 
@@ -25,13 +24,13 @@ export const downloadModel = (params: any)=> {
 // 点赞模型
 // uid: uid,
 // mid: mid,
-export const likeModel = (params: {mid:string}) => {
+export const likeModel = (params: { mid: string }) => {
   return request.get("/model/like", { params });
 };
 
 // /model/modelInfo
 // 获取该模型的详细信息
-export const getModelInfo = (params: {mid:string}) => {
+export const getModelInfo = (params: { mid: string }) => {
   return request.get("/model/modelInfo", { params });
 };
 
@@ -68,7 +67,6 @@ export const unlikeModel = (params: any) => {
   return request.get("/model/unlike", { params });
 };
 
- 
 // 浏览模型
 // uid: uid,
 //  mid: mid,
@@ -78,8 +76,13 @@ export const watchModel = (params: any) => {
 
 // 添加模型
 export const addModel = (data: {
-  uid:string,
-  modelForm: any;
+  name: string;
+  aiType: string;
+  modelType: string;
+  picture: string;
+  description: string;
+  note: string;
+  fid: string;
 }) => {
   return request.post("/model/addModel", data);
 };
@@ -90,8 +93,20 @@ export const addModel = (data: {
  * @param data
  * @returns
  */
-// uid: uid,
-// modelForm: modelForm,
+
 export const updateModel = (data: any) => {
   return request.post("/model/updateModel", data);
+};
+
+/**
+ * 上传模型
+ * @param formData
+ * @returns
+ */
+export const uploadModel = (formData: FormData) => {
+  return request.post("/oss/upload/model", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 };
