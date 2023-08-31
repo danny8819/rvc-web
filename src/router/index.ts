@@ -90,13 +90,13 @@ const publicRoute = [
 router.beforeEach((to, from, next) => {
   console.log("to: ", to);
   const userStore = useUserStore();
-  console.log("userStore: ", publicRoute.includes(to.name as string));
-  if(publicRoute.includes(to.name as string)){
-    next()
-  }
-  if (!userStore.isLogin && to.path !== "/login") {
-    next("/login");
-  }
+  // console.log("userStore: ", publicRoute.includes(to.name as string));
+  // if(publicRoute.includes(to.name as string)){
+  //   next()
+  // }
+  // if (!userStore.isLogin && to.path !== "/login") {
+  //   next("/login");
+  // }
   next(); 
 });
 export default router;

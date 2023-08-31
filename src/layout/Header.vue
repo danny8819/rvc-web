@@ -40,7 +40,7 @@
     </ul>
     <!-- 搜索 -->
     <NavSearch v-if="$route.name !== 'model-search'" @search="toSearch" />
-
+    <ThemeToggle />
     <div class="header-right d-flex justify-center">
       <!-- 菜单btn -->
       <v-btn
@@ -97,10 +97,14 @@
 <script setup>
 import { useRouter } from "vue-router";
 import { useUserStore } from "@/store/user";
-import NavSearch from "@/layout/NavSearch.vue";
+
+import NavSearch from "./Header/NavSearch.vue";
+import ThemeToggle from "./Header/ThemeToggle.vue";
+
 defineOptions({
   name: "LayoutHeader",
 });
+
 const router = useRouter();
 const userStore = useUserStore();
 
@@ -132,11 +136,11 @@ const toSearch = (val) => {
 <style lang="scss">
 .app-header {
   position: fixed;
-  z-index: 999;
+  z-index: 99;
   height: 60px;
   width: 100%;
   box-shadow: rgba(4, 17, 29, 0.25) 0px 8px 8px -8px;
-  background-color: $white;
+  background-color: var(--nav-bg-color);
   .logo-wrap {
     width: 85px;
     height: 100%;
