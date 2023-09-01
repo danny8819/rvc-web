@@ -4,7 +4,8 @@
     <el-row :gutter="20">
       <el-col :span="17">
         <ModelInfoCard :data="modelDetail" />
-        <ReplyInputCard class="mb-5 shadow-none" />
+        <RichEdit v-model="comment" />
+        <ReplyInputCard class="mb-5 shadow-none" @reply="handleReply" @sendVoice="sendVoice"/>
         <el-card
           shadow="never"
           class="mb-1"
@@ -67,6 +68,7 @@ import ReplyInputCard from "@/components/ReplyInputCard.vue";
 import ModelInfoCard from "@/pages/model/model-detail/ModelInfoCard.vue";
 import ModelDetailHeader from "./ModelDetailHeader.vue";
 import ModelDetail from "@/pages/model/model-detail/ModelDetail.vue";
+import RichEdit from "@/components/RichText/RichEdit.vue";
 import {
   getModelInfo,
   collectModel,
@@ -76,6 +78,7 @@ import {
   downloadModel,
 } from "@/api/model";
 import { ElMessage } from "element-plus";
+let comment = ref();
 
 const route = useRoute();
 const mid = route.params.mid;
@@ -143,6 +146,13 @@ const handleDownload = async () => {
     console.error("模型下载出错: ", error);
   }
 };
+
+const handleReply = (val) => {
+  console.log("val: ", val);
+};
+const sendVoice = (val) => {
+  console.log('val: ', val);
+}
 </script>
 
 <style lang="scss">

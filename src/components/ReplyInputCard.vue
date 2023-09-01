@@ -1,18 +1,22 @@
 <template>
-  <el-card class="pa-4 mt-8">
+  <el-card class="pa-4 mt-8" style="overflow: inherit">
     <h4 class="mb-2">看帖是喜欢，评论才是真爱：</h4>
-    <el-input v-model="comment" resize="none" :rows="4" type="textarea" placeholder="请开始你的表演..." maxlength="300"
-      show-word-limit />
-    <!-- <div id="editor"></div>
-      <div class="d-flex justify-space-between">
-        <div id="toolbar" class="border-none">
-          <button class="ql-bold"></button>
-          <button class="ql-image"></button>
-          <button id="custom-button">图</button>
-        </div>
-      </div> -->
-    <div class="d-flex justify-end my-5">
+    <EmojiSelect @choose="handleEmoji" :disabled="emojiDisabled" />
+    <el-input
+      ref="inputRef"
+      v-model="comment"
+      resize="none"
+      :rows="4"
+      type="textarea"
+      placeholder="请开始你的表演..."
+      maxlength="300"
+      show-word-limit
+      @focus="emojiDisabled = false"
+      @blur="handleBlur"
+      class="font-18"
+    />
 
+    <div class="d-flex justify-end my-5">
       <Voice @submit="submit"></Voice>
       <el-button @click="handleReply">回复</el-button>
     </div>
@@ -20,24 +24,32 @@
 </template>
 
 <script lang="ts" setup name="ReplyInput">
-import Voice from './Voice.vue';
-// import "quill/dist/quill.snow.css";
+import Voice from "./Voice.vue";
+import EmojiSelect from "@/components/EmojiSelect.vue";
 
-const emit = defineEmits(["reply", 'sendVoice']);
+const emit = defineEmits(["reply", "sendVoice"]);
+const comment = ref("");
+const emojiDisabled = ref(true);
+const inputRef = ref();
 const handleReply = () => {
-  //   const delta = quill.getText();
-  //   console.log("html: ", delta);
-  emit("reply");
+  emit("reply", comment.value);
 };
-
+const handleEmoji = (val) => {
+  console.log("val: ", val);
+  comment.value += val;
+  inputRef.value.focus();
+};
 const submit = (val) => {
   emit("sendVoice", val);
-}
-let comment = ref()
-
-
-
-
+};
+let timer;
+const handleBlur = () => {
+  timer = setTimeout(() => {
+    emojiDisabled.value = true;
+    timer && window.clearTimeout(timer);
+    timer = null;
+  }, 555);
+};
 </script>
 
 <style lang="scss"></style>
