@@ -12,7 +12,6 @@ $--bg-color: (
   $colors: $--colors,
   $bg-color: $--bg-color
 );
-@use "element-plus/theme-chalk/src/index.scss" as *; // 所有样式
 
 @use "./dark.scss";
 
