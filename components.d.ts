@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    CustomAudio: typeof import('./src/components/CustomAudio.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import('element-plus/es')['ElCard']
@@ -32,8 +33,6 @@ declare module 'vue' {
     ElTag: typeof import('element-plus/es')['ElTag']
     EmojiSelect: typeof import('./src/components/EmojiSelect.vue')['default']
     ReplyInputCard: typeof import('./src/components/ReplyInputCard.vue')['default']
-    RichEdit: typeof import('./src/components/RichText/RichEdit.vue')['default']
-    RichView: typeof import('./src/components/RichText/RichView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SvgIcon: typeof import('./src/components/SvgIcon.vue')['default']

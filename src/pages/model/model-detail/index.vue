@@ -4,7 +4,6 @@
     <el-row :gutter="20">
       <el-col :span="17">
         <ModelInfoCard :data="modelDetail" />
-        <RichEdit v-model="comment" />
         <ReplyInputCard class="mb-5 shadow-none" @reply="handleReply" @sendVoice="sendVoice"/>
         <el-card
           shadow="never"
@@ -68,7 +67,7 @@ import ReplyInputCard from "@/components/ReplyInputCard.vue";
 import ModelInfoCard from "@/pages/model/model-detail/ModelInfoCard.vue";
 import ModelDetailHeader from "./ModelDetailHeader.vue";
 import ModelDetail from "@/pages/model/model-detail/ModelDetail.vue";
-import RichEdit from "@/components/RichText/RichEdit.vue";
+
 import {
   getModelInfo,
   collectModel,
