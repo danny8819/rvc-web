@@ -1,11 +1,7 @@
 @import "./home/index.scss";
-@import "./vuetify/_buttons.scss";
-@import "./vuetify/_card.scss";
-@import "./vuetify/_input.scss";
-@import "./vuetify/_reboot.scss";
+@import "./_reboot.scss";
 
 // 滚动条
-
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -21,73 +17,21 @@
   border-radius: 5px;
 }
 
-.link {
-  text-decoration: none;
-  color: $material-font-light-theme;
-  &:hover {
-    color: $primary;
-  }
-}
+// .v-input {
+//   .v-field__input,
+//   .v-field__field {
+//     background-color: white;
+//   }
+//   .v-label.v-field-label {
+//     color: #333;
+//     opacity: 1;
+//   }
+// }
 
-.white--text {
-  color: $white !important;
-  caret-color: $white !important;
-}
-
-a.reset-link {
-  text-decoration: none;
-  color: inherit;
-  outline: none;
-  cursor: pointer;
-}
-
-.v-input {
-  .v-field__input,
-  .v-field__field {
-    background-color: white;
-  }
-  .v-label.v-field-label {
-    color: #333;
-    opacity: 1;
-  }
-}
-
-.container-1000 {
-  width: 1000px;
-  margin: auto;
-  padding: 10px;
-}
-
-.container-1200 {
-  width: 1200px;
-  margin: auto;
-  padding: 10px;
-}
-.w-80 {
-  width: 80%;
-}
-
-.top-0 {
-  top: 0;
-}
-
-.left-0 {
-  left: 0;
-}
-
-.cursor-pointer:hover {
-  cursor: pointer;
-}
-.pipe {
-  margin: 0 5px;
-  color: #ccc;
-}
-.flex-1 {
-  flex: 1;
-}
-
-.shadow-none {
-  box-shadow: none !important;
+// 重置
+ul {
+  list-style: none;
+  padding: 0;
 }
 
 // 卡片
