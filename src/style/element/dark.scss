@@ -1,14 +1,28 @@
 $--colors: (
   "primary": (
-    "base": #bfa,
+    "base": #ee83ca,
   ),
+  // "success": (
+  //   "base": #ccc,
+  // ),
+  // "warning": (
+  //   "base": #f2711c,
+  // ),
+  // "danger": (
+  //   "base": #db2828,
+  // ),
+  // "error": (
+  //   "base": #db2828,
+  // ),
+  // "info": (
+  //   "base": #42b8dd,
+  // ),
 );
 
 @forward "element-plus/theme-chalk/src/dark/var.scss" with (
-  $colors: (
-    "base": #bfa,
-  ),
+  $colors: $--colors,
   $bg-color: (
     "page": #000,
   )
 );
+@use "element-plus/theme-chalk/src/dark/css-vars.scss" as *; // html.dark

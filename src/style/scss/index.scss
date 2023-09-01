@@ -1,5 +1,4 @@
 @import "./home/index.scss";
-
 @import "./vuetify/_buttons.scss";
 @import "./vuetify/_card.scss";
 @import "./vuetify/_input.scss";
@@ -13,7 +12,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $logo-color;
+  background: var(--el-color-primary);
   border-radius: 5px;
 }
 

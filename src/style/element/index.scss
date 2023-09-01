@@ -1,35 +1,19 @@
-$--colors: #bfa;
-
-@forward "element-plus/theme-chalk/src/common/var.scss" with (
-  // $colors: (
-  // "primary": (
-  //   "base": green,
-  // ),
-  // "success": (
-  //   "base": #21ba45,
-  // ),
-  // "warning": (
-  //   "base": #f2711c,
-  // ),
-  // "danger": (
-  //   "base": #db2828,
-  // ),
-  // "error": (
-  //   "base": #db2828,
-  // ),
-  // "info": (
-  //   "base": #42b8dd,
-  // ),,
-  // ),
-  // $button-padding-horizontal: ("default": 50px)
-  $bg-color: ("page": #f2f3f5)
+$--colors: (
+  "primary": (
+    // --el-color-primary
+    "base": #ee83ca,
+  ),
 );
+$--bg-color: (
+  // --el-bg-color-page
+  "page": #f2f3f5
+);
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+  $colors: $--colors,
+  $bg-color: $--bg-color
+);
+@use "element-plus/theme-chalk/src/index.scss" as *; // 所有样式
 
-// if you want to import all
-// @use "element-plus/theme-chalk/src/index.scss" as *;
-
-// You can comment it to hide debug info.
-// @debug $--colors;
-
-// custom dark variables
 @use "./dark.scss";
+
+// @debug $--colors;
