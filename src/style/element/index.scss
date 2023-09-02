@@ -11,7 +11,7 @@ $--bg-color: (
 );
 @forward "element-plus/theme-chalk/src/common/var.scss" with (
   $colors: $--colors,
-  $bg-color: $--bg-color
+  $bg-color: $--bg-color,
 );
 
 @use "./dark.scss";

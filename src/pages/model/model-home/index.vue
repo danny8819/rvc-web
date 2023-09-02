@@ -82,6 +82,58 @@ const modelList = ref<ModelList>([
     mid: "22",
     uid: "222",
   },
+  {
+    picture:
+      "https://fj.zhjlfx.cn/aibbs/forum/202303/15/204316lr8wvjths8im441m.png",
+    name: "原神 - 妮露DiffSinger模型",
+    modelType: "[1,2,3,4]",
+    types: [{ id: "1", type: "妮露" }],
+    lookNum: 0,
+    uploadDate: "222",
+    avatar: "https://uc.zhjlfx.cn/avatar.php?uid=2&size=middle",
+    nickname: "红血球AE3803",
+    mid: "22",
+    uid: "222",
+  },
+  {
+    picture:
+      "https://fj.zhjlfx.cn/aibbs/forum/202303/15/204316lr8wvjths8im441m.png",
+    name: "原神 - 妮露DiffSinger模型",
+    modelType: "[1,2,3,4]",
+    types: [{ id: "1", type: "妮露" }],
+    lookNum: 0,
+    uploadDate: "222",
+    avatar: "https://uc.zhjlfx.cn/avatar.php?uid=2&size=middle",
+    nickname: "红血球AE3803",
+    mid: "22",
+    uid: "222",
+  },
+  {
+    picture:
+      "https://fj.zhjlfx.cn/aibbs/forum/202303/15/204316lr8wvjths8im441m.png",
+    name: "原神 - 妮露DiffSinger模型",
+    modelType: "[1,2,3,4]",
+    types: [{ id: "1", type: "妮露" }],
+    lookNum: 0,
+    uploadDate: "222",
+    avatar: "https://uc.zhjlfx.cn/avatar.php?uid=2&size=middle",
+    nickname: "红血球AE3803",
+    mid: "22",
+    uid: "222",
+  },
+  {
+    picture:
+      "https://fj.zhjlfx.cn/aibbs/forum/202303/15/204316lr8wvjths8im441m.png",
+    name: "原神 - 妮露DiffSinger模型",
+    modelType: "[1,2,3,4]",
+    types: [{ id: "1", type: "妮露" }],
+    lookNum: 0,
+    uploadDate: "222",
+    avatar: "https://uc.zhjlfx.cn/avatar.php?uid=2&size=middle",
+    nickname: "红血球AE3803",
+    mid: "22",
+    uid: "222",
+  },
 ]);
 const pagination = reactive({
   page: 1,
@@ -123,7 +175,7 @@ const handleToDetail = (item) => {
   min-width: 90px;
   height: 34px;
   border-radius: 8px;
-   
+
   background: var(--el-color-primary);
 
   color: #fff;

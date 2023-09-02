@@ -129,7 +129,7 @@ const logout = async () => {
 };
 
 const toSearch = (val) => {
-  router.push({ path: "/model/search", query: { keyword: val } });
+  router.push({ path: "/model-search", query: { keyword: val } });
 };
 </script>
 
