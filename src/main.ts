@@ -8,7 +8,7 @@ import 'virtual:svg-icons-register';
 
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import 'jquery'
-
+import {clickOutside} from './directives'
 import 'ress'
 import './style/main.css' // 原子样式 源 vuetify\lib\styles\main.css
 import '@mdi/font/css/materialdesignicons.css'
@@ -21,7 +21,7 @@ const app = createApp(App)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
-
+app.directive('clickOutside', clickOutside)
 app.component('SvgIcon', SvgIcon)
 
 app.use(store)
