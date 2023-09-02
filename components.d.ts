@@ -23,6 +23,8 @@ declare module 'vue' {
     ElPagination: typeof import('element-plus/es')['ElPagination']
     ElRate: typeof import('element-plus/es')['ElRate']
     ElRow: typeof import('element-plus/es')['ElRow']
+    ElStep: typeof import('element-plus/es')['ElStep']
+    ElSteps: typeof import('element-plus/es')['ElSteps']
     ElTag: typeof import('element-plus/es')['ElTag']
     ReplyInputCard: typeof import('./src/components/ReplyInputCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

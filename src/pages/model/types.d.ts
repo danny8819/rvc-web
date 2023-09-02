@@ -16,15 +16,16 @@ type ModelDetail = Record<
     types: Record<"id" | "type", string>[];
   };
 
-type AddModelType = Record<
+type AddModelForm = Record<
   | "aiType"
   | "description"
-  | "fid"
   | "mid"
   | "name"
-  | "note" ,
+  | "note"
+ 
+  | "fid"
+  | "picture",
   string
-> & {
-  picture:any;
-  modelType:string[];
+>&{
+  "modelType":{ id: number | string; type: string }[];
 };

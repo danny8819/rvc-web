@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/appApi/:path*",
+      "destination": "http://geniussbg.cn:10010/:path*"
+    }
+  ]
+}

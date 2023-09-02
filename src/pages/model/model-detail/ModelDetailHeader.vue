@@ -70,7 +70,7 @@ defineProps<{
   text-decoration: none;
 }
 
-::v-deep.model-detail_rate .el-rate__icon {
+:deep(.model-detail_rate .el-rate__icon) {
   font-size: 28px;
 }
 </style>

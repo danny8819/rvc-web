@@ -1,5 +1,5 @@
 <template>
-  <div class="tags-input">
+  <div class="tags-input" @click.prevent="inputRef.focus()">
     <div class="tags-container">
       <el-tag
         v-for="tag in tags"
@@ -10,57 +10,107 @@
         @click="handleClose(tag)"
         @close="handleClose(tag)"
       >
-        {{ tag }}
+        {{ tag.type }}
       </el-tag>
     </div>
     <div>
       <el-input
+        ref="inputRef"
         v-model="inputValue"
         class="ml-1 w-20"
         placeholder="按回车键Enter创建标签"
-        @keyup.enter="handleInputConfirm"
+        @keyup="handleKeyup"
       />
     </div>
+  </div>
+  <div class="tags-input-foryou">
+    <span>推荐:</span>
+    <el-tag
+      v-for="tag in foryouOptions"
+      :key="tag"
+      class="mx-1"
+      :disable-transitions="false"
+      @click="addForyouTag(tag)"
+    >
+      {{ tag.type }}
+    </el-tag>
   </div>
 </template>
 
 <script setup lang="ts">
-const props = withDefaults(
-  defineProps<{
-    modelValue: string[];
-  }>(),
-  {
-    modelValue: () => [],
-  }
-);
+import { getAllType, addModelType } from "@/api/modelType";
+type TagsInputProps = {
+  modelValue: { id: number | string; type: string }[];
+  // options: {
+  //   id: string;
+  //   type: string;
+  // }[];
+};
+const props = withDefaults(defineProps<TagsInputProps>(), {});
 const emit = defineEmits(["update:modelValue"]);
 const inputValue = ref("");
-const tags = ref<string[]>([]);
+const inputRef = ref();
 
-watchEffect(() => {
-  tags.value = props.modelValue;
+const foryouOptions = ref<{ id: string; type: string }[]>([]);
+
+getAllType().then((res) => {
+  foryouOptions.value = res.data.types;
 });
 
-watch(
-  () => tags.value,
-  (newValue) => {
-    emit("update:modelValue", newValue);
-  }
-);
+const tags = computed({
+  get() {
+    return props.modelValue;
+  },
+  set(val) {
+    emit("update:modelValue", val);
+  },
+});
 
-const handleClose = (tag: string) => {
-  tags.value.splice(tags.value.indexOf(tag), 1);
+const handleClose = (tag) => {
+  tags.value = tags.value.filter((item) => item.id != tag.id);
 };
 
-const handleInputConfirm = () => {
-  if (inputValue.value) {
-    tags.value.push(inputValue.value);
+const handleKeyup = async (e) => {
+  const _inputVal = inputValue.value;
+  if (e.key === "Enter") {
+    const _f = foryouOptions.value.find((item) => item.type == _inputVal);
+    if (_f) {
+      tags.value.push(_f);
+      return;
+    }
+    if (_inputVal && !tags.value.find((f) => f.type == _inputVal)) {
+      try {
+        const res:any = await addModelType({ type: _inputVal });
+        if (res.code == 200) {
+          const newTag = {
+            id: res.data.type.id + "",
+            type: res.data.type.type,
+          };
+          foryouOptions.value.push(newTag);
+          tags.value.push(newTag);
+          inputValue.value = "";
+        }
+      } catch (error) {}
+    }
   }
-  inputValue.value = "";
+  if (e.key === "Backspace" && _inputVal === "") {
+    // 数值移除最后一位
+    tags.value = tags.value.slice(0, tags.value.length - 1);
+  }
+};
+
+const addForyouTag = (tag) => {
+  let _f = tags.value.find((item) => item.type == tag.type);
+  if (!_f) {
+    tags.value = [...tags.value, tag];
+  }
+  _f = null;
 };
 </script>
 
 <style scoped lang="scss">
+.tags-input-container {
+}
 .tags-input {
   width: 100%;
   display: flex;
@@ -70,7 +120,7 @@ const handleInputConfirm = () => {
   border-radius: 4px;
   box-shadow: rgb(220, 223, 230) 0px 0px 0px 1px inset;
 
-  ::v-deep .el-input__wrapper {
+  :deep(.el-input__wrapper) {
     box-shadow: none;
   }
 }

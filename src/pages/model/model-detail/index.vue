@@ -101,7 +101,8 @@ const handleCollect = () => {
       message: msg,
       type: "success",
     });
-    state.isCollect = res.data.isCollect;
+    // 返回字段是 isCollection 不是 isCollect
+    state.isCollect = res.data.isCollection;
   });
 };
 const handleLike = () => {
@@ -117,16 +118,30 @@ const handleLike = () => {
     state.isLike = res.data.isLike;
   });
 };
-
-const handleDownload = () => {
-  downloadModel({ mid }).then((res: any) => {
-    if (res.code && res.code != 200) {
-      ElMessage({
-        message: res.msg,
-        type: "warning",
-      });
-    }
-  });
+function downloadFile(url, filename) {
+  var a = document.createElement("a");
+  a.style.display = "none";
+  document.body.appendChild(a);
+  a.href = url;
+  a.download = filename;
+  a.click();
+  document.body.removeChild(a);
+}
+const handleDownload = async () => {
+  const res: any = await downloadModel({ mid });
+  console.log("res: ", res);
+  if (res.code && res.code != 200) {
+    ElMessage({
+      message: res.msg,
+      type: "warning",
+    });
+    return;
+  }
+  try {
+    downloadFile(res.data.download, res.data.fileInfo.filename);
+  } catch (error) {
+    console.error("模型下载出错: ", error);
+  }
 };
 </script>
 
