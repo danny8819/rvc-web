@@ -4,11 +4,13 @@
             <SvgIcon :name="item.emoji" class="emoji" /> <span class="number ml-2">{{ item.number }}</span>
         </span>
         <span v-if="props.showReply" class="mr-4 flex w-2">
-            <el-button class="number ml-2" @click="showReplyHandle">回复</el-button>
+
+            <SvgIcon name="icon_message" size="16px" class="icon-reply mr-2" @click="showReplyHandle" />
         </span>
 
     </div>
-    <ReplyInputCard v-if="props.showReply && isReply" class="mb-5" @sendVoice="sendVoice" />
+    <ReplyInputCard v-if="props.showReply && isReply" class="mb-5" @sendVoice="sendVoice" @reply="reply"
+        :defaultVal="'@' + item.name" />
 </template>
 
 <script setup>
@@ -25,8 +27,13 @@ let emojis = ref([
 const isReply = ref(false)
 
 const showReplyHandle = () => {
+    if (isReply.value) {
+        isReply.value = !isReply.value
+        return
+    }
     bus.emit("reply-closeAll")
-    isReply.value = true
+    isReply.value = !isReply.value
+
 }
 const hideReply = () => {
 
@@ -34,9 +41,15 @@ const hideReply = () => {
 }
 bus.on("reply-closeAll", hideReply);
 
-const emit = defineEmits(['sendVoice'])
+const emits = defineEmits(['replyVoice', 'replyMsg'])
 const sendVoice = (val) => {
-    emit('sendVoice', props.item, val)
+    emits('replyVoice', val)
+    isReply.value = false
+
+}
+
+const reply = (val) => {
+    emits('replyMsg', val)
     isReply.value = false
 
 }
@@ -49,7 +62,6 @@ onBeforeUnmount(() => {
 <style  lang="scss" scoped>
 .number {
     font-size: 12px;
-    color: gray;
     line-height: 20px;
 }
 
@@ -61,5 +73,9 @@ onBeforeUnmount(() => {
 .emoji:hover {
     width: 25px !important;
     height: 25px !important;
+}
+
+.icon-reply {
+    color: $primary_color;
 }
 </style>

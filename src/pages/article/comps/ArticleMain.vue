@@ -1,6 +1,6 @@
 <template>
   <el-card class="rvc-article-main pa-10 mb-5">
-    <h1 class="rvc-article-title">Characters, Clothing, Poses, Among Other Things: A Guide</h1>
+    <div class="rvc-article-title">Characters, Clothing, Poses, Among Other Things: A Guide</div>
 
     <v-row class="rvc-article-author m-20">
       <v-col cols="1"><el-avatar class="mr-6" :size="20" src="/img/user-placeholder.webp"> </el-avatar></v-col>
@@ -15,9 +15,9 @@
 
       <v-img src="./img/feature-img1.png" alt="feature" class="rounded" />
       <div v-for="item in contents" :key="item.key" :id="item.key">
-        <h1 class="head-title">
+        <div class="head-title">
           {{ item.title }}
-        </h1>
+        </div>
         <div>
           {{ item.content }}
         </div>
@@ -34,7 +34,7 @@
 <script lang="ts" setup>
 import Statement from './Statement.vue';
 import { ref } from 'vue'
-let tags = ref([{ name: 'rvc', key: 'rvc' }, { name: 'training', key: 'training' }])
+let tags = ref([{ name: 'RVC', key: 'rvc' }, { name: 'TRAINING', key: 'training' }])
 
 let contents = ref([
   {
@@ -62,6 +62,13 @@ let contents = ref([
   word-break: break-word;
 }
 
+.head-title {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  font-weight: bold;
+  font-size: 34px;
+  margin: 10px 0;
+}
+
 .rvc-article-author {
   height: min-content;
   margin: 10px 0;
@@ -72,9 +79,10 @@ let contents = ref([
 }
 
 .rvc-article-tag {
-  background-color: #f69;
+  background-color: $primary-color;
   border-radius: 4px;
   color: white;
+
 }
 
 .rvc-article-content {
