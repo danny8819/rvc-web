@@ -79,6 +79,7 @@ let rate = ref(5)
     left: 0;
     z-index: 1;
     border-radius: 6px;
+    border: 1px solid;
 }
 
 .imgs {

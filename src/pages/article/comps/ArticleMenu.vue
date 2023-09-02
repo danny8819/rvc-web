@@ -29,12 +29,30 @@ const go = (key) => {
     document.getElementById(key).scrollIntoView();
 
 }
+const scrollTop = ref(0);
+const scrollToTop = (val) => {
+    console.log(val)
+    scrollTop.value = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+    // 为了计算距离顶部的高度，当高度大于60显示回顶部图标，小于60则隐藏
+    menus.value.forEach(element => {
+        let container = document.getElementById(element.key)
+        if (scrollTop.value > container.offsetTop) {
+            activeKey.value = element.key
+        }
+    });
+};
+window.addEventListener('scroll', scrollToTop);
 
 const menus = ref([
     { name: '前言', key: 'head' },
     { name: '介绍', key: 'Intro' },
     { name: '文章终点', key: 'end' },
 ])
+
+onBeforeUnmount(() => {
+    console.log('销毁事件')
+    window.removeEventListener('scroll', scrollToTop);
+})
 </script>
 
 
@@ -49,6 +67,7 @@ const menus = ref([
 
 .background {
 
+    border: 1px solid;
     background-image: url('/img/feature-img1.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
