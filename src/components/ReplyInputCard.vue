@@ -34,7 +34,7 @@ const handleEmoji = (val) => {
 const submit = (val) => {
   emit("sendVoice", val);
 }
-};
+
 let timer;
 const handleBlur = () => {
   timer = setTimeout(() => {
