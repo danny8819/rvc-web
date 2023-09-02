@@ -8,7 +8,6 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import Inspect from "vite-plugin-inspect";
 
-console.log(import.meta);
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
