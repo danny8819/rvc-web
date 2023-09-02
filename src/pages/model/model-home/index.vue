@@ -49,7 +49,7 @@
 </template>
 
 <script lang="ts" setup>
-import ModelItemCard from "@/pages/model/comps/ModelItemCard.vue";
+import ModelItemCard from "./ModelItemCard.vue";
 import { modelList as modelListApi, watchModel } from "@/api/model";
 import { useUserStore } from "@/store/user";
 
