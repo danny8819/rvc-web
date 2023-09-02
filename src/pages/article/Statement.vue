@@ -8,7 +8,7 @@
         </span>
 
     </div>
-    <ReplyInputCard v-if="props.showReply && isReply" class="mb-5" @sendVoice="sendVoice" />
+    <ReplyInputCard v-if="props.showReply && isReply" class="mb-5" @sendVoice="sendVoice" @reply="reply" />
 </template>
 
 <script setup>
@@ -34,9 +34,15 @@ const hideReply = () => {
 }
 bus.on("reply-closeAll", hideReply);
 
-const emit = defineEmits(['sendVoice'])
+const emits = defineEmits(['replyVoice', 'replyMsg'])
 const sendVoice = (val) => {
-    emit('sendVoice', props.item, val)
+    emits('replyVoice', val)
+    isReply.value = false
+
+}
+
+const reply = (val) => {
+    emits('replyMsg', val)
     isReply.value = false
 
 }

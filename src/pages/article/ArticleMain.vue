@@ -72,7 +72,7 @@ let contents = ref([
 }
 
 .rvc-article-tag {
-  background-color: #f69;
+  background-color: $primary-color;
   border-radius: 4px;
   color: white;
 }

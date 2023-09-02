@@ -23,17 +23,18 @@
 import Voice from './Voice.vue';
 // import "quill/dist/quill.snow.css";
 
+let comment = ref()
 const emit = defineEmits(["reply", 'sendVoice']);
 const handleReply = () => {
   //   const delta = quill.getText();
   //   console.log("html: ", delta);
-  emit("reply");
+  emit("reply", comment.value);
+  comment.value = ''
 };
 
 const submit = (val) => {
   emit("sendVoice", val);
 }
-let comment = ref()
 
 
 
