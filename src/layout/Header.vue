@@ -51,16 +51,13 @@
         <v-app-bar-nav-icon />
       </v-btn>
       <!-- 登录btn -->
-      <v-btn
+      <button
         v-if="$route.path !== '/login' && !isLogin"
-        class="d-none d-sm-flex btn-custom-nm mx-5"
-        variant="outlined"
-        color="primary"
-        to="/login"
-        elevation="0"
+        class="login-btn d-none d-sm-flex btn-custom-nm mx-5"
+        @click="$router.push('/login')"
       >
         {{ "登录" }}
-      </v-btn>
+      </button>
       <!-- 头像 -->
       <el-dropdown v-if="isLogin">
         <v-avatar
@@ -239,5 +236,15 @@ const toSearch = (val) => {
   .banner-title {
     margin-top: -30px;
   }
+}
+
+.login-btn {
+  background-color: transparent;
+  color: var(--el-color-primary);
+  border: 1px solid var(--el-color-primary);
+  border-radius: 5px;
+
+  padding: 7px 20px;
+  cursor: pointer;
 }
 </style>
