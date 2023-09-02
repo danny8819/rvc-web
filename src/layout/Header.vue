@@ -26,12 +26,20 @@
         }}</router-link>
       </li>
     </ul>
-    <ul class="menu-wrap vertical d-md-none d-lg-none" v-if="isActive">
+    <ul
+      class="menu-wrap vertical d-md-none d-lg-none"
+      v-if="isActive"
+      v-click-outside="() => (isActive = false)"
+    >
       <li
-        class="nav-item text-center pr-5"
+        class="nav-item text-center pr-5 w-100"
         v-for="(item, index) in menuList"
         :key="index"
         :class="{ active: $route.path === item.to }"
+        @click="
+          isActive = false;
+          $router.push(item.to);
+        "
       >
         <router-link class="nav-link" :to="item.to">{{
           item.text
@@ -40,7 +48,7 @@
     </ul>
     <!-- 搜索 -->
     <NavSearch v-if="$route.name !== 'model-search'" @search="toSearch" />
-
+    <ThemeToggle />
     <div class="header-right d-flex justify-center">
       <!-- 菜单btn -->
       <v-btn
@@ -51,16 +59,13 @@
         <v-app-bar-nav-icon />
       </v-btn>
       <!-- 登录btn -->
-      <v-btn
+      <button
         v-if="$route.path !== '/login' && !isLogin"
-        class="d-none d-sm-flex btn-custom-nm mx-5"
-        variant="outlined"
-        color="primary"
-        to="/login"
-        elevation="0"
+        class="login-btn d-none d-sm-flex btn-custom-nm mx-5"
+        @click="$router.push('/login')"
       >
         {{ "登录" }}
-      </v-btn>
+      </button>
       <!-- 头像 -->
       <el-dropdown v-if="isLogin">
         <v-avatar
@@ -97,10 +102,14 @@
 <script setup>
 import { useRouter } from "vue-router";
 import { useUserStore } from "@/store/user";
-import NavSearch from "@/layout/NavSearch.vue";
+
+import NavSearch from "./Header/NavSearch.vue";
+import ThemeToggle from "./Header/ThemeToggle.vue";
+
 defineOptions({
   name: "LayoutHeader",
 });
+
 const router = useRouter();
 const userStore = useUserStore();
 
@@ -125,18 +134,18 @@ const logout = async () => {
 };
 
 const toSearch = (val) => {
-  router.push({ path: "/model/search", query: { keyword: val } });
+  router.push({ path: "/model-search", query: { keyword: val } });
 };
 </script>
 
 <style lang="scss">
 .app-header {
   position: fixed;
-  z-index: 999;
+  z-index: 99;
   height: 60px;
   width: 100%;
   box-shadow: rgba(4, 17, 29, 0.25) 0px 8px 8px -8px;
-  background-color: $white;
+  background-color: var(--nav-bg-color);
   .logo-wrap {
     width: 85px;
     height: 100%;
@@ -180,7 +189,7 @@ const toSearch = (val) => {
         padding-right: 10px;
       }
       &.active a {
-        color: $primary;
+        color: var(--el-color-primary);
         font-weight: 600;
       }
     }
@@ -191,10 +200,12 @@ const toSearch = (val) => {
       top: 60px;
       width: 100%;
       height: auto;
-
+      justify-content: flex-start;
+      flex-direction: column;
       background-color: #f4f8fa;
-      flex-direction: column !important;
       box-shadow: 0px 15px 30px rgb(0 0 0 / 12%);
+
+      backdrop-filter: blur(7px);
 
       .nav-item .nav-link {
         line-height: 55px !important;
@@ -204,7 +215,7 @@ const toSearch = (val) => {
 
   .nav-item:hover {
     .nav-link {
-      color: $primary;
+      color: var(--el-color-primary);
     }
   }
 
@@ -235,5 +246,15 @@ const toSearch = (val) => {
   .banner-title {
     margin-top: -30px;
   }
+}
+
+.login-btn {
+  background-color: transparent;
+  color: var(--el-color-primary);
+  border: 1px solid var(--el-color-primary);
+  border-radius: 5px;
+
+  padding: 7px 20px;
+  cursor: pointer;
 }
 </style>

@@ -1,0 +1,16 @@
+@use "element-plus/theme-chalk/src/index.scss" as *; // all
+@use "element-plus/theme-chalk/src/dark/css-vars.scss" as *; // html.dark
+
+// @media (prefers-color-scheme: light) {
+//   :root {
+//     color: #213547;
+//     background-color: #ffffff;
+//   }
+// }
+
+html {
+  --nav-bg-color: #fff;
+}
+html.dark {
+  --nav-bg-color: #000;
+}

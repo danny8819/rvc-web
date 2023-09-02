@@ -1,6 +1,6 @@
 <template>
   <div class="brick">
-    <div class="brick__inner">
+    <el-card class="brick__inner">
       <div class="brick__image">
         <div
           class="brick__image-inner"
@@ -32,7 +32,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </el-card>
   </div>
 </template>
 
@@ -60,17 +60,20 @@ defineProps<ModelItemProps>();
   padding-left: 15px;
   padding-right: 15px;
   margin-bottom: 30px;
-
+ 
   .brick__inner {
     height: 100%;
     overflow: hidden;
     border-radius: 20px;
-    background-color: $white;
+    // border: 1px solid var(--el-card-border-color);
+    background-color: var(--el-card-bg-color);
+    // background-color: $card-bg-color;
     display: flex;
     flex-direction: column;
 
     transition: all 0.2s ease-out;
     box-shadow: 0 2px 43px -4px rgba(0, 0, 0, 0.19);
+
     &:hover {
       transform: translateY(2px);
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);

@@ -3,9 +3,14 @@ onBeforeMount(() => {
   const loadingDom = document.querySelector(".before-app-render-loading");
 
   if (loadingDom) {
-    loadingDom.addEventListener("transitionend", () => {
+    console.log("loadingDom: ", loadingDom.parentElement);
+    // loadingDom.addEventListener("transitionend", () => {
+    //   console.log("transitionend: ");
+    //   loadingDom.remove();
+    // });
+    setTimeout(() => {
       loadingDom.remove();
-    });
+    }, 500);
     loadingDom.classList.add("unmount");
   }
 });

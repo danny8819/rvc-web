@@ -46,6 +46,6 @@ getWebInfo().then((res) => {
   width: 100%;
   top: 0;
   height: 100vh;
-  background-color: #f4f5f7;
+  background-color: var(--el-bg-color-page);
 }
 </style>

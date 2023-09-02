@@ -1,14 +1,20 @@
 <template>
   <div class="container-1200">
     <ModelDetailHeader :data="modelDetail" />
+
     <el-row :gutter="20">
       <el-col :span="17">
         <ModelInfoCard :data="modelDetail" />
-        <ReplyInputCard class="mb-5 shadow-none" />
+        <ReplyInputCard
+          class="mb-5 shadow-none"
+          @reply="handleReply"
+          @sendVoice="sendVoice"
+        />
+
         <el-card
           shadow="never"
           class="mb-1"
-          v-for="(item, index) in 11"
+          v-for="(item, index) in replyList"
           :key="index"
         >
           <div class="model-detail__comment-header d-flex align-center mb-5">
@@ -21,8 +27,9 @@
             <span>作者</span><span class="pipe">|</span>
             <span>时间</span>
           </div>
+          <AudioPlayer v-if="item.voice" :src="item.voice" class="my-5" />
           <div class="model-detail__comment-content mb-5">
-            <p>66666666666666666666666666</p>
+            <p>{{ item.content }}</p>
           </div>
           <div
             class="model-detail__comment-footer d-flex justify-space-between align-center"
@@ -67,6 +74,8 @@ import ReplyInputCard from "@/components/ReplyInputCard.vue";
 import ModelInfoCard from "@/pages/model/model-detail/ModelInfoCard.vue";
 import ModelDetailHeader from "./ModelDetailHeader.vue";
 import ModelDetail from "@/pages/model/model-detail/ModelDetail.vue";
+import AudioPlayer from "@/components/AudioPlayer.vue";
+
 import {
   getModelInfo,
   collectModel,
@@ -76,6 +85,7 @@ import {
   downloadModel,
 } from "@/api/model";
 import { ElMessage } from "element-plus";
+const comment = ref();
 
 const route = useRoute();
 const mid = route.params.mid;
@@ -84,6 +94,12 @@ const state = reactive({
   isCollect: false,
   isLike: false,
 });
+const replyList = ref([
+  {
+    content: "🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔",
+    voice: "https://web-tool.dolam.top/ikun/%E9%B8%A1.wav",
+  },
+]);
 getModelInfo({ mid: mid as string }).then((res) => {
   console.log(res.data);
   state.isCollect = res.data.isCollect || false;
@@ -141,6 +157,19 @@ const handleDownload = async () => {
     downloadFile(res.data.download, res.data.fileInfo.filename);
   } catch (error) {
     console.error("模型下载出错: ", error);
+  }
+};
+
+const handleReply = (val) => {
+  console.log("val: ", val);
+};
+const sendVoice = (val) => {
+  console.log("val: ", val);
+  if (val) {
+    replyList.value.push({
+      content: val,
+      voice: val,
+    });
   }
 };
 </script>
