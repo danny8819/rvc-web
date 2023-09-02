@@ -26,12 +26,20 @@
         }}</router-link>
       </li>
     </ul>
-    <ul class="menu-wrap vertical d-md-none d-lg-none" v-if="isActive">
+    <ul
+      class="menu-wrap vertical d-md-none d-lg-none"
+      v-if="isActive"
+      v-click-outside="() => (isActive = false)"
+    >
       <li
-        class="nav-item text-center pr-5"
+        class="nav-item text-center pr-5 w-100"
         v-for="(item, index) in menuList"
         :key="index"
         :class="{ active: $route.path === item.to }"
+        @click="
+          isActive = false;
+          $router.push(item.to);
+        "
       >
         <router-link class="nav-link" :to="item.to">{{
           item.text
@@ -181,7 +189,7 @@ const toSearch = (val) => {
         padding-right: 10px;
       }
       &.active a {
-        color: $primary;
+        color: var(--el-color-primary);
         font-weight: 600;
       }
     }
@@ -192,10 +200,12 @@ const toSearch = (val) => {
       top: 60px;
       width: 100%;
       height: auto;
-
+      justify-content: flex-start;
+      flex-direction: column;
       background-color: #f4f8fa;
-      flex-direction: column !important;
       box-shadow: 0px 15px 30px rgb(0 0 0 / 12%);
+
+      backdrop-filter: blur(7px);
 
       .nav-item .nav-link {
         line-height: 55px !important;
@@ -205,7 +215,7 @@ const toSearch = (val) => {
 
   .nav-item:hover {
     .nav-link {
-      color: $primary;
+      color: var(--el-color-primary);
     }
   }
 
