@@ -80,7 +80,7 @@ const handleKeyup = async (e) => {
     }
     if (_inputVal && !tags.value.find((f) => f.type == _inputVal)) {
       try {
-        const res:any = await addModelType({ type: _inputVal });
+        const res: any = await addModelType({ type: _inputVal });
         if (res.code == 200) {
           const newTag = {
             id: res.data.type.id + "",
@@ -118,7 +118,7 @@ const addForyouTag = (tag) => {
   align-items: center;
   padding: 2px 12px;
   border-radius: 4px;
-  box-shadow: rgb(220, 223, 230) 0px 0px 0px 1px inset;
+  box-shadow: 0px 0px 0px 1px var(--el-border-color) inset;
 
   :deep(.el-input__wrapper) {
     box-shadow: none;

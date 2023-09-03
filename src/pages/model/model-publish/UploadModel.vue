@@ -12,7 +12,7 @@
     >
       <template #trigger>
         <div class="upload-icon">
-          <el-icon size="20"><Upload/></el-icon>
+          <el-icon size="20"><Upload /></el-icon>
           <!-- <svg-icon name="upload"></svg-icon> -->
         </div>
       </template>
@@ -91,8 +91,8 @@ const handleProgress = (evt: UploadProgressEvent) => {
   width: 600px;
 }
 .upload-icon {
-  background-color: #fafafa;
-  border: 1px dashed #cdd0d6;
+  background-color: var(--el-fill-color-lighter);
+  border: 1px dashed var(--el-border-color-darker);
   border-radius: 6px;
   box-sizing: border-box;
   width: 100px;
@@ -107,10 +107,12 @@ const handleProgress = (evt: UploadProgressEvent) => {
   height: 100px;
   flex: 0 0 100px;
   transition: width 0.5s;
+
   &.hide {
     width: 0%;
   }
 }
+ 
 .upload-list {
   flex: 1;
   align-items: stretch;
