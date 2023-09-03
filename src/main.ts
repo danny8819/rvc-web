@@ -10,7 +10,6 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import 'jquery'
 import {clickOutside} from './directives'
 import 'ress'
-import './style/main.css' // 原子样式 源 vuetify\lib\styles\main.css
 import '@mdi/font/css/materialdesignicons.css'
 
 import './style/scss/index.scss'

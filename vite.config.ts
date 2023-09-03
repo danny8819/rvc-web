@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       vue(),
-      vuetify({ autoImport: true }),
+      vuetify({ autoImport: true,styles: 'sass' }),
       AutoImport({
         // 匹配的文件，也就是哪些后缀的文件需要自动引入
         include: [/\.[tj]s$/, /\.vue$/],
