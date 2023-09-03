@@ -16,7 +16,9 @@
 
     <div
       class="model-search-content my-5 mx-10"
-      :style="{ '--grid-row-count': Math.ceil(22 / 5) }"
+      :style="{
+        '--grid-row-count': Math.ceil(22 / 5),
+      }"
     >
       <ModelSearchItem
         :data="{
@@ -84,15 +86,28 @@ watchEffect(() => {
 </script>
 
 <style scoped lang="scss">
+.model-search {
+  min-width: 1100px;
+}
 .model-search-header {
   width: 100%;
   display: flex;
   justify-content: center;
   padding: 40px;
 }
+
 .model-search-content {
+  --grid-col-count: 5;
   display: grid;
-  grid-template: repeat(var(--grid-row-count), 1fr) / repeat(5, 1fr);
+  grid-template: repeat(var(--grid-row-count), 1fr) / repeat(
+      var(--grid-col-count),
+      1fr
+    );
   gap: 20px 10px;
+}
+@media screen and (max-width: 1200px) {
+  .model-search-content {
+    --grid-col-count: 4;
+  }
 }
 </style>

@@ -54,19 +54,15 @@ defineProps({
   }
 }
 .model-search-item__title {
-  --title-line-height: 22px;
   display: -webkit-box;
+  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  word-break: break-word !important;
-  line-break: anywhere;
   -webkit-line-clamp: 2;
-  padding-right: 16px;
   font-size: 14px;
-  line-height: 22px;
-  height: calc(2 * var(--title-line-height));
-  color: var(--text1);
-  transition: color 0.2s linear;
+  line-height: 1.5;
+  max-height: 3em;
+  padding-right: 16px;
 }
 
 .model-search-item__footer {
