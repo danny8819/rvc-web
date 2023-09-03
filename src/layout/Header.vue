@@ -11,8 +11,6 @@
       </router-link>
     </div>
 
-    <!-- <v-spacer></v-spacer> -->
-
     <!-- 菜单 横向-->
     <ul class="menu-wrap horizontal d-none d-sm-none d-md-flex d-lg-flex">
       <li
@@ -46,22 +44,27 @@
         }}</router-link>
       </li>
     </ul>
-    <!-- 搜索 -->
-    <NavSearch v-if="$route.name !== 'model-search'" @search="toSearch" />
-    <ThemeToggle />
+
+    <NavSearch
+      v-if="$route.name !== 'model-search'"
+      @search="toSearch"
+      class="d-none d-sm-block"
+    />
+
+    <ThemeToggle class="d-none d-sm-inline-flex" />
+
     <div class="header-right d-flex justify-center">
       <!-- 菜单btn -->
-      <v-btn
+
+      <v-app-bar-nav-icon
         class="menu-toggle-btn d-flex d-sm-flex d-md-none d-lg-none"
-        variant="text"
         @click="isActive = !isActive"
-      >
-        <v-app-bar-nav-icon />
-      </v-btn>
+      />
+
       <!-- 登录btn -->
       <button
         v-if="$route.path !== '/login' && !isLogin"
-        class="login-btn d-none d-sm-flex btn-custom-nm mx-5"
+        class="login-btn d-none d-sm-flex mx-5"
         @click="$router.push('/login')"
       >
         {{ "登录" }}
@@ -256,5 +259,8 @@ const toSearch = (val) => {
 
   padding: 7px 20px;
   cursor: pointer;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 </style>
