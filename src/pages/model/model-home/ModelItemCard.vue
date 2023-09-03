@@ -54,7 +54,7 @@ type ModelItemProps = {
 defineProps<ModelItemProps>();
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .brick {
   width: 33%;
   padding-left: 15px;
