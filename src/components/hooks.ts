@@ -1,9 +1,13 @@
 import Quill from "quill";
+import "quill/dist/quill.snow.css";
 
-export function useQuill() {
-  let quill: any;
+export function useQuill(el:string="#editor") {
+  let quill = ref();
   onMounted(() => {
-    quill = new Quill("#editor", {
+    if(!document.querySelector(el)){
+        return
+    }
+    quill.value = new Quill(el, {
       modules: {
         toolbar: {
           container: "#toolbar",
@@ -20,16 +24,16 @@ export function useQuill() {
     var customButton = document.querySelector("#custom-button");
     if (customButton) {
       customButton.addEventListener("click", function () {
-        var range = quill.getSelection();
+        var range = quill.value.getSelection();
         if (range) {
-          quill.insertEmbed(range.index, "image", "/img/user-placeholder.webp");
+          quill.value.insertEmbed(range.index, "image", "/img/user-placeholder.webp");
         }
       });
     }
   });
   onUnmounted(() => {
-    quill.destroy();
-    quill = null;
+    quill.value.destroy();
+    quill.value = null;
   })
   return { quill };
 }
