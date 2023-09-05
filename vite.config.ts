@@ -13,11 +13,9 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       vue(),
-      vuetify({ autoImport: true,styles: 'sass' }),
+      vuetify({ autoImport: true, styles: "sass" }),
       AutoImport({
-        // 匹配的文件，也就是哪些后缀的文件需要自动引入
         include: [/\.[tj]s$/, /\.vue$/],
-        // 自动引入的api从这里找
         imports: ["vue", "vue-router"],
         resolvers: [ElementPlusResolver()],
       }),

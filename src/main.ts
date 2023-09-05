@@ -9,9 +9,9 @@ import 'virtual:svg-icons-register';
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import 'jquery'
 import {clickOutside} from './directives'
+
 import 'ress'
 import '@mdi/font/css/materialdesignicons.css'
-
 import './style/scss/index.scss'
 import './style/index.scss'
 
