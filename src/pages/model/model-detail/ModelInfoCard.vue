@@ -3,27 +3,13 @@
     <div class="model-detail__info-content position-relative">
       <el-image
         class="position-absolute top-0 w-100 h-100"
-        :src="data?.picture"
+        :src="
+          data?.picture ||
+          'https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/e666efeb-9837-4e85-89a8-7998088b8836/width=450/2023-09-03%20115232.jpeg'
+        "
         fit="contain"
       />
     </div>
-
-    <!-- <el-divider class="my-2" /> -->
-
-    <!-- <div class="model-detail__info-footer pa-5">
-      <div class="model-detail__info-title mb-2">
-        <h2>{{ modelDetail?.name }}</h2>
-        <h3>{{ modelDetail?.description }}</h3>
-      </div>
-      <div class="model-detail__info-tags mb-2">
-        <el-tag
-          v-for="(tag, index) in modelDetail?.types"
-          :key="index"
-          class="mr-5"
-          >{{ tag.type }}</el-tag
-        >
-      </div>
-    </div> -->
   </el-card>
 </template>
 

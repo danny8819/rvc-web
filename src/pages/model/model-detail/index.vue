@@ -4,13 +4,15 @@
 
     <el-row :gutter="20">
       <el-col :span="17">
+        <!-- 大图 -->
         <ModelInfoCard :data="modelDetail" />
+        <!-- 回复 -->
         <ReplyInputCard
           class="mb-5 shadow-none"
           @reply="handleReply"
           @sendVoice="sendVoice"
         />
-
+        <!-- 评论区 -->
         <el-card
           shadow="never"
           class="mb-1"
@@ -41,10 +43,7 @@
       </el-col>
       <el-col :span="7">
         <div class="d-flex mb-5">
-          <div
-            class="mr-2 cursor-pointer d-flex align-center download-btn"
-            @click="handleDownload"
-          >
+          <div class="mr-2 cursor-pointer download-btn" @click="handleDownload">
             <el-icon size="25"><Download /></el-icon>
             <span>下载</span>
           </div>
@@ -189,6 +188,9 @@ const sendVoice = (val) => {
 
   display: flex;
   align-items: center;
+  justify-content: center;
+
+  width: 200px;
 }
 
 .icon-btn {
