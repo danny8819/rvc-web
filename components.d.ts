@@ -48,6 +48,7 @@ declare module 'vue' {
     Voice: typeof import('./src/components/Voice.vue')['default']
   }
   export interface ComponentCustomProperties {
+    vInfiniteScroll: typeof import('element-plus/es')['ElInfiniteScroll']
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

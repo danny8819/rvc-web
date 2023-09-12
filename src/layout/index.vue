@@ -3,8 +3,10 @@
     <div class="rvc-bgc"></div>
     <Header />
     <div class="header-after" style="height: 60px"></div>
-    <router-view></router-view>
-    <Footer :webInfo="webInfo" />
+    <Transition name="slide-fade">
+      <router-view></router-view>
+    </Transition>
+    <Footer :webInfo="webInfo" v-show="!$route.meta.hideFooter" />
   </div>
 </template>
 
@@ -47,5 +49,19 @@ getWebInfo().then((res) => {
   top: 0;
   height: 100vh;
   background-color: var(--el-bg-color-page);
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
 }
 </style>

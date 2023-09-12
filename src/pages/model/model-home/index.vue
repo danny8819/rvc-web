@@ -20,29 +20,29 @@
         </div>
       </div>
     </el-card>
-
-    <div class="model-home-list">
-      <template v-for="(i, ff) in 11" :key="ff">
+    <!-- v-infinite-scroll="load" -->
+      <!-- :infinite-scroll-distance="100" -->
+    <div class="infinite-scroll-wrap">
+      <div class="model-home-list">
         <ModelItemCard
           v-for="(item, index) in modelList"
           :key="index"
           @click="handleToDetail(item)"
           :data="item"
         />
-      </template>
+      </div>
+      <div>加载中。。。</div>
     </div>
-
-    <div class="model-home__pagination d-flex justify-center">
-      <div class="pt-10">加载中。。。</div>
-      <!-- <el-pagination
+    <!-- <div class="model-home__pagination d-flex justify-center">
+      <el-pagination
         background
         layout="prev, pager, next"
         :page-size="15"
         :total="pagination.total"
         class="mt-4"
         v-model:current-page="pagination.page"
-      /> -->
-    </div>
+      />
+    </div> -->
   </div>
 </template>
 
@@ -53,7 +53,23 @@ import { useUserStore } from "@/store/user";
 
 const router = useRouter();
 const userStore = useUserStore();
-
+const count = ref(10);
+const load = () => {
+  setTimeout(() => {
+    modelList.value.push({
+      picture: "/img/banner-bg2.png",
+      name: "原神 - 妮露DiffSinger模型",
+      modelType: "[1,2,3,4]",
+      types: [{ id: "1", type: "妮露" }],
+      lookNum: 0,
+      uploadDate: "222",
+      avatar: "/img/user-placeholder.webp",
+      nickname: "RVC",
+      mid: "22",
+      uid: "222",
+    });
+  }, 2222);
+};
 type ModelList = {
   mid: string;
   uid: string;
@@ -68,8 +84,7 @@ type ModelList = {
 }[];
 const modelList = ref<ModelList>([
   {
-    picture:
-      "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/3c451176-a098-4191-907a-e898bfdf673b/width=2048/ComfyUI_00747_.jpeg",
+    picture: "/img/banner-bg2.png",
     name: "原神 - 妮露DiffSinger模型",
     modelType: "[1,2,3,4]",
     types: [{ id: "1", type: "妮露" }],
@@ -111,13 +126,7 @@ const handleToDetail = (item) => {
   router.push(`/model-detail/${item.mid}`);
 };
 
-onMounted(() => {
-  window.addEventListener("scroll", function () {
-    console.log(window.innerHeight, window.scrollY, document.body.offsetHeight);
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-    }
-  });
-});
+onMounted(() => {});
 </script>
 
 <style lang="scss" scoped>
@@ -151,7 +160,10 @@ onMounted(() => {
 .model-home-list {
   display: flex;
   flex-wrap: wrap;
-
   justify-content: flex-start;
+  margin-bottom: 10px;
+  max-height: 600px;
+}
+.infinite-scroll-wrap {
 }
 </style>

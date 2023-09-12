@@ -2,7 +2,7 @@
   <div class="model-item">
     <div class="model-item__pic--wrap">
       <img
-        src="https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/3c451176-a098-4191-907a-e898bfdf673b/width=2048/ComfyUI_00747_.jpeg"
+        :src="data.picture||'https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/3c451176-a098-4191-907a-e898bfdf673b/width=2048/ComfyUI_00747_.jpeg'"
       />
     </div>
     <div class="model-item__footer">

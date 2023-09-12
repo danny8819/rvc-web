@@ -51,6 +51,9 @@ const routes: RouteRecordRaw[] = [
         path: "/model-home",
         name: "model-home",
         component: () => import("@/pages/model/model-home/index.vue"),
+        meta:{
+          hideFooter:true
+        }
       },
       {
         path: "/model-detail/:mid",
