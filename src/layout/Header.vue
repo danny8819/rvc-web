@@ -1,5 +1,5 @@
 <template>
-  <div class="app-header d-flex justify-space-between align-center">
+  <div class="app-header">
     <div class="header-left logo-wrap">
       <router-link class="nav-link" to="/">
         <img
@@ -12,7 +12,7 @@
     </div>
 
     <!-- 菜单 横向-->
-    <ul class="menu-wrap horizontal d-none d-sm-none d-md-flex d-lg-flex">
+    <ul class="menu-wrap horizontal d-none d-sm-none d-mflex d-lg-flex">
       <li
         class="nav-item text-center pr-5"
         v-for="(item, index) in menuList"
@@ -51,13 +51,11 @@
       class="d-none d-sm-block"
     />
 
-    <ThemeToggle class="d-none d-sm-inline-flex" />
-
-    <div class="header-right d-flex justify-center">
+    <div class="header-right flex justify-center align-center">
       <!-- 菜单btn -->
 
       <v-app-bar-nav-icon
-        class="menu-toggle-btn d-flex d-sm-flex d-md-none d-lg-none"
+        class="menu-toggle-btn flex d-sm-flex d-md-none d-lg-none"
         @click="isActive = !isActive"
       />
 
@@ -70,7 +68,7 @@
         {{ "登录" }}
       </button>
       <!-- 头像 -->
-      <el-dropdown v-if="isLogin">
+      <el-dropdown v-if="!isLogin">
         <v-avatar
           size="40"
           @mouseenter="isHovered = true"
@@ -95,9 +93,15 @@
               ></el-dropdown-item
             >
             <el-dropdown-item @click="logout">登出</el-dropdown-item>
+
+            <el-dropdown-item
+              ><ThemeToggle class="d-none d-sm-inline-flex"
+            /></el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
+
+      <UploadPopover v-if="!isLogin" />
     </div>
   </div>
 </template>
@@ -108,6 +112,7 @@ import { useUserStore } from "@/store/user";
 
 import NavSearch from "./Header/NavSearch.vue";
 import ThemeToggle from "./Header/ThemeToggle.vue";
+import UploadPopover from "./Header/UploadPopover.vue";
 
 defineOptions({
   name: "LayoutHeader",
@@ -149,6 +154,12 @@ const toSearch = (val) => {
   width: 100%;
   box-shadow: rgba(4, 17, 29, 0.25) 0px 8px 8px -8px;
   background-color: var(--nav-bg-color);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 24px;
+
   .logo-wrap {
     width: 85px;
     height: 100%;
