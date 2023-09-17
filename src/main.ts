@@ -14,6 +14,7 @@ import 'ress'
 import '@mdi/font/css/materialdesignicons.css'
 import './style/scss/index.scss'
 import './style/index.scss'
+import './style/index.css'
 
 const app = createApp(App)
 
