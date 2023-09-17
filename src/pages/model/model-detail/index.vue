@@ -13,13 +13,14 @@
           @sendVoice="sendVoice"
         />
         <!-- 评论区 -->
+
         <el-card
           shadow="never"
           class="mb-1"
           v-for="(item, index) in replyList"
           :key="index"
         >
-          <div class="model-detail__comment-header d-flex align-center mb-5">
+          <div class="model-detail__comment-header flex items-center mb-5">
             <el-avatar
               :size="30"
               :src="'/img/user-placeholder.webp'"
@@ -34,7 +35,7 @@
             <p>{{ item.content }}</p>
           </div>
           <div
-            class="model-detail__comment-footer d-flex justify-space-between align-center"
+            class="model-detail__comment-footer flex justify-between items-center"
           >
             <el-button>回复</el-button>
             <span class="font-12 cursor-pointer">举报</span>
@@ -42,7 +43,7 @@
         </el-card>
       </el-col>
       <el-col :span="7">
-        <div class="d-flex mb-5">
+        <div class="flex mb-5">
           <div class="mr-2 cursor-pointer download-btn" @click="handleDownload">
             <el-icon size="25"><Download /></el-icon>
             <span>下载</span>
@@ -74,7 +75,7 @@ import ModelInfoCard from "@/pages/model/model-detail/ModelInfoCard.vue";
 import ModelDetailHeader from "./ModelDetailHeader.vue";
 import ModelDetail from "@/pages/model/model-detail/ModelDetail.vue";
 import AudioPlayer from "@/components/AudioPlayer.vue";
-
+import { VueFlexWaterfall } from "vue-flex-waterfall";
 import {
   getModelInfo,
   collectModel,
@@ -96,6 +97,18 @@ const state = reactive({
 const replyList = ref([
   {
     content: "🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔",
+    voice: "https://web-tool.dolam.top/ikun/%E9%B8%A1.wav",
+  },
+  {
+    content: " 1212121",
+    voice: "https://web-tool.dolam.top/ikun/%E9%B8%A1.wav",
+  },
+  {
+    content: "🐔🐔🐔🐔🐔🐔🐔2121212🐔🐔🐔🐔🐔🐔🐔🐔🐔",
+    voice: "https://web-tool.dolam.top/ikun/%E9%B8%A1.wav",
+  },
+  {
+    content: "🐔🐔🐔🐔🐔121🐔🐔🐔🐔12🐔🐔🐔🐔🐔🐔🐔",
     voice: "https://web-tool.dolam.top/ikun/%E9%B8%A1.wav",
   },
 ]);

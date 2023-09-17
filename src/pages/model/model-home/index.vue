@@ -13,15 +13,14 @@
     </el-card>
 
     <el-card class="h-100 mb-5">
-      <div class="d-flex justify-end">
+      <div class="flex justify-end">
         <div class="publish-btn" @click="$router.push('/model-publish')">
           <SvgIcon name="upload" color="#fff" />
           <span class="ml-2">发布模型</span>
         </div>
       </div>
     </el-card>
-    <!-- v-infinite-scroll="load" -->
-      <!-- :infinite-scroll-distance="100" -->
+
     <div class="infinite-scroll-wrap">
       <div class="model-home-list">
         <ModelItemCard
@@ -33,7 +32,7 @@
       </div>
       <div>加载中。。。</div>
     </div>
-    <!-- <div class="model-home__pagination d-flex justify-center">
+    <!-- <div class="model-home__pagination flex justify-center">
       <el-pagination
         background
         layout="prev, pager, next"

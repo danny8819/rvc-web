@@ -1,20 +1,20 @@
 <template>
   <div class="mode-detail-header">
-    <div class="d-flex justify-space-between">
-      <div class="mode-detail-header__left d-flex align-center">
+    <div class="flex justify-between">
+      <div class="mode-detail-header__left flex items-center">
         <div class="mode-detail__title mr-5">{{ data?.name }}</div>
         <!-- 点赞 -->
-        <div class="data-count d-flex align-center justify-center">
+        <div class="data-count flex items-center justify-center">
           <SvgIcon name="dianzanpc" />
           <span class="ml-1 text">{{ data?.likeNum }}</span>
         </div>
         <!-- 下载 -->
-        <!-- <div class="data-count d-flex align-center justify-center">
+        <!-- <div class="data-count flex items-center justify-center">
           <el-icon size="25"><Download /></el-icon>
           <span class="ml-1 text">{{ data?.downNum }}</span>
         </div> -->
         <!-- 浏览量 -->
-        <div class="mr-2 d-flex align-center">
+        <div class="mr-2 flex items-center">
           <SvgIcon name="watch" size="25" />
           <span class="ml-1"> {{ data?.lookNum }} </span>
         </div>

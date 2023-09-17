@@ -20,12 +20,12 @@
           }}</el-tag>
         </div>
         <div class="brick__info-footer">
-          <div class="brick__info-userInfo d-flex align-center">
+          <div class="brick__info-userInfo flex items-center">
             <el-avatar :size="30" :src="data.avatar"> </el-avatar>
             <span class="ml-2">{{ data.nickname }}</span>
           </div>
           <div
-            class="brick__info-watch d-flex justify-space-around align-center"
+            class="brick__info-watch flex justify-space-around items-center"
           >
             <SvgIcon name="liulan"></SvgIcon>
             {{ data.lookNum }}

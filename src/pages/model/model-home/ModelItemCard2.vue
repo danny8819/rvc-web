@@ -10,12 +10,12 @@
         【原神】全任务全剧情1 序章 第一章 完成 捕风的异乡人 PC版 Yuan Shen
         x天马骑士x版
       </div>
-      <div class="d-flex justify-space-between">
-        <div class="d-flex align-center">
+      <div class="flex justify-between">
+        <div class="flex items-center">
           <el-avatar :size="30" :src="data.avatar"> </el-avatar>
           <span class="ml-2">{{ data.nickname }}</span>
         </div>
-        <div class="d-flex justify-space-around align-center">
+        <div class="flex justify-space-around items-center">
           <SvgIcon name="liulan"></SvgIcon>
           {{ data.lookNum }}
         </div>

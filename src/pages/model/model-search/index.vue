@@ -39,7 +39,7 @@
       />
     </div>
 
-    <div class="d-flex justify-center">
+    <div class="flex justify-center">
       <el-pagination
         background
         layout="prev, pager, next"
