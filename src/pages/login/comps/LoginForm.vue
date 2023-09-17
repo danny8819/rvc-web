@@ -10,7 +10,7 @@
     <PasswordLoginForm v-if="tab === 2" />
     <EmailLoginForm v-if="tab === 3" />
 
-    <v-card-title class="text-right d-flex justify-space-between">
+    <v-card-title class="text-right flex justify-space-between">
       <!-- <span class="text-caption" @click="tab = 1" v-if="tab !== 1">
         手机号登录
       </span> -->

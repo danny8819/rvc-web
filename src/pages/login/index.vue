@@ -12,7 +12,7 @@
           sm="8"
           md="8"
           align-self="center"
-          class="d-flex justify-center login-form-container"
+          class="flex justify-center login-form-container"
         >
           <LoginForm v-if="loginType === 'login'" @toggleType="toggleType" />
           <SignupForm v-else @toggleType="toggleType" />

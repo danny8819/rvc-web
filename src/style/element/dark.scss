@@ -23,6 +23,6 @@ $--colors: (
 @forward "element-plus/theme-chalk/src/dark/var.scss" with (
   $colors: $--colors,
   $bg-color: (
-    "page": #000,
+    "page": #1A1B1E,
   )
 );

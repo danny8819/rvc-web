@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="rvc-layout">
     <div class="rvc-bgc"></div>
     <Header />
     <div class="header-after" style="height: 60px"></div>

@@ -3,7 +3,7 @@
     <div class="banner1-component">
       <v-container>
         <v-row justify="center">
-          <v-col cols="12" md="7" lg="6" class="d-flex align-center">
+          <v-col cols="12" md="7" lg="6" class="flex align-center">
             <div class="text-center text-md-left">
               <v-chip size="small" class="bg-dark" color="white"
                 >版本信息</v-chip

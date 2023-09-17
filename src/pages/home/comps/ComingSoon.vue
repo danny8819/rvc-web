@@ -2,7 +2,7 @@
   <div ref="coming-soon" class="coming-wrapper">
     <v-container>
       <v-row>
-        <v-col cols="12" sm="10" md="6" class="d-flex align-center">
+        <v-col cols="12" sm="10" md="6" class="flex align-center">
           <div>
             <h2 class="coming-title font-weight-bold white--text">快速加群</h2>
             <h4 class="coming-subtitle white--text font-weight-bold">
@@ -16,6 +16,7 @@
                 class="btn-custom-md"
                 color="primary"
                 elevation="0"
+                to="/careers"
               >
                 JOIN US
               </v-btn>

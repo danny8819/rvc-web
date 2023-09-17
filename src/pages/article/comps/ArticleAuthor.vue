@@ -4,7 +4,7 @@
             <div class="imgs"></div>
         </div>
         <div class="main">
-            <div class="d-flex index-2">
+            <div class="flex index-2">
                 <el-avatar :size="90" src="/image/head-img.jpeg"> </el-avatar>
 
                 <div class="ml-4">

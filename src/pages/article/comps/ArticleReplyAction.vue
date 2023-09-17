@@ -3,7 +3,7 @@
     <h4>看帖是喜欢，评论才是真爱：</h4>
     <el-input resize="none" :rows="4" type="textarea" placeholder="请开始你的表演..." maxlength="300" show-word-limit />
     <!-- <div id="editor"></div>
-    <div class="d-flex justify-space-between">
+    <div class="flex justify-space-between">
       <div id="toolbar" class="border-none">
         <button class="ql-bold"></button>
         <button class="ql-image"></button>
@@ -11,7 +11,7 @@
       </div>
     </div> -->
 
-    <div class="d-flex justify-end my-5">
+    <div class="flex justify-end my-5">
       <el-button @click="handleReply">录音</el-button>
     </div>
   </el-card>

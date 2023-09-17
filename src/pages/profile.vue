@@ -7,7 +7,7 @@
       <h1 class="ml-10">{{ userStore.userInfo?.nickname }}</h1>
       <h3 class="ml-10">{{ userStore.userInfo?.description }}</h3>
 
-      <div class="d-flex align-center mt-5">
+      <div class="flex align-center mt-5">
         <div class="mx-10">
           <div>level</div>
           <div>{{ userStore.userInfo?.level }}</div>

@@ -31,7 +31,7 @@
           cols="4"
           align-self="center"
           @click="refreshCode"
-          class="d-flex justify-center"
+          class="flex justify-center"
         >
           <v-progress-circular
             v-if="!picCodeUrl"

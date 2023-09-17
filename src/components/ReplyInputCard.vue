@@ -16,7 +16,7 @@
       class="font-16"
     />
 
-    <div class="d-flex justify-end my-5">
+    <div class="flex justify-end my-5">
       <Voice @submit="submit"></Voice>
       <el-button @click="handleReply" :disabled="!comment">回复</el-button>
     </div>

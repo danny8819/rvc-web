@@ -2,7 +2,7 @@
   <div class="banner-wrapper">
     <v-container>
       <v-row justify="center">
-        <v-col cols="12" md="7" lg="6" class="d-flex align-center">
+        <v-col cols="12" md="7" lg="6" class="flex align-center">
           <div class="text-center text-md-left">
             <h1 class="banner-title font-weight-bold white--text">
               {{ webInfo?.webName || "RVC社区" }}

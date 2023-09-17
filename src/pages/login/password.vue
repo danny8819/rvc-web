@@ -1,5 +1,5 @@
 <template>
-  <div class="rvc-password d-flex flex-column justify-center align-center h-50">
+  <div class="rvc-password flex flex-column justify-center align-center h-50">
     <el-card class="w-50 mb-5 specify-wh">
       <el-steps :active="step" finish-status="success">
         <el-step title="手机号验证" />
@@ -8,7 +8,7 @@
       </el-steps>
     </el-card>
     <el-card class="w-50 pa-3 specify-wh">
-      <div class="d-flex justify-center align-center text-h5 my-5">
+      <div class="flex justify-center align-center text-h5 my-5">
         {{ ["手机号验证", "修改密码", "修改成功"][step] }}
       </div>
       <el-form

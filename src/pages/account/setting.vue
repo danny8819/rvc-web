@@ -1,5 +1,5 @@
 <template>
-  <div class="setting-container d-flex justify-center py-5">
+  <div class="setting-container flex justify-center py-5">
     <div class="setting-left rvc-card">
       <div class="left-header">个人中心</div>
       <el-divider class="mt-1" />
@@ -22,7 +22,7 @@
         <div class="right-header" style="text-align: left">编辑资料</div>
         <el-divider class="mt-1" />
         <div
-          class="setting-right-avatar d-flex justify-center mb-4 flex-column align-center"
+          class="setting-right-avatar flex justify-center mb-4 flex-column align-center"
         >
           <el-avatar :size="90" :src="infoForm.avatar"> </el-avatar>
           <div class="avatar-action font-12 my-1">
