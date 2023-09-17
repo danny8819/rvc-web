@@ -68,7 +68,7 @@
         {{ "登录" }}
       </button>
       <!-- 头像 -->
-      <el-dropdown v-if="!isLogin">
+      <el-dropdown>
         <v-avatar
           size="40"
           @mouseenter="isHovered = true"
@@ -101,7 +101,7 @@
         </template>
       </el-dropdown>
 
-      <UploadPopover v-if="!isLogin" />
+      <UploadPopover />
     </div>
   </div>
 </template>
