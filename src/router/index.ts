@@ -70,6 +70,11 @@ const routes: RouteRecordRaw[] = [
         name: "model-search",
         component: () => import("@/pages/model/model-search/index.vue"),
       },
+      {
+        path: "/join-us",
+        name: "join-us",
+        component: () => import("@/pages/join-us.vue"),
+      },
     ],
   },
   {

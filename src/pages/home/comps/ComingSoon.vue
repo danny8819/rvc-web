@@ -16,7 +16,7 @@
                 class="btn-custom-md"
                 color="primary"
                 elevation="0"
-                to="/careers"
+                to="/join-us"
               >
                 JOIN US
               </v-btn>
