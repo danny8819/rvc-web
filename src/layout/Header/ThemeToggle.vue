@@ -13,8 +13,13 @@ import { useDark, useToggle } from "@vueuse/core";
 import { Moon, Sunny } from "@element-plus/icons-vue";
 
 const isDark = useDark();
+
 const switchVal = ref(isDark.value);
 const toggleDark = useToggle(isDark);
+
+if (!isDark.value) {
+  toggleDark();
+}
 
 watch(
   () => switchVal.value,
