@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:mock": "vite --mode mock",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
@@ -41,11 +42,13 @@
     "@types/quill": "^2.0.10",
     "@vitejs/plugin-vue": "^4.2.3",
     "autoprefixer": "^10.4.15",
+    "mockjs": "^1.1.0",
     "postcss": "^8.4.29",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-inspect": "^0.7.38",
+    "vite-plugin-mock": "^2.9.6",
     "vite-plugin-vuetify": "^1.0.2",
     "vue-tsc": "^1.8.5"
   }

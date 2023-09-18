@@ -3,8 +3,9 @@ import { useUserStore } from "@/store/user";
 import {noTokenUrl,ignoreErrorUrl} from "./no-auth-url";
 import { ElMessage } from "element-plus";
 
+
 const request = axios.create({
-  baseURL: "/appApi",
+  baseURL: import.meta.env.MODE === 'mock'?"/mockApi":"/appApi",
   timeout: 100000,
 });
 
@@ -79,6 +80,8 @@ function handleStatusCode(response) {
         grouping: true,
       });
     }
-  } catch (error) {}
+  } catch (error) {
+    console.error(error);
+  }
 }
 export default request;

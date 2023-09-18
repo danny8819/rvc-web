@@ -7,6 +7,7 @@ import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import Inspect from "vite-plugin-inspect";
+import { viteMockServe } from "vite-plugin-mock";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -18,6 +19,9 @@ export default defineConfig(({ mode }) => {
         include: [/\.[tj]s$/, /\.vue$/],
         imports: ["vue", "vue-router"],
         resolvers: [ElementPlusResolver()],
+        eslintrc: {
+          enabled: true  
+        }
       }),
       Components({
         resolvers: [ElementPlusResolver()],
@@ -26,10 +30,16 @@ export default defineConfig(({ mode }) => {
         iconDirs: [path.resolve(process.cwd(), "src/assets/svg")],
         symbolId: "icon-[dir]-[name]",
       }),
-      // Inspect({
-      //   build: true,
-      //   outputDir: ".vite-inspect",
-      // }),
+      Inspect({
+        dev: false,
+        build: false,
+        outputDir: ".vite-inspect",
+      }),
+      viteMockServe({
+        mockPath: "mock",
+        // enable: true,
+        localEnabled: mode === "mock",
+      }),
     ],
     resolve: {
       alias: {
