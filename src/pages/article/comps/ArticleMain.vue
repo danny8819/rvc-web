@@ -6,12 +6,12 @@
       <v-col cols="1"><el-avatar class="mr-6" :size="20" src="/img/user-placeholder.webp"> </el-avatar></v-col>
       <v-col cols="2" class="right-border">author</v-col>
       <v-col cols="3" class="rvc-article-author-time right-border">Aug 18, 2023</v-col>
-      <v-col cols="2" class=" text-center ml-4 m-10" v-for="item in tags" :key="item.key">
+      <v-col cols="2" class=" text-center ml-4" v-for="item in tags" :key="item.key">
         <div class="rvc-article-tag">{{ item.name }}</div>
       </v-col>
     </v-row>
 
-    <div class="rvc-article-content m-10">
+    <div class="rvc-article-content">
 
       <v-img src="./img/feature-img1.png" alt="feature" class="rounded" />
       <div v-for="item in contents" :key="item.key" :id="item.key">

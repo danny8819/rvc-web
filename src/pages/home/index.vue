@@ -45,3 +45,9 @@ getWebInfo().then((res) => {
   }
 });
 </script>
+
+<style>
+.home-page {
+  width: 100vw;
+}
+</style>

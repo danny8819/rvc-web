@@ -1,7 +1,7 @@
 @font-face {
   font-family: Millik;
   font-weight: 500;
-  src: url('./font/Millik.c3f91cb.ttf') format("truetype");
+  src: url("./font/Millik.c3f91cb.ttf") format("truetype");
   text-rendering: optimizeLegibility;
 }
 
@@ -23,7 +23,7 @@
 }
 .team {
   background: #fff;
-  background-image: url('./img/team-bk1.png');
+  background-image: url("./img/team-bk1.png");
   background-size: cover;
 }
 .team .title {
@@ -35,7 +35,7 @@
     padding-top: 50px;
     font-size: 3rem;
     font-weight: 550;
-    white-space: nowrap
+    white-space: nowrap;
   }
 }
 #banner {
@@ -77,14 +77,14 @@
         text-align: center;
         color: #fff9f1;
         font-size: 3rem;
-        h3{
+        h3 {
           color: white;
         }
-        h4{
+        h4 {
           font-size: 20px;
           color: gainsboro;
         }
-        h5{
+        h5 {
           margin-top: 8%;
           font-size: 25px;
           color: snow;
@@ -111,10 +111,11 @@
   transition: 1s;
   opacity: 0;
   .btn {
+    color: #999;
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: 1px solid #171717;
+    border: 1px solid #999;
     //background-color: #fff;
     //box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.2),
     //-18px -18px 30px rgba(255, 255, 255, 1);
@@ -139,10 +140,10 @@
       transform: rotate(180deg);
     }
   }
-  .btn:hover{
+  .btn:hover {
     box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 0.8),
-    inset 18px 18px 30px rgba(0, 0, 0, 0.1),
-    inset -18px -18px 30px rgba(255, 255, 255, 1);
+      inset 18px 18px 30px rgba(0, 0, 0, 0.1),
+      inset -18px -18px 30px rgba(255, 255, 255, 1);
   }
 }
 

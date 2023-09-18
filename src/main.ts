@@ -11,7 +11,7 @@ import 'jquery'
 import {clickOutside} from './directives'
 
 import 'ress'
-// import './style/index.css'
+import './style/index.css'
 import '@mdi/font/css/materialdesignicons.css'
 import './style/scss/index.scss'
 

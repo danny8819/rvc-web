@@ -63,6 +63,7 @@ onBeforeUnmount(() => {
     position: relative;
     height: 250px;
     color: white;
+    min-width:250px;
 }
 
 .background {

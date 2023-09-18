@@ -28,10 +28,18 @@ html.dark {
   margin-top: 10px;
 }
 
-.flex {
-  display: flex;
+// 滚动条
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
 
-.justify-center {
-  justify-content: center;
+::-webkit-scrollbar-thumb {
+  background: var(--el-color-primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(233, 233, 233);
+  border-radius: 5px;
 }
