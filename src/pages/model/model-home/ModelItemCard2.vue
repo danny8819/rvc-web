@@ -2,13 +2,15 @@
   <div class="model-item">
     <div class="model-item__pic--wrap">
       <img
-        :src="data.picture||'https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/3c451176-a098-4191-907a-e898bfdf673b/width=2048/ComfyUI_00747_.jpeg'"
+        :src="
+          data.picture ||
+          'https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/3c451176-a098-4191-907a-e898bfdf673b/width=2048/ComfyUI_00747_.jpeg'
+        "
       />
     </div>
     <div class="model-item__footer">
       <div class="model-item__title">
-        【原神】全任务全剧情1 序章 第一章 完成 捕风的异乡人 PC版 Yuan Shen
-        x天马骑士x版
+        {{ data.name }}
       </div>
       <div class="flex justify-between">
         <div class="flex items-center">
@@ -77,6 +79,7 @@ defineProps({
 }
 
 .model-item__footer {
+  width: 100%;
   font-size: 13px;
   color: #9499a0;
   padding: 5px;

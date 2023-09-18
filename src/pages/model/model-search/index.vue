@@ -52,7 +52,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="ModelSearch">
 import ModelSearchItem from "./ModelSearchItem.vue";
 import { Search } from "@element-plus/icons-vue";
 import { searchModelTypeByName } from "@/api/modelType";

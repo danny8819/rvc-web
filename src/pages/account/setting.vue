@@ -94,6 +94,7 @@ import {
   changeUserInfo,
   changeAvatar,
 } from "@/api/user";
+import { ElMessage } from "element-plus";
 
 const userStore = useUserStore();
 const formRef = ref();

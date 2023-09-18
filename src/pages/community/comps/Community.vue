@@ -1,5 +1,5 @@
 <template>
-    <div class="brick" v-for="data in communitys">
+    <div class="brick" v-for="data in communitys" :key="data.id">
         <el-card class=" brick__inner" @click="$router.push('/article/' + data.id)">
             <div class="brick__info-userInfo d-flex align-center ml-2">
                 <el-avatar :size="30" :src="data.avatar"> </el-avatar>

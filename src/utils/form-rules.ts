@@ -7,5 +7,5 @@ export const phoneRule = (msg="手机号格式不正确") => {
 };
 
 export const emailRule = (msg="邮箱格式不正确") => {
-    return  (v:string) =>  /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/.test(v) || msg
+    return  (v:string) =>  /^([a-zA-Z0-9]+[_|\\_|\\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\\_|\\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/.test(v) || msg
 }

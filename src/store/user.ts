@@ -69,7 +69,7 @@ export const useUserStore = defineStore("user", {
         this.token = null;
         this.userInfo = null;
       } catch (error) {
-        
+        console.log(error);
       }
     },
     async updateUserInfo() {

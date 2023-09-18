@@ -90,7 +90,9 @@ const handleKeyup = async (e) => {
           tags.value.push(newTag);
           inputValue.value = "";
         }
-      } catch (error) {}
+      } catch (error) {
+        console.error(error);
+      }
     }
   }
   if (e.key === "Backspace" && _inputVal === "") {

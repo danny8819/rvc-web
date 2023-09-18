@@ -2,7 +2,7 @@ import Quill from "quill";
 import "quill/dist/quill.snow.css";
 
 export function useQuill(el:string="#editor") {
-  let quill = ref();
+  const quill = ref();
   onMounted(() => {
     if(!document.querySelector(el)){
         return
@@ -21,10 +21,10 @@ export function useQuill(el:string="#editor") {
       theme: "snow",
       placeholder: "请开始你的表演...",
     });
-    var customButton = document.querySelector("#custom-button");
+    const customButton = document.querySelector("#custom-button");
     if (customButton) {
       customButton.addEventListener("click", function () {
-        var range = quill.value.getSelection();
+        const range = quill.value.getSelection();
         if (range) {
           quill.value.insertEmbed(range.index, "image", "/img/user-placeholder.webp");
         }

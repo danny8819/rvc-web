@@ -12,7 +12,7 @@
     </div>
 
     <!-- 菜单 横向-->
-    <ul class="menu-wrap horizontal d-none d-sm-none d-mflex d-lg-flex">
+    <ul class="menu-wrap horizontal hidden sm:hidden md:flex lg:flex flex">
       <li
         class="nav-item text-center pr-5"
         v-for="(item, index) in menuList"
@@ -25,7 +25,7 @@
       </li>
     </ul>
     <ul
-      class="menu-wrap vertical d-md-none d-lg-none"
+      class="menu-wrap vertical flex md:hidden lg:hidden"
       v-if="isActive"
       v-click-outside="() => (isActive = false)"
     >
@@ -48,27 +48,27 @@
     <NavSearch
       v-if="$route.name !== 'model-search'"
       @search="toSearch"
-      class="d-none d-sm-block"
+      class="hidden d-sm-block"
     />
 
     <div class="header-right flex justify-center align-center">
       <!-- 菜单btn -->
 
       <v-app-bar-nav-icon
-        class="menu-toggle-btn flex d-sm-flex d-md-none d-lg-none"
+        class="menu-toggle-btn flex sm:flex md:hidden lg:hidden"
         @click="isActive = !isActive"
       />
 
       <!-- 登录btn -->
       <button
         v-if="$route.path !== '/login' && !isLogin"
-        class="login-btn d-none d-sm-flex mx-5"
+        class="login-btn hidden sm:flex mx-5"
         @click="$router.push('/login')"
       >
         {{ "登录" }}
       </button>
       <!-- 头像 -->
-      <el-dropdown>
+      <el-dropdown v-if="isLogin">
         <v-avatar
           size="40"
           @mouseenter="isHovered = true"
@@ -95,13 +95,13 @@
             <el-dropdown-item @click="logout">登出</el-dropdown-item>
 
             <el-dropdown-item
-              ><ThemeToggle class="d-none d-sm-inline-flex"
+              ><ThemeToggle class="hidden d-sm-inline-flex"
             /></el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
-
-      <UploadPopover />
+      <ThemeToggle class="hidden d-sm-inline-flex" />
+      <UploadPopover v-if="isLogin" />
     </div>
   </div>
 </template>
@@ -138,7 +138,9 @@ const logout = async () => {
     await userStore.logout();
     isLogin.value = false;
     router.replace("/");
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const toSearch = (val) => {
@@ -173,7 +175,6 @@ const toSearch = (val) => {
     flex-shrink: 1;
   }
   .menu-wrap {
-    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -270,7 +271,7 @@ const toSearch = (val) => {
 
   padding: 7px 20px;
   cursor: pointer;
-  height: 40px;
+  height: 34px;
   display: flex;
   align-items: center;
 }

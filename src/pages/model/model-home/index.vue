@@ -81,20 +81,7 @@ type ModelList = {
   lookNum: number;
   uploadDate: string;
 }[];
-const modelList = ref<ModelList>([
-  {
-    picture: "/img/banner-bg2.png",
-    name: "原神 - 妮露DiffSinger模型",
-    modelType: "[1,2,3,4]",
-    types: [{ id: "1", type: "妮露" }],
-    lookNum: 0,
-    uploadDate: "222",
-    avatar: "/img/user-placeholder.webp",
-    nickname: "RVC",
-    mid: "22",
-    uid: "222",
-  },
-]);
+const modelList = ref<ModelList>([]);
 const pagination = reactive({
   page: 1,
   total: 0,

@@ -37,6 +37,7 @@ export default defineComponent({
       return {
         width: s,
         height: s,
+        color: props.color,
       };
     });
     return { symbolId, getStyle };

@@ -1,8 +1,8 @@
 <template>
   <div class="tool-table">
     <div class="container">
-      <div class="box"  v-for="(tool,index) in tools">
-        <div class="img"><img :src="tool.img" alt=""/></div>
+      <div class="box" v-for="(tool, index) in tools" :key="index">
+        <div class="img"><img :src="tool.img" alt="" /></div>
         <p>{{ tool.tool }}</p>
       </div>
     </div>
@@ -11,17 +11,14 @@
 
 <script>
 export default {
-  name: "ToolTable.vue",
+  name: 'ToolTable.vue',
   props: {
     tools: {
       type: Array,
       default: () => [],
     },
   },
-}
-
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

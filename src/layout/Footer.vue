@@ -51,7 +51,7 @@
     </v-row>
 
     <div class="footer-bottom-bar font-14">
-      <div class="d-md-flex justify-space-around">
+      <div class="md:flex justify-space-around">
         <p>
           <a href="https://beian.miit.gov.cn" class="link">{{
             webInfo?.beianInfo
