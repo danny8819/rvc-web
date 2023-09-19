@@ -1,6 +1,6 @@
 import { createVuetify } from 'vuetify'
 
-import 'vuetify/styles'
+import './vuetify.css'
 const vuetify = createVuetify({
   theme:{
     themes:{

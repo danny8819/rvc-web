@@ -94,14 +94,14 @@
             >
             <el-dropdown-item @click="logout">登出</el-dropdown-item>
 
-            <el-dropdown-item
+            <!-- <el-dropdown-item
               ><ThemeToggle class="hidden d-sm-inline-flex"
-            /></el-dropdown-item>
+            /></el-dropdown-item> -->
           </el-dropdown-menu>
         </template>
       </el-dropdown>
       <ThemeToggle class="hidden d-sm-inline-flex" />
-      <UploadPopover v-if="isLogin" />
+      <!-- <UploadPopover v-if="isLogin" /> -->
     </div>
   </div>
 </template>

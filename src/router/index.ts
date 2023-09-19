@@ -75,6 +75,16 @@ const routes: RouteRecordRaw[] = [
         name: "join-us",
         component: () => import("@/pages/join-us.vue"),
       },
+      {
+        path: "/feedback",
+        name: "feedback",
+        component: () => import("@/pages/feedback/index.vue"),
+      },
+      // {
+      //   path:'/leader-board',
+      //   name:'leader-board',
+      //   component:()=>import('@/pages/leader-board/index.vue')
+      // }
     ],
   },
   {

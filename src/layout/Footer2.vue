@@ -3,7 +3,7 @@
     <div class="footer-copy">© RVC 2023</div>
     <div class="footer-center">
       <a
-        class="mantine-Button-root mantine-12d6g0a"
+        class="mantine-12d6g0a"
         type="button"
         data-button="true"
         href="javascript:void(0);"
@@ -11,7 +11,7 @@
           <span class="mantine-qo1k2 mantine-Button-label">Support Us ❤️</span>
         </div></a
       ><a
-        class="mantine-Button-root mantine-1innaxq"
+        class="mantine-1innaxq"
         type="button"
         data-button="true"
         href="/join-us"
@@ -19,7 +19,7 @@
           <span class="mantine-qo1k2 mantine-Button-label">Join Us 💼</span>
         </div></a
       ><a
-        class="mantine-Button-root mantine-x6buan"
+        class="mantine-x6buan"
         type="button"
         data-button="true"
         href="javascript:void(0);"
@@ -29,24 +29,18 @@
           >
         </div></a
       ><a
-        class="mantine-Button-root mantine-x6buan"
+        class="mantine-x6buan"
         type="button"
         data-button="true"
         href="javascript:void(0);"
         ><div class="mantine-3xbgk5 mantine-Button-inner">
           <span class="mantine-qo1k2 mantine-Button-label">Privacy</span>
         </div></a
-      ><a
-        class="mantine-Button-root mantine-x6buan"
-        data-button="true"
-        href="javascript:void(0);"
+      ><a class="mantine-x6buan" data-button="true" href="javascript:void(0);"
         ><div class="mantine-3xbgk5 mantine-Button-inner">
           <span class="mantine-qo1k2 mantine-Button-label">API</span>
         </div></a
-      ><a
-        class="mantine-Button-root mantine-x6buan"
-        data-button="true"
-        href="javascript:void(0);"
+      ><a class="mantine-x6buan" data-button="true" href="javascript:void(0);"
         ><div class="mantine-3xbgk5 mantine-Button-inner">
           <span class="mantine-qo1k2 mantine-Button-label">Status</span>
         </div></a
@@ -72,31 +66,63 @@
     </div>
     <div class="footer-right">
       <a
-        class="mantine-Button-root mantine-96znl7"
+        class="mantine-96znl7"
         type="button"
         data-button="true"
         href="javascript:void(0);"
         target="_blank"
         ><div class="mantine-3xbgk5 mantine-Button-inner">
-          <span class="mantine-qo1k2 mantine-Button-label">🪲 Bugs</span>
+          <span class="mantine-qo1k2 mantine-Button-label">
+            <router-link to="/feedback" target="_blank">🪲 Bugs</router-link>
+          </span>
         </div></a
-      ><router-link
-        class="mantine-Button-root mantine-ua08er"
-        to="/feedback"
-        target="_blank"
+      ><router-link class="mantine-ua08er" to="/feedback" target="_blank"
         ><div class="mantine-3xbgk5 mantine-Button-inner">
-          <span class="mantine-qo1k2 mantine-Button-label"
-            >💡 Feature Requests</span
-          >
+          <span class="mantine-qo1k2 mantine-Button-label">💡 反馈</span>
         </div></router-link
       >
     </div>
   </footer>
+  <div
+    class="scroll-to-top-wrap"
+    style="transition: bottom 300ms linear 0s"
+    @click="scrollToTop"
+    v-show="y > 50"
+  >
+    <button class="scroll-to-top-btn">
+      <div class="scroll-to-top-btn-content">
+        <span class="scroll-to-top__icon"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class=" "
+          >
+            <path d="M12 5l0 14"></path>
+            <path d="M18 11l-6 -6"></path>
+            <path d="M6 11l6 -6"></path></svg></span
+        ><span class="scroll-to-top__text">回到顶部</span>
+      </div>
+    </button>
+  </div>
 </template>
 
 <script lang="ts" setup>
 import { useWindowScroll } from '@vueuse/core';
 const { x, y } = useWindowScroll();
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+};
 </script>
 
 <style scoped lang="scss">
@@ -442,6 +468,66 @@ const { x, y } = useWindowScroll();
       justify-content: center;
       height: 100%;
       overflow: visible;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.scroll-to-top-wrap {
+  position: fixed;
+  z-index: 1;
+  bottom: 12px;
+  right: 12px;
+  .scroll-to-top-btn {
+    transition-property: transform, opacity;
+    transition-duration: 250ms;
+    transition-timing-function: ease;
+    transform-origin: center bottom;
+    opacity: 1;
+    transform: translateY(0px);
+
+    padding: 0px 18px 0px 12px;
+    appearance: none;
+    text-align: left;
+    text-decoration: none;
+    box-sizing: border-box;
+    height: 36px;
+
+    display: inline-block;
+    width: auto;
+    border-radius: 4px;
+    font-weight: 600;
+    position: relative;
+    line-height: 1;
+    font-size: 14px;
+    user-select: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background-color: rgb(25, 113, 194);
+    color: rgb(255, 255, 255);
+    .scroll-to-top-btn-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      overflow: visible;
+      .scroll-to-top__icon {
+        display: flex;
+
+        align-items: center;
+        margin-right: 10px;
+      }
+      .scroll-to-top__text {
+        white-space: nowrap;
+        height: 100%;
+        overflow: hidden;
+
+        display: flex;
+
+        align-items: center;
+      }
     }
   }
 }
