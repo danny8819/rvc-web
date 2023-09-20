@@ -19,9 +19,9 @@
         :key="index"
         :class="{ active: $route.path === item.to }"
       >
-        <router-link class="nav-link" :to="item.to">{{
-          item.text
-        }}</router-link>
+        <router-link class="nav-link" :to="item.to">
+          {{ item.text }}
+        </router-link>
       </li>
     </ul>
     <ul
@@ -39,9 +39,9 @@
           $router.push(item.to);
         "
       >
-        <router-link class="nav-link" :to="item.to">{{
-          item.text
-        }}</router-link>
+        <router-link class="nav-link" :to="item.to">
+          {{ item.text }}
+        </router-link>
       </li>
     </ul>
 
@@ -54,10 +54,10 @@
     <div class="header-right flex justify-center align-center">
       <!-- 菜单btn -->
 
-      <v-app-bar-nav-icon
-        class="menu-toggle-btn flex sm:flex md:hidden lg:hidden"
+      <span
+        class="menu-toggle-btn text-2xl mdi mdi-menu sm:flex md:hidden lg:hidden"
         @click="isActive = !isActive"
-      />
+      ></span>
 
       <!-- 登录btn -->
       <button
@@ -65,57 +65,34 @@
         class="login-btn hidden sm:flex mx-5"
         @click="$router.push('/login')"
       >
-        {{ "登录" }}
+        {{ '登录' }}
       </button>
       <!-- 头像 -->
-      <el-dropdown v-if="isLogin">
-        <v-avatar
-          size="40"
+      <el-dropdown v-if="!isLogin" trigger="click" :teleported="false">
+        <el-avatar
           @mouseenter="isHovered = true"
-          class="el-dropdown-link mr-5"
-        >
-          <img
-            :src="userStore?.userInfo?.avatar || '/img/user-placeholder.webp'"
-            alt="Avatar"
-            style="width: 100%"
-          />
-        </v-avatar>
+          class="el-dropdown-link ml-5 mr-2"
+          :size="40"
+          :src="userStore?.userInfo?.avatar || '/logo2.png'"
+        ></el-avatar>
         <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item
-              ><router-link to="/profile" class="reset-link"
-                >个人</router-link
-              ></el-dropdown-item
-            >
-            <el-dropdown-item
-              ><router-link to="/account/setting" class="reset-link"
-                >设置</router-link
-              ></el-dropdown-item
-            >
-            <el-dropdown-item @click="logout">登出</el-dropdown-item>
-
-            <!-- <el-dropdown-item
-              ><ThemeToggle class="hidden d-sm-inline-flex"
-            /></el-dropdown-item> -->
-          </el-dropdown-menu>
+            <AvatarDropdownMenu />
         </template>
       </el-dropdown>
-      <ThemeToggle class="hidden d-sm-inline-flex" />
-      <!-- <UploadPopover v-if="isLogin" /> -->
+      <UploadPopover v-if="isLogin" />
     </div>
   </div>
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
-import { useUserStore } from "@/store/user";
+import { useRouter } from 'vue-router';
+import { useUserStore } from '@/store/user';
 
-import NavSearch from "./Header/NavSearch.vue";
-import ThemeToggle from "./Header/ThemeToggle.vue";
-import UploadPopover from "./Header/UploadPopover.vue";
-
+import NavSearch from './Header/NavSearch.vue';
+import UploadPopover from './Header/UploadPopover.vue';
+import AvatarDropdownMenu from './Header/AvatarDropdownMenu.vue';
 defineOptions({
-  name: "LayoutHeader",
+  name: 'LayoutHeader',
 });
 
 const router = useRouter();
@@ -124,27 +101,19 @@ const userStore = useUserStore();
 const isActive = ref(false);
 const isHovered = ref(false);
 const menuList = [
-  { to: "/", text: "首页" },
-  { to: "/community", text: "交流" },
-  { to: "/model-home", text: "模型" },
+  { to: '/', text: '首页' },
+  { to: '/community', text: '交流' },
+  { to: '/model-home', text: '模型' },
 ];
 
 const isLogin = computed(() => {
   return userStore.token;
 });
 
-const logout = async () => {
-  try {
-    await userStore.logout();
-    isLogin.value = false;
-    router.replace("/");
-  } catch (error) {
-    console.log(error);
-  }
-};
 
-const toSearch = (val) => {
-  router.push({ path: "/model-search", query: { keyword: val } });
+
+const toSearch = val => {
+  router.push({ path: '/model-search', query: { keyword: val } });
 };
 </script>
 
@@ -153,7 +122,7 @@ const toSearch = (val) => {
   position: fixed;
   z-index: 99;
   height: 60px;
-  width: 100%;
+  width: 100vw;
   box-shadow: rgba(4, 17, 29, 0.25) 0px 8px 8px -8px;
   background-color: var(--nav-bg-color);
 
@@ -274,5 +243,16 @@ const toSearch = (val) => {
   height: 34px;
   display: flex;
   align-items: center;
+}
+
+.mantine-1g4q40w {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: wrap;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  gap: 10px;
 }
 </style>
