@@ -1,4 +1,4 @@
-export type ModelDetail = Record<
+export type ModelDetailType = Record<
   | "mid"
   | "uid"
   | "nickname"

@@ -25,9 +25,9 @@
               :size="30"
               :src="'/img/user-placeholder.webp'"
               class="mr-5"
-            >
-            </el-avatar>
-            <span>作者</span><span class="pipe">|</span>
+            ></el-avatar>
+            <span>作者</span>
+            <span class="pipe">|</span>
             <span>时间</span>
           </div>
           <AudioPlayer v-if="item.voice" :src="item.voice" class="my-5" />
@@ -70,12 +70,13 @@
 </template>
 
 <script lang="ts" setup>
-import ReplyInputCard from "@/components/ReplyInputCard.vue";
-import ModelInfoCard from "@/pages/model/model-detail/ModelInfoCard.vue";
-import ModelDetailHeader from "./ModelDetailHeader.vue";
-import ModelDetail from "@/pages/model/model-detail/ModelDetail.vue";
-import AudioPlayer from "@/components/AudioPlayer.vue";
-import { VueFlexWaterfall } from "vue-flex-waterfall";
+import ReplyInputCard from '@/components/ReplyInputCard.vue';
+import ModelInfoCard from '@/pages/model/model-detail/ModelInfoCard.vue';
+import ModelDetailHeader from './ModelDetailHeader.vue';
+import ModelDetail from '@/pages/model/model-detail/ModelDetail.vue';
+import AudioPlayer from '@/components/AudioPlayer.vue';
+import { VueFlexWaterfall } from 'vue-flex-waterfall';
+import { ModelDetailType } from '../types';
 import {
   getModelInfo,
   collectModel,
@@ -83,36 +84,36 @@ import {
   unlikeModel,
   unCollectModel,
   downloadModel,
-} from "@/api/model";
-import { ElMessage } from "element-plus";
+} from '@/api/model';
+import { ElMessage } from 'element-plus';
 const comment = ref();
 
 const route = useRoute();
 const mid = route.params.mid;
-const modelDetail = ref<ModelDetail>();
+const modelDetail = ref<ModelDetailType>();
 const state = reactive({
   isCollect: false,
   isLike: false,
 });
 const replyList = ref([
   {
-    content: "🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔",
-    voice: "https://web-tool.dolam.top/ikun/%E9%B8%A1.wav",
+    content: '🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔',
+    voice: 'https://web-tool.dolam.top/ikun/%E9%B8%A1.wav',
   },
   {
-    content: " 1212121",
-    voice: "https://web-tool.dolam.top/ikun/%E9%B8%A1.wav",
+    content: ' 1212121',
+    voice: 'https://web-tool.dolam.top/ikun/%E9%B8%A1.wav',
   },
   {
-    content: "🐔🐔🐔🐔🐔🐔🐔2121212🐔🐔🐔🐔🐔🐔🐔🐔🐔",
-    voice: "https://web-tool.dolam.top/ikun/%E9%B8%A1.wav",
+    content: '🐔🐔🐔🐔🐔🐔🐔2121212🐔🐔🐔🐔🐔🐔🐔🐔🐔',
+    voice: 'https://web-tool.dolam.top/ikun/%E9%B8%A1.wav',
   },
   {
-    content: "🐔🐔🐔🐔🐔121🐔🐔🐔🐔12🐔🐔🐔🐔🐔🐔🐔",
-    voice: "https://web-tool.dolam.top/ikun/%E9%B8%A1.wav",
+    content: '🐔🐔🐔🐔🐔121🐔🐔🐔🐔12🐔🐔🐔🐔🐔🐔🐔',
+    voice: 'https://web-tool.dolam.top/ikun/%E9%B8%A1.wav',
   },
 ]);
-getModelInfo({ mid: mid as string }).then((res) => {
+getModelInfo({ mid: mid as string }).then(res => {
   console.log(res.data);
   state.isCollect = res.data.isCollect || false;
   state.isLike = res.data.isLike || false;
@@ -124,10 +125,10 @@ const handleCollect = () => {
   _api({ mid: mid as string }).then((res: any) => {
     console.log(res);
     let msg =
-      res.code == 200 ? (state.isCollect ? "已取消收藏" : "收藏成功") : res.msg;
+      res.code == 200 ? (state.isCollect ? '已取消收藏' : '收藏成功') : res.msg;
     ElMessage({
       message: msg,
-      type: "success",
+      type: 'success',
     });
     // 返回字段是 isCollection 不是 isCollect
     state.isCollect = res.data.isCollection;
@@ -136,19 +137,19 @@ const handleCollect = () => {
 const handleLike = () => {
   const _api = state.isLike ? unlikeModel : likeModel;
   _api({ mid: mid as string }).then((res: any) => {
-    console.log("res: ", res);
+    console.log('res: ', res);
     let msg =
-      res.code == 200 ? (state.isLike ? "已取消点赞" : "点赞成功") : res.msg;
+      res.code == 200 ? (state.isLike ? '已取消点赞' : '点赞成功') : res.msg;
     ElMessage({
       message: msg,
-      type: "success",
+      type: 'success',
     });
     state.isLike = res.data.isLike;
   });
 };
 function downloadFile(url, filename) {
-  var a = document.createElement("a");
-  a.style.display = "none";
+  var a = document.createElement('a');
+  a.style.display = 'none';
   document.body.appendChild(a);
   a.href = url;
   a.download = filename;
@@ -157,26 +158,26 @@ function downloadFile(url, filename) {
 }
 const handleDownload = async () => {
   const res: any = await downloadModel({ mid });
-  console.log("res: ", res);
+  console.log('res: ', res);
   if (res.code && res.code != 200) {
     ElMessage({
       message: res.msg,
-      type: "warning",
+      type: 'warning',
     });
     return;
   }
   try {
     downloadFile(res.data.download, res.data.fileInfo.filename);
   } catch (error) {
-    console.error("模型下载出错: ", error);
+    console.error('模型下载出错: ', error);
   }
 };
 
-const handleReply = (val) => {
-  console.log("val: ", val);
+const handleReply = val => {
+  console.log('val: ', val);
 };
-const sendVoice = (val) => {
-  console.log("val: ", val);
+const sendVoice = val => {
+  console.log('val: ', val);
   if (val) {
     replyList.value.push({
       content: val,
