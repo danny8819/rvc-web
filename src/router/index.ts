@@ -50,7 +50,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: "/model-home",
         name: "model-home",
-        component: () => import("@/pages/model/model-home/index.vue"),
+        component: () => import("@/pages/model/model-home/index2.vue"),
         meta:{
           hideFooter:true
         }
@@ -80,10 +80,15 @@ const routes: RouteRecordRaw[] = [
         name: "feedback",
         component: () => import("@/pages/feedback/index.vue"),
       },
+      {
+        path:'/leader-board',
+        name:'leader-board',
+        component:()=>import('@/pages/leader-board/index.vue')
+      },
       // {
-      //   path:'/leader-board',
-      //   name:'leader-board',
-      //   component:()=>import('@/pages/leader-board/index.vue')
+      //   path:'/follow',
+      //   name:'follow',
+      //   component:()=>import('@/pages/follow/index.vue')
       // }
     ],
   },
