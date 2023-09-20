@@ -6,6 +6,9 @@ import vuetify from './plugins/vuetify'
 import SvgIcon from './components/SvgIcon.vue'
 import 'virtual:svg-icons-register';
 
+import { inject } from '@vercel/analytics';
+inject();
+
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import 'jquery'
 import {clickOutside} from './directives'
