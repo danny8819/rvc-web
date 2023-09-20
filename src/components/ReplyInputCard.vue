@@ -24,11 +24,12 @@
 </template>
 
 <script lang="ts" setup name="ReplyInput">
-import Voice from "./Voice.vue";
-import EmojiSelect from "@/components/EmojiSelect.vue";
+import Voice from './Voice.vue';
+import EmojiSelect from '@/components/EmojiSelect.vue';
+
 const props = defineProps({ defaultVal: String });
-const emit = defineEmits(["reply", "sendVoice"]);
-const comment = ref("");
+const emit = defineEmits(['reply', 'sendVoice']);
+const comment = ref('');
 if (props.defaultVal) {
   comment.value = props.defaultVal;
 }
@@ -37,16 +38,16 @@ const inputRef = ref();
 const handleReply = () => {
   //   const delta = quill.getText();
   //   console.log("html: ", delta);
-  emit("reply", comment.value);
-  comment.value = "";
+  emit('reply', comment.value);
+  comment.value = '';
 };
-const handleEmoji = (val) => {
-  console.log("val: ", val);
+const handleEmoji = val => {
+  console.log('val: ', val);
   comment.value += val;
   inputRef.value.focus();
 };
-const submit = (val) => {
-  emit("sendVoice", val);
+const submit = val => {
+  emit('sendVoice', val);
 };
 
 let timer;

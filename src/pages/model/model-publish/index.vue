@@ -18,25 +18,25 @@
           <UploadPicture v-model="addForm.picture" />
         </el-form-item>
         <el-form-item label="标题" prop="name">
-          <el-input v-model="addForm.name"> </el-input>
+          <el-input v-model="addForm.name"></el-input>
         </el-form-item>
         <el-form-item label="模型描述:" prop="description">
-          <el-input v-model="addForm.description" type="textarea"> </el-input>
+          <el-input v-model="addForm.description" type="textarea"></el-input>
         </el-form-item>
         <el-form-item label="模型类型" prop="aiType">
-          <el-input v-model="addForm.aiType"> </el-input>
+          <el-input v-model="addForm.aiType"></el-input>
         </el-form-item>
         <el-form-item label="标签" prop="modelType">
           <TagsInput v-model="addForm.modelType" />
         </el-form-item>
 
         <el-form-item label="注意事项:" prop="note">
-          <el-input v-model="addForm.note" type="textarea"> </el-input>
+          <el-input v-model="addForm.note" type="textarea"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitForm(formRef)"
-            >发布</el-button
-          >
+          <el-button type="primary" @click="submitForm(formRef)">
+            发布
+          </el-button>
         </el-form-item>
       </el-card>
     </el-form>
@@ -44,37 +44,38 @@
 </template>
 
 <script lang="ts" setup>
-import type { FormInstance } from "element-plus";
-import TagsInput from "@/components/TagsInput.vue";
-import { addModel } from "@/api/model";
-import UploadModel from "./UploadModel.vue";
-import UploadPicture from "./UploadPicture.vue";
+import type { FormInstance } from 'element-plus';
+import TagsInput from '@/components/TagsInput.vue';
+import { addModel } from '@/api/model';
+import UploadModel from './UploadModel.vue';
+import UploadPicture from './UploadPicture.vue';
+import { AddModelForm } from '../types';
 
 const rules = {
   fid: [
     {
       required: true,
-      message: "请上传模型",
+      message: '请上传模型',
     },
   ],
   name: [
     {
       required: true,
-      message: "请输入标题",
-      trigger: "blur",
+      message: '请输入标题',
+      trigger: 'blur',
     },
   ],
   aiType: [
     {
       required: true,
-      message: "请选择模型类型",
-      trigger: "blur",
+      message: '请选择模型类型',
+      trigger: 'blur',
     },
   ],
   picture: [
     {
       required: true,
-      message: "请上传封面",
+      message: '请上传封面',
     },
   ],
 };
@@ -82,20 +83,20 @@ const rules = {
 const formRef = ref<FormInstance>();
 
 const addForm = shallowReactive<AddModelForm>({
-  aiType: "", // aiType 模型的AI类型
-  description: "", // description 描述
-  mid: "",
-  name: "", // name 模型名字
-  note: "", // note 注意事项
-  picture: "", // picture 图片地址
-  fid: "", // fid是 模型的文件id
+  aiType: '', // aiType 模型的AI类型
+  description: '', // description 描述
+  mid: '',
+  name: '', // name 模型名字
+  note: '', // note 注意事项
+  picture: '', // picture 图片地址
+  fid: '', // fid是 模型的文件id
   modelType: [], // modelType 模型标签  接口要转 "[1,2,3,4]"
 });
 
 const submitForm = (formEl: FormInstance | undefined) => {
-  console.log("formEl: ", addForm);
+  console.log('formEl: ', addForm);
   if (!formEl) return;
-  formEl.validate(async (valid) => {
+  formEl.validate(async valid => {
     if (valid) {
       const params: any = {
         aiType: addForm.aiType,
@@ -106,10 +107,10 @@ const submitForm = (formEl: FormInstance | undefined) => {
         picture: addForm.picture,
         fid: addForm.fid,
       };
-      params.modelType = `[${addForm.modelType.map((m) => m.id).join(",")}]`;
+      params.modelType = `[${addForm.modelType.map(m => m.id).join(',')}]`;
       console.log(params);
       const res = await addModel(params);
-      console.log("res: ", res);
+      console.log('res: ', res);
     } else {
       return false;
     }

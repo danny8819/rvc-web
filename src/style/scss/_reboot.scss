@@ -1,4 +1,4 @@
-@use "./custom-variable" as *;
+@use './custom-variable' as *;
 
 .theme--light.v-application,
 .theme--light.v-sheet,
@@ -249,7 +249,7 @@ p {
   caret-color: $white !important;
 }
 
-a.reset-link {
+a {
   text-decoration: none;
   color: inherit;
   outline: none;

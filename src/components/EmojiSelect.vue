@@ -37,31 +37,31 @@ defineProps({
     default: true,
   },
 });
-const emit = defineEmits(["choose"]);
+const emit = defineEmits(['choose']);
 const show = ref(false);
 const svgStyle = shallowReactive({
-  size: "16px",
-  color: "#595959",
+  size: '16px',
+  color: '#595959',
 });
 const emojis =
-  "😀 😃 😄 😁 😆 😅 😂 🤣 😊 😇 🙂 🙃 😉 😌 😍 😘 😗 😙 😚 😋 😛 😝 😜 🤓 😎 😏 😒 😞 😔 😟 😕 🙁 😣 😖 😫 😩 😢 😭 😤 😠 😡 😳 😱 😨 🤗 🤔 😶 😑 😬 🙄 😯 😴 😷 🤑 😈 🤡 💩 👻 💀 👀 👣 👐 🙌 👏 🤝 👍 👎 👊 ✊ 🤛 🤜 🤞 ✌️ 🤘 👌 👈 👉 👆 👇 ☝️ ✋ 🤚 🖐 🖖 👋 🤙 💪 🖕 ✍️ 🙏 ";
-const emojiList = emojis.split(" ");
-const onClickOutside = (event) => {
-  const panel = document.querySelector(".emoji-drop-panel");
-  const btn = document.querySelector(".emoji-action");
+  '😀 😃 😄 😁 😆 😅 😂 🤣 😊 😇 🙂 🙃 😉 😌 😍 😘 😗 😙 😚 😋 😛 😝 😜 🤓 😎 😏 😒 😞 😔 😟 😕 🙁 😣 😖 😫 😩 😢 😭 😤 😠 😡 😳 😱 😨 🤗 🤔 😶 😑 😬 🙄 😯 😴 😷 🤑 😈 🤡 💩 👻 💀 👀 👣 👐 🙌 👏 🤝 👍 👎 👊 ✊ 🤛 🤜 🤞 ✌️ 🤘 👌 👈 👉 👆 👇 ☝️ ✋ 🤚 🖐 🖖 👋 🤙 💪 🖕 ✍️ 🙏 ';
+const emojiList = emojis.split(' ');
+const onClickOutside = event => {
+  const panel = document.querySelector('.emoji-drop-panel');
+  const btn = document.querySelector('.emoji-action');
   if (!panel.contains(event.target) && !btn.contains(event.target)) {
     show.value = false;
   }
 };
 function onClick(item) {
-  emit("choose", item);
+  emit('choose', item);
   show.value = false;
 }
 onMounted(() => {
-  document.addEventListener("click", onClickOutside);
+  document.addEventListener('click', onClickOutside);
 });
 onUnmounted(() => {
-  document.removeEventListener("click", onClickOutside);
+  document.removeEventListener('click', onClickOutside);
 });
 </script>
 
@@ -114,7 +114,7 @@ onUnmounted(() => {
 .emoji-action:after {
   border: 5px solid transparent;
   border-bottom: 5px solid #bfa;
-  content: "";
+  content: '';
   opacity: 0;
   position: absolute;
   top: 30px;

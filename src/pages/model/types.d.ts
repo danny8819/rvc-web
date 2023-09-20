@@ -1,4 +1,4 @@
-type ModelDetail = Record<
+export type ModelDetail = Record<
   | "mid"
   | "uid"
   | "nickname"
@@ -16,7 +16,7 @@ type ModelDetail = Record<
     types: Record<"id" | "type", string>[];
   };
 
-type AddModelForm = Record<
+  export type AddModelForm = Record<
   | "aiType"
   | "description"
   | "mid"
@@ -29,3 +29,5 @@ type AddModelForm = Record<
 >&{
   "modelType":{ id: number | string; type: string }[];
 };
+
+ 

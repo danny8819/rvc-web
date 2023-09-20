@@ -33,7 +33,7 @@
 
 <script lang="ts" setup>
 import Statement from './Statement.vue';
-import { ref } from 'vue'
+ 
 let tags = ref([{ name: 'RVC', key: 'rvc' }, { name: 'TRAINING', key: 'training' }])
 
 let contents = ref([
