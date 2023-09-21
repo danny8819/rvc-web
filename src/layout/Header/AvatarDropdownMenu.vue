@@ -18,7 +18,7 @@
           <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
           <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
         </svg>
-        Your profile
+        个人主页
       </div>
     </el-dropdown-item>
     <!-- 收藏 -->
@@ -42,11 +42,11 @@
           <path d="M15 16h6"></path>
           <path d="M18 13v6"></path>
         </svg>
-        My collections
+        我的收藏
       </div>
     </el-dropdown-item>
     <!-- 喜欢的模型 -->
-    <el-dropdown-item @click="router.push('/404')">
+    <el-dropdown-item @click="router.push('/model-like')">
       <div class="item-wrap">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -64,10 +64,10 @@
             d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
           ></path>
         </svg>
-        Liked models
+        喜欢的模型
       </div>
     </el-dropdown-item>
-    <!-- 书签 -->
+    <!-- 我的书签 -->
     <el-dropdown-item @click="router.push('/404')">
       <div class="item-wrap">
         <svg
@@ -86,7 +86,7 @@
             d="M9 4h6a2 2 0 0 1 2 2v14l-5 -3l-5 3v-14a2 2 0 0 1 2 -2"
           ></path>
         </svg>
-        Bookmarked articles
+        文章书签
       </div>
     </el-dropdown-item>
     <!-- 排行------------------------ -->
@@ -106,7 +106,7 @@
         >
           <path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z"></path>
         </svg>
-        Leaderboard
+        排行榜单
       </div>
     </el-dropdown-item>
     <!-- 隐藏模型 -->
@@ -133,7 +133,7 @@
           <path d="M20.31 8.56a9 9 0 0 0 -1.95 -2.92"></path>
           <path d="M15.44 3.69a9 9 0 0 0 -3.44 -.69"></path>
         </svg>
-        Hidden models
+        隐藏模型
       </div>
     </el-dropdown-item>
     <!-- 关注 -->
@@ -156,7 +156,7 @@
           <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
           <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
         </svg>
-        Creators you follow
+        关注的创作者
       </div>
     </el-dropdown-item>
     <!-- 下载历史 -->
@@ -177,7 +177,7 @@
           <path d="M12 8l0 4l2 2"></path>
           <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5"></path>
         </svg>
-        Download history
+        下载历史
       </div>
     </el-dropdown-item>
     <!-- 问答 -->
@@ -201,14 +201,14 @@
             d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z"
           ></path>
         </svg>
-        Questions
-        <div class=" ">
-          <span class="mantine-h9iq4m mantine-Badge-inner">Beta</span>
+        问题
+        <div class="beta-btn">
+          <span>Beta</span>
         </div>
       </div>
     </el-dropdown-item>
     <!-- 暗色------------------------- -->
-    <el-dropdown-item divided @click="router.push('/404')" >
+    <el-dropdown-item divided @click="router.push('/404')">
       <div class="item-wrap">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -230,7 +230,7 @@
           <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
         </svg>
         <div class="flex flex-1 justify-between items-center">
-          Dark mode
+          暗色模式
           <!-- <ThemeToggle /> -->
         </div>
       </div>
@@ -255,7 +255,7 @@
           ></path>
           <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
         </svg>
-        Account settings
+        账户设置
       </div>
     </el-dropdown-item>
     <!-- 登出 -->
@@ -279,7 +279,7 @@
           <path d="M9 12h12l-3 -3"></path>
           <path d="M18 15l3 -3"></path>
         </svg>
-        Logout
+        退出登录
       </div>
     </el-dropdown-item>
   </el-dropdown-menu>
@@ -337,7 +337,7 @@ const logout = async () => {
   box-sizing: border-box;
   display: flex;
   flex-flow: wrap;
-  
+
   align-items: center;
   justify-content: space-between;
   gap: 16px;
@@ -345,10 +345,37 @@ const logout = async () => {
 
 .svg-wrap {
   display: flex;
-  
+
   justify-content: center;
-  
+
   align-items: center;
   margin-right: 10px;
+}
+.beta-btn {
+  -webkit-tap-highlight-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-size: 9px;
+  height: 16px;
+  line-height: 14px;
+  text-decoration: none;
+  padding: 0px 6.66667px;
+  box-sizing: border-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  width: auto;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 0.25px;
+  cursor: inherit;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  background: rgba(240, 140, 0, 0.2);
+  color: rgb(255, 236, 153);
+  border: 1px solid transparent;
 }
 </style>
