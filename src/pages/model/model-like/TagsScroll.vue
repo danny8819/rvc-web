@@ -45,7 +45,7 @@
             :key="index"
             @click="activeIdx = index"
           >
-            <span class="  ">{{ item }}</span>
+            {{ item }}
           </button>
         </div>
       </div>
@@ -60,7 +60,7 @@ const { x, arrivedState } = useScroll(el);
 const activeIdx = ref(0);
 const tagList = ref([
   'All',
-  'character',
+  '原神',
   'character',
   'character',
   'character',

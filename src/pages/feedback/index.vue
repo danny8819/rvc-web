@@ -559,9 +559,12 @@
 </template>
 
 <script lang="ts" setup name="FeedbackPage">
-
 import FeedbackControl from '@/pages/feedback/FeedbackControl.vue';
 import FeedbackList from '@/pages/feedback/FeedbackList.vue';
+import { useTitle } from '@vueuse/core';
+
+useTitle('问题反馈');
+
 </script>
 
 <style scoped lang="scss">

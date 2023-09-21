@@ -1,11 +1,11 @@
 <template>
   <div id="118441">
     <div class="model-cf0b3j">
-      <div class="model-1idb3um" style="height: 441.6px">
+      <div class="model-1idb3um" :style="{ height: data.height + 'px' }">
         <a
           class=""
           href="javascript:void(0)"
-          style="height: 441.6px"
+          :style="{ height: data.height + 'px' }"
         >
           <div class="model-150a24d">
             <button
@@ -41,7 +41,7 @@
             </div>
             <img
               class="model-7aj0so"
-              src="https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/2380abe2-5f86-4c6b-95ba-a25ee144f4e6/width=450/00213-637001597.jpeg"
+              :src="data.src"
               alt="00213-637001597.png"
               placeholder="empty"
               style="width: 100%; z-index: 2; position: relative"
@@ -188,7 +188,12 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+const props = withDefaults(defineProps<{ data?: any; height?: number }>(), {
+  data: {
+    src: 'https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/2380abe2-5f86-4c6b-95ba-a25ee144f4e6/width=450/00213-637001597.jpeg',
+    height: 0,
+  },
+});
 </script>
 
 <style scoped lang="scss">
@@ -386,7 +391,7 @@ import { ref } from 'vue';
       gap: 4px;
       .model-1gjpfg {
         -webkit-tap-highlight-color: transparent;
-      
+
         font-size: 11px;
         height: 20px;
         line-height: 18px;

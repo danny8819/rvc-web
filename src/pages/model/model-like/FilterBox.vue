@@ -3,7 +3,7 @@
     <div class="model-tabs-wrap">
       <el-dropdown trigger="click">
         <div class="model-1squ83a">
-          <div class="model-1ls9xs1">Highest Rated</div>
+          <div class="model-1ls9xs1">热门</div>
           <SvgIcon name="arrow-down" size="24" style="color: inherit"></SvgIcon>
         </div>
         <template #dropdown>
@@ -16,14 +16,7 @@
     </div>
     <div class="model-filter__right">
       <!-- 叹号 -->
-      <button
-        class="model-1a8qwgc"
-        type="button"
-        aria-haspopup="dialog"
-        aria-expanded="false"
-        aria-controls="model-rdf-dropdown"
-        id="model-rdf-target"
-      >
+      <button class="model-1a8qwgc">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -43,13 +36,13 @@
       <!-- 时间过滤 -->
       <el-dropdown trigger="click">
         <div class="model-1squ83a">
-          <div class="model-1ls9xs1">Month</div>
+          <div class="model-1ls9xs1">按月</div>
           <SvgIcon name="arrow-down" size="24" style="color: inherit"></SvgIcon>
         </div>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>DAY</el-dropdown-item>
-            <el-dropdown-item>WEEK</el-dropdown-item>
+            <el-dropdown-item>按日</el-dropdown-item>
+            <el-dropdown-item>按周</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -170,7 +163,7 @@ import { ref } from 'vue';
   border: 1px solid transparent;
   background-color: var(--el-color-primary);
 
-  // color: #fff;
+  color: #fff;
   position: relative;
   height: 22px;
   min-height: 22px;
@@ -186,6 +179,7 @@ import { ref } from 'vue';
 
   justify-content: center;
   margin-right: 4px;
+
 }
 .model-1a8qwgc:focus {
   outline-offset: 2px;
