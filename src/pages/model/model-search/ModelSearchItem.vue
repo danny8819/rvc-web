@@ -54,7 +54,7 @@ defineProps({
   }
 }
 .model-search-item__title {
-  display: -webkit-box;
+  
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

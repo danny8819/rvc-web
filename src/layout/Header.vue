@@ -249,9 +249,9 @@ const toSearch = val => {
   box-sizing: border-box;
   display: flex;
   flex-flow: wrap;
-  -webkit-box-align: center;
+  
   align-items: center;
-  -webkit-box-pack: start;
+  
   justify-content: flex-start;
   gap: 10px;
 }

@@ -8,7 +8,7 @@
             style="color: rgba(25, 113, 194, 0.25)"
           >
             <div
-              class="relative p-4 overflow-hidden  rounded-lg dark:border dark:border-current dark:bg-transparent"
+              class="relative p-4 overflow-hidden rounded-lg dark:border dark:border-current dark:bg-transparent"
               style="color: rgba(25, 113, 194, 0.45)"
             >
               <div
@@ -51,8 +51,9 @@
                       fill-rule="evenodd"
                       d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
                       clip-rule="evenodd"
-                    ></path></svg
-                  >Create A New Post
+                    ></path>
+                  </svg>
+                  Create A New Post
                 </button>
               </div>
             </div>
@@ -143,7 +144,8 @@
                           position: relative;
                           max-width: 100%;
                         "
-                        ><span
+                      >
+                        <span
                           style="
                             box-sizing: border-box;
                             display: block;
@@ -156,7 +158,8 @@
                             padding: 0px;
                             max-width: 100%;
                           "
-                          ><img
+                        >
+                          <img
                             alt=""
                             aria-hidden="true"
                             src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2716%27%20height=%2716%27/%3e"
@@ -170,8 +173,10 @@
                               border: 0px;
                               margin: 0px;
                               padding: 0px;
-                            " /></span
-                        ><img
+                            "
+                          />
+                        </span>
+                        <img
                           src="https://fb-usercontent.fra1.cdn.digitaloceanspaces.com/avatar-4b905200-ec31-463e-89fb-ceba8b4f6441.png"
                           decoding="async"
                           data-nimg="intrinsic"
@@ -191,7 +196,8 @@
                             min-height: 100%;
                             max-height: 100%;
                           "
-                      /></span>
+                        />
+                      </span>
                     </div>
                   </div>
                   <p
@@ -206,13 +212,14 @@
                   <div
                     class="flex items-center justify-center false cursor-default"
                   >
-                    <span class="truncate"
-                      ><div class="flex items-center">
-                        <el-icon class="w-3.5 h-3.5 mr-1.5 secondary-svg"
-                          ><SuccessFilled /></el-icon
-                        ><code>514</code>
-                      </div></span
-                    >
+                    <span class="truncate">
+                      <div class="flex items-center">
+                        <el-icon class="w-3.5 h-3.5 mr-1.5 secondary-svg">
+                          <SuccessFilled />
+                        </el-icon>
+                        <code>514</code>
+                      </div>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -246,7 +253,8 @@
                           position: relative;
                           max-width: 100%;
                         "
-                        ><span
+                      >
+                        <span
                           style="
                             box-sizing: border-box;
                             display: block;
@@ -259,7 +267,8 @@
                             padding: 0px;
                             max-width: 100%;
                           "
-                          ><img
+                        >
+                          <img
                             alt=""
                             aria-hidden="true"
                             src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2716%27%20height=%2716%27/%3e"
@@ -273,8 +282,10 @@
                               border: 0px;
                               margin: 0px;
                               padding: 0px;
-                            " /></span
-                        ><img
+                            "
+                          />
+                        </span>
+                        <img
                           src="https://cdn.discordapp.com/avatars/198892941475971072/692a81f2d010231a9df03683607540a2.webp"
                           decoding="async"
                           data-nimg="intrinsic"
@@ -294,7 +305,8 @@
                             min-height: 100%;
                             max-height: 100%;
                           "
-                      /></span>
+                        />
+                      </span>
                     </div>
                   </div>
                   <p
@@ -309,13 +321,14 @@
                   <div
                     class="flex items-center justify-center false cursor-default"
                   >
-                    <span class="truncate"
-                      ><div class="flex items-center">
-                        <el-icon class="w-3.5 h-3.5 mr-1.5 secondary-svg"
-                          ><SuccessFilled /></el-icon
-                        ><code>158</code>
-                      </div></span
-                    >
+                    <span class="truncate">
+                      <div class="flex items-center">
+                        <el-icon class="w-3.5 h-3.5 mr-1.5 secondary-svg">
+                          <SuccessFilled />
+                        </el-icon>
+                        <code>158</code>
+                      </div>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -349,7 +362,8 @@
                           position: relative;
                           max-width: 100%;
                         "
-                        ><span
+                      >
+                        <span
                           style="
                             box-sizing: border-box;
                             display: block;
@@ -362,7 +376,8 @@
                             padding: 0px;
                             max-width: 100%;
                           "
-                          ><img
+                        >
+                          <img
                             alt=""
                             aria-hidden="true"
                             src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2716%27%20height=%2716%27/%3e"
@@ -376,8 +391,10 @@
                               border: 0px;
                               margin: 0px;
                               padding: 0px;
-                            " /></span
-                        ><img
+                            "
+                          />
+                        </span>
+                        <img
                           src="https://fb-usercontent.fra1.cdn.digitaloceanspaces.com/avatar-f8426ca8-66f8-4668-9943-566c343d519e.png"
                           decoding="async"
                           data-nimg="intrinsic"
@@ -397,7 +414,8 @@
                             min-height: 100%;
                             max-height: 100%;
                           "
-                      /></span>
+                        />
+                      </span>
                     </div>
                   </div>
                   <p
@@ -412,13 +430,14 @@
                   <div
                     class="flex items-center justify-center false cursor-default"
                   >
-                    <span class="truncate"
-                      ><div class="flex items-center">
-                        <el-icon class="w-3.5 h-3.5 mr-1.5 secondary-svg"
-                          ><SuccessFilled /></el-icon
-                        ><code>130</code>
-                      </div></span
-                    >
+                    <span class="truncate">
+                      <div class="flex items-center">
+                        <el-icon class="w-3.5 h-3.5 mr-1.5 secondary-svg">
+                          <SuccessFilled />
+                        </el-icon>
+                        <code>130</code>
+                      </div>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -452,7 +471,8 @@
                           position: relative;
                           max-width: 100%;
                         "
-                        ><span
+                      >
+                        <span
                           style="
                             box-sizing: border-box;
                             display: block;
@@ -465,7 +485,8 @@
                             padding: 0px;
                             max-width: 100%;
                           "
-                          ><img
+                        >
+                          <img
                             alt=""
                             aria-hidden="true"
                             src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2716%27%20height=%2716%27/%3e"
@@ -479,8 +500,10 @@
                               border: 0px;
                               margin: 0px;
                               padding: 0px;
-                            " /></span
-                        ><img
+                            "
+                          />
+                        </span>
+                        <img
                           src="https://fb-usercontent.fra1.cdn.digitaloceanspaces.com/avatar-e78d23d4-dff9-43d3-a804-6e5368cf19fe.png"
                           decoding="async"
                           data-nimg="intrinsic"
@@ -500,7 +523,8 @@
                             min-height: 100%;
                             max-height: 100%;
                           "
-                      /></span>
+                        />
+                      </span>
                     </div>
                   </div>
                   <p
@@ -515,13 +539,14 @@
                   <div
                     class="flex items-center justify-center false cursor-default"
                   >
-                    <span class="truncate"
-                      ><div class="flex items-center">
-                        <el-icon class="w-3.5 h-3.5 mr-1.5 secondary-svg"
-                          ><SuccessFilled /></el-icon
-                        ><code>97</code>
-                      </div></span
-                    >
+                    <span class="truncate">
+                      <div class="flex items-center">
+                        <el-icon class="w-3.5 h-3.5 mr-1.5 secondary-svg">
+                          <SuccessFilled />
+                        </el-icon>
+                        <code>97</code>
+                      </div>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -534,7 +559,7 @@
 </template>
 
 <script lang="ts" setup name="FeedbackPage">
-import { ref } from 'vue';
+
 import FeedbackControl from '@/pages/feedback/FeedbackControl.vue';
 import FeedbackList from '@/pages/feedback/FeedbackList.vue';
 </script>

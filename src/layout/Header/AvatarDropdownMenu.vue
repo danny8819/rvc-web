@@ -337,18 +337,17 @@ const logout = async () => {
   box-sizing: border-box;
   display: flex;
   flex-flow: wrap;
-  -webkit-box-align: center;
+  
   align-items: center;
-  -webkit-box-pack: justify;
   justify-content: space-between;
   gap: 16px;
 }
 
 .svg-wrap {
   display: flex;
-  -webkit-box-pack: center;
+  
   justify-content: center;
-  -webkit-box-align: center;
+  
   align-items: center;
   margin-right: 10px;
 }

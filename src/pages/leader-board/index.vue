@@ -575,7 +575,7 @@
         color: inherit;
         font-size: inherit;
         line-height: 1.55;
-        -webkit-text-decoration: none;
+        
         text-decoration: none;
       }
     }
@@ -614,7 +614,7 @@
 
               .mantine-160pczo {
                 box-sizing: border-box;
-                -webkit-box-flex: 0;
+                
                 flex: 0 0 16.6667%;
                 padding: 8px;
                 max-width: 16.6667%;
@@ -641,7 +641,7 @@
               }
               .mantine-hhhjsb {
                 box-sizing: border-box;
-                -webkit-box-flex: 0;
+                
                 flex: 0 0 83.3333%;
                 padding: 8px;
                 max-width: 83.3333%;
@@ -661,9 +661,9 @@
                     flex-direction: row;
 
                     align-items: center;
-                    -webkit-box-flex-wrap: nowrap;
-                    -webkit-flex-wrap: nowrap;
-                    -ms-flex-wrap: nowrap;
+                    
+                    
+                    
                     flex-wrap: nowrap;
 
                     justify-content: flex-start;
@@ -672,16 +672,13 @@
                       box-sizing: border-box;
                       position: relative;
                       display: block;
-                      -webkit-user-select: none;
-                      -moz-user-select: none;
-                      -ms-user-select: none;
-                      user-select: none;
+                                                                                  user-select: none;
                       overflow: hidden;
                       width: 38px;
                       min-width: 38px;
                       height: 38px;
                       border-radius: 32px;
-                      -webkit-text-decoration: none;
+                      
                       text-decoration: none;
                       border: 0;
                       background-color: transparent;

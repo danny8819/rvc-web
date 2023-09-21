@@ -90,7 +90,7 @@ defineProps({
   z-index: 2;
 
   .model-item__title {
-    display: -webkit-box;
+    
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;

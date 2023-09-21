@@ -90,7 +90,7 @@ html.dark {
       .feedback-list-item__left-content {
         // color: rgb(79, 88, 122);
 
-        display: -webkit-box;
+        
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;

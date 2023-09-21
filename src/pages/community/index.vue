@@ -94,7 +94,7 @@ import Streaks from "./comps/Streaks.vue";
 //     font-size: 15px;
 //     color: #18191c;
 
-//     display: -webkit-box;
+//     
 //     -webkit-box-orient: vertical;
 //     -webkit-line-clamp: 4;
 //     overflow: hidden;
