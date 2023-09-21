@@ -55,6 +55,14 @@ const routes: RouteRecordRaw[] = [
           hideFooter:true
         }
       },
+      // {
+      //   path: "/model-home2",
+      //   name: "model-home2",
+      //   component: () => import("@/pages/model/model-home/index2.vue"),
+      //   meta:{
+      //     hideFooter:true
+      //   }
+      // },
       {
         path: "/model-detail/:mid",
         name: "model-detail",
@@ -85,11 +93,11 @@ const routes: RouteRecordRaw[] = [
         name:'leader-board',
         component:()=>import('@/pages/leader-board/index.vue')
       },
-      // {
-      //   path:'/follow',
-      //   name:'follow',
-      //   component:()=>import('@/pages/follow/index.vue')
-      // }
+      {
+        path:'/follow',
+        name:'follow',
+        component:()=>import('@/pages/follow/index.vue')
+      }
     ],
   },
   {
