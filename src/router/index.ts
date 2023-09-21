@@ -55,14 +55,14 @@ const routes: RouteRecordRaw[] = [
           hideFooter:true
         }
       },
-      // {
-      //   path: "/model-home2",
-      //   name: "model-home2",
-      //   component: () => import("@/pages/model/model-home/index2.vue"),
-      //   meta:{
-      //     hideFooter:true
-      //   }
-      // },
+      {
+        path: "/model-like",
+        name: "model-like",
+        component: () => import("@/pages/model/model-like/index.vue"),
+        meta:{
+          hideFooter:true
+        }
+      },
       {
         path: "/model-detail/:mid",
         name: "model-detail",

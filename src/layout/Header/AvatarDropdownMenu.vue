@@ -208,7 +208,7 @@
       </div>
     </el-dropdown-item>
     <!-- 暗色------------------------- -->
-    <el-dropdown-item divided @click="router.push('/404')">
+    <el-dropdown-item divided>
       <div class="item-wrap">
         <svg
           xmlns="http://www.w3.org/2000/svg"

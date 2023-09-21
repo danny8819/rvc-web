@@ -7,44 +7,54 @@
         type="button"
         data-button="true"
         href="javascript:void(0);"
-        ><div class="mantine-3xbgk5 mantine-Button-inner">
+      >
+        <div class="mantine-3xbgk5 mantine-Button-inner">
           <span class="mantine-qo1k2 mantine-Button-label">Support Us ❤️</span>
-        </div></a
-      ><a
+        </div>
+      </a>
+      <a
         class="mantine-1innaxq"
         type="button"
         data-button="true"
         href="/join-us"
-        ><div class="mantine-3xbgk5 mantine-Button-inner">
+      >
+        <div class="mantine-3xbgk5 mantine-Button-inner">
           <span class="mantine-qo1k2 mantine-Button-label">Join Us 💼</span>
-        </div></a
-      ><a
+        </div>
+      </a>
+      <a
         class="mantine-x6buan"
         type="button"
         data-button="true"
         href="javascript:void(0);"
-        ><div class="mantine-3xbgk5 mantine-Button-inner">
-          <span class="mantine-qo1k2 mantine-Button-label"
-            >Terms of Service</span
-          >
-        </div></a
-      ><a
+      >
+        <div class="mantine-3xbgk5 mantine-Button-inner">
+          <span class="mantine-qo1k2 mantine-Button-label">
+            Terms of Service
+          </span>
+        </div>
+      </a>
+      <a
         class="mantine-x6buan"
         type="button"
         data-button="true"
         href="javascript:void(0);"
-        ><div class="mantine-3xbgk5 mantine-Button-inner">
+      >
+        <div class="mantine-3xbgk5 mantine-Button-inner">
           <span class="mantine-qo1k2 mantine-Button-label">Privacy</span>
-        </div></a
-      ><a class="mantine-x6buan" data-button="true" href="javascript:void(0);"
-        ><div class="mantine-3xbgk5 mantine-Button-inner">
+        </div>
+      </a>
+      <a class="mantine-x6buan" data-button="true" href="javascript:void(0);">
+        <div class="mantine-3xbgk5 mantine-Button-inner">
           <span class="mantine-qo1k2 mantine-Button-label">API</span>
-        </div></a
-      ><a class="mantine-x6buan" data-button="true" href="javascript:void(0);"
-        ><div class="mantine-3xbgk5 mantine-Button-inner">
+        </div>
+      </a>
+      <a class="mantine-x6buan" data-button="true" href="javascript:void(0);">
+        <div class="mantine-3xbgk5 mantine-Button-inner">
           <span class="mantine-qo1k2 mantine-Button-label">Status</span>
-        </div></a
-      ><a
+        </div>
+      </a>
+      <a
         class="icon-wrap flex items-center"
         style="width: 34px; height: 34px"
         href="javascript:void(0);"
@@ -71,16 +81,18 @@
         data-button="true"
         href="javascript:void(0);"
         target="_blank"
-        ><div class="mantine-3xbgk5 mantine-Button-inner">
+      >
+        <div class="mantine-3xbgk5 mantine-Button-inner">
           <span class="mantine-qo1k2 mantine-Button-label">
             <router-link to="/feedback" target="_blank">🪲 Bugs</router-link>
           </span>
-        </div></a
-      ><router-link class="mantine-ua08er" to="/feedback" target="_blank"
-        ><div class="mantine-3xbgk5 mantine-Button-inner">
+        </div>
+      </a>
+      <router-link class="mantine-ua08er" to="/feedback" target="_blank">
+        <div class="mantine-3xbgk5 mantine-Button-inner">
           <span class="mantine-qo1k2 mantine-Button-label">💡 反馈</span>
-        </div></router-link
-      >
+        </div>
+      </router-link>
     </div>
   </footer>
   <div
@@ -91,8 +103,8 @@
   >
     <button class="scroll-to-top-btn">
       <div class="scroll-to-top-btn-content">
-        <span class="scroll-to-top__icon"
-          ><svg
+        <span class="scroll-to-top__icon">
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
@@ -106,8 +118,10 @@
           >
             <path d="M12 5l0 14"></path>
             <path d="M18 11l-6 -6"></path>
-            <path d="M6 11l6 -6"></path></svg></span
-        ><span class="scroll-to-top__text">回到顶部</span>
+            <path d="M6 11l6 -6"></path>
+          </svg>
+        </span>
+        <span class="scroll-to-top__text">回到顶部</span>
       </div>
     </button>
   </div>
@@ -505,7 +519,9 @@ const scrollToTop = () => {
     user-select: none;
     cursor: pointer;
     border: 1px solid transparent;
-    background-color: rgb(25, 113, 194);
+
+    background-color: var(--el-color-primary);
+
     color: rgb(255, 255, 255);
     .scroll-to-top-btn-content {
       display: flex;
