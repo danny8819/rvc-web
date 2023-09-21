@@ -25,7 +25,7 @@
             <span class="ml-2">{{ data.nickname }}</span>
           </div>
           <div
-            class="brick__info-watch flex justify-space-around items-center"
+            class="brick__info-watch flex justify-around items-center"
           >
             <SvgIcon name="liulan"></SvgIcon>
             {{ data.lookNum }}

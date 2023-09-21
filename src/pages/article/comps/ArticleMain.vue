@@ -1,5 +1,5 @@
 <template>
-  <el-card class="rvc-article-main pa-10 mb-5">
+  <el-card class="rvc-article-main p-10 mb-5">
     <div class="rvc-article-title">Characters, Clothing, Poses, Among Other Things: A Guide</div>
 
     <v-row class="rvc-article-author m-20">

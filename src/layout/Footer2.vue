@@ -491,7 +491,7 @@ const scrollToTop = () => {
 
 .scroll-to-top-wrap {
   position: fixed;
-  z-index: 1;
+  z-index: 111;
   bottom: 12px;
   right: 12px;
   .scroll-to-top-btn {

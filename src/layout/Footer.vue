@@ -1,15 +1,15 @@
 <template>
   <v-container class="rvc-layout-footer">
-    <v-row class="py-0 py-md-15">
+    <v-row class="py-0 md:py-15">
       <v-col cols="12" sm="12" md="4" lg="4" class="px-xs-0">
-        <h4 class="font-weight-regular font-18">
+        <h4 class="font-normal font-18">
           官方QQ群：{{ webInfo?.officialQq }}
         </h4>
         <p class="mt-5">开发者QQ：{{ webInfo?.masterQq }}</p>
       </v-col>
 
       <v-col cols="12" sm="12" md="4" lg="4" class="px-xs-0">
-        <h4 class="font-weight-regular font-18">友情链接</h4>
+        <h4 class="font-normal font-18">友情链接</h4>
         <p class="mt-5 mb-0">
           <a
             class="gray-link"
@@ -22,7 +22,7 @@
       </v-col>
 
       <v-col cols="12" sm="12" md="4" lg="4" class="px-xs-0">
-        <h4 class="font-weight-regular font-18">社区</h4>
+        <h4 class="font-normal font-18">社区</h4>
 
         <div class="social-icons mt-5">
           <a
@@ -51,7 +51,7 @@
     </v-row>
 
     <div class="footer-bottom-bar font-14">
-      <div class="md:flex justify-space-around">
+      <div class="md:flex justify-around">
         <p>
           <a href="https://beian.miit.gov.cn" class="link">{{
             webInfo?.beianInfo

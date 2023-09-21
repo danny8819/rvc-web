@@ -8,12 +8,12 @@
       :rules="rules"
       style="margin: auto"
     >
-      <el-card class="pa-5 mb-2" shadow="never">
+      <el-card class="p-5 mb-2" shadow="never">
         <el-form-item label="模型上传" prop="fid">
           <UploadModel v-model="addForm.fid" />
         </el-form-item>
       </el-card>
-      <el-card class="pa-5 mb-2" shadow="never">
+      <el-card class="p-5 mb-2" shadow="never">
         <el-form-item label="封面" prop="picture">
           <UploadPicture v-model="addForm.picture" />
         </el-form-item>

@@ -1,5 +1,5 @@
 <template>
-  <el-card class="pa-4 mt-8" style="overflow: inherit">
+  <el-card class="p-4 mt-8" style="overflow: inherit">
     <div class="mb-2">看帖是喜欢，评论才是真爱：</div>
     <EmojiSelect @choose="handleEmoji" :disabled="emojiDisabled" />
     <el-input

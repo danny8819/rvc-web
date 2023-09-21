@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex align-center justify-center flex-column pa-5"
+    class="flex items-center justify-center flex-col p-5"
     style="height: 100vh"
   >
     <div>

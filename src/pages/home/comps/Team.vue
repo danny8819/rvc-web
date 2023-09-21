@@ -5,7 +5,7 @@
         <v-row justify="center">
           <v-col cols="12" sm="10" md="9" lg="7">
             <div class="text-center">
-              <h2 class="section-title font-weight-medium">
+              <h2 class="section-title font-medium">
                 我们的团队 Our Team
               </h2>
               <p></p>
@@ -36,8 +36,8 @@
                   </ul>
                 </div>
               </div>
-              <div class="pa-2" style="background: #f8f8f8;">
-                <h5 class="team-title font-weight-medium font-17">
+              <div class="p-2" style="background: #f8f8f8;">
+                <h5 class="team-title font-medium font-17">
                   {{ item.nickname }}
                 </h5>
                 <p class="team-subtitle">

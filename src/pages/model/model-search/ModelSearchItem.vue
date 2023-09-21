@@ -14,7 +14,7 @@
         <el-avatar :size="30" :src="data.avatar"> </el-avatar>
         <span class="ml-2">{{ data.nickname }}</span>
       </div>
-      <div class="flex justify-space-around items-center">
+      <div class="flex justify-around items-center">
         <SvgIcon name="liulan"></SvgIcon>
         {{ data.lookNum }}
       </div>

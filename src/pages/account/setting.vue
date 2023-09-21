@@ -22,7 +22,7 @@
         <div class="right-header" style="text-align: left">编辑资料</div>
         <el-divider class="mt-1" />
         <div
-          class="setting-right-avatar flex justify-center mb-4 flex-column align-center"
+          class="setting-right-avatar flex justify-center mb-4 flex-col items-center"
         >
           <el-avatar :size="90" :src="infoForm.avatar"> </el-avatar>
           <div class="avatar-action font-12 my-1">
@@ -79,8 +79,8 @@
           >修改密码</el-button
         >
 
-        <div class="w-50 ma-auto" v-if="false">
-          <img class="w-100" src="@/assets/img/noData.png" alt="" />
+        <div class="w-1/2 m-auto" v-if="false">
+          <img class="w-full" src="@/assets/img/noData.png" alt="" />
         </div>
       </div>
     </div>

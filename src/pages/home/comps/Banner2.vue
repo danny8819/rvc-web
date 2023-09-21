@@ -3,18 +3,18 @@
     <div class="banner1-component">
       <v-container>
         <v-row justify="center">
-          <v-col cols="12" md="7" lg="6" class="flex align-center">
-            <div class="text-center text-md-left">
+          <v-col cols="12" md="7" lg="6" class="flex items-center">
+            <div class="text-left">
               <v-chip size="small" class="bg-dark" color="white"
                 >版本信息</v-chip
               >
               <h2
-                class="banner1-title font-weight-bold text-uppercase white--text"
+                class="banner1-title font-bold text-uppercase white--text"
               >
                 {{ webInfo?.githubVersion }}【RVC】已经到来！
               </h2>
               <p
-                class="white--text op-8 font-weight-regular"
+                class="white--text op-8 font-normal"
                 v-html="webInfo?.versionDescription"
               ></p>
               <div class="mt-16 pt-2">

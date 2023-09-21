@@ -2,7 +2,7 @@
   <div class="login-page">
     <v-container class="login-container">
       <v-row justify="center">
-        <v-col cols="0" sm="4" md="4" class="pa-0">
+        <v-col cols="0" sm="4" md="4" class="p-0">
           <div class="container-left">
             <v-img src="/img/login-bg.png" cover height="100%"> </v-img>
           </div>

@@ -113,7 +113,7 @@
             viewBox="0 0 20 20"
             fill="currentColor"
             aria-hidden="true"
-            class="flex-shrink-0 w-3.5 h-3.5 mr-1.5 opacity-70 md:hidden lg:block"
+            class="shrink-0 w-3.5 h-3.5 mr-1.5 opacity-70 md:hidden lg:block"
           >
             <path
               fill-rule="evenodd"

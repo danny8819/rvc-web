@@ -1,5 +1,5 @@
 <template>
-  <div class="rvc-card rvc-article-author justify-space-around">
+  <div class="rvc-card rvc-article-author justify-around">
     <div class="background">
       <div class="imgs"></div>
     </div>

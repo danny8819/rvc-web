@@ -1,14 +1,14 @@
 <template>
-  <div class="rvc-password flex flex-column justify-center align-center h-50">
-    <el-card class="w-50 mb-5 specify-wh">
+  <div class="rvc-password flex flex-col justify-center items-center h-1/2">
+    <el-card class="w-1/2 mb-5 specify-wh">
       <el-steps :active="step" finish-status="success">
         <el-step title="手机号验证" />
         <el-step title="修改密码" />
         <el-step title="完成" />
       </el-steps>
     </el-card>
-    <el-card class="w-50 pa-3 specify-wh">
-      <div class="flex justify-center align-center text-h5 my-5">
+    <el-card class="w-1/2 p-3 specify-wh">
+      <div class="flex justify-center items-center text-h5 my-5">
         {{ ["手机号验证", "修改密码", "修改成功"][step] }}
       </div>
       <el-form
@@ -31,7 +31,7 @@
             style="width: 60%"
           />
           <div
-            class="d-inline-flex ml-5"
+            class="inline-flex ml-5"
             v-loading="codeLoading"
             style="width: 80px"
           >

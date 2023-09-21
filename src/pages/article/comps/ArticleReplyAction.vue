@@ -1,9 +1,9 @@
 <template>
-  <el-card class="rvc-article-reply-action pa-10">
+  <el-card class="rvc-article-reply-action p-10">
     <h4>看帖是喜欢，评论才是真爱：</h4>
     <el-input resize="none" :rows="4" type="textarea" placeholder="请开始你的表演..." maxlength="300" show-word-limit />
     <!-- <div id="editor"></div>
-    <div class="flex justify-space-between">
+    <div class="flex justify-between">
       <div id="toolbar" class="border-none">
         <button class="ql-bold"></button>
         <button class="ql-image"></button>

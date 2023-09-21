@@ -1,6 +1,6 @@
 <template>
   <div class="feature3-component mini-spacer">
-    <v-container class="position-relative">
+    <v-container class="relative">
       <v-row>
         <v-col cols="12" lg="10">
           <v-img
@@ -12,8 +12,8 @@
         <v-col cols="12" md="7" lg="5" class="feature3-card">
           <v-card class="card-shadow border-all">
             <v-card-text>
-              <div class="pa-10 text-center">
-                <h3 class="feature3-title font-weight-medium">
+              <div class="p-10 text-center">
+                <h3 class="feature3-title font-medium">
                   RVC社区
                 </h3>
                 <p class="text-left">

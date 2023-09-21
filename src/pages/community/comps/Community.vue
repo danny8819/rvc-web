@@ -1,7 +1,7 @@
 <template>
     <div class="brick" v-for="data in communitys" :key="data.id">
         <el-card class=" brick__inner" @click="$router.push('/article/' + data.id)">
-            <div class="brick__info-userInfo d-flex align-center ml-2">
+            <div class="brick__info-userInfo flex items-center ml-2">
                 <el-avatar :size="30" :src="data.avatar"> </el-avatar>
                 <span>
                     <div class="ml-2">{{ data.author }}</div>
@@ -27,7 +27,7 @@
                 </div> -->
                 <div class="brick__info-footer">
 
-                    <div class="brick__info-watch d-flex justify-space-around align-center">
+                    <div class="brick__info-watch flex justify-around items-center">
                         <template v-for="item in emojTypes" :key="item.img">
                             <SvgIcon :name="item.img" size="12" class=" mr-1"></SvgIcon>
                             <span class="mr-1">{{ getNum(data[item.prop]) }}</span>

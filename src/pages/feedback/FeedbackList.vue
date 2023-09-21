@@ -29,7 +29,7 @@
             viewBox="0 0 20 20"
             fill="currentColor"
             aria-hidden="true"
-            class="false flex-shrink-0 w-6 h-6 group-focus:-translate-y-2 group-hover:-translate-y-0.5 cursor-pointer main-transition"
+            class="false shrink-0 w-6 h-6 group-focus:-translate-y-2 group-hover:-translate-y-0.5 cursor-pointer main-transition"
           >
             <path
               fill-rule="evenodd"

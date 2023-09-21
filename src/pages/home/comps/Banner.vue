@@ -2,13 +2,13 @@
   <div class="banner-wrapper">
     <v-container>
       <v-row justify="center">
-        <v-col cols="12" md="7" lg="6" class="flex align-center">
-          <div class="text-center text-md-left">
-            <h1 class="banner-title font-weight-bold white--text">
+        <v-col cols="12" md="7" lg="6" class="flex items-center">
+          <div class="text-center text-left">
+            <h1 class="banner-title font-bold white--text text-left">
               {{ webInfo?.webName || "RVC社区" }}
             </h1>
             <h4
-              class="banner-subtitle white--text font-weight-regular"
+              class="banner-subtitle white--text font-normal"
               style="width: 55vh"
             >
               RVC模型交流社区
@@ -20,7 +20,7 @@
             <div class="mt-10 pt-2" v-if="!userStore.token">
               <v-btn
                 color="error"
-                class="mr-0 mr-md-8 mb-5 mb-md-0"
+                class="mr-0 md:mr-8 mb-5 md:mb-0"
                 size="large"
                 to="/login"
                 elevation="0"
@@ -32,7 +32,7 @@
                 size="large"
                 target="_blank"
                 href=""
-                class="mr-0 mr-md-8 mb-5 mb-md-0 flow-button"
+                class="mr-0 md:mr-8 mb-5 md:mb-0 flow-button"
                 variant="outlined"
                 color="white"
                 elevation="0"

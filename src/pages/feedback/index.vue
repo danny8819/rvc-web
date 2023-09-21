@@ -45,7 +45,7 @@
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     aria-hidden="true"
-                    class="flex-shrink-0 w-3.5 h-3.5 mr-1.5 opacity-70 md:hidden lg:block"
+                    class="shrink-0 w-3.5 h-3.5 mr-1.5 opacity-70 md:hidden lg:block"
                   >
                     <path
                       fill-rule="evenodd"
@@ -127,7 +127,7 @@
                   </div>
                   <div class="mr-1.5 w-4 h-4">
                     <div
-                      class="relative flex items-center justify-center flex-shrink-0 w-4 h-4 rounded-full bg-gray-100/60 dark:bg-gray-750/50"
+                      class="relative flex items-center justify-center shrink-0 w-4 h-4 rounded-full bg-gray-100/60 dark:bg-gray-750/50"
                     >
                       <span
                         style="
@@ -236,7 +236,7 @@
                   </div>
                   <div class="mr-1.5 w-4 h-4">
                     <div
-                      class="relative flex items-center justify-center flex-shrink-0 w-4 h-4 rounded-full bg-gray-100/60 dark:bg-gray-750/50"
+                      class="relative flex items-center justify-center shrink-0 w-4 h-4 rounded-full bg-gray-100/60 dark:bg-gray-750/50"
                     >
                       <span
                         style="
@@ -345,7 +345,7 @@
                   </div>
                   <div class="mr-1.5 w-4 h-4">
                     <div
-                      class="relative flex items-center justify-center flex-shrink-0 w-4 h-4 rounded-full bg-gray-100/60 dark:bg-gray-750/50"
+                      class="relative flex items-center justify-center shrink-0 w-4 h-4 rounded-full bg-gray-100/60 dark:bg-gray-750/50"
                     >
                       <span
                         style="
@@ -454,7 +454,7 @@
                   </div>
                   <div class="mr-1.5 w-4 h-4">
                     <div
-                      class="relative flex items-center justify-center flex-shrink-0 w-4 h-4 rounded-full bg-gray-100/60 dark:bg-gray-750/50"
+                      class="relative flex items-center justify-center shrink-0 w-4 h-4 rounded-full bg-gray-100/60 dark:bg-gray-750/50"
                     >
                       <span
                         style="

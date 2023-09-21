@@ -12,7 +12,7 @@
       </el-carousel>
     </el-card>
 
-    <el-card class="h-100 mb-5">
+    <el-card class="h-full mb-5">
       <div class="flex justify-end">
         <div class="publish-btn" @click="$router.push('/model-publish')">
           <SvgIcon name="upload" color="#fff" />

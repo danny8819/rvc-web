@@ -30,7 +30,7 @@
       v-click-outside="() => (isActive = false)"
     >
       <li
-        class="nav-item text-center pr-5 w-100"
+        class="nav-item text-center pr-5 w-full"
         v-for="(item, index) in menuList"
         :key="index"
         :class="{ active: $route.path === item.to }"
@@ -48,10 +48,10 @@
     <NavSearch
       v-if="$route.name !== 'model-search'"
       @search="toSearch"
-      class="hidden d-sm-block"
+      class="hidden sm:block"
     />
 
-    <div class="header-right flex justify-center align-center">
+    <div class="header-right flex justify-center items-center">
       <!-- 菜单btn -->
 
       <span
@@ -76,7 +76,7 @@
           :src="userStore?.userInfo?.avatar || '/logo2.png'"
         ></el-avatar>
         <template #dropdown>
-            <AvatarDropdownMenu />
+          <AvatarDropdownMenu />
         </template>
       </el-dropdown>
       <UploadPopover v-if="isLogin" />
@@ -109,8 +109,6 @@ const menuList = [
 const isLogin = computed(() => {
   return userStore.token;
 });
-
-
 
 const toSearch = val => {
   router.push({ path: '/model-search', query: { keyword: val } });
@@ -217,10 +215,6 @@ const toSearch = val => {
       }
     }
   }
-  .px-sm-0 {
-    padding-left: 0;
-    padding-right: 0;
-  }
   .mob-imagesetter {
     background-size: unset;
     background-position: unset !important;
@@ -249,9 +243,9 @@ const toSearch = val => {
   box-sizing: border-box;
   display: flex;
   flex-flow: wrap;
-  
+
   align-items: center;
-  
+
   justify-content: flex-start;
   gap: 10px;
 }
