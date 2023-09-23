@@ -5,14 +5,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed } from 'vue';
 
 export default defineComponent({
-  name: "SvgIcon",
+  name: 'SvgIcon',
   props: {
     prefix: {
       type: String,
-      default: "icon",
+      default: 'icon',
     },
     name: {
       type: String,
@@ -20,7 +20,7 @@ export default defineComponent({
     },
     color: {
       type: String,
-      default: "#435B71",
+      // default: "#435B71",
     },
     size: {
       type: [Number, String],
@@ -33,11 +33,11 @@ export default defineComponent({
     const getStyle = computed(() => {
       const { size } = props;
       let s = `${size}`;
-      s = `${s.replace("px", "")}px`;
+      s = `${s.replace('px', '')}px`;
       return {
         width: s,
         height: s,
-        color: props.color,
+        color: props.color || 'inherit',
       };
     });
     return { symbolId, getStyle };

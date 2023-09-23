@@ -167,6 +167,8 @@ const tagList = ref([
 }
 
 .normal-btn {
+  width: max-content;
+
   padding: 0px 8px;
   appearance: none;
   text-align: left;
