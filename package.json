@@ -7,6 +7,7 @@
     "dev": "vite",
     "dev:mock": "vite --mode mock",
     "build": "vue-tsc && vite build",
+    "analyze": "vue-tsc && vite --mode analyze build",
     "lint": "eslint --ext .vue,.ts src/",
     "preview": "vite preview"
   },
@@ -53,6 +54,7 @@
     "mockjs": "^1.1.0",
     "postcss": "^8.4.29",
     "prettier": "^3.0.3",
+    "rollup-plugin-visualizer": "^5.9.2",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
