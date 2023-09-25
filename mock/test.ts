@@ -1,6 +1,4 @@
-import { MockMethod, MockConfig } from 'vite-plugin-mock'
-
-export default function (config: MockConfig) {
+export default function (config) {
   return [
     {
       url: '/mockApi/text',

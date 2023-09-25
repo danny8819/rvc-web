@@ -68,7 +68,7 @@
         {{ '登录' }}
       </button>
       <!-- 头像 -->
-      <el-dropdown v-if="!isLogin" trigger="click" :teleported="false">
+      <el-dropdown v-if="isLogin" trigger="click" :teleported="false">
         <el-avatar
           @mouseenter="isHovered = true"
           class="el-dropdown-link ml-5 mr-2"

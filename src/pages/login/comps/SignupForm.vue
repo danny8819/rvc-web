@@ -74,7 +74,7 @@
     </v-container>
 
     <v-card-title class="text-right">
-      <span class="text-caption" @click="toLogin">去登录</span>
+      <span class="text-sm" @click="toLogin">去登录</span>
     </v-card-title>
   </v-card>
 </template>
@@ -179,7 +179,7 @@ const onSubmit = async (event) => {
     display: none;
   }
 
-  .text-caption:hover {
+  .text-sm:hover {
     border-bottom: 1px solid #333;
   }
 }

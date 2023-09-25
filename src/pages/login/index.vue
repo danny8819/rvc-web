@@ -4,7 +4,7 @@
       <v-row justify="center">
         <v-col cols="0" sm="4" md="4" class="p-0">
           <div class="container-left">
-            <v-img src="/img/login-bg.png" cover height="100%"> </v-img>
+            <v-img src="/img/login-bg.png" cover height="100%"></v-img>
           </div>
         </v-col>
         <v-col
@@ -12,9 +12,11 @@
           sm="8"
           md="8"
           align-self="center"
-          class="flex justify-center login-form-container"
+          class="login-form-container flex justify-center items-center"
         >
+          <!-- 登录 -->
           <LoginForm v-if="loginType === 'login'" @toggleType="toggleType" />
+          <!-- 注册 -->
           <SignupForm v-else @toggleType="toggleType" />
         </v-col>
       </v-row>
@@ -24,19 +26,19 @@
 </template>
 
 <script lang="ts" setup>
-import LoginForm from "./comps/LoginForm.vue";
-import SignupForm from "./comps/SignupForm.vue";
+import LoginForm from './comps/LoginForm.vue';
+import SignupForm from './comps/SignupForm.vue';
 // import LoginFooter from "./comps/LoginFooter.vue";
 
-const loginType = ref("login");
+const loginType = ref('login');
 
-function toggleType(type = "login") {
-  console.log("type: ", type);
+function toggleType(type = 'login') {
+  console.log('type: ', type);
   loginType.value = type;
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .login-page {
   .login-container {
     margin: 0;
