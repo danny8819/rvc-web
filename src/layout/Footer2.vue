@@ -77,9 +77,8 @@
   </footer>
   <div
     class="scroll-to-top-wrap"
-    style="transition: bottom 300ms linear 0s"
     @click="scrollToTop"
-    v-show="true"
+    :class="{ hide: y > 50 }"
   >
     <button class="scroll-to-top-btn">
       <div class="scroll-to-top-btn-content">
@@ -499,6 +498,11 @@ const scrollToTop = () => {
   z-index: 99;
   bottom: 12px;
   right: 12px;
+  transition: bottom 300ms linear 0s;
+  &.hide{
+    bottom: -62px;
+  }
+
   .scroll-to-top-btn {
     transition-property: transform, opacity;
     transition-duration: 250ms;
