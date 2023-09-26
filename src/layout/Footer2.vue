@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer2-wrap" :class="{ hidden: y > 10 }">
+  <footer class="footer2-wrap" :class="{ hidden: hideFooter }">
     <div class="footer-copy">© RVC 2023</div>
     <div class="footer-center">
       <a
@@ -9,7 +9,7 @@
         href="javascript:void(0);"
       >
         <div class="mantine-3xbgk5 mantine-Button-inner">
-          <span class="mantine-qo1k2 mantine-Button-label">Support Us ❤️</span>
+          <span class="mantine-qo1k2 mantine-Button-label">支持我们 ❤️</span>
         </div>
       </a>
       <a
@@ -19,9 +19,10 @@
         href="/join-us"
       >
         <div class="mantine-3xbgk5 mantine-Button-inner">
-          <span class="mantine-qo1k2 mantine-Button-label">Join Us 💼</span>
+          <span class="mantine-qo1k2 mantine-Button-label">加入我们 💼</span>
         </div>
       </a>
+
       <a
         class="mantine-x6buan"
         type="button"
@@ -29,44 +30,23 @@
         href="javascript:void(0);"
       >
         <div class="mantine-3xbgk5 mantine-Button-inner">
-          <span class="mantine-qo1k2 mantine-Button-label">
-            Terms of Service
-          </span>
+          <span class="mantine-qo1k2 mantine-Button-label">隐私条款</span>
         </div>
       </a>
-      <a
-        class="mantine-x6buan"
-        type="button"
-        data-button="true"
-        href="javascript:void(0);"
-      >
-        <div class="mantine-3xbgk5 mantine-Button-inner">
-          <span class="mantine-qo1k2 mantine-Button-label">Privacy</span>
-        </div>
-      </a>
-      <a class="mantine-x6buan" data-button="true" href="javascript:void(0);">
-        <div class="mantine-3xbgk5 mantine-Button-inner">
-          <span class="mantine-qo1k2 mantine-Button-label">API</span>
-        </div>
-      </a>
-      <a class="mantine-x6buan" data-button="true" href="javascript:void(0);">
-        <div class="mantine-3xbgk5 mantine-Button-inner">
-          <span class="mantine-qo1k2 mantine-Button-label">Status</span>
-        </div>
-      </a>
+
       <a
         class="icon-wrap flex items-center"
         style="width: 34px; height: 34px"
-        href="javascript:void(0);"
+        href="https://github.com/xxxsjan/rvc-web"
         target="_blank"
         rel="noopener noreferrer"
         v-for="(item, index) in [
-          'discord',
-          'twitter',
-          'instagram',
-          'youtube',
-          'tiktok',
-          'reddit',
+          // 'discord',
+          // 'twitter',
+          // 'instagram',
+          // 'youtube',
+          // 'tiktok',
+          // 'reddit',
           'github',
         ]"
         :key="index"
@@ -99,7 +79,7 @@
     class="scroll-to-top-wrap"
     style="transition: bottom 300ms linear 0s"
     @click="scrollToTop"
-    v-show="y > 50"
+    v-show="true"
   >
     <button class="scroll-to-top-btn">
       <div class="scroll-to-top-btn-content">
@@ -129,7 +109,32 @@
 
 <script lang="ts" setup>
 import { useWindowScroll } from '@vueuse/core';
-const { x, y } = useWindowScroll();
+const { y } = useWindowScroll();
+
+const hideFooter = ref(false);
+
+let timer: any;
+function handleScroll() {
+  if (timer) {
+    this.clearTimeout(timer);
+  }
+
+  timer = setTimeout(() => {
+    if (y.value < 10) {
+      console.log(y.value);
+      hideFooter.value = false;
+      return;
+    } else {
+      hideFooter.value = true;
+    }
+  }, 500);
+}
+
+window.addEventListener('scroll', handleScroll);
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 
 const scrollToTop = () => {
   window.scrollTo({
@@ -491,7 +496,7 @@ const scrollToTop = () => {
 
 .scroll-to-top-wrap {
   position: fixed;
-  z-index: 111;
+  z-index: 99;
   bottom: 12px;
   right: 12px;
   .scroll-to-top-btn {

@@ -231,7 +231,7 @@
         </svg>
         <div class="flex flex-1 justify-between items-center">
           暗色模式
-          <!-- <ThemeToggle /> -->
+          <ThemeToggle />
         </div>
       </div>
     </el-dropdown-item>

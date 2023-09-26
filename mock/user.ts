@@ -22,4 +22,17 @@ export default [
       };
     },
   },
+  {
+    url: '/mockApi/user/logOut',
+    method: 'get',
+    timeout: 2000,
+    response: ({ query }) => {
+      return {
+        code: 200,
+        data: {
+         
+        },
+      };
+    },
+  } 
 ];

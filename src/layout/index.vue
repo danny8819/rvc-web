@@ -6,7 +6,7 @@
     <Transition name="slide-fade">
       <router-view></router-view>
     </Transition>
-    <Footer :webInfo="webInfo" v-show="!$route.meta.hideFooter" />
+    <!-- <Footer :webInfo="webInfo" v-show="!$route.meta.hideFooter" /> -->
     <Footer2 :webInfo="webInfo" v-show="!$route.meta.hideFooter" />
   </div>
 </template>

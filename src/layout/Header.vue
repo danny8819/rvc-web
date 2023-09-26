@@ -58,6 +58,8 @@
         class="menu-toggle-btn text-2xl mdi mdi-menu sm:flex md:hidden lg:hidden"
         @click="isActive = !isActive"
       ></span>
+      <!-- 投稿 -->
+      <UploadPopover v-if="isLogin" />
 
       <!-- 登录btn -->
       <button
@@ -79,7 +81,6 @@
           <AvatarDropdownMenu />
         </template>
       </el-dropdown>
-      <UploadPopover v-if="isLogin" />
     </div>
   </div>
 </template>
