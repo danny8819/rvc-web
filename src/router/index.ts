@@ -6,6 +6,7 @@ import Layout from "@/layout/index.vue";
 import Profile from "@/pages/profile.vue";
 import Community from "@/pages/community/index.vue";
 import { useUserStore } from "@/store/user";
+import CreateArticle from "@/pages/article/comps/CreateArticle.vue";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -32,6 +33,11 @@ const routes: RouteRecordRaw[] = [
         name: "community",
         component: Community,
       },
+      {
+        path: "/create",
+        name: "create",
+        component: CreateArticle,
+      },      
       {
         path: "/account/setting",
         name: "setting",

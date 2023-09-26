@@ -1,5 +1,12 @@
 <template>
   <div class="community-container">
+    <div class="create-article">
+      <button class="create-article-btn">
+        <router-link class="create-article-link" to="/create"
+          >新文章</router-link
+        >
+      </button>
+    </div>
 
     <div class="community-container-content">
       <Community />
@@ -109,5 +116,25 @@ import Streaks from "./comps/Streaks.vue";
   justify-content: space-between;
   align-items: center;
   //color: #9499a0;
+}
+
+.create-article {
+  padding: 1rem 12rem;
+  display: flex;
+  justify-content: end;
+
+  .create-article-btn {
+    border: 1px solid #f69;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: #999999;
+
+    .create-article-link {
+      text-decoration: none;
+    }
+    .create-article-link:visited {
+      color: #999999;
+    }
+  }
 }
 </style>
