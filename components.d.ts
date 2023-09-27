@@ -37,6 +37,7 @@ declare module 'vue' {
     ElTag: typeof import('element-plus/es')['ElTag']
     ElUpload: typeof import('element-plus/es')['ElUpload']
     EmojiSelect: typeof import('./src/components/EmojiSelect.vue')['default']
+    ReplyDialog: typeof import('./src/components/ReplyDialog.vue')['default']
     ReplyInputCard: typeof import('./src/components/ReplyInputCard.vue')['default']
     RichEdit: typeof import('./src/components/RichText/RichEdit.vue')['default']
     RichView: typeof import('./src/components/RichText/RichView.vue')['default']

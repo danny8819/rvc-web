@@ -1,9 +1,7 @@
 <template>
   <div class="model-search-item">
     <div class="model-search-item__pic--wrap">
-      <img
-        src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
-      />
+      <img :src="data.picture" />
     </div>
     <div class="model-search-item__title">
       【原神】全任务全剧情1 序章 第一章 完成 捕风的异乡人 PC版 Yuan Shen
@@ -11,7 +9,7 @@
     </div>
     <div class="model-search-item__footer flex justify-between">
       <div class="flex items-center">
-        <el-avatar :size="30" :src="data.avatar"> </el-avatar>
+        <el-avatar :size="30" :src="data.avatar"></el-avatar>
         <span class="ml-2">{{ data.nickname }}</span>
       </div>
       <div class="flex justify-around items-center">
@@ -54,7 +52,6 @@ defineProps({
   }
 }
 .model-search-item__title {
-  
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

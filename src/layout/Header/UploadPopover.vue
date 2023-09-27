@@ -6,10 +6,10 @@
     trigger="hover"
   >
     <template #reference>
-      <el-button class="m-2"
-        ><SvgIcon name="upload" color="#fff" />
-        <span class="ml-2">投稿</span></el-button
-      >
+      <el-button class="m-2">
+        <SvgIcon name="upload" color="#fff" />
+        <span class="ml-2">投稿</span>
+      </el-button>
     </template>
     <template #default>
       <div class="upload-panel-popover">
@@ -26,8 +26,7 @@
   </el-popover>
 </template>
 
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>
 
 <style scoped lang="scss">
 .upload-panel-popover {
@@ -41,11 +40,16 @@
     justify-content: center;
     width: 62px;
     height: 63px;
-
+    color: var(--el-text-color-regular);
+    
     cursor: pointer;
     transition: background-color 0.3s;
     svg {
       margin-bottom: 6px;
+    }
+
+    &:hover {
+      background-color: var(--el-color-primary-light-9);
     }
   }
 }

@@ -16,7 +16,7 @@
         <!-- 浏览量 -->
         <div class="mr-2 flex items-center">
           <SvgIcon name="watch" size="25" />
-          <span class="ml-1"> {{ data?.lookNum }} </span>
+          <span class="ml-1">{{ data?.lookNum }}</span>
         </div>
         <el-rate model-value="5" class="model-detail_rate" :disabled="true" />
       </div>
@@ -29,9 +29,9 @@
       </div>
     </div>
     <div class="mode-detail-header__tags mb-2">
-      <el-tag v-for="(tag, index) in data?.types" :key="index" class="mr-5">{{
-        tag.type
-      }}</el-tag>
+      <el-tag v-for="(tag, index) in data?.types" :key="index" class="mr-5">
+        {{ tag.type }}
+      </el-tag>
     </div>
   </div>
 </template>
@@ -43,6 +43,9 @@ defineProps<{
 </script>
 
 <style scoped lang="scss">
+.mode-detail-header {
+  color: var(--el-text-color-regular);
+}
 .mode-detail__title {
   font-weight: 700;
   font-size: 34px;
@@ -64,7 +67,7 @@ defineProps<{
 }
 
 .mode-detail-header__info-date {
-  color: rgb(144, 146, 150);
+  color: var(--el-text-color-secondary);
   font-size: 14px;
   line-height: 1.55;
   text-decoration: none;

@@ -100,18 +100,6 @@ const replyList = ref([
     content: '🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔🐔',
     voice: 'https://web-tool.dolam.top/ikun/%E9%B8%A1.wav',
   },
-  {
-    content: ' 1212121',
-    voice: 'https://web-tool.dolam.top/ikun/%E9%B8%A1.wav',
-  },
-  {
-    content: '🐔🐔🐔🐔🐔🐔🐔2121212🐔🐔🐔🐔🐔🐔🐔🐔🐔',
-    voice: 'https://web-tool.dolam.top/ikun/%E9%B8%A1.wav',
-  },
-  {
-    content: '🐔🐔🐔🐔🐔121🐔🐔🐔🐔12🐔🐔🐔🐔🐔🐔🐔',
-    voice: 'https://web-tool.dolam.top/ikun/%E9%B8%A1.wav',
-  },
 ]);
 getModelInfo({ mid: mid as string }).then(res => {
   console.log(res.data);

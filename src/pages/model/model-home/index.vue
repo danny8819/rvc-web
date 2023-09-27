@@ -12,14 +12,14 @@
       </el-carousel>
     </el-card>
 
-    <el-card class="h-full mb-5">
+    <!-- <el-card class="h-full mb-5">
       <div class="flex justify-end">
-        <div class="publish-btn" @click="$router.push('/model-publish')">
+        <div class="publish-btn" >
           <SvgIcon name="upload" color="#fff" />
           <span class="ml-2">发布模型</span>
         </div>
       </div>
-    </el-card>
+    </el-card> -->
 
     <div class="infinite-scroll-wrap">
       <div class="model-home-list">
@@ -56,7 +56,7 @@ const count = ref(10);
 const load = () => {
   setTimeout(() => {
     modelList.value.push({
-      picture: "/img/banner-bg2.png",
+      picture: "https://picsum.photos/1280/720.webp",
       name: "原神 - 妮露DiffSinger模型",
       modelType: "[1,2,3,4]",
       types: [{ id: "1", type: "妮露" }],
