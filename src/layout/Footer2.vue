@@ -2,37 +2,31 @@
   <footer class="footer2-wrap" :class="{ hidden: hideFooter }">
     <div class="footer-copy">© RVC 2023</div>
     <div class="footer-center">
-      <a
-        class="mantine-12d6g0a"
-        type="button"
-        data-button="true"
-        href="javascript:void(0);"
+      <router-link
+        class="text-xs text-[#fcc2d7] px-2 font-semibold"
+        to="/join-us"
       >
-        <div class="mantine-3xbgk5 mantine-Button-inner">
-          <span class="mantine-qo1k2 mantine-Button-label">支持我们 ❤️</span>
+        <div>
+          <span>支持我们 ❤️</span>
         </div>
-      </a>
-      <a
-        class="mantine-1innaxq"
-        type="button"
-        data-button="true"
-        href="/join-us"
+      </router-link>
+      <router-link
+        class="text-xs text-[#b2f2bb] px-2 font-semibold"
+        to="/join-us"
       >
-        <div class="mantine-3xbgk5 mantine-Button-inner">
-          <span class="mantine-qo1k2 mantine-Button-label">加入我们 💼</span>
+        <div>
+          <span>加入我们 💼</span>
         </div>
-      </a>
+      </router-link>
 
-      <a
-        class="mantine-x6buan"
-        type="button"
-        data-button="true"
-        href="javascript:void(0);"
+      <router-link
+        class="text-xs text-[#e9ecef] px-2 font-semibold"
+        to="/join-us"
       >
-        <div class="mantine-3xbgk5 mantine-Button-inner">
-          <span class="mantine-qo1k2 mantine-Button-label">隐私条款</span>
+        <div>
+          <span>隐私条款</span>
         </div>
-      </a>
+      </router-link>
 
       <a
         class="icon-wrap flex items-center"
@@ -55,23 +49,9 @@
       </a>
     </div>
     <div class="footer-right">
-      <a
-        class="mantine-96znl7"
-        type="button"
-        data-button="true"
-        href="javascript:void(0);"
-        target="_blank"
-      >
-        <div class="mantine-3xbgk5 mantine-Button-inner">
-          <span class="mantine-qo1k2 mantine-Button-label">
-            <router-link to="/feedback" target="_blank">🪲 Bugs</router-link>
-          </span>
-        </div>
-      </a>
-      <router-link class="mantine-ua08er" to="/feedback" target="_blank">
-        <div class="mantine-3xbgk5 mantine-Button-inner">
-          <span class="mantine-qo1k2 mantine-Button-label">💡 反馈</span>
-        </div>
+      <!-- <router-link to="/feedback" target="_blank">🪲 Bugs</router-link> -->
+      <router-link class="feedback-btn" to="/feedback" target="_blank">
+        <span>💡 反馈</span>
       </router-link>
     </div>
   </footer>
@@ -93,7 +73,6 @@
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class=" "
           >
             <path d="M12 5l0 14"></path>
             <path d="M18 11l-6 -6"></path>
@@ -167,13 +146,6 @@ const scrollToTop = () => {
   gap: 20px;
   flex-wrap: nowrap;
   transition: bottom 0.5s ease-in-out;
-
-  &.hidden {
-    bottom: -62px;
-  }
-}
-
-.footer-copy {
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -184,6 +156,12 @@ const scrollToTop = () => {
     sans-serif,
     Apple Color Emoji,
     Segoe UI Emoji;
+  &.hidden {
+    bottom: -62px;
+  }
+}
+
+.footer-copy {
   color: rgb(193, 194, 197);
   font-size: inherit;
   line-height: 1.55;
@@ -201,274 +179,31 @@ const scrollToTop = () => {
   justify-content: flex-start;
   gap: 0;
   flex-wrap: nowrap;
-
-  .mantine-12d6g0a {
-    -webkit-tap-highlight-color: transparent;
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Segoe UI,
-      Roboto,
-      Helvetica,
-      Arial,
-      sans-serif,
-      Apple Color Emoji,
-      Segoe UI Emoji;
-    cursor: pointer;
-    border: 0;
-    padding: 0;
-
-    appearance: none;
-    font-size: 16px;
-    background-color: transparent;
-    text-align: left;
-    color: #c1c2c5;
-
-    text-decoration: none;
-    box-sizing: border-box;
-    height: 30px;
-    padding-left: 14px;
-    padding-right: 14px;
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Segoe UI,
-      Roboto,
-      Helvetica,
-      Arial,
-      sans-serif,
-      Apple Color Emoji,
-      Segoe UI Emoji;
-
-    display: inline-block;
-    width: auto;
-    border-radius: 4px;
-    font-weight: 600;
-    position: relative;
-    line-height: 30px;
-    font-size: 12px;
-
-    user-select: none;
-    cursor: pointer;
-    border: 1px solid transparent;
-    background-color: transparent;
-    color: #fcc2d7;
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-  .mantine-1innaxq {
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Segoe UI,
-      Roboto,
-      Helvetica,
-      Arial,
-      sans-serif,
-      Apple Color Emoji,
-      Segoe UI Emoji;
-    cursor: pointer;
-    border: 0;
-    padding: 0;
-
-    appearance: none;
-    font-size: 16px;
-    background-color: transparent;
-    text-align: left;
-    color: #c1c2c5;
-    text-decoration: none;
-    box-sizing: border-box;
-    height: 30px;
-    padding-left: 14px;
-    padding-right: 14px;
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Segoe UI,
-      Roboto,
-      Helvetica,
-      Arial,
-      sans-serif,
-      Apple Color Emoji,
-      Segoe UI Emoji;
-    -webkit-tap-highlight-color: transparent;
-    display: inline-block;
-    width: auto;
-    border-radius: 4px;
-    font-weight: 600;
-    position: relative;
-    line-height: 30px;
-    font-size: 12px;
-
-    user-select: none;
-    cursor: pointer;
-    border: 1px solid transparent;
-    background-color: transparent;
-    color: #b2f2bb;
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-  .mantine-x6buan {
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Segoe UI,
-      Roboto,
-      Helvetica,
-      Arial,
-      sans-serif,
-      Apple Color Emoji,
-      Segoe UI Emoji;
-    cursor: pointer;
-    border: 0;
-    padding: 0;
-    appearance: none;
-    font-size: 16px;
-    background-color: transparent;
-    text-align: left;
-    color: #c1c2c5;
-    text-decoration: none;
-    box-sizing: border-box;
-    height: 30px;
-    padding-left: 14px;
-    padding-right: 14px;
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Segoe UI,
-      Roboto,
-      Helvetica,
-      Arial,
-      sans-serif,
-      Apple Color Emoji,
-      Segoe UI Emoji;
-    display: inline-block;
-    width: auto;
-    border-radius: 4px;
-    font-weight: 600;
-    position: relative;
-    line-height: 30px;
-    font-size: 12px;
-    user-select: none;
-    cursor: pointer;
-    border: 1px solid transparent;
-    background-color: transparent;
-    color: #e9ecef;
-    padding-right: 10px;
-    padding-left: 10px;
-  }
 }
 .footer-right {
   box-sizing: border-box;
-
   display: flex;
   flex-direction: row;
-
   align-items: center;
-
   flex-wrap: wrap;
-
   justify-content: flex-start;
   gap: 4px;
 
   flex-wrap: nowrap;
   margin-left: auto;
-  .mantine-96znl7 {
-    -webkit-tap-highlight-color: transparent;
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Segoe UI,
-      Roboto,
-      Helvetica,
-      Arial,
-      sans-serif,
-      Apple Color Emoji,
-      Segoe UI Emoji;
-    cursor: pointer;
-    border: 0;
-    padding: 0;
 
-    appearance: none;
-    font-size: 16px;
-    background-color: transparent;
-    text-align: left;
-    color: #c1c2c5;
-    text-decoration: none;
-    box-sizing: border-box;
-    height: 30px;
-    padding-left: 14px;
-    padding-right: 14px;
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Segoe UI,
-      Roboto,
-      Helvetica,
-      Arial,
-      sans-serif,
-      Apple Color Emoji,
-      Segoe UI Emoji;
+  font-weight: 600;
+  line-height: 30px;
+  font-size: 12px;
+  color: #e9ecef;
 
-    display: inline-block;
-    width: auto;
-    border-radius: 4px;
-    font-weight: 600;
-    position: relative;
-    line-height: 30px;
-    font-size: 12px;
-
-    user-select: none;
-    cursor: pointer;
-    border: 1px solid transparent;
-    background-color: transparent;
-    color: #e9ecef;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  .mantine-ua08er {
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Segoe UI,
-      Roboto,
-      Helvetica,
-      Arial,
-      sans-serif,
-      Apple Color Emoji,
-      Segoe UI Emoji;
-    cursor: pointer;
-    border: 0;
-    padding: 0;
-
-    appearance: none;
-    font-size: 16px;
-    background-color: transparent;
-    text-align: left;
-    color: #c1c2c5;
-
-    text-decoration: none;
+  .feedback-btn {
     box-sizing: border-box;
     height: 36px;
-    padding-left: 18px;
-    padding-right: 18px;
-    font-family:
-      -apple-system,
-      BlinkMacSystemFont,
-      Segoe UI,
-      Roboto,
-      Helvetica,
-      Arial,
-      sans-serif,
-      Apple Color Emoji,
-      Segoe UI Emoji;
-
+    line-height: 36px;
     display: inline-block;
-    width: auto;
     border-radius: 4px;
     font-weight: 600;
-    position: relative;
-    line-height: 30px;
     font-size: 14px;
 
     user-select: none;
@@ -476,20 +211,9 @@ const scrollToTop = () => {
     border: 1px solid transparent;
     background-color: rgba(240, 140, 0, 0.2);
     color: #ffec99;
-    padding-left: 4px;
-    padding-right: 10px;
-    .mantine-3xbgk5 {
-      display: flex;
+    text-align: center;
 
-      align-items: center;
-
-      justify-content: center;
-      height: 100%;
-      overflow: visible;
-      a {
-        text-decoration: none;
-      }
-    }
+    padding: 0 12px 0 4px;
   }
 }
 
@@ -499,7 +223,7 @@ const scrollToTop = () => {
   bottom: 12px;
   right: 12px;
   transition: bottom 300ms linear 0s;
-  &.hide{
+  &.hide {
     bottom: -62px;
   }
 
@@ -540,7 +264,6 @@ const scrollToTop = () => {
       overflow: visible;
       .scroll-to-top__icon {
         display: flex;
-
         align-items: center;
         margin-right: 10px;
       }
@@ -548,9 +271,7 @@ const scrollToTop = () => {
         white-space: nowrap;
         height: 100%;
         overflow: hidden;
-
         display: flex;
-
         align-items: center;
       }
     }

@@ -99,33 +99,33 @@
       </div>
       <div class="detail-card__body">
         <div class="icon-data-wrap">
-          <div class="icon-data__content">
-            <div class="mantine-1eqfxeu">
-              <span class="mantine-145h3id">
+          <div class="status-bar">
+            <div class="status-item">
+              <span class="mr-1">
                 <SvgIcon name="icon_upload" size="14"></SvgIcon>
               </span>
               <span class="count-wrap">
                 <div>29</div>
               </span>
             </div>
-            <div class="mantine-1eqfxeu">
-              <span class="mantine-145h3id">
+            <div class="status-item">
+              <span class="mr-1">
                 <SvgIcon name="badge-inner" size="14"></SvgIcon>
               </span>
               <span class="count-wrap">
                 <div>5.6k</div>
               </span>
             </div>
-            <div class="mantine-1eqfxeu">
-              <span class="mantine-145h3id">
+            <div class="status-item">
+              <span class="mr-1">
                 <SvgIcon name="icon-heart" size="14"></SvgIcon>
               </span>
               <span class="count-wrap">
                 <div>84k</div>
               </span>
             </div>
-            <div class="mantine-1eqfxeu">
-              <span class="mantine-145h3id">
+            <div class="status-item">
+              <span class="mr-1">
                 <SvgIcon name="download" size="14"></SvgIcon>
               </span>
               <span class="count-wrap">
@@ -176,16 +176,12 @@ defineProps<{
 }
 
 .icon-data-wrap {
-  font-size: 13px;
-  height: 26px;
-  line-height: 24px;
-  text-decoration: none;
   padding: 0px 8px;
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: auto;
+
   text-transform: uppercase;
   border-radius: 32px;
   font-weight: 700;
@@ -198,7 +194,7 @@ defineProps<{
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .icon-data__content {
+  .status-bar {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -207,7 +203,7 @@ defineProps<{
     justify-content: flex-start;
     gap: 10px;
   }
-  .mantine-1eqfxeu {
+  .status-item {
     -webkit-tap-highlight-color: transparent;
     font-size: 13px;
     height: 26px;
@@ -230,10 +226,7 @@ defineProps<{
     border: 1px solid transparent;
     padding: 0px;
   }
-  .mantine-145h3id {
-    line-height: 1;
-    margin-right: 4px;
-  }
+ 
 }
 
 .detail-card {

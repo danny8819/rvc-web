@@ -5,7 +5,7 @@
         <el-carousel-item v-for="item in 4" :key="item">
           <el-image
             style="width: 100%; height: 100%"
-            src="https://img0.baidu.com/it/u=3604177901,3426946885&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800"
+            :src="'https://picsum.photos/1178/300.webp?random=' + item"
             fit="cover"
           />
         </el-carousel-item>
@@ -46,9 +46,9 @@
 </template>
 
 <script lang="ts" setup name="ModelHome">
-import ModelItemCard from "./ModelItemCard2.vue";
-import { modelList as modelListApi, watchModel } from "@/api/model";
-import { useUserStore } from "@/store/user";
+import ModelItemCard from './ModelItemCard2.vue';
+import { modelList as modelListApi, watchModel } from '@/api/model';
+import { useUserStore } from '@/store/user';
 
 const router = useRouter();
 const userStore = useUserStore();
@@ -56,16 +56,16 @@ const count = ref(10);
 const load = () => {
   setTimeout(() => {
     modelList.value.push({
-      picture: "https://picsum.photos/1280/720.webp",
-      name: "原神 - 妮露DiffSinger模型",
-      modelType: "[1,2,3,4]",
-      types: [{ id: "1", type: "妮露" }],
+      picture: 'https://picsum.photos/1280/720.webp',
+      name: '原神 - 妮露DiffSinger模型',
+      modelType: '[1,2,3,4]',
+      types: [{ id: '1', type: '妮露' }],
       lookNum: 0,
-      uploadDate: "222",
-      avatar: "/img/user-placeholder.webp",
-      nickname: "RVC",
-      mid: "22",
-      uid: "222",
+      uploadDate: '222',
+      avatar: '/img/user-placeholder.webp',
+      nickname: 'RVC',
+      mid: '22',
+      uid: '222',
     });
   }, 2222);
 };
@@ -77,7 +77,7 @@ type ModelList = {
   name: string;
   picture: string;
   modelType: string; // "[1,2,3,4]",
-  types: Record<"id" | "type", string>[];
+  types: Record<'id' | 'type', string>[];
   lookNum: number;
   uploadDate: string;
 }[];
@@ -90,7 +90,7 @@ const pagination = reactive({
 watch(
   [() => pagination.page],
   () => {
-    modelListApi({ page: pagination.page }).then((res) => {
+    modelListApi({ page: pagination.page }).then(res => {
       console.log(res.data);
       modelList.value = res.data.pageModelVOList;
       pagination.total = res.data.total;
@@ -99,14 +99,14 @@ watch(
   },
   {
     immediate: true,
-  }
+  },
 );
 
-const handleToDetail = (item) => {
+const handleToDetail = item => {
   // 浏览+1
   if (userStore.isLogin) {
-    watchModel({ mid: item.mid }).then((res) => {
-      console.log("watchModel", res);
+    watchModel({ mid: item.mid }).then(res => {
+      console.log('watchModel', res);
     });
   }
   router.push(`/model-detail/${item.mid}`);
