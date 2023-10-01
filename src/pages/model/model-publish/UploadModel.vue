@@ -12,7 +12,7 @@
     >
       <template #trigger>
         <div class="upload-icon">
-          <el-icon size="20"><Upload /></el-icon>
+          <el-icon size="20" color="#A3A6AD"><Upload /></el-icon>
           <!-- <svg-icon name="upload"></svg-icon> -->
         </div>
       </template>
@@ -128,6 +128,7 @@ const handleDelete = file => {
   justify-content: center;
   align-items: center;
 }
+
 .upload-wrap {
   height: 100px;
   flex: 0 0 100px;

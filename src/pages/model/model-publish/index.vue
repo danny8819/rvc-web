@@ -4,7 +4,7 @@
       ref="formRef"
       :model="addForm"
       label-width="120px"
-      class="demo-dynamic w-80"
+      class="model-publish-form w-80"
       :rules="rules"
       style="margin: auto"
     >
@@ -117,4 +117,9 @@ const submitForm = (formEl: FormInstance | undefined) => {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+:deep(.model-publish-form .el-upload:hover) {
+  border-color: var(--el-border-color-hover);
+  color: var(--el-border-color-hover);
+}
+</style>
