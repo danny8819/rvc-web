@@ -92,7 +92,7 @@ const articleData = useArticleStore();
 // [预览地址](https://rvc.top/#/)`,
 //   },
 // ])
-const result = md.render(`${articleData.content}`);
+const result = md.render(articleData.content);
 console.log(articleData.content);
 </script>
 
