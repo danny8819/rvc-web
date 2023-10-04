@@ -31,12 +31,13 @@ const tinymceOption = reactive({
   ui_mode: 'split',
   plugins: 'lists link image table code wordcount media',
   branding: false,
+  min_height: 650,
   toolbar:
     'undo redo spellcheckdialog formatpainter | blocks fontsize | bold italic underline forecolor backcolor | media link image | alignleft aligncenter alignright alignjustify lineheight | checklist bullist numlist indent outdent | removeformat',
   skin_url: 'tinymce/skins/ui/oxide-dark',
   content_css: 'tinymce/skins/content/dark/content.min.css',
   menubar: false,
-  language_url: 'public/tinymce/langs/zh-Hans.js',
+  language_url: '/tinymce/langs/zh-Hans.js',
   language: 'zh-Hans',
 });
 
