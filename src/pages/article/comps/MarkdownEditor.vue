@@ -1,16 +1,20 @@
 <template>
   <div class="mavonEditor">
     <mavon-editor
+      class="h-full"
       v-model="articleData.content"
+      toolbarsBackground="#0F172A"
+      previewBackground="#1E293B"
+      :subfield="subfield"
       :toolbars="toolbarOption"
-      :codeStyle="'monokai-sublime'"
+      codeStyle="'monokai-sublime'"
     >
       <!-- 自定义编辑栏语音按钮 -->
-      <template slot="right-toolbar-before">
+      <template #right-toolbar-before>
         <button
           type="button"
           @click="$click('test')"
-          class="op-icon fa fa-mavon-align-left"
+          class="text-gray-600 text-sm"
           aria-hidden="true"
           title="audio"
         >
@@ -29,13 +33,13 @@
   </div>
 </template>
 <script setup>
-import { reactive } from 'vue'
-import axios from 'axios'
-import { mavonEditor } from 'mavon-editor'
-import 'mavon-editor/dist/css/index.css'
-import { useArticleStore } from '../../../store/article'
+import { reactive } from 'vue';
+import axios from 'axios';
+import { mavonEditor } from 'mavon-editor';
+import 'mavon-editor/dist/css/index.css';
+import { useArticleStore } from '../../../store/article';
 
-const articleData = useArticleStore()
+const articleData = useArticleStore();
 
 // console.log(articleData.content)
 // const articleData = reactive({
@@ -47,7 +51,7 @@ const articleData = useArticleStore()
 
 // [预览地址](https://rvc.top/#/)`,
 // })
-
+const subfield = false;
 const toolbarOption = {
   header: true, // 标题
   bold: true, // 粗体
@@ -78,7 +82,7 @@ const toolbarOption = {
   alignright: true, // 右对齐
   // subfield: true, // 单双栏模式
   preview: true, // 预览
-}
+};
 // function imgAdd(name, $file) {
 //   const formImgData = new FormData()
 //   formImgData.append('image', $file)
