@@ -37,9 +37,7 @@
             }"
             @click="activeIdx = index"
           >
-            <div class="mantine-1s8spa1">
-              {{ item }} ({{ followList[index].length || 0 }})
-            </div>
+            <div class="">{{ item }} ({{ followList[index].length || 0 }})</div>
           </button>
         </div>
         <div>
@@ -298,23 +296,6 @@ watch(
 
   &:hover {
     background-color: rgba(51, 154, 240, 0.05);
-  }
-
-  .mantine-3xbgk5 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    overflow: visible;
-    .mantine-qo1k2 {
-      white-space: nowrap;
-      height: 100%;
-      overflow: hidden;
-
-      display: flex;
-
-      align-items: center;
-    }
   }
 }
 .follow-list-item {

@@ -31,29 +31,29 @@
 </template>
 
 <script lang="ts" setup>
-import { uploadImg } from "@/api/oss";
+import { uploadImg } from '@/api/oss';
 
 const fileList = ref([]);
 const uploadRef = ref(null);
 defineProps<{ modelValue: string }>();
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue']);
 
 const handleChange = async (file: any, fileList: any) => {
   console.log(file);
   let imgUrl;
   if (file.raw) {
     const formData = new FormData();
-    formData.append("img", file.raw);
+    formData.append('img', file.raw);
     try {
       const res = await uploadImg(formData);
-      imgUrl = res.data.imgUrl || "";
+      imgUrl = res.data.imgUrl || '';
     } catch (error) {
-      console.error("error: ", error);
-      imgUrl = "";
+      console.error('error: ', error);
+      imgUrl = '';
       uploadRef.value.clearFiles();
     }
   }
-  emit("update:modelValue", imgUrl);
+  emit('update:modelValue', imgUrl);
 };
 
 const handleRemove = (file: any) => {
@@ -62,10 +62,10 @@ const handleRemove = (file: any) => {
 </script>
 
 <style scoped lang="scss">
-.uploadEl {
-  width: 156px;
-  height: 156px;
-}
+// .uploadEl {
+// width: 156px;
+// height: 156px;
+// }
 :deep(.el-upload) {
   width: 100px;
   height: 100px;

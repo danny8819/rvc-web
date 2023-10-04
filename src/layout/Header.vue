@@ -239,15 +239,4 @@ const toSearch = val => {
   display: flex;
   align-items: center;
 }
-
-.mantine-1g4q40w {
-  box-sizing: border-box;
-  display: flex;
-  flex-flow: wrap;
-
-  align-items: center;
-
-  justify-content: flex-start;
-  gap: 10px;
-}
 </style>

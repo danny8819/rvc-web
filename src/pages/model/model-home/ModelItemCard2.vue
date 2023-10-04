@@ -1,12 +1,7 @@
 <template>
   <div class="model-item">
     <div class="model-item__pic--wrap">
-      <img
-        :src="
-          data.picture ||
-          'https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/3c451176-a098-4191-907a-e898bfdf673b/width=2048/ComfyUI_00747_.jpeg'
-        "
-      />
+      <img :src="data.picture" />
     </div>
     <div class="model-item__footer">
       <div class="model-item__title">
@@ -14,7 +9,7 @@
       </div>
       <div class="flex justify-between">
         <div class="flex items-center">
-          <el-avatar :size="30" :src="data.avatar"> </el-avatar>
+          <el-avatar :size="30" :src="data.avatar"></el-avatar>
           <span class="ml-2">{{ data.nickname }}</span>
         </div>
         <div class="flex justify-around items-center">
@@ -52,7 +47,9 @@ defineProps({
   }
   &:hover {
     transform: translateY(2px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow:
+      0 2px 5px rgba(0, 0, 0, 0.1),
+      0 1px 2px rgba(0, 0, 0, 0.05);
 
     .model-item__pic--wrap {
       transform: scale(1.1);
@@ -90,7 +87,6 @@ defineProps({
   z-index: 2;
 
   .model-item__title {
-    
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;

@@ -2,12 +2,10 @@
   <el-card shadow="never" class="model-detail__info-container">
     <div class="model-detail__info-content relative">
       <el-image
-        class="absolute top-0 w-full h-full"
-        :src="
-          data?.picture ||
-          'https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/e666efeb-9837-4e85-89a8-7998088b8836/width=450/2023-09-03%20115232.jpeg'
-        "
+        class="top-0 w-full h-full"
+        :src="data?.picture"
         fit="contain"
+        style="position: absolute"
       />
     </div>
   </el-card>

@@ -4,16 +4,15 @@
       ref="formRef"
       :model="addForm"
       label-width="120px"
-      class="demo-dynamic w-80"
+      class="model-publish-form w-80"
       :rules="rules"
       style="margin: auto"
     >
+      <!-- <el-card class="p-5 mb-2" shadow="never"></el-card> -->
       <el-card class="p-5 mb-2" shadow="never">
         <el-form-item label="模型上传" prop="fid">
           <UploadModel v-model="addForm.fid" />
         </el-form-item>
-      </el-card>
-      <el-card class="p-5 mb-2" shadow="never">
         <el-form-item label="封面" prop="picture">
           <UploadPicture v-model="addForm.picture" />
         </el-form-item>
@@ -44,11 +43,11 @@
 </template>
 
 <script lang="ts" setup>
-import type { FormInstance } from 'element-plus';
 import TagsInput from '@/components/TagsInput.vue';
-import { addModel } from '@/api/model';
 import UploadModel from './UploadModel.vue';
 import UploadPicture from './UploadPicture.vue';
+import type { FormInstance } from 'element-plus';
+import { addModel } from '@/api/model';
 import { AddModelForm } from '../types';
 
 const rules = {
@@ -118,4 +117,9 @@ const submitForm = (formEl: FormInstance | undefined) => {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+:deep(.model-publish-form .el-upload:hover) {
+  border-color: var(--el-border-color-hover);
+  color: var(--el-border-color-hover);
+}
+</style>

@@ -12,13 +12,13 @@
     >
       <template #trigger>
         <div class="upload-icon">
-          <el-icon size="20"><Upload /></el-icon>
+          <el-icon size="20" color="#A3A6AD"><Upload /></el-icon>
           <!-- <svg-icon name="upload"></svg-icon> -->
         </div>
       </template>
     </el-upload>
     <div class="upload-list">
-      <div
+      <!-- <div
         class="upload-list__item"
         v-for="(file, index) in fileList"
         :key="index"
@@ -39,21 +39,42 @@
             <el-icon size="20"><Delete /></el-icon>
           </span>
         </div>
+      </div> -->
+    </div>
+    <div v-if="fileList.length > 0" class="w-full">
+      <div
+        class="file-preview-item flex justify-between items-center"
+        v-for="(file, index) in fileList"
+        :key="index"
+      >
+        <div class="flex items-center">
+          <SvgIcon name="category"></SvgIcon>
+          <div class="filename">
+            {{ file.name }}
+          </div>
+        </div>
+        <span
+          class="cursor-pointer w-6 h-6 text-[#e9ecef]"
+          type="button"
+          @click="handleDelete(file)"
+        >
+          <SvgIcon name="x"></SvgIcon>
+        </span>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { Delete, Upload } from "@element-plus/icons-vue";
-import type { UploadFile, UploadProgressEvent } from "element-plus";
+import { Delete, Upload } from '@element-plus/icons-vue';
+import type { UploadFile, UploadProgressEvent } from 'element-plus';
 
-import { uploadModel } from "@/api/oss";
+import { uploadModel } from '@/api/oss';
 
 defineProps<{
   modelValue: string;
 }>();
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue']);
 
 const fileList = ref<UploadFile[]>([]);
 const handleChange = async (file: UploadFile) => {
@@ -63,21 +84,25 @@ const handleChange = async (file: UploadFile) => {
   // 上传
   if (file.raw) {
     const formData = new FormData();
-    formData.append("model", file.raw);
+    formData.append('model', file.raw);
     try {
       const res = await uploadModel(formData);
       fid = res.data.fid;
     } catch (error) {
-      emit("update:modelValue", "");
+      emit('update:modelValue', '');
     }
   }
   // 设置fid
   if (fid) {
-    emit("update:modelValue", fid);
+    emit('update:modelValue', fid);
   }
 };
 const handleProgress = (evt: UploadProgressEvent) => {
-  console.log("progress");
+  console.log('progress');
+};
+const handleDelete = file => {
+  fileList.value.splice(fileList.value.indexOf(file), 1);
+  console.log('fileList: ', fileList);
 };
 </script>
 
@@ -103,6 +128,7 @@ const handleProgress = (evt: UploadProgressEvent) => {
   justify-content: center;
   align-items: center;
 }
+
 .upload-wrap {
   height: 100px;
   flex: 0 0 100px;
@@ -112,7 +138,7 @@ const handleProgress = (evt: UploadProgressEvent) => {
     width: 0%;
   }
 }
- 
+
 .upload-list {
   flex: 1;
   align-items: stretch;
@@ -171,6 +197,28 @@ const handleProgress = (evt: UploadProgressEvent) => {
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     z-index: 1;
+  }
+}
+
+.file-preview-item {
+  color: rgb(193, 194, 197);
+  border: 1px solid rgb(55, 58, 64);
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(37, 38, 43);
+  padding: 10px;
+  .filename {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    color: inherit;
+    font-size: 14px;
+    line-height: 1.55;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 4px;
   }
 }
 </style>

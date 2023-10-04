@@ -9,9 +9,9 @@
         style="width: 480px"
       >
         <template #append>
-          <el-button type="primary" @click="handleSearch"> 搜索 </el-button>
-        </template></el-input
-      >
+          <el-button type="primary" @click="handleSearch">搜索</el-button>
+        </template>
+      </el-input>
     </div>
 
     <div
@@ -22,14 +22,13 @@
     >
       <ModelSearchItem
         :data="{
-          picture:
-            'https://fj.zhjlfx.cn/aibbs/forum/202303/15/204316lr8wvjths8im441m.png',
+          picture: 'https://picsum.photos/seed/picsum/800/572.webp',
           name: '原神 - 妮露DiffSinger模型',
           modelType: '[1,2,3,4]',
           types: [{ id: '1', type: '妮露' }],
           lookNum: 0,
           uploadDate: '222',
-          avatar: 'https://uc.zhjlfx.cn/avatar.php?uid=2&size=middle',
+          avatar: 'https://picsum.photos/seed/picsum/30.webp',
           nickname: '红血球AE3803',
           mid: '22',
           uid: '222',
@@ -53,12 +52,12 @@
 </template>
 
 <script lang="ts" setup name="ModelSearch">
-import ModelSearchItem from "./ModelSearchItem.vue";
-import { Search } from "@element-plus/icons-vue";
-import { searchModelTypeByName } from "@/api/modelType";
+import ModelSearchItem from './ModelSearchItem.vue';
+import { Search } from '@element-plus/icons-vue';
+import { searchModelTypeByName } from '@/api/modelType';
 
 const { query } = useRoute();
-const searchVal = ref(query.keyword || "");
+const searchVal = ref(query.keyword || '');
 const pagination = reactive({
   page: 1,
   total: 0,
@@ -74,7 +73,7 @@ watch([() => pagination.page], () => {
 const handleSearch = () => {
   searchModelTypeByName({
     type: searchVal.value as string,
-  }).then((res) => {
+  }).then(res => {
     console.log(res);
   });
 };
