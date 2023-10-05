@@ -8,7 +8,7 @@
     "dev:mock": "vite --mode mock",
     "build": "vue-tsc && vite build",
     "analyze": "vue-tsc && vite --mode analyze build",
-    "lint": "eslint --ext .vue,.ts src/",
+    "lint": "vue-tsc && eslint --ext .vue,.ts src/",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -29,6 +29,7 @@
     "markdown-it": "^13.0.1",
     "mavon-editor": "3.0.1",
     "mitt": "^3.0.1",
+    "nprogress": "^0.2.0",
     "pinia": "^2.1.6",
     "pinia-plugin-persistedstate": "^3.2.0",
     "quill": "^1.3.7",

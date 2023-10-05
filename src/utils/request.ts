@@ -2,7 +2,8 @@ import axios from "axios";
 import { useUserStore } from "@/store/user";
 import {noTokenUrl,ignoreErrorUrl} from "./no-auth-url";
 import { ElMessage } from "element-plus";
-
+import NProgress from 'nprogress'
+import "nprogress/nprogress.css"; 
 
 const request = axios.create({
   baseURL: import.meta.env.MODE === 'mock'?"/mockApi":"/appApi",
@@ -11,6 +12,7 @@ const request = axios.create({
 
 request.interceptors.request.use(
   (config) => {
+    NProgress.start()
     const userStore = useUserStore();
     const token = userStore.token;
     if (token) {
@@ -37,6 +39,7 @@ request.interceptors.request.use(
 
 request.interceptors.response.use(
   (response) => {
+    NProgress.done()
     handleStatusCode(response);
     let res = response.data;
     // 如果是返回的文件
@@ -50,6 +53,7 @@ request.interceptors.response.use(
     return res;
   },
   (error) => {
+    NProgress.done()
     // router.replace({path:'/login'})
     handleStatusCode(error.response);
     return Promise.reject(error);
