@@ -1,6 +1,6 @@
 <template>
-  <div class="model-search">
-    <div class="model-search-header">
+  <div class="model-search p-9">
+    <div class="model-search-header w-full flex justify-center p-10">
       <el-input
         v-model="searchVal"
         placeholder="输入关键字搜索"
@@ -15,10 +15,7 @@
     </div>
 
     <div
-      class="model-search-content my-5 mx-10"
-      :style="{
-        '--grid-row-count': Math.ceil(22 / 5),
-      }"
+      class="model-search-content my-5 grid grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-6"
     >
       <ModelSearchItem
         :data="{
@@ -86,27 +83,18 @@ watchEffect(() => {
 
 <style scoped lang="scss">
 .model-search {
-  min-width: 1100px;
-}
-.model-search-header {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 40px;
+  // min-width: 1100px;
 }
 
-.model-search-content {
-  --grid-col-count: 5;
-  display: grid;
-  grid-template: repeat(var(--grid-row-count), 1fr) / repeat(
-      var(--grid-col-count),
-      1fr
-    );
-  gap: 20px 10px;
-}
-@media screen and (max-width: 1200px) {
-  .model-search-content {
-    --grid-col-count: 4;
-  }
-}
+// .model-search-content {
+//   --grid-col-count: 5;
+//   display: grid;
+//   grid-template-columns: repeat(var(--grid-col-count), 1fr);
+//   gap: 20px 10px;
+// }
+// @media screen and (max-width: 1200px) {
+//   .model-search-content {
+//     --grid-col-count: 4;
+//   }
+// }
 </style>
