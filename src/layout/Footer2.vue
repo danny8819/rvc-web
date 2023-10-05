@@ -124,7 +124,6 @@ const scrollToTop = () => {
 
 <style scoped lang="scss">
 .footer2-wrap {
-  min-width: 1111px;
   width: 100%;
   bottom: 0;
   left: 0;

@@ -9,23 +9,27 @@
 </template>
 
 <script lang="ts" setup>
-import { useDark, useToggle } from "@vueuse/core";
-import { Moon, Sunny } from "@element-plus/icons-vue";
+import { useDark, useToggle, useColorMode } from '@vueuse/core';
+import { Moon, Sunny } from '@element-plus/icons-vue';
 
 const isDark = useDark();
-
+const mode = useColorMode({
+  attribute: 'data-theme',
+});
 const switchVal = ref(isDark.value);
 const toggleDark = useToggle(isDark);
 
+// 默认黑色 后续根据用户登录信息设置
 if (!isDark.value) {
   toggleDark();
 }
 
 watch(
   () => switchVal.value,
-  (val) => {
+  val => {
     toggleDark();
-  }
+    console.log(mode);
+  },
 );
 </script>
 
