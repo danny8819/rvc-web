@@ -1,5 +1,5 @@
 <template>
-  <div class="model-item">
+  <div class="model-item relative">
     <div class="model-item__pic--wrap">
       <img :src="data.picture" />
     </div>
@@ -18,6 +18,19 @@
         </div>
       </div>
     </div>
+    <span
+      class="absolute top-0 w-full h-full z-0"
+      style="
+        background: linear-gradient(
+          130deg,
+          rgb(36, 198, 220),
+          rgb(84, 51, 255) 41.07%,
+          rgb(255, 0, 153) 76.05%
+        );
+        opacity: 0.4;
+        z-index: -1;
+      "
+    ></span>
   </div>
 </template>
 
@@ -30,30 +43,26 @@ defineProps({
 <style scoped lang="scss">
 .model-item {
   position: relative;
-
-  width: 24%;
-  max-width: 400px;
-
+  width: 100%;
   box-sizing: border-box;
-  margin-bottom: 5px;
-  margin-right: 10px;
   transition: all 0.2s ease-out;
   border-radius: 5px;
-
   overflow: hidden;
+
   .model-item__pic--wrap {
-    transform: scale(1.1);
+    transform: scale(1);
     transition: all 0.2s ease-out;
   }
   &:hover {
-    transform: translateY(2px);
+    // transform: translateY(2px);
     box-shadow:
       0 2px 5px rgba(0, 0, 0, 0.1),
       0 1px 2px rgba(0, 0, 0, 0.05);
+    transform: scale(1.02);
 
-    .model-item__pic--wrap {
-      transform: scale(1.1);
-    }
+    // .model-item__pic--wrap {
+    //   transform: scale(1.1);
+    // }
   }
 }
 

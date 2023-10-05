@@ -15,7 +15,7 @@ export default [
               nickname: "@cname",
               role: "@title(1)",
               description: "@title(1)",
-              img: "@Image",
+              img: "https://picsum.photos/200",
             },
           ],
         }),

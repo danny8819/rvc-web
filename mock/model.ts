@@ -1,3 +1,5 @@
+import Mock from 'mockjs';
+
 export default [
   {
     url: '/mockApi/model/modelList',
@@ -5,24 +7,24 @@ export default [
     timeout: 2000,
     response: ({ query }) => ({
       code: 0,
-      data: {
-        pageModelVOList: [
+      data: Mock.mock({
+        total: 1,
+        page: 1,
+        'pageModelVOList|3-5': [
           {
             picture: 'https://picsum.photos/1280/720.webp',
-            name: '原神 - 妮露DiffSinger模型',
+            name: '@ctitle',
             modelType: '[1,2,3,4]',
             types: [{ id: '1', type: '妮露' }],
             lookNum: 0,
             uploadDate: '222',
             avatar: 'https://picsum.photos/30.webp',
-            nickname: 'RVC',
+            nickname: '@name',
             mid: '22',
             uid: '222',
           },
         ],
-        total: 1,
-        page: 1,
-      },
+      }),
     }),
   },
   {

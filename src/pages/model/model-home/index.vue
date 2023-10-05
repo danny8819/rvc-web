@@ -1,6 +1,7 @@
 <template>
-  <div class="model-home container-1200">
-    <el-card class="carousel-wrap mb-5">
+  <div class="model-home px-9">
+    <ModelHomePoster />
+    <!-- <el-card class="carousel-wrap mb-5">
       <el-carousel :interval="5000" arrow="always">
         <el-carousel-item v-for="item in 4" :key="item">
           <el-image
@@ -11,26 +12,22 @@
         </el-carousel-item>
       </el-carousel>
     </el-card>
-
-    <!-- <el-card class="h-full mb-5">
-      <div class="flex justify-end">
-        <div class="publish-btn" >
-          <SvgIcon name="upload" color="#fff" />
-          <span class="ml-2">发布模型</span>
-        </div>
-      </div>
-    </el-card> -->
+    <div class="publish-btn">
+      <SvgIcon name="upload" color="#fff" />
+      <span class="ml-2">发布模型</span>
+    </div> -->
 
     <div class="infinite-scroll-wrap">
-      <div class="model-home-list">
-        <ModelItemCard
+      <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+        <ModelItemCard2
           v-for="(item, index) in modelList"
           :key="index"
           @click="handleToDetail(item)"
           :data="item"
         />
+        <!-- <ModelItemCard :data="modelList[0]" /> -->
       </div>
-      <div>加载中。。。</div>
+      <div class="w-full h-16" v-loading="loading" ref="loadingRef"></div>
     </div>
     <!-- <div class="model-home__pagination flex justify-center">
       <el-pagination
@@ -46,18 +43,24 @@
 </template>
 
 <script lang="ts" setup name="ModelHome">
-import ModelItemCard from './ModelItemCard2.vue';
+// import ModelItemCard from './ModelItemCard.vue';
+import ModelItemCard2 from './ModelItemCard2.vue';
+import ModelHomePoster from './ModelHomePoster.vue';
 import { modelList as modelListApi, watchModel } from '@/api/model';
 import { useUserStore } from '@/store/user';
+import { useIntersectionObserver } from '@vueuse/core';
 
 const router = useRouter();
 const userStore = useUserStore();
-const count = ref(10);
+
+const loading = ref(false);
 const load = () => {
+  loading.value = true;
   setTimeout(() => {
+    loading.value = false;
     modelList.value.push({
       picture: 'https://picsum.photos/1280/720.webp',
-      name: '原神 - 妮露DiffSinger模型',
+      name: Date.now().toString(),
       modelType: '[1,2,3,4]',
       types: [{ id: '1', type: '妮露' }],
       lookNum: 0,
@@ -67,7 +70,7 @@ const load = () => {
       mid: '22',
       uid: '222',
     });
-  }, 2222);
+  }, 1212);
 };
 type ModelList = {
   mid: string;
@@ -113,12 +116,31 @@ const handleToDetail = item => {
 };
 
 onMounted(() => {});
+
+const loadingRef = ref(null);
+const targetIsVisible = ref(false);
+
+const { stop } = useIntersectionObserver(
+  loadingRef,
+  ([{ isIntersecting }], observerElement) => {
+    targetIsVisible.value = isIntersecting;
+  },
+);
+
+watchEffect(() => {
+  if (targetIsVisible.value) {
+    load();
+  }
+});
 </script>
 
 <style lang="scss" scoped>
 .model-home {
   :deep(.carousel-wrap .el-card__body) {
     padding: 0;
+  }
+  :deep(.el-loading-mask) {
+    background-color: transparent;
   }
 }
 .publish-btn {
@@ -141,15 +163,5 @@ onMounted(() => {});
   cursor: pointer;
 
   padding: 0 10px;
-}
-
-.model-home-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-bottom: 10px;
-  max-height: 600px;
-}
-.infinite-scroll-wrap {
 }
 </style>

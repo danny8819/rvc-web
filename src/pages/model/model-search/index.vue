@@ -1,6 +1,6 @@
 <template>
   <div class="model-search p-9">
-    <div class="model-search-header w-full flex justify-center p-10">
+    <div class="w-full flex justify-center p-10">
       <el-input
         v-model="searchVal"
         placeholder="输入关键字搜索"
@@ -14,9 +14,7 @@
       </el-input>
     </div>
 
-    <div
-      class="model-search-content my-5 grid grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-6"
-    >
+    <div class="my-5 grid grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-6">
       <ModelSearchItem
         :data="{
           picture: 'https://picsum.photos/seed/picsum/800/572.webp',
@@ -81,20 +79,4 @@ watchEffect(() => {
 });
 </script>
 
-<style scoped lang="scss">
-.model-search {
-  // min-width: 1100px;
-}
-
-// .model-search-content {
-//   --grid-col-count: 5;
-//   display: grid;
-//   grid-template-columns: repeat(var(--grid-col-count), 1fr);
-//   gap: 20px 10px;
-// }
-// @media screen and (max-width: 1200px) {
-//   .model-search-content {
-//     --grid-col-count: 4;
-//   }
-// }
-</style>
+<style scoped lang="scss"></style>
