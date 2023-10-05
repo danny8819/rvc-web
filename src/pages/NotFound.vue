@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center justify-center flex-col p-5"
+    class="flex items-center justify-center flex-col p-5 bg-white dark:bg-gray-800"
     style="height: 100vh"
   >
     <div>
@@ -8,7 +8,7 @@
     </div>
     <p class="error-page__text">您的页面好像已经偏离了地球...&gt;_&lt;</p>
     <div class="mt-16 pt-2">
-      <v-btn to="/" variant="outlined">返回首页</v-btn>
+      <el-button @click="$router.push({ path: '/' })">返回首页</el-button>
     </div>
   </div>
 </template>
