@@ -16,7 +16,7 @@ import Banner from "@/pages/home/comps/Banner.vue";
 import Feature from "@/pages/home/comps/Feature.vue";
 import Portfolio from "@/pages/home/comps/Portfolio.vue";
 import Banner2 from "@/pages/home/comps/Banner2.vue";
-import Team from "@/pages/home/comps/Team.vue";
+// import Team from "@/pages/home/comps/Team.vue";
 import Team2 from "@/pages/home/comps/Team2.vue";
 import ComingSoon from "@/pages/home/comps/ComingSoon.vue";
 

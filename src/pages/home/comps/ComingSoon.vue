@@ -4,8 +4,8 @@
       <v-row>
         <v-col cols="12" sm="10" md="6" class="flex items-center">
           <div>
-            <h2 class="coming-title font-bold white--text">快速加群</h2>
-            <h4 class="coming-subtitle white--text font-bold">
+            <h2 class="coming-title font-bold text-white">快速加群</h2>
+            <h4 class="coming-subtitle text-white font-bold">
               你还在等什么？快速加群了解我们的最新动态
             </h4>
             <div class="mt-16 pt-2">
@@ -56,5 +56,6 @@ export default {
 .coming-title,
 .coming-subtitle {
   text-shadow: 1px 1px 10px #333;
+  // text-shadow: 1px 1px 10px #fff;
 }
 </style>

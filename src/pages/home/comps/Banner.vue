@@ -4,11 +4,11 @@
       <v-row justify="center">
         <v-col cols="12" md="7" lg="6" class="flex items-center">
           <div class="text-center text-left">
-            <h1 class="banner-title font-bold white--text text-left">
+            <h1 class="banner-title font-bold text-white text-left">
               {{ webInfo?.webName || "RVC社区" }}
             </h1>
             <h4
-              class="banner-subtitle white--text font-normal"
+              class="banner-subtitle text-white font-normal"
               style="width: 55vh"
             >
               RVC模型交流社区

@@ -2,14 +2,7 @@
 @use 'element-plus/theme-chalk/src/dark/css-vars.scss' as *; // html.dark
 
 @import './home/index.scss';
-@import './_reboot.scss';
-
-// @media (prefers-color-scheme: light) {
-//   :root {
-//     color: #213547;
-//     background-color: #ffffff;
-//   }
-// }
+// @import './_reboot.scss';
 
 html {
   --nav-bg-color: #fff;

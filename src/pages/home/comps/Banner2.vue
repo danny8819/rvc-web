@@ -9,12 +9,12 @@
                 >版本信息</v-chip
               >
               <h2
-                class="banner1-title font-bold text-uppercase white--text"
+                class="banner1-title font-bold text-uppercase text-white"
               >
                 {{ webInfo?.githubVersion }}【RVC】已经到来！
               </h2>
               <p
-                class="white--text op-8 font-normal"
+                class="text-white op-8 font-normal"
                 v-html="webInfo?.versionDescription"
               ></p>
               <div class="mt-16 pt-2">
