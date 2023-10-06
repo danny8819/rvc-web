@@ -2,7 +2,6 @@
 @use 'element-plus/theme-chalk/src/dark/css-vars.scss' as *; // html.dark
 
 @import './home/index.scss';
-// @import './_reboot.scss';
 
 html {
   --nav-bg-color: #fff;
@@ -67,8 +66,3 @@ a {
   cursor: pointer;
 }
 
-.container-1200 {
-  width: 1200px;
-  margin: auto;
-  padding: 10px;
-}
