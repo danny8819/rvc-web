@@ -1,5 +1,5 @@
 <template>
-  <main class="join-us container-1200">
+  <main class="join-us">
     <div>
       <h1>职业：与RVC一起点燃AI革命</h1>
       <div class="markdown-content">

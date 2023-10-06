@@ -3,13 +3,20 @@
     class="upload-popover"
     placement="top-start"
     :width="200"
-    trigger="hover"
+    trigger="click"
   >
     <template #reference>
-      <el-button class="m-2">
-        <SvgIcon name="upload" color="#fff" />
-        <span class="ml-2">投稿</span>
-      </el-button>
+      <button
+        class="btn btn-sm border-solid h-10"
+        style="color: var(--el-color-primary); border-color: currentColor"
+        type="button"
+      >
+        <SvgIcon name="upload" />
+        <span class="ml-1">投稿</span>
+      </button>
+      <!-- <button class="publish-btn" type="button">
+        
+      </button> -->
     </template>
     <template #default>
       <div class="upload-panel-popover">
@@ -41,7 +48,7 @@
     width: 62px;
     height: 63px;
     color: var(--el-text-color-regular);
-    
+
     cursor: pointer;
     transition: background-color 0.3s;
     svg {

@@ -1,5 +1,5 @@
 <template>
-  <div class="container-1200">
+  <div class="">
     <div class="leader-board">
       <div class="leader-board-left">
         <button class="leader-board-left-item" data-active="true">

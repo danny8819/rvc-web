@@ -1,12 +1,11 @@
 <template>
-  <div class="container-1200">
+  <div class="max-w-screen-md  m-auto">
     <el-form
       ref="formRef"
       :model="addForm"
       label-width="120px"
-      class="model-publish-form w-80"
+      class="model-publish-form w-full"
       :rules="rules"
-      style="margin: auto"
     >
       <!-- <el-card class="p-5 mb-2" shadow="never"></el-card> -->
       <el-card class="p-5 mb-2" shadow="never">
