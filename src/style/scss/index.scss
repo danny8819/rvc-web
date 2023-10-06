@@ -1,5 +1,7 @@
-@use 'element-plus/theme-chalk/src/index.scss' as *; // all
+// @use 'element-plus/theme-chalk/src/index.scss' as *; // all
 @use 'element-plus/theme-chalk/src/dark/css-vars.scss' as *; // html.dark
+
+@import "tailwindcss/tailwind.css";
 
 @import './home/index.scss';
 

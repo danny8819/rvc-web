@@ -14,8 +14,9 @@ import 'jquery'
 import {clickOutside} from './directives'
 
 import 'ress'
-import './style/index.css'
 import '@mdi/font/css/materialdesignicons.css'
+
+// import './style/element/index.scss'
 import './style/scss/index.scss'
 
 const app = createApp(App)

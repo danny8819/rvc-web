@@ -1,19 +1,2 @@
-$--colors: (
-  "primary": (
-    // --el-color-primary
-    // "base": #ee83ca,
-    "base": #fb7299,
-  ),
-);
-$--bg-color: (
-  // --el-bg-color-page
-  "page": #f2f3f5
-);
-@forward "element-plus/theme-chalk/src/common/var.scss" with (
-  $colors: $--colors,
-  $bg-color: $--bg-color,
-);
-
-@use "./dark.scss";
-
-// @debug $--colors;
+@use './theme-default.scss';
+@use './theme-dark.scss';
