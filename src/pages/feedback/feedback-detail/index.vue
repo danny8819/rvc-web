@@ -61,7 +61,7 @@
 <script lang="ts" setup>
 import ReplyItem from '@/pages/feedback/feedback-detail/ReplyItem.vue';
 import { getReplyList, addReply } from '@/api/feedback';
-import ReplyInputCard from '@/components/ReplyInputCard.vue';
+
 import { ElMessage } from 'element-plus';
 const props = defineProps<{
   modelValue: boolean;

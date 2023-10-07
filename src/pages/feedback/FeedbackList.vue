@@ -112,6 +112,7 @@
 
 <script lang="ts" setup>
 import FeedbackControl from '@/pages/feedback/FeedbackControl.vue';
+import FeedbackDetail from '@/pages/feedback/feedback-detail/index.vue';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import {
   getFeedbackList,
@@ -120,7 +121,6 @@ import {
   updateFeedback,
   deleteFeedback,
 } from '@/api/feedback';
-import FeedbackDetail from '@/pages/feedback/feedback-detail/index.vue';
 
 const props = defineProps<{
   tagId: number;
