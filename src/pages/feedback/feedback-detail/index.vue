@@ -131,7 +131,7 @@ const handleReply = () => {
   addReply({
     feedbackId: props.data.feedbackId,
     content: form.content,
-  }).then(res => {
+  }).then((res: any) => {
     if (res.code === '200') {
       ElMessage({
         type: 'success',
