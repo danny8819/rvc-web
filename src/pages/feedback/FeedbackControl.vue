@@ -60,15 +60,24 @@
       </div>
     </div>
     <el-dialog v-model="dialogVisible" title="创建反馈" width="50%">
-      <el-form :model="form">
-        <el-form-item label="标题">
+      <el-form :model="form" ref="addFormRef" :rules="rules">
+        <el-form-item label="标题" prop="title">
           <el-input
             v-model="form.title"
             placeholder="请输入标题..."
             maxlength="50"
           />
         </el-form-item>
-        <el-form-item label="">
+        <el-form-item label="板块" prop="tagId">
+          <el-radio-group v-model="form.tagId">
+            <el-radio-button
+              v-for="(item, index) in tags"
+              :key="index"
+              :label="item.tag"
+            />
+          </el-radio-group>
+        </el-form-item>
+        <el-form-item label="内容" prop="content">
           <el-input
             v-model="form.content"
             :rows="6"
@@ -78,6 +87,7 @@
             show-word-limit
             class="font-16"
           />
+          <!-- <RichEdit v-model="form.content" /> -->
         </el-form-item>
       </el-form>
       <template #footer>
@@ -101,28 +111,71 @@
 </template>
 
 <script lang="ts" setup>
+import RichEdit from '@/pages/feedback/RichEdit.vue';
 import { getFeedbackTags, addFeedback } from '@/api/feedback';
+import { ElMessage } from 'element-plus';
+
 const props = defineProps<{
   filterType: 'all' | 'my';
+  tags: any[];
 }>();
 const emit = defineEmits(['update:filterType']);
-const dialogVisible = ref(false);
 
+const dialogVisible = ref(false);
+const addFormRef = ref(null);
 const form = reactive({
-  tagId: '1',
+  tagId: '',
   title: '',
   content: '',
 });
-
+const rules = {
+  title: [
+    {
+      required: true,
+      message: '请输入标题',
+      trigger: 'blur',
+    },
+  ],
+  content: [
+    {
+      required: true,
+      message: '请输入内容',
+    },
+  ],
+  tagId: [
+    {
+      required: true,
+      message: '请选择板块',
+    },
+  ],
+};
 const handleSubmit = async () => {
-  try {
-    const res = await addFeedback(form);
-    console.log(res);
-  } catch (error) {
-    console.log(error);
-  } finally {
-    dialogVisible.value = false;
-  }
+  addFormRef.value.validate(async valid => {
+    if (!valid) {
+      return;
+    }
+    const params = {
+      ...form,
+      tagId: tagName2Id(form.tagId),
+    };
+    try {
+      const res = await addFeedback(params);
+      if (res.data.add) {
+        ElMessage({
+          type: 'success',
+          message: '创建成功',
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      dialogVisible.value = false;
+      addFormRef.value.resetFields();
+    }
+  });
+};
+const tagName2Id = tag => {
+  return props.tags.find((item: any) => item.tag === tag).id;
 };
 </script>
 

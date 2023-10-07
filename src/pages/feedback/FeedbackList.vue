@@ -1,10 +1,11 @@
 <template>
-  <FeedbackControl v-model:filterType="filterType" />
+  <FeedbackControl v-model:filterType="filterType" :tags="tags" />
   <div class="feedback-list relative" v-loading="loading">
     <div
       class="feedback-list-item flex min-h-[100px]"
       v-for="(item, index) in list"
       :key="index"
+      @click="handleClick(item)"
     >
       <div class="feedback-list-item__left">
         <p class="font-semibold">
@@ -13,11 +14,19 @@
         <p class="feedback-list-item__left-content">
           {{ item.content }}
         </p>
-        <div class="feedback-list-item__left-footer flex items-center pt-3">
-          <el-avatar :size="30" :src="item.avatar" class="mr-5"></el-avatar>
-          <div class="flex items-center">
-            <span class="font-medium">{{ item.username }}</span>
-            <span class="text-xs ml-1">{{ item.createDayTime }}</span>
+        <div
+          class="feedback-list-item__left-footer flex items-center pt-3 justify-between"
+        >
+          <div class="flex">
+            <el-avatar :size="30" :src="item.avatar" class="mr-5"></el-avatar>
+            <div class="flex items-center">
+              <span class="font-medium">{{ item.username }}</span>
+              <span class="text-xs ml-1">{{ item.createDayTime }}</span>
+            </div>
+          </div>
+          <div>
+            <span class="mdi mdi-message-processing-outline mr-2"></span>
+            <span>{{ item.replyNum }}</span>
           </div>
         </div>
       </div>
@@ -50,10 +59,11 @@
         </ul>
       </div>
     </div>
+
     <!-- 无数据展示 -->
     <div
       class="flex justify-center items-center h-10 w-full"
-      v-show="list.length === 0"
+      v-show="!loading && list.length === 0"
     >
       <!-- <span class="loading loading-dots loading-lg"></span> -->
       <span>暂无反馈数据</span>
@@ -97,6 +107,7 @@
       </div>
     </template>
   </el-dialog>
+  <FeedbackDetail v-model="dialogVisible2" :data="detailData" />
 </template>
 
 <script lang="ts" setup>
@@ -109,11 +120,15 @@ import {
   updateFeedback,
   deleteFeedback,
 } from '@/api/feedback';
+import FeedbackDetail from '@/pages/feedback/feedback-detail/index.vue';
+
 const props = defineProps<{
   tagId: number;
+  tags: any;
 }>();
 const filterType = ref<'all' | 'my'>('all');
 const list = ref([]);
+const detailData = ref({});
 let requestFlag = false;
 
 const loading = ref(false);
@@ -123,7 +138,7 @@ async function getList(type?: string) {
   if (type === 'my') {
     try {
       const res = await getMyFeedbackList({ page: 1 });
-      console.log(res);
+      list.value = res.data.pageList;
     } catch (error) {
       console.log('error: ', error);
     } finally {
@@ -132,7 +147,7 @@ async function getList(type?: string) {
   } else {
     try {
       const res = await getFeedbackList({
-        isSolve: 0,
+        isSolve: 0, // 0 未解决 1 已解决
         sortType: 'create_time',
         page: 1,
         tagId: props.tagId || null,
@@ -145,12 +160,9 @@ async function getList(type?: string) {
     }
   }
 }
-watch(
-  () => props.tagId,
-  () => {
-    getList(filterType.value);
-  },
-);
+watch([() => props.tagId, () => filterType.value], () => {
+  getList(filterType.value);
+});
 
 const handleUpNum = (item: any) => {
   if (requestFlag) {
@@ -175,6 +187,7 @@ const handleUpNum = (item: any) => {
 };
 
 const dialogVisible = ref(false);
+const dialogVisible2 = ref(false);
 const form = reactive({
   title: '',
   content: '',
@@ -222,6 +235,15 @@ const handleSubmit = async () => {
     dialogVisible.value = false;
   }
 };
+const router = useRouter();
+const handleClick = (item: any) => {
+  detailData.value = item;
+  dialogVisible2.value = true;
+  // router.push({
+  //   path: `/feedback-detail`,
+  //   query: { feedbackId: item.feedbackId },
+  // });
+};
 </script>
 
 <style>
@@ -240,7 +262,7 @@ html.dark {
   border: 1px solid var(--el-border-color-light);
   border-radius: 8px;
   color: var(--el-text-color-regular);
-  min-height: 250px;
+  min-height: 100px;
   p {
     color: inherit;
   }

@@ -12,7 +12,7 @@
         <v-col cols="12" md="7" lg="5" class="feature3-card">
           <v-card class="card-shadow border-all">
             <v-card-text>
-              <div class="p-10 text-center">
+              <div class="p-10 text-center pt-0">
                 <h3 class="feature3-title font-medium">
                   RVC社区
                 </h3>

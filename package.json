@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:mock": "vite --mode mock",
+    "dev:mock": "vite --mode mock --open",
     "build": "vue-tsc && vite build",
     "analyze": "vue-tsc && vite --mode analyze build",
     "lint": "vue-tsc && eslint --ext .vue,.ts src/",

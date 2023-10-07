@@ -16,7 +16,6 @@
         >
           <div class="pr-1 w-4 mr-1.5" v-if="index == 0">
             <svg-icon name="chat" size="16"></svg-icon>
-          
           </div>
           <div class="pr-1 w-4 mr-1.5" v-if="index == 1">💡</div>
           <div class="pr-1 w-4 mr-1.5" v-if="index == 2">🪲</div>
@@ -30,20 +29,14 @@
 <script lang="ts" setup>
 import { getFeedbackTags, addFeedback } from '@/api/feedback';
 
-const props = defineProps<{ modelValue: number }>();
+const props = defineProps<{ modelValue: number; tags: any }>();
 const emit = defineEmits(['update:modelValue']);
 
-const tags = ref([]);
 const tagId = computed({
   get: () => props.modelValue,
   set: val => {
     emit('update:modelValue', val);
   },
-});
-
-getFeedbackTags().then(res => {
-  tags.value = res.data.tags;
-  emit('update:modelValue', tags.value[0].id);
 });
 </script>
 

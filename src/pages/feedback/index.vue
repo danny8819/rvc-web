@@ -54,12 +54,11 @@
           </div>
         </div>
       </div>
-
-      <FeedbackList :tagId="tagId" />
+      <FeedbackList :tagId="tagId" :tags="tags" />
     </el-col>
     <el-col :span="6">
       <!-- 板块 -->
-      <FeedbackBoard v-model="tagId" />
+      <FeedbackBoard v-model="tagId" :tags="tags" />
       <!-- 反馈榜 -->
       <div class="most-helper-wrap">
         <p
@@ -503,7 +502,6 @@
         </div>
       </div>
     </el-col>
-    <!-- <el-col :span="4">1212</el-col> -->
   </el-row>
 </template>
 
@@ -511,8 +509,16 @@
 import FeedbackList from '@/pages/feedback/FeedbackList.vue';
 import FeedbackBoard from '@/pages/feedback/FeedbackBoard.vue';
 import { useTitle } from '@vueuse/core';
+import { getFeedbackTags, addFeedback } from '@/api/feedback';
 
+const tags = ref([]);
 const tagId = ref();
+
+getFeedbackTags().then(res => {
+  tags.value = res.data.tags;
+  tagId.value = res.data.tags[0].id;
+});
+
 useTitle('问题反馈');
 </script>
 

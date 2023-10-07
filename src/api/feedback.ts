@@ -54,3 +54,13 @@ export const updateFeedback = (data: {
 }) => {
   return request.post('/feedback/update', data);
 };
+
+// /reply/list
+export const getReplyList = (params: { feedbackId: string; page: number }) => {
+  return request.get('/feedback/reply/list', { params });
+};
+
+// /reply/add
+export const addReply = (data: { feedbackId: string; content: string }) => {
+  return request.post('/feedback/reply/add', data);
+};
