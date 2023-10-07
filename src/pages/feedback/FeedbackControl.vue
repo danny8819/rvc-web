@@ -31,6 +31,7 @@
         <ul
           tabindex="0"
           class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-40"
+          data-type="dropdown"
         >
           <li @click="emit('update:filterType', 'all')">
             <a>全部</a>
@@ -119,8 +120,8 @@ const props = defineProps<{
   filterType: 'all' | 'my';
   tags: any[];
 }>();
-const emit = defineEmits(['update:filterType']);
-
+const emit = defineEmits(['update:filterType', 'addFinish']);
+const dropdownRef = ref(null);
 const dialogVisible = ref(false);
 const addFormRef = ref(null);
 const form = reactive({
@@ -165,6 +166,7 @@ const handleSubmit = async () => {
           type: 'success',
           message: '创建成功',
         });
+        emit('addFinish');
       }
     } catch (error) {
       console.log(error);

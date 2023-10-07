@@ -1,13 +1,16 @@
 <template>
-  <FeedbackControl v-model:filterType="filterType" :tags="tags" />
+  <FeedbackControl
+    v-model:filterType="filterType"
+    :tags="tags"
+    @addFinish="getList"
+  />
   <div class="feedback-list relative" v-loading="loading">
     <div
       class="feedback-list-item flex min-h-[100px]"
       v-for="(item, index) in list"
       :key="index"
-      @click="handleClick(item)"
     >
-      <div class="feedback-list-item__left">
+      <div class="feedback-list-item__left" @click="handleClick(item)">
         <p class="font-semibold">
           {{ item.title }}
         </p>
@@ -54,8 +57,12 @@
           tabindex="0"
           class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-24"
         >
-          <li @click="handleEdit(item)"><a>编辑</a></li>
-          <li @click="handleDelete(item)"><a>删除</a></li>
+          <li @click="handleEdit(item)">
+            <a>编辑</a>
+          </li>
+          <li @click="handleDelete(item)">
+            <a>删除</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -132,8 +139,8 @@ const detailData = ref({});
 let requestFlag = false;
 
 const loading = ref(false);
-async function getList(type?: string) {
-  type = type || filterType.value;
+async function getList() {
+  const type = filterType.value;
   loading.value = true;
   if (type === 'my') {
     try {
@@ -161,7 +168,15 @@ async function getList(type?: string) {
   }
 }
 watch([() => props.tagId, () => filterType.value], () => {
-  getList(filterType.value);
+  const activeElement = document.activeElement;
+  if (
+    activeElement &&
+    activeElement.tagName === 'UL' &&
+    activeElement.getAttribute('data-type') === 'dropdown'
+  ) {
+    (activeElement as HTMLUListElement).blur();
+  }
+  getList();
 });
 
 const handleUpNum = (item: any) => {
@@ -229,6 +244,7 @@ const handleSubmit = async () => {
   try {
     const res = await updateFeedback(form);
     console.log('res: ', res);
+    getList();
   } catch (error) {
     console.error(error);
   } finally {
@@ -239,10 +255,6 @@ const router = useRouter();
 const handleClick = (item: any) => {
   detailData.value = item;
   dialogVisible2.value = true;
-  // router.push({
-  //   path: `/feedback-detail`,
-  //   query: { feedbackId: item.feedbackId },
-  // });
 };
 </script>
 
