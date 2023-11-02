@@ -212,9 +212,11 @@
       </div> -->
     </div>
   </main>
+  <ToxAlert />
 </template>
 <script setup>
 import { ref } from 'vue';
+import ToxAlert from './ToxAlert.vue';
 import MarkdownEditor from './MarkdownEditor.vue';
 import RichTextEditor from './RichTextEditor.vue';
 const isDragging = ref(false);

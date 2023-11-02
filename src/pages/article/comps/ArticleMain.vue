@@ -44,17 +44,14 @@
       alt="feature"
       class="w-full h-[320px] object-cover rounded-md"
     />
-    <div v-html="result" class="pt-4"></div>
+    <div v-html="articleData.content" class="pt-4"></div>
   </section>
 </template>
 
 <script lang="ts" setup>
 import Statement from './Statement.vue';
 import { ref, reactive } from 'vue';
-import MarkdownIt from 'markdown-it';
 import { useArticleStore } from '../../../store/article';
-
-const md = new MarkdownIt();
 
 const articleData = useArticleStore();
 
@@ -92,8 +89,6 @@ const articleData = useArticleStore();
 // [预览地址](https://rvc.top/#/)`,
 //   },
 // ])
-const result = md.render(articleData.content);
-console.log(articleData.content);
 </script>
 
 <style scoped></style>

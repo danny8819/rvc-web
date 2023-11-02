@@ -3,7 +3,7 @@
     <section class="flex flex-col">
       <div class="flex justify-between">
         <h1 class="text-[34px] leading-[1.3] font-bold">
-          {{ articleData.title }}
+          {{ articleData.data.title }}
         </h1>
         <div class="flex items-center justify-start gap-[10px]">
           <div class="flex items-center justify-start gap-1">
@@ -76,20 +76,17 @@
         <div class="flex gap-10 pr-4 border-r-[1px] border-white/30">
           <div class="avatar">
             <div class="w-[26px] rounded-full">
-              <img :src="userPlaceholder" alt="avatar" />
+              <img :src="articleData.data.avatar" alt="avatar" />
             </div>
           </div>
-          <div class="text-[#8D97AD] font-bold">{{ articleData.user }}</div>
+          <div class="text-[#8D97AD] font-bold">
+            {{ articleData.data.nickname }}
+          </div>
         </div>
         <div class="px-4 border-r-[1px] border-white/30 text-[#8D97AD]">
-          Aug 18, 2023
+          {{ articleData.data.createDate }}
         </div>
-        <div
-          class="pl-4 flex text-[#8D97AD] font-bold uppercase"
-          v-for="(tag, index) in articleData.tag"
-        >
-          {{ tag }}
-        </div>
+        <div class="pl-4 flex text-[#8D97AD] font-bold uppercase">tag</div>
       </div>
     </section>
     <div class="flex justify-between translate-x-0">
@@ -170,15 +167,22 @@ import ArticleAuthor from './comps/ArticleAuthor.vue';
 import Comment from './comps/Comment.vue';
 import ArticleMenu from './comps/ArticleMenu.vue';
 import userPlaceholder from '../../../public/img/user-placeholder.webp';
+import { watch, reactive } from 'vue';
 
 const route = useRoute();
-const { id } = route.params;
-console.log('id: ', id);
+const { did } = route.params;
 const content = ref('');
 const editorOption = {};
-import { useArticleStore } from '../../store/article';
+// import { useArticleStore } from '../../store/article';
+import { useArticleStore } from '@/store/article';
+import { discuss } from '@/api/discuss';
 
 const articleData = useArticleStore();
+
+articleData.discussData({ did: did });
+setTimeout(() => {
+  console.log(articleData.data);
+}, 3000);
 
 const comments: any = ref([
   {
